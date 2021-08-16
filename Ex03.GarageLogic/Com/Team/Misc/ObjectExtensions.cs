@@ -28,6 +28,8 @@ namespace Ex03.GarageLogic.Com.Team.Misc
                     new ReferenceEqualityComparer()));
         }
 
+        // ReSharper disable once ExcessiveIndentation
+        // ReSharper disable once MethodTooLong
         private static object internalCopy(object i_OriginalObject,
             IDictionary<object, object> i_Visited)
         {
@@ -88,6 +90,7 @@ namespace Ex03.GarageLogic.Com.Team.Misc
             return returnValue;
         }
 
+        // ReSharper disable once TooManyArguments
         private static void recursiveCopyBaseTypePrivateFields(
             object i_OriginalObject, IDictionary<object, object> i_Visited,
             object i_CloneObject, Type i_TypeToReflect)
@@ -103,6 +106,7 @@ namespace Ex03.GarageLogic.Com.Team.Misc
             }
         }
 
+        // ReSharper disable once TooManyArguments
         private static void copyFields(object i_OriginalObject,
             IDictionary<object, object> i_Visited, object i_CloneObject,
             Type i_TypeToReflect,
@@ -114,7 +118,7 @@ namespace Ex03.GarageLogic.Com.Team.Misc
             foreach (FieldInfo fieldInfo in i_TypeToReflect.GetFields(
                 i_BindingFlags))
             {
-                if (i_Filter != null && i_Filter(fieldInfo) == false)
+                if (i_Filter?.Invoke(fieldInfo) == false)
                 {
                     continue;
                 }
