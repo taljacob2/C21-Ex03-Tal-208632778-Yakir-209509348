@@ -2,6 +2,9 @@
 {
     internal class Program
     {
-        public static void Main(string[] i_Args) {}
+        public static void Main(string[] i_Args)
+        {
+            
+        }
     }
 }
