@@ -5,7 +5,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 {
     public class ConsoleUI
     {
-        public IGarageController GarageController { get; } =
+        private readonly IGarageController r_GarageController =
             new GarageControllerImpl();
 
         public void RunUI() {}
