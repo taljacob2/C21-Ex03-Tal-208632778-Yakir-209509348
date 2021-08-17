@@ -43,6 +43,7 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Com\Team\ConsoleUI\ConsoleUI.cs" />
         <Compile Include="Com\Team\Misc\InputUtil.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
@@ -51,7 +52,10 @@
       <None Include="packages.config" />
     </ItemGroup>
     <ItemGroup>
-      <Folder Include="Com\Team\ConsoleUI" />
+      <ProjectReference Include="..\Ex03.GarageLogic\Ex03.GarageLogic.csproj">
+        <Project>{9043da06-51bd-49d5-8df2-50f1df7b2d6d}</Project>
+        <Name>Ex03.GarageLogic</Name>
+      </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

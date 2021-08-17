@@ -39,8 +39,40 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Com\Team\Controller\Garage\IGarageController.cs" />
+        <Compile Include="Com\Team\Controller\Garage\Impl\GarageControllerImpl.cs" />
+        <Compile Include="Com\Team\Controller\Garage\Impl\IRecorder.cs" />
+        <Compile Include="Com\Team\Controller\Garage\Impl\Record.cs" />
+        <Compile Include="Com\Team\Database\IBootable.cs" />
+        <Compile Include="Com\Team\Database\IDatabase.cs" />
+        <Compile Include="Com\Team\Database\Impl\Database.cs" />
+        <Compile Include="Com\Team\DTO\Constructor\CarConstructorDTO.cs" />
+        <Compile Include="Com\Team\DTO\Constructor\MotorcycleConstructorDTO.cs" />
+        <Compile Include="Com\Team\DTO\Constructor\TruckConstructorDTO.cs" />
+        <Compile Include="Com\Team\DTO\Constructor\VehicleConstructorDTO.cs" />
+        <Compile Include="Com\Team\DTO\Model\Request\FuelRequest.cs" />
+        <Compile Include="Com\Team\DTO\Model\Response\VehicleResponse.cs" />
+        <Compile Include="Com\Team\DTO\VehicleRecordDTO.cs" />
+        <Compile Include="Com\Team\Entity\Vehicle\Engine\Engine.cs" />
+        <Compile Include="Com\Team\Entity\Vehicle\Engine\Extended\ExtendedEngine.cs" />
+        <Compile Include="Com\Team\Entity\Vehicle\Engine\Standard\Battery\BatteryEngine.cs" />
+        <Compile Include="Com\Team\Entity\Vehicle\Engine\Standard\Fuel\eType.cs" />
+        <Compile Include="Com\Team\Entity\Vehicle\Engine\Standard\Fuel\FuelEngine.cs" />
+        <Compile Include="Com\Team\Entity\Vehicle\Engine\Standard\StandardEngine.cs" />
+        <Compile Include="Com\Team\Entity\Vehicle\Impl\Car\Car.cs" />
+        <Compile Include="Com\Team\Entity\Vehicle\Impl\Motorcycle\Motorcycle.cs" />
+        <Compile Include="Com\Team\Entity\Vehicle\Impl\Truck\Truck.cs" />
+        <Compile Include="Com\Team\Entity\Vehicle\ISelfInflater.cs" />
+        <Compile Include="Com\Team\Entity\Vehicle\Owner.cs" />
+        <Compile Include="Com\Team\Entity\Vehicle\Tire.cs" />
+        <Compile Include="Com\Team\Entity\Vehicle\Vehicle.cs" />
+        <Compile Include="Com\Team\Exception\ValueOutOfRangeException.cs" />
         <Compile Include="Com\Team\Misc\EnumeratorGetter.cs" />
         <Compile Include="Com\Team\Misc\ObjectExtensions.cs" />
+        <Compile Include="Com\Team\Repository\Impl\RecordRepositoryImpl.cs" />
+        <Compile Include="Com\Team\Repository\IRecordRepository.cs" />
+        <Compile Include="Com\Team\Service\Impl\VehicleServiceImpl.cs" />
+        <Compile Include="Com\Team\Service\IVehicleService.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>

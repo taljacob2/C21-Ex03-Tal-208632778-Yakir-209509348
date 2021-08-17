@@ -1,8 +1,8 @@
-﻿﻿#region
+﻿#region
 
- using System.Collections;
+using System.Collections;
 
- #endregion
+#endregion
 
 namespace Ex03.GarageLogic.Com.Team.Misc
 {

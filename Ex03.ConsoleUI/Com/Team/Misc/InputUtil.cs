@@ -1,12 +1,12 @@
-﻿﻿#region
+﻿#region
 
- using System;
- using System.Collections.Generic;
- using System.ComponentModel;
- using System.Linq;
- using MiscUtil;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using MiscUtil;
 
- #endregion
+#endregion
 
 namespace Ex03.ConsoleUI.Com.Team.Misc
 {
