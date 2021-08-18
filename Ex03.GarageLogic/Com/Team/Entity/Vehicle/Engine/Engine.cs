@@ -6,20 +6,21 @@
         ///     Determines the Remained-Energy.
         ///     <example>Measured in `derived: Liter/Hour` units.</example>
         /// </summary>
-        public float Energy { get; set; } = 0;
+        public float Energy { get; protected set; } = 0;
 
         /// <summary>
+        ///     Defined by the Manufacturer.
         ///     Determines the Total-Max-Energy.
         ///     <example>Measured in `derived: Liter/Hour` units.</example>
         /// </summary>
-        public float MaxEnergy { get; protected set; } = 100;
+        public float ManufacturerMaxEnergy { get; protected set; } = 100;
 
         /// <summary>
         ///     Measured in `Percentage` units.
         /// </summary>
         public float GetRemainedEnergyPercentage()
         {
-            return Energy / MaxEnergy * 100;
+            return Energy / ManufacturerMaxEnergy * 100;
         }
     }
 }

@@ -3,6 +3,7 @@ using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Response;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
+using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Engine;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Engine.Standard.Battery;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Engine.Standard.Fuel;
 
@@ -30,7 +31,7 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage
         ///     A Request used for <see cref="BatteryEngine" /> only.
         ///     Measured in `Minute` units.
         ///     <remarks>
-        ///         Note: The <see cref="BatteryEngine.MaxEnergy" /> is measured in
+        ///         Note: The <see cref="Engine.ManufacturerMaxEnergy" /> is measured in
         ///         `Hour` units.
         ///     </remarks>
         /// </summary>

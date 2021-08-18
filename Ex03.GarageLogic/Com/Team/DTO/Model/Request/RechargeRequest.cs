@@ -1,4 +1,5 @@
-﻿using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Engine.Standard.Battery;
+﻿using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Engine;
+using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Engine.Standard.Battery;
 
 namespace Ex03.GarageLogic.Com.Team.DTO.Model.Request
 {
@@ -12,7 +13,7 @@ namespace Ex03.GarageLogic.Com.Team.DTO.Model.Request
         /// <summary>
         ///     Measured in `Minute` units.
         ///     <remarks>
-        ///         Note: The <see cref="BatteryEngine.MaxEnergy" /> is measured in
+        ///         Note: The <see cref="Engine.ManufacturerMaxEnergy" /> is measured in
         ///         `Hour` units.
         ///     </remarks>
         /// </summary>

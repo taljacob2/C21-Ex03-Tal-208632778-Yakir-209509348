@@ -4,11 +4,11 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Tire
 {
     public struct Tire : ISelfInflater
     {
-        public Tire(string i_ManufacturerName, float i_MaxAirPressure,
+        public Tire(string i_ManufacturerName, float i_ManufacturerMaxAirPressure,
             float i_AirPressure)
         {
             ManufacturerName = i_ManufacturerName;
-            MaxAirPressure = i_MaxAirPressure;
+            ManufacturerMaxAirPressure = i_ManufacturerMaxAirPressure;
             AirPressure = i_AirPressure;
         }
 
@@ -17,25 +17,25 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Tire
         /// <summary>
         ///     Defined by the Manufacturer.
         /// </summary>
-        public float MaxAirPressure { get; }
+        public float ManufacturerMaxAirPressure { get; }
 
         /// <summary>
         ///     States the `current` air-pressure.
         /// </summary>
-        public float AirPressure { get; set; }
+        public float AirPressure { get; private set; }
 
         public override string ToString()
         {
             return
                 $"{nameof(ManufacturerName)}: {ManufacturerName}," +
-                $" {nameof(MaxAirPressure)}: {MaxAirPressure}," +
+                $" {nameof(ManufacturerMaxAirPressure)}: {ManufacturerMaxAirPressure}," +
                 $" {nameof(AirPressure)}: {AirPressure}";
         }
 
         public void InflateSelf(float i_PressureToAdd)
         {
             ValueOutOfRangeException exception =
-                new ValueOutOfRangeException(MaxAirPressure, 0);
+                new ValueOutOfRangeException(ManufacturerMaxAirPressure, 0);
 
             // Assert minimum:
             if (i_PressureToAdd < 0)
@@ -44,7 +44,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Tire
             }
 
             // Assert maximum:
-            if (MaxAirPressure > AirPressure + i_PressureToAdd)
+            if (ManufacturerMaxAirPressure > AirPressure + i_PressureToAdd)
             {
                 throw exception;
             }
