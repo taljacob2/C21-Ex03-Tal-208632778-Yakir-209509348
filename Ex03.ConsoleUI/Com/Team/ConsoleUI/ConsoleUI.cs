@@ -62,7 +62,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             motorcycleStringUpper = motorcycleStringUpper.ToUpper();
             string truckStringUpper = $"{eVehicleType.Truck:G}";
             truckStringUpper = truckStringUpper.ToUpper();
-            
+
             Console.Out.WriteLine("Create Vehicle:");
             string vehicleType = InputUtil.ConvertIgnoreCase<string>(
                 "  Enter vehicle-type: ",
@@ -87,6 +87,35 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             }
 
             return returnValue;
+        }
+
+        private Vehicle createTruck(string i_VehicleType, string i_ModelName,
+            string i_LicensePlate)
+        {
+            Tire tire = createTire();
+
+            string blackStringUpper = $"{Car.eColor.Black:G}";
+            blackStringUpper = blackStringUpper.ToUpper();
+            string redStringUpper = $"{Car.eColor.Red:G}";
+            redStringUpper = redStringUpper.ToUpper();
+            string silverStringUpper = $"{Car.eColor.Silver:G}";
+            silverStringUpper = silverStringUpper.ToUpper();
+            string whiteStringUpper = $"{Car.eColor.White:G}";
+            whiteStringUpper = whiteStringUpper.ToUpper();
+            
+            throw new NotImplementedException();
+        }
+
+        private Vehicle createMotorcycle(string i_VehicleType,
+            string i_ModelName, string i_LicensePlate)
+        {
+            throw new NotImplementedException();
+        }
+
+        private Vehicle createCar(string i_VehicleType, string i_ModelName,
+            string i_LicensePlate)
+        {
+            throw new NotImplementedException();
         }
 
         private void printLicensePlates()
