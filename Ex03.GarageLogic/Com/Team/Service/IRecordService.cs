@@ -6,7 +6,7 @@ using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
 
 namespace Ex03.GarageLogic.Com.Team.Service
 {
-    public interface IVehicleService
+    public interface IRecordService
     {
         Record CreateRecord(Vehicle i_Vehicle, Owner i_Owner);
 

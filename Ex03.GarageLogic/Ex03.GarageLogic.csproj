@@ -75,8 +75,8 @@
         <Compile Include="Com\Team\Misc\ObjectExtensions.cs" />
         <Compile Include="Com\Team\Repository\Impl\RecordRepositoryImpl.cs" />
         <Compile Include="Com\Team\Repository\IRecordRepository.cs" />
-        <Compile Include="Com\Team\Service\Impl\VehicleServiceImpl.cs" />
-        <Compile Include="Com\Team\Service\IVehicleService.cs" />
+        <Compile Include="Com\Team\Service\Impl\RecordServiceImpl.cs" />
+        <Compile Include="Com\Team\Service\IRecordService.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

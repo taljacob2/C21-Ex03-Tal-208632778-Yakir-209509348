@@ -9,7 +9,7 @@ using Ex03.GarageLogic.Com.Team.Repository.Impl;
 
 namespace Ex03.GarageLogic.Com.Team.Service.Impl
 {
-    public class VehicleServiceImpl : IVehicleService
+    public class RecordServiceImpl : IRecordService
     {
         public IRecordRepository RecordRepository { get; } =
             new RecordRepositoryImpl();

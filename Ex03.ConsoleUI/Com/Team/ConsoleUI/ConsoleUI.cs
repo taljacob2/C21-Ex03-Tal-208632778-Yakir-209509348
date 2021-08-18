@@ -3,6 +3,7 @@ using System.Text;
 using Ex03.GarageLogic.Com.Team.Controller.Garage;
 using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
 using Ex03.GarageLogic.Com.Team.DTO.Constructor;
+using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
@@ -32,6 +33,24 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
             // printMenu();
         }
+
+        public Record PostCreateRecord()
+        {
+            Owner owner = createOwner();
+            Vehicle vehicle = createVehicle();
+            return GarageController.PostCreateRecord(vehicle, owner);
+        }
+
+        private Vehicle createVehicle()
+        {
+            throw new NotImplementedException();
+        }
+
+        private Owner createOwner()
+        {
+            throw new NotImplementedException();
+        }
+
 
         private void printLicensePlates()
         {

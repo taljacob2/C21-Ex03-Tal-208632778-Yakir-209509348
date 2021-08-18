@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Response;
+using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
 using Ex03.GarageLogic.Com.Team.Service;
 using Ex03.GarageLogic.Com.Team.Service.Impl;
 
@@ -10,10 +11,8 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
 {
     public class GarageControllerImpl : IGarageController
     {
-        private const string k_SuccessResponseMessage = "success";
-
-        public IVehicleService VehicleService { get; } =
-            new VehicleServiceImpl();
+        public IRecordService RecordService { get; } =
+            new RecordServiceImpl();
 
         // TODO : disabled.
         // public string GetVehicleDetails(string i_LicensePlate)
@@ -40,20 +39,25 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
             throw new NotImplementedException();
         }
 
+        public Record PostCreateRecord(Vehicle i_Vehicle, Owner i_Owner)
+        {
+            return RecordService.CreateRecord(i_Vehicle, i_Owner);
+        }
+
         public Record PostInsert(Record io_Record,
             out StringBuilder o_ResponseMessage)
         {
-            return VehicleService.Insert(io_Record, out o_ResponseMessage);
+            return RecordService.Insert(io_Record, out o_ResponseMessage);
         }
 
         public List<string> GetLicensePlatesList()
         {
-            return VehicleService.SelectVehicleLicensePlates();
+            return RecordService.SelectVehicleLicensePlates();
         }
 
         public List<string> GetLicensePlatesList(Record.eState i_StateToSelect)
         {
-            return VehicleService.SelectVehicleLicensePlates(i_StateToSelect);
+            return RecordService.SelectVehicleLicensePlates(i_StateToSelect);
         }
 
         public bool PostNewState(NewStateRequest i_Request)
