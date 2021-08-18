@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
+using Ex03.GarageLogic.Com.Team.DTO.Model.Response;
+using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
 using Ex03.GarageLogic.Com.Team.Service;
 using Ex03.GarageLogic.Com.Team.Service.Impl;
 
@@ -20,7 +23,42 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
         //         $" Owners phone number: {record.Owner.PhoneNumber}";
         // }
 
-        public bool Fuel(FuelRequest i_Request)
+        public bool PostFuel(FuelRequest i_Request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool PostCharge(ChargeRequest i_Request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public VehicleResponse GetVehicleDetails(string i_LicensePlate)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool PostInsert(Vehicle i_Vehicle)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<string> GetLicensePlatesList()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<string> GetLicensePlatesList(Record.eState i_StateToSelect)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool PostNewState(NewStateRequest i_Request)
+        {
+            throw new NotImplementedException();
+        }
+        
+        public bool PostInflateTiresToMax(string i_LicensePlate)
         {
             throw new NotImplementedException();
         }

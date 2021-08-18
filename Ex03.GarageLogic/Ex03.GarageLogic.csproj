@@ -50,7 +50,9 @@
         <Compile Include="Com\Team\DTO\Constructor\MotorcycleConstructorDTO.cs" />
         <Compile Include="Com\Team\DTO\Constructor\TruckConstructorDTO.cs" />
         <Compile Include="Com\Team\DTO\Constructor\VehicleConstructorDTO.cs" />
+        <Compile Include="Com\Team\DTO\Model\Request\ChargeRequest.cs" />
         <Compile Include="Com\Team\DTO\Model\Request\FuelRequest.cs" />
+        <Compile Include="Com\Team\DTO\Model\Request\NewStateRequest.cs" />
         <Compile Include="Com\Team\DTO\Model\Response\VehicleResponse.cs" />
         <Compile Include="Com\Team\DTO\VehicleRecordDTO.cs" />
         <Compile Include="Com\Team\Entity\Vehicle\Engine\Engine.cs" />
