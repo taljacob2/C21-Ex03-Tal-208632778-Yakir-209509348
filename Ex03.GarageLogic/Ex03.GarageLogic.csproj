@@ -55,16 +55,16 @@
         <Compile Include="Com\Team\DTO\Model\Request\NewStateRequest.cs" />
         <Compile Include="Com\Team\DTO\Model\Response\VehicleResponse.cs" />
         <Compile Include="Com\Team\DTO\VehicleRecordDTO.cs" />
-        <Compile Include="Com\Team\Entity\Manufacturer\Engine\Engine.cs" />
-        <Compile Include="Com\Team\Entity\Manufacturer\Engine\Extended\ExtendedEngine.cs" />
-        <Compile Include="Com\Team\Entity\Manufacturer\Engine\Standard\Battery\BatteryEngine.cs" />
-        <Compile Include="Com\Team\Entity\Manufacturer\Engine\Standard\Battery\ISelfRecharger.cs" />
-        <Compile Include="Com\Team\Entity\Manufacturer\Engine\Standard\Fuel\eType.cs" />
-        <Compile Include="Com\Team\Entity\Manufacturer\Engine\Standard\Fuel\FuelEngine.cs" />
-        <Compile Include="Com\Team\Entity\Manufacturer\Engine\Standard\Fuel\ISelfRefueler.cs" />
-        <Compile Include="Com\Team\Entity\Manufacturer\Engine\Standard\StandardEngine.cs" />
-        <Compile Include="Com\Team\Entity\Manufacturer\Tire\ISelfInflater.cs" />
-        <Compile Include="Com\Team\Entity\Manufacturer\Tire\Tire.cs" />
+        <Compile Include="Com\Team\Entity\Manufactured\Engine\Engine.cs" />
+        <Compile Include="Com\Team\Entity\Manufactured\Engine\Extended\ExtendedEngine.cs" />
+        <Compile Include="Com\Team\Entity\Manufactured\Engine\Standard\Battery\BatteryEngine.cs" />
+        <Compile Include="Com\Team\Entity\Manufactured\Engine\Standard\Battery\ISelfRecharger.cs" />
+        <Compile Include="Com\Team\Entity\Manufactured\Engine\Standard\Fuel\eType.cs" />
+        <Compile Include="Com\Team\Entity\Manufactured\Engine\Standard\Fuel\FuelEngine.cs" />
+        <Compile Include="Com\Team\Entity\Manufactured\Engine\Standard\Fuel\ISelfRefueler.cs" />
+        <Compile Include="Com\Team\Entity\Manufactured\Engine\Standard\StandardEngine.cs" />
+        <Compile Include="Com\Team\Entity\Manufactured\Tire\ISelfInflater.cs" />
+        <Compile Include="Com\Team\Entity\Manufactured\Tire\Tire.cs" />
         <Compile Include="Com\Team\Entity\Vehicle\Impl\Car\Car.cs" />
         <Compile Include="Com\Team\Entity\Vehicle\Impl\Motorcycle\Motorcycle.cs" />
         <Compile Include="Com\Team\Entity\Vehicle\Impl\Truck\Truck.cs" />
@@ -80,7 +80,7 @@
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>
-      <Folder Include="Com\Team\Entity\Manufacturer" />
+      <Folder Include="Com\Team\Entity\Manufactured" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

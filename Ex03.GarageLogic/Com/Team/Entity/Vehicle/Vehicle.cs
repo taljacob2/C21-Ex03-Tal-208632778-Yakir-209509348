@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 using Ex03.GarageLogic.Com.Team.DTO.Constructor;
-using Ex03.GarageLogic.Com.Team.Entity.Manufacturer.Engine;
-using Ex03.GarageLogic.Com.Team.Entity.Manufacturer.Tire;
+using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine;
+using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
 
 namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle
 {

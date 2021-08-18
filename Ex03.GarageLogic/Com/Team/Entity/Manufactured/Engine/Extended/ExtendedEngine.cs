@@ -1,4 +1,4 @@
-﻿namespace Ex03.GarageLogic.Com.Team.Entity.Manufacturer.Engine.Extended
+﻿namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Extended
 {
     public class ExtendedEngine
     {

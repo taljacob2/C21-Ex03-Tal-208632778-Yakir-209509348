@@ -1,6 +1,6 @@
 ﻿using Ex03.GarageLogic.Com.Team.Exception;
 
-namespace Ex03.GarageLogic.Com.Team.Entity.Manufacturer.Tire
+namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire
 {
     public struct Tire : ISelfInflater
     {
