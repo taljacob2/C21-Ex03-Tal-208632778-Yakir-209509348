@@ -16,9 +16,18 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             // printMenu();
         }
 
-        void printLicensePlates()
+        private void printLicensePlates()
         {
             foreach (var licensePlate in GarageController.GetLicensePlatesList()
+            )
+            {
+                Console.Out.WriteLine(licensePlate);
+            }
+        }
+
+        private void printSelectedLicensePlates(Record.eState i_State)
+        {
+            foreach (var licensePlate in GarageController.GetLicensePlatesList(i_State)
             )
             {
                 Console.Out.WriteLine(licensePlate);
