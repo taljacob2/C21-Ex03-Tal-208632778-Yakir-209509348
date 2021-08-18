@@ -1,6 +1,6 @@
 ﻿namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine
 {
-    public abstract class Engine
+    public abstract class Engine : Manufactured
     {
         /// <summary>
         ///     Determines the Remained-Energy.
