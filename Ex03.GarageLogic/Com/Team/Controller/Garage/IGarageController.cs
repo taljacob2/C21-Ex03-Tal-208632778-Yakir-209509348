@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text;
 using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Response;
@@ -10,7 +11,8 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage
 {
     public interface IGarageController
     {
-        Record PostInsert(Record io_Record, out string o_ResponseMessage);
+        Record PostInsert(Record io_Record,
+            out StringBuilder o_ResponseMessage);
 
         List<string> GetLicensePlatesList();
 

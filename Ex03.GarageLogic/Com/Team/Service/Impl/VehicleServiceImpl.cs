@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
@@ -35,11 +37,22 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             return RecordRepository.SelectVehicleLicensePlates(i_StateToSelect);
         }
 
-        public Record Insert(Record io_Record, out string o_ResponseMessage)
+        public Record Insert(Record io_Record,
+            out StringBuilder o_ResponseMessage)
         {
-            Record record = 
-            RecordRepository.Insert(io_Record, out o_ResponseMessage);
-            record.State = Record.eState.InProgress;
+            Record record =
+                RecordRepository.Insert(io_Record, out o_ResponseMessage);
+
+            // When the insert was failed:
+            if (!o_ResponseMessage.ToString().Equals("success"))
+            {
+                record.State = Record.eState.InProgress;
+                o_ResponseMessage.Append(Environment.NewLine);
+                o_ResponseMessage.Append(
+                    $"Changed Record's State to: {Record.eState.InProgress:G}.");
+            }
+
+            return record;
         }
 
 

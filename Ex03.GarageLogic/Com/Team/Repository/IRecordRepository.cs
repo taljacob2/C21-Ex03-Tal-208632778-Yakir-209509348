@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text;
 using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
 
 namespace Ex03.GarageLogic.Com.Team.Repository
@@ -14,7 +15,7 @@ namespace Ex03.GarageLogic.Com.Team.Repository
         /// <returns>
         ///     Record retrieved / inserted.
         /// </returns>
-        Record Insert(Record io_Record, out string o_ResponseMessage);
+        Record Insert(Record io_Record, out StringBuilder o_ResponseMessage);
 
         bool Delete(Record i_Record);
 

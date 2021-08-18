@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
 using Ex03.GarageLogic.Com.Team.Database;
 
@@ -22,9 +23,11 @@ namespace Ex03.GarageLogic.Com.Team.Repository.Impl
         /// <returns>
         ///     Record retrieved / inserted.
         /// </returns>
-        public Record Insert(Record io_Record, out string o_ResponseMessage)
+        public Record Insert(Record io_Record,
+            out StringBuilder o_ResponseMessage)
         {
-            o_ResponseMessage = k_SuccessResponseMessage;
+            o_ResponseMessage = new StringBuilder();
+            o_ResponseMessage.Append(k_SuccessResponseMessage);
             Record returnValue;
             Record? foundNullableRecord =
                 FindByLicensePlate(io_Record.Vehicle.LicensePlate);
@@ -37,7 +40,8 @@ namespace Ex03.GarageLogic.Com.Team.Repository.Impl
             {
                 r_Database.GetRef().Add(io_Record);
                 returnValue = io_Record;
-                o_ResponseMessage = 
+                o_ResponseMessage.Append(
+                    $"The provided LicensePlate : `{returnValue.Vehicle.LicensePlate}` is already in database.");
             }
 
             return returnValue;
