@@ -1,4 +1,6 @@
-﻿namespace Ex03.GarageLogic.Com.Team.DTO.Constructor
+﻿using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Standard;
+
+namespace Ex03.GarageLogic.Com.Team.DTO.Constructor
 {
     public class TruckConstructorDTO : VehicleConstructorDTO
     {
