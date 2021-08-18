@@ -17,7 +17,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Extended
         ///     Measured in `CC` units.
         /// </summary>
         public int VolumeInCC { get; }
-        
+
         public override string ToString()
         {
             return this.ToStringExtension();

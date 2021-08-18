@@ -47,11 +47,10 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured
         {
             return Value / ManufacturerMaxValue * 100;
         }
-        
+
         public override string ToString()
         {
             return this.ToStringExtension();
         }
-        
     }
 }

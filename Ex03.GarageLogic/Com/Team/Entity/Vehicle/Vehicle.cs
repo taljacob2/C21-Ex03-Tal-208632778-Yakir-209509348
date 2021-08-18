@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Text;
 using Ex03.GarageLogic.Com.Team.DTO.Constructor;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
@@ -38,7 +37,6 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle
 
         public override string ToString()
         {
-            
             // TODO: remove
             // StringBuilder stringBuilder = new StringBuilder();
             // stringBuilder.Append(
