@@ -10,7 +10,7 @@ namespace Ex03.GarageLogic.Com.Team.Service
         Record CreateRecord(Vehicle i_Vehicle, Owner i_Owner);
 
         void Refuel(RefuelRequest i_Request);
-        
+
         List<string> SelectVehicleLicensePlates();
     }
 }

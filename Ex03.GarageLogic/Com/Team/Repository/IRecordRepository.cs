@@ -10,7 +10,7 @@ namespace Ex03.GarageLogic.Com.Team.Repository
         bool Delete(Record i_Record);
 
         Record? FindByLicensePlate(string i_LicensePlate);
-        
+
         List<string> SelectVehicleLicensePlates();
     }
 }
