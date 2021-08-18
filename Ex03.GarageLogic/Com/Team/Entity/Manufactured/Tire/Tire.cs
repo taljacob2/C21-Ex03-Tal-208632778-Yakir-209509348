@@ -2,54 +2,53 @@
 
 namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire
 {
-    public struct Tire : ISelfInflater
+    /// <summary>
+    ///     <see cref="Manufactured.Value" /> is measured in `PSI`.
+    /// </summary>
+    public class Tire : Manufactured, ISelfInflater
     {
-        public Tire(string i_ManufacturerName, float i_ManufacturerMaxAirPressure,
+        public Tire(string i_ManufacturerName,
+            float i_ManufacturerMaxAirPressure,
             float i_AirPressure)
         {
             ManufacturerName = i_ManufacturerName;
-            ManufacturerMaxAirPressure = i_ManufacturerMaxAirPressure;
-            AirPressure = i_AirPressure;
+            ManufacturerMaxValue = i_ManufacturerMaxAirPressure;
+            Value = i_AirPressure;
         }
 
         public string ManufacturerName { get; }
 
-        /// <summary>
-        ///     Defined by the Manufacturer.
-        /// </summary>
-        public float ManufacturerMaxAirPressure { get; }
-
-        /// <summary>
-        ///     States the `current` air-pressure.
-        /// </summary>
-        public float AirPressure { get; private set; }
-
-        public override string ToString()
-        {
-            return
-                $"{nameof(ManufacturerName)}: {ManufacturerName}," +
-                $" {nameof(ManufacturerMaxAirPressure)}: {ManufacturerMaxAirPressure}," +
-                $" {nameof(AirPressure)}: {AirPressure}";
-        }
-
-        public void InflateSelf(float i_PressureToAdd)
+        /// <summary />
+        /// <param name="i_ValueToAdd" />
+        /// <exception cref="ValueOutOfRangeException">
+        ///     When the request exceeds the manufacturer's restrictions.
+        /// </exception>
+        public void InflateSelf(float i_ValueToAdd)
         {
             ValueOutOfRangeException exception =
-                new ValueOutOfRangeException(ManufacturerMaxAirPressure, 0);
+                new ValueOutOfRangeException(ManufacturerMaxValue, 0);
 
             // Assert minimum:
-            if (i_PressureToAdd < 0)
+            if (i_ValueToAdd < 0)
             {
                 throw exception;
             }
 
             // Assert maximum:
-            if (ManufacturerMaxAirPressure > AirPressure + i_PressureToAdd)
+            if (ManufacturerMaxValue > Value + i_ValueToAdd)
             {
                 throw exception;
             }
 
-            AirPressure += i_PressureToAdd;
+            Value += i_ValueToAdd;
+        }
+
+        public override string ToString()
+        {
+            return
+                $"{nameof(ManufacturerName)}: {ManufacturerName}," +
+                $" {nameof(ManufacturerMaxValue)}: {ManufacturerMaxValue}," +
+                $" {nameof(Value)}: {Value}";
         }
     }
 }

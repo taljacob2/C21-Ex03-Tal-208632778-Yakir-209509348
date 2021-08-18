@@ -63,6 +63,8 @@
         <Compile Include="Com\Team\Entity\Manufactured\Engine\Standard\Fuel\FuelEngine.cs" />
         <Compile Include="Com\Team\Entity\Manufactured\Engine\Standard\Fuel\ISelfRefueler.cs" />
         <Compile Include="Com\Team\Entity\Manufactured\Engine\Standard\StandardEngine.cs" />
+        <Compile Include="Com\Team\Entity\Manufactured\ISelfValueAdder.cs" />
+        <Compile Include="Com\Team\Entity\Manufactured\Manufactured.cs" />
         <Compile Include="Com\Team\Entity\Manufactured\Tire\ISelfInflater.cs" />
         <Compile Include="Com\Team\Entity\Manufactured\Tire\Tire.cs" />
         <Compile Include="Com\Team\Entity\Vehicle\Impl\Car\Car.cs" />
@@ -78,9 +80,6 @@
         <Compile Include="Com\Team\Service\Impl\VehicleServiceImpl.cs" />
         <Compile Include="Com\Team\Service\IVehicleService.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-    </ItemGroup>
-    <ItemGroup>
-      <Folder Include="Com\Team\Entity\Manufactured" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

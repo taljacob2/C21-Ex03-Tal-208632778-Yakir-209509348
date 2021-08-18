@@ -2,6 +2,8 @@
 {
     public interface ISelfInflater
     {
-        void InflateSelf(float i_PressureToAdd);
+        /// <summary />
+        /// <param name="i_ValueToAdd">States the `PSI` pressure to add.</param>
+        void InflateSelf(float i_ValueToAdd);
     }
 }
