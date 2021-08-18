@@ -1,15 +1,17 @@
 ﻿namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Engine.Standard.Battery
 {
-    public class BatteryEngine : StandardEngine
+    public sealed class BatteryEngine : StandardEngine
     {
-        public BatteryEngine(float i_CapacityInHours)
+        /// <summary>
+        ///     Note: Capacity is measured in `Hour` units.
+        /// </summary>
+        /// <param name="i_MaxCapacityInHours">
+        ///     Sets the <see cref="Engine.MaxEnergy" />
+        /// </param>
+        public BatteryEngine(float i_MaxCapacityInHours)
         {
-            CapacityInHours = i_CapacityInHours;
+            MaxEnergy = i_MaxCapacityInHours;
         }
 
-        /// <summary>
-        ///     Measured in `Hour` units.
-        /// </summary>
-        public float CapacityInHours { get; }
     }
 }
