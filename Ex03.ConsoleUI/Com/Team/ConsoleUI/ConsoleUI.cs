@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using Ex03.ConsoleUI.Com.Team.Misc;
 using Ex03.GarageLogic.Com.Team.Controller.Garage;
 using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
 using Ex03.GarageLogic.Com.Team.DTO.Constructor;
@@ -31,6 +32,9 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
             Console.Out.WriteLine(responseMessage);
 
+            // DEBUG: test 
+            PostCreateRecord();
+
             // printMenu();
         }
 
@@ -41,16 +45,28 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return GarageController.PostCreateRecord(vehicle, owner);
         }
 
-        private Vehicle createVehicle()
-        {
-            throw new NotImplementedException();
-        }
-
         private Owner createOwner()
         {
-            throw new NotImplementedException();
+            Console.Out.WriteLine("Create Owner:");
+            string name = InputUtil.Convert<string>("  Enter name: ");
+            string phoneNumber =
+                InputUtil.Convert<string>("  Enter phone-number: ");
+            return new Owner(phoneNumber, name);
         }
 
+        private Vehicle createVehicle()
+        {
+            Console.Out.WriteLine("Create Vehicle:");
+            string vehicleType = InputUtil.ConvertIgnoreCase<string>(
+                "  Enter vehicle-type: ",
+                $"{eVehicleType.Car:G}", $"{eVehicleType.Motorcycle:G}",
+                $"{eVehicleType.Truck:G}");
+            string name = InputUtil.Convert<string>("  Enter name: ");
+            string phoneNumber =
+                InputUtil.Convert<string>("  Enter phone-number: ");
+
+            throw new NotImplementedException();
+        }
 
         private void printLicensePlates()
         {
@@ -75,6 +91,13 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
         private void printMenu()
         {
             throw new NotImplementedException();
+        }
+
+        private enum eVehicleType
+        {
+            Car,
+            Motorcycle,
+            Truck
         }
     }
 }

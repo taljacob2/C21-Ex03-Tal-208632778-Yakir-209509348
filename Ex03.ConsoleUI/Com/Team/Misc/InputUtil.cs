@@ -16,11 +16,12 @@ namespace Ex03.ConsoleUI.Com.Team.Misc
             "Bad input. Please try again...";
 
         /// <summary>
-        ///     Converts a generic input string to an object.
+        ///     Converts a generic <see langword="string" /> input to a
+        ///     <see cref="IComparable" /> object.
         /// </summary>
         public static T Convert<T>(string i_Message)
         {
-            Console.Out.WriteLine(i_Message);
+            Console.Out.Write(i_Message);
             string input = Console.ReadLine();
             try
             {
@@ -39,9 +40,11 @@ namespace Ex03.ConsoleUI.Com.Team.Misc
         }
 
         /// <summary>
-        ///     Converts a generic input string to an object, with a given range.
+        ///     Converts a generic <see cref="IComparable" /> input
+        ///     <see langword="string" /> to an object,
+        ///     asserted by a given range.
         /// </summary>
-        public static T Convert<T>(string i_Message, T i_MinimumRange,
+        public static T ConvertWithAssertByRange<T>(string i_Message, T i_MinimumRange,
             T i_MaximumRange)
         {
             T converted = Convert<T>(i_Message);
@@ -49,7 +52,7 @@ namespace Ex03.ConsoleUI.Com.Team.Misc
             )
             {
                 Console.Out.WriteLine(k_BadInputMessage);
-                return Convert(i_Message, i_MinimumRange, i_MaximumRange);
+                return ConvertWithAssertByRange(i_Message, i_MinimumRange, i_MaximumRange);
             }
 
             return converted;
@@ -74,11 +77,100 @@ namespace Ex03.ConsoleUI.Com.Team.Misc
         }
 
         /// <summary>
-        ///     Converts a generic input char to an object.
+        ///     Converts a generic <see cref="IComparable" /> input type to an object,
+        ///     asserted by given possible valid values.
+        /// </summary>
+        public static T Convert<T>(string i_Message, List<T> i_List)
+        {
+            T converted = ConvertKey<T>(i_Message);
+            if (!isConvertedPossibleValidValue(converted, i_List)
+            )
+            {
+                Console.Out.WriteLine(k_BadInputMessage);
+                return Convert(i_Message, i_List);
+            }
+
+            return converted;
+        }
+        
+        /// <summary>
+        ///     Converts a generic <see cref="IComparable" /> input type to an object,
+        ///     asserted by given possible valid values.
+        /// </summary>
+        public static T ConvertIgnoreCase<T>(string i_Message, List<T> i_List)
+        {
+            T converted = ConvertKey<T>(i_Message);
+            if (!isConvertedPossibleValidValueIgnoreCase(converted, i_List)
+            )
+            {
+                Console.Out.WriteLine(k_BadInputMessage);
+                return ConvertIgnoreCase(i_Message, i_List);
+            }
+
+            return converted;
+        }        
+        
+        /// <summary>
+        ///     Converts a generic <see cref="IComparable" /> input <see langword="char" /> to an object,
+        ///     asserted by given possible valid values, case-ignored.
+        /// </summary>
+        public static T ConvertKeyIgnoreCase<T>(string i_Message, List<T> i_List)
+        {
+            T converted = ConvertKey<T>(i_Message);
+            if (!isConvertedPossibleValidValueIgnoreCase(converted, i_List)
+            )
+            {
+                Console.Out.WriteLine(k_BadInputMessage);
+                return ConvertKeyIgnoreCase(i_Message, i_List);
+            }
+
+            return converted;
+        }
+
+        /// <summary>
+        ///     Converts a generic <see cref="IComparable" /> input <see langword="string" />
+        ///     to an object,
+        ///     asserted by given possible valid values.
+        /// </summary>
+        public static T Convert<T>(string i_Message, params
+            T[] i_PossibleValidValues)
+        {
+            T converted = Convert<T>(i_Message);
+            if (!isConvertedPossibleValidValue(converted, i_PossibleValidValues)
+            )
+            {
+                Console.Out.WriteLine(k_BadInputMessage);
+                return Convert(i_Message, i_PossibleValidValues);
+            }
+
+            return converted;
+        }
+        
+        /// <summary>
+        ///     Converts a generic <see cref="IComparable" /> input <see langword="string" />
+        ///     to an object,
+        ///     asserted by given possible valid values.
+        /// </summary>
+        public static T ConvertIgnoreCase<T>(string i_Message, params
+            T[] i_PossibleValidValues)
+        {
+            T converted = Convert<T>(i_Message);
+            if (!isConvertedPossibleValidValueIgnoreCase(converted, i_PossibleValidValues)
+            )
+            {
+                Console.Out.WriteLine(k_BadInputMessage);
+                return ConvertIgnoreCase(i_Message, i_PossibleValidValues);
+            }
+
+            return converted;
+        }        
+        
+        /// <summary>
+        ///     Converts a generic <see cref="IComparable" /> input <see langword="char" /> to an object.
         /// </summary>
         public static T ConvertKey<T>(string i_Message)
         {
-            Console.Out.WriteLine(i_Message);
+            Console.Out.Write(i_Message);
             char input = Console.ReadKey(true).KeyChar;
             try
             {
@@ -97,8 +189,9 @@ namespace Ex03.ConsoleUI.Com.Team.Misc
         }
 
         /// <summary>
-        ///     Converts a generic input char to an object, with given possible valid
-        ///     values.
+        ///     Converts a generic <see cref="IComparable" /> input <see langword="char" />
+        ///     to an object,
+        ///     asserted by given possible valid values.
         /// </summary>
         public static T ConvertKey<T>(string i_Message, params
             T[] i_PossibleValidValues)
@@ -113,6 +206,25 @@ namespace Ex03.ConsoleUI.Com.Team.Misc
 
             return converted;
         }
+        
+        /// <summary>
+        ///     Converts a generic <see cref="IComparable" /> input <see langword="char" />
+        ///     to an object,
+        ///     asserted by given possible valid values, case-ignored.
+        /// </summary>
+        public static T ConvertKeyIgnoreCase<T>(string i_Message, params
+            T[] i_PossibleValidValues)
+        {
+            T converted = ConvertKey<T>(i_Message);
+            if (!isConvertedPossibleValidValueIgnoreCase(converted, i_PossibleValidValues)
+            )
+            {
+                Console.Out.WriteLine(k_BadInputMessage);
+                return ConvertKeyIgnoreCase(i_Message, i_PossibleValidValues);
+            }
+
+            return converted;
+        }        
 
         /// <summary>
         ///     Generic comparison, to check if the
@@ -124,17 +236,36 @@ namespace Ex03.ConsoleUI.Com.Team.Misc
         /// <param name="i_Converted" />
         /// <param name="i_PossibleValidValues">All possible valid values.</param>
         /// <typeparam name="T">Must be Comparable</typeparam>
-        /// <returns></returns>
+        /// <returns />
         private static bool isConvertedPossibleValidValue<T>(T i_Converted,
             params T[] i_PossibleValidValues)
         {
             return i_PossibleValidValues.Any(i_T =>
                 Operator.Equal(i_Converted, i_T));
         }
+        
+        /// <summary>
+        ///     Generic comparison, to check if the
+        ///     <param name="i_Converted"></param> is a possible valid value, case-ignored.
+        ///     <see cref="Operator" />
+        ///     <seealso cref="MiscUtil" />
+        /// </summary>
+        /// <param name="i_Converted" />
+        /// <param name="i_PossibleValidValues">All possible valid values.</param>
+        /// <typeparam name="T">Must be Comparable</typeparam>
+        /// <returns />
+        private static bool isConvertedPossibleValidValueIgnoreCase<T>(T i_Converted,
+            params T[] i_PossibleValidValues)
+        {
+            return i_PossibleValidValues.Any(i_T =>
+                Operator.Equal(i_Converted.ToString().ToUpper(), i_T.ToString
+                ().ToUpper()));
+        }        
 
         /// <summary>
-        ///     Converts a generic input char to an object, with given possible valid
-        ///     values.
+        ///     Converts a generic <see cref="IComparable" /> input <see langword="char" />
+        ///     to an object,
+        ///     asserted by given possible valid values.
         /// </summary>
         public static T ConvertKey<T>(string i_Message, List<T> i_List)
         {
@@ -150,8 +281,9 @@ namespace Ex03.ConsoleUI.Com.Team.Misc
         }
 
         /// <summary>
-        ///     Converts a generic input char to an object, with given possible valid
-        ///     values.
+        ///     Converts a generic <see cref="IComparable" /> input <see langword="char" />
+        ///     to an object,
+        ///     asserted by given possible valid values.
         /// </summary>
         private static bool isConvertedPossibleValidValue<T>(T
             i_Converted, List<T> i_List)
@@ -159,6 +291,19 @@ namespace Ex03.ConsoleUI.Com.Team.Misc
             return i_List.Any(i_T =>
                 Operator.Equal(i_Converted, i_T));
         }
+        
+        /// <summary>
+        ///     Converts a generic <see cref="IComparable" /> input <see langword="char" />
+        ///     to an object,
+        ///     asserted by given possible valid values, case-ignored.
+        /// </summary>
+        private static bool isConvertedPossibleValidValueIgnoreCase<T>(T
+            i_Converted, List<T> i_List)
+        {
+            return i_List.Any(i_T =>
+                Operator.Equal(i_Converted.ToString().ToUpper(), i_T.ToString
+                ().ToUpper()));
+        }        
 
         public static List<char> Range(char i_Start, char i_End)
         {
