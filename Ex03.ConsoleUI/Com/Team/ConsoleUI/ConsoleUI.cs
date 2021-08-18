@@ -6,12 +6,14 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 {
     public class ConsoleUI
     {
-        private readonly IGarageController r_GarageController =
+        public IGarageController GarageController { get;} =
             new GarageControllerImpl();
 
         public void RunUI()
         {
-            printMenu();
+            Console.Out.WriteLine(GarageController.GetLicensePlatesList());
+
+            // printMenu();
         }
 
         private void printMenu()

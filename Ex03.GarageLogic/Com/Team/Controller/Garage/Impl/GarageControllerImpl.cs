@@ -45,7 +45,7 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
 
         public List<string> GetLicensePlatesList()
         {
-            throw new NotImplementedException();
+            return VehicleService.SelectVehicleLicensePlates();
         }
 
         public List<string> GetLicensePlatesList(Record.eState i_StateToSelect)

@@ -1,4 +1,6 @@
-﻿using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
+﻿using System;
+using System.Collections.Generic;
+using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
 using Ex03.GarageLogic.Com.Team.Repository;
@@ -21,6 +23,11 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
         {
             Record? nullableRecord =
                 RecordRepository.FindByLicensePlate(i_Request.LicensePlate);
+        }
+
+        public List<string> SelectVehicleLicensePlates()
+        {
+            return RecordRepository.SelectVehicleLicensePlates();
         }
 
 

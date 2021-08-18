@@ -1,4 +1,5 @@
-﻿using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
+﻿using System.Collections.Generic;
+using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
 
 namespace Ex03.GarageLogic.Com.Team.Repository
 {
@@ -9,5 +10,7 @@ namespace Ex03.GarageLogic.Com.Team.Repository
         bool Delete(Record i_Record);
 
         Record? FindByLicensePlate(string i_LicensePlate);
+        
+        List<string> SelectVehicleLicensePlates();
     }
 }

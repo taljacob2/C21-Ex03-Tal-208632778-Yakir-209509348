@@ -52,7 +52,7 @@ namespace Ex03.GarageLogic.Com.Team.Repository.Impl
         public Record? FindByLicensePlate(string i_LicensePlate)
         {
             Record? returnValue = null; // `Nullable` implementation ready.
-            List<string> licensePlates = selectVehicleLicensePlates();
+            List<string> licensePlates = SelectVehicleLicensePlates();
 
             for (int i = 0; i < licensePlates.Count; i++)
             {
@@ -74,7 +74,7 @@ namespace Ex03.GarageLogic.Com.Team.Repository.Impl
             return returnValue;
         }
 
-        private List<string> selectVehicleLicensePlates()
+        public List<string> SelectVehicleLicensePlates()
         {
             return r_Database.GetRef()
                 .Select(i_Record => i_Record.Vehicle.LicensePlate).ToList();
