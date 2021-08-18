@@ -1,4 +1,5 @@
 ﻿using Ex03.GarageLogic.Com.Team.Exception;
+using Ex03.GarageLogic.Com.Team.Misc;
 
 namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured
 {
@@ -46,5 +47,11 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured
         {
             return Value / ManufacturerMaxValue * 100;
         }
+        
+        public override string ToString()
+        {
+            return this.ToStringExtension();
+        }
+        
     }
 }

@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using Ex03.GarageLogic.Com.Team.Misc.ArrayExtensions;
 
@@ -19,6 +20,8 @@ namespace Ex03.GarageLogic.Com.Team.Misc
         public static string ToStringExtension(this object i_Obj)
         {
             StringBuilder stringBuilder = new StringBuilder();
+            int i = 0;
+            stringBuilder.Append("{");
             foreach (PropertyInfo property in i_Obj.GetType().GetProperties())
             {
                 stringBuilder.Append(property.Name);
@@ -32,8 +35,16 @@ namespace Ex03.GarageLogic.Com.Team.Misc
                     stringBuilder.Append(property.GetValue(i_Obj, null));
                 }
 
-                stringBuilder.Append(Environment.NewLine);
+                i++;
+
+                if (i < i_Obj.GetType().GetProperties().Length)
+                {
+                    // stringBuilder.Append(Environment.NewLine);
+                    stringBuilder.Append(", ");
+                }
             }
+
+            stringBuilder.Append("}");
 
             return stringBuilder.ToString();
         }

@@ -1,5 +1,6 @@
 ﻿using Ex03.GarageLogic.Com.Team.DTO.Constructor;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Standard;
+using Ex03.GarageLogic.Com.Team.Misc;
 
 namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl.Truck
 {
@@ -43,10 +44,13 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl.Truck
 
         public override string ToString()
         {
-            return
-                $"{base.ToString()}, {nameof(IsContainingDangerousMaterials)}:" +
-                $" {IsContainingDangerousMaterials}," +
-                $" {nameof(MaxCarryingCapabilityInKilos)}: {MaxCarryingCapabilityInKilos}";
+            // TODO: remove
+            // return
+            //     $"{base.ToString()}, {nameof(IsContainingDangerousMaterials)}:" +
+            //     $" {IsContainingDangerousMaterials}," +
+            //     $" {nameof(MaxCarryingCapabilityInKilos)}: {MaxCarryingCapabilityInKilos}";
+
+            return this.ToStringExtension();
         }
     }
 }

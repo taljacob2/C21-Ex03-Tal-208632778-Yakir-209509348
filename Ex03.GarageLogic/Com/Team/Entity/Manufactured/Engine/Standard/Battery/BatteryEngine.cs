@@ -1,4 +1,6 @@
-﻿namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Standard.Battery
+﻿using Ex03.GarageLogic.Com.Team.Misc;
+
+namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Standard.Battery
 {
     public sealed class BatteryEngine : StandardEngine
     {
@@ -16,6 +18,11 @@
         public void AddCharge(float i_MinutesToAdd)
         {
             AddSelfValue(i_MinutesToAdd);
+        }
+        
+        public override string ToString()
+        {
+            return this.ToStringExtension();
         }
     }
 }

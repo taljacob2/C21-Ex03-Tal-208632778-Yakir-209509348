@@ -1,4 +1,6 @@
-﻿namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle
+﻿using Ex03.GarageLogic.Com.Team.Misc;
+
+namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle
 {
     public struct Owner
     {
@@ -11,5 +13,10 @@
         public string Name { get; }
 
         public string PhoneNumber { get; }
+
+        public override string ToString()
+        {
+            return this.ToStringExtension();
+        }
     }
 }

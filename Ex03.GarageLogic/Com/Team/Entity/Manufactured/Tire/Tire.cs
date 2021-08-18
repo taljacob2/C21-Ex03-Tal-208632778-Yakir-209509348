@@ -1,4 +1,6 @@
-﻿namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire
+﻿using Ex03.GarageLogic.Com.Team.Misc;
+
+namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire
 {
     /// <summary>
     ///     <see cref="Manufactured.Value" /> is measured in `PSI`.
@@ -18,10 +20,13 @@
 
         public override string ToString()
         {
-            return
-                $"{nameof(ManufacturerName)}: {ManufacturerName}," +
-                $" {nameof(ManufacturerMaxValue)}: {ManufacturerMaxValue}," +
-                $" {nameof(Value)}: {Value}";
+            // TODO: remove.
+            // return
+            //     $"{nameof(ManufacturerName)}: {ManufacturerName}," +
+            //     $" {nameof(ManufacturerMaxValue)}: {ManufacturerMaxValue}," +
+            //     $" {nameof(Value)}: {Value}";
+
+            return this.ToStringExtension();
         }
 
         public void AddPressure(float i_PSIToAdd)

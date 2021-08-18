@@ -1,5 +1,6 @@
 ﻿using Ex03.GarageLogic.Com.Team.DTO.Constructor;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Standard;
+using Ex03.GarageLogic.Com.Team.Misc;
 
 namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl.Car
 {
@@ -52,8 +53,11 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl.Car
 
         public override string ToString()
         {
-            return
-                $"{base.ToString()}, {nameof(Color)}: {Color}, {nameof(DoorsAmount)}: {DoorsAmount}";
+            // TODO: remove
+            // return
+            //     $"{base.ToString()}, {nameof(Color)}: {Color}, {nameof(DoorsAmount)}: {DoorsAmount}";
+
+            return this.ToStringExtension();
         }
     }
 }

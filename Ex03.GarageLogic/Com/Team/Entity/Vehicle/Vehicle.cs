@@ -3,6 +3,7 @@ using System.Text;
 using Ex03.GarageLogic.Com.Team.DTO.Constructor;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
+using Ex03.GarageLogic.Com.Team.Misc;
 
 namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle
 {
@@ -37,18 +38,22 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle
 
         public override string ToString()
         {
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.Append(
-                $"{nameof(ModelName)}: {ModelName}," +
-                $" {nameof(LicensePlate)}: {LicensePlate}," +
-                $" {nameof(TiresMaxAirPressure)}: {TiresMaxAirPressure}");
-            stringBuilder.Append($"{nameof(Tires)}:");
-            foreach (Tire tire in Tires)
-            {
-                stringBuilder.Append(tire);
-            }
+            
+            // TODO: remove
+            // StringBuilder stringBuilder = new StringBuilder();
+            // stringBuilder.Append(
+            //     $"{nameof(ModelName)}: {ModelName}," +
+            //     $" {nameof(LicensePlate)}: {LicensePlate}," +
+            //     $" {nameof(TiresMaxAirPressure)}: {TiresMaxAirPressure}");
+            // stringBuilder.Append($"{nameof(Tires)}:");
+            // foreach (Tire tire in Tires)
+            // {
+            //     stringBuilder.Append(tire);
+            // }
+            //
+            // return stringBuilder.ToString();
 
-            return stringBuilder.ToString();
+            return this.ToStringExtension();
         }
     }
 }
