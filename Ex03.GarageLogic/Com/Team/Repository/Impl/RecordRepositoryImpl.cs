@@ -35,13 +35,14 @@ namespace Ex03.GarageLogic.Com.Team.Repository.Impl
             if (foundNullableRecord.HasValue)
             {
                 returnValue = foundNullableRecord.Value;
+                o_ResponseMessage.Clear();
+                o_ResponseMessage.Append(
+                    $"The provided LicensePlate: `{returnValue.Vehicle.LicensePlate}` is already in database.");
             }
             else
             {
                 r_Database.GetRef().Add(io_Record);
                 returnValue = io_Record;
-                o_ResponseMessage.Append(
-                    $"The provided LicensePlate : `{returnValue.Vehicle.LicensePlate}` is already in database.");
             }
 
             return returnValue;

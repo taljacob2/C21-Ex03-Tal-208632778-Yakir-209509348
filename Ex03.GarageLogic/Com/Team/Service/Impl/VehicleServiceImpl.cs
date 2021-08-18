@@ -49,7 +49,7 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
                 record.State = Record.eState.InProgress;
                 o_ResponseMessage.Append(Environment.NewLine);
                 o_ResponseMessage.Append(
-                    $"Changed Record's State to: {Record.eState.InProgress:G}.");
+                    $"Changed Record's State to: `{Record.eState.InProgress:G}`.");
             }
 
             return record;
