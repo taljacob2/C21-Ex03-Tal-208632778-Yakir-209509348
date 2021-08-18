@@ -1,4 +1,4 @@
-﻿using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Standard;
+﻿using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
 
 namespace Ex03.GarageLogic.Com.Team.DTO.Constructor
@@ -9,13 +9,13 @@ namespace Ex03.GarageLogic.Com.Team.DTO.Constructor
             string i_LicensePlate, Tire i_TireToSetForAllTires,
             bool i_IsContainingDangerousMaterials,
             float i_MaxCarryingCapabilityInKilos,
-            StandardEngine i_StandardEngine) : base(
+            Engine i_Engine) : base(
             i_ModelName, i_LicensePlate)
         {
             TireToSetForAllTires = i_TireToSetForAllTires;
             IsContainingDangerousMaterials = i_IsContainingDangerousMaterials;
             MaxCarryingCapabilityInKilos = i_MaxCarryingCapabilityInKilos;
-            StandardEngine = i_StandardEngine;
+            Engine = i_Engine;
         }
 
         public Tire TireToSetForAllTires { get; }
@@ -24,6 +24,6 @@ namespace Ex03.GarageLogic.Com.Team.DTO.Constructor
 
         public float MaxCarryingCapabilityInKilos { get; }
 
-        public StandardEngine StandardEngine { get; }
+        public Engine Engine { get; }
     }
 }

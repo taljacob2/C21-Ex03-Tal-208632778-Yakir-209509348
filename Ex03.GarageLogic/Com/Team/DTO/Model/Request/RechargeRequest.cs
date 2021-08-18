@@ -1,5 +1,5 @@
 ﻿using Ex03.GarageLogic.Com.Team.Entity.Manufactured;
-using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Standard.Battery;
+using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery;
 
 namespace Ex03.GarageLogic.Com.Team.DTO.Model.Request
 {

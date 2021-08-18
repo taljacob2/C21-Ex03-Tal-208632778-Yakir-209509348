@@ -1,4 +1,4 @@
-﻿namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Standard.Fuel
+﻿namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Fuel
 {
     public enum eType
     {

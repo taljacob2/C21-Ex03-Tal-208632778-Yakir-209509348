@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel;
 
-namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Standard.Fuel
+namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Fuel
 {
-    public sealed class FuelEngine : StandardEngine
+    public sealed class FuelEngine : Engine
     {
         /// <summary>
         ///     Note: Capacity is measured in `Liter` units.

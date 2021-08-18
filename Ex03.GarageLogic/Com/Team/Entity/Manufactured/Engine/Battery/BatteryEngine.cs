@@ -1,8 +1,8 @@
 ﻿using Ex03.GarageLogic.Com.Team.Misc;
 
-namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Standard.Battery
+namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery
 {
-    public sealed class BatteryEngine : StandardEngine
+    public sealed class BatteryEngine : Engine
     {
         /// <summary>
         ///     Note: Capacity is measured in `Hour` units.

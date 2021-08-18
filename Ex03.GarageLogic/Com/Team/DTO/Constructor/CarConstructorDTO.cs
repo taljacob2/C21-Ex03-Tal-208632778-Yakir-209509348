@@ -1,4 +1,4 @@
-﻿using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Standard;
+﻿using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl.Car;
 
@@ -9,14 +9,14 @@ namespace Ex03.GarageLogic.Com.Team.DTO.Constructor
         public CarConstructorDTO(string i_ModelName, string i_LicensePlate,
             Tire i_TireToSetForAllTires,
             Car.eColor i_Color,
-            Car.eDoorsAmount i_DoorsAmount, StandardEngine i_StandardEngine) :
+            Car.eDoorsAmount i_DoorsAmount, Engine i_Engine) :
             base(i_ModelName,
                 i_LicensePlate)
         {
             TireToSetForAllTires = i_TireToSetForAllTires;
             Color = i_Color;
             DoorsAmount = i_DoorsAmount;
-            StandardEngine = i_StandardEngine;
+            Engine = i_Engine;
         }
 
         public Tire TireToSetForAllTires { get; }
@@ -25,6 +25,6 @@ namespace Ex03.GarageLogic.Com.Team.DTO.Constructor
 
         public Car.eDoorsAmount DoorsAmount { get; }
 
-        public StandardEngine StandardEngine { get; }
+        public Engine Engine { get; }
     }
 }

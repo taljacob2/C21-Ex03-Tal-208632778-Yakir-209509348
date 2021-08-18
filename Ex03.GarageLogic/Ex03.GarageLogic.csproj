@@ -55,12 +55,11 @@
         <Compile Include="Com\Team\DTO\Model\Request\NewStateRequest.cs" />
         <Compile Include="Com\Team\DTO\Model\Response\VehicleResponse.cs" />
         <Compile Include="Com\Team\DTO\VehicleRecordDTO.cs" />
+        <Compile Include="Com\Team\Entity\Manufactured\Engine\Battery\BatteryEngine.cs" />
         <Compile Include="Com\Team\Entity\Manufactured\Engine\Engine.cs" />
         <Compile Include="Com\Team\Entity\Manufactured\Engine\Extended\ExtendedEngine.cs" />
-        <Compile Include="Com\Team\Entity\Manufactured\Engine\Standard\Battery\BatteryEngine.cs" />
-        <Compile Include="Com\Team\Entity\Manufactured\Engine\Standard\Fuel\eType.cs" />
-        <Compile Include="Com\Team\Entity\Manufactured\Engine\Standard\Fuel\FuelEngine.cs" />
-        <Compile Include="Com\Team\Entity\Manufactured\Engine\Standard\StandardEngine.cs" />
+        <Compile Include="Com\Team\Entity\Manufactured\Engine\Fuel\eType.cs" />
+        <Compile Include="Com\Team\Entity\Manufactured\Engine\Fuel\FuelEngine.cs" />
         <Compile Include="Com\Team\Entity\Manufactured\ISelfValueAdder.cs" />
         <Compile Include="Com\Team\Entity\Manufactured\Manufactured.cs" />
         <Compile Include="Com\Team\Entity\Manufactured\Tire\ISelfInflater.cs" />

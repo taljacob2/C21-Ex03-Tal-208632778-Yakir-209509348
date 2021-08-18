@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Ex03.GarageLogic.Com.Team.DTO.Constructor;
+﻿using Ex03.GarageLogic.Com.Team.DTO.Constructor;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
 using Ex03.GarageLogic.Com.Team.Misc;
@@ -23,9 +22,9 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle
 
         public string ModelName { get; protected set; }
 
-        public Tires Tires { get;} = new Tires();
+        public Tires Tires { get; } = new Tires();
 
-        public Engine Engine { get; }
+        public Engine Engine { get; protected set; }
 
         public float GetRemainedEnergyPercentage()
         {
@@ -36,7 +35,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle
         {
             for (int i = 0; i < i_TiresAmount; i++)
             {
-                this.Tires.List.Add(i_TireToSetForAllTires.Copy());
+                Tires.List.Add(i_TireToSetForAllTires.Copy());
             }
         }
 

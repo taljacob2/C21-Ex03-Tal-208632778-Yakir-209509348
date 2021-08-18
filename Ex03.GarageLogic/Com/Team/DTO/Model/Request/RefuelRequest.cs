@@ -1,4 +1,4 @@
-﻿using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Standard.Fuel;
+﻿using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Fuel;
 
 namespace Ex03.GarageLogic.Com.Team.DTO.Model.Request
 {

@@ -1,5 +1,4 @@
 ﻿using Ex03.GarageLogic.Com.Team.DTO.Constructor;
-using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Standard;
 using Ex03.GarageLogic.Com.Team.Misc;
 
 namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl.Car
@@ -23,22 +22,20 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl.Car
         }
 
         public const int k_TiresAmount = 4;
-        
+
         public Car(CarConstructorDTO i_CarConstructorDTO)
         {
-            StandardEngine = i_CarConstructorDTO.StandardEngine;
+            Engine = i_CarConstructorDTO.Engine;
             ModelName = i_CarConstructorDTO.ModelName;
             LicensePlate = i_CarConstructorDTO.LicensePlate;
             Color = i_CarConstructorDTO.Color;
             DoorsAmount = i_CarConstructorDTO.DoorsAmount;
-            this.SetTires(i_CarConstructorDTO.TireToSetForAllTires, k_TiresAmount);
+            SetTires(i_CarConstructorDTO.TireToSetForAllTires, k_TiresAmount);
         }
 
         public eColor Color { get; }
 
         public eDoorsAmount DoorsAmount { get; }
-
-        public StandardEngine StandardEngine { get; }
 
         public override string ToString()
         {

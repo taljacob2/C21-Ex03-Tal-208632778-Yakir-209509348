@@ -1,7 +1,4 @@
-﻿using System.Linq.Expressions;
-using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
-
-namespace Ex03.GarageLogic.Com.Team.DTO.Constructor
+﻿namespace Ex03.GarageLogic.Com.Team.DTO.Constructor
 {
     public class VehicleConstructorDTO
     {

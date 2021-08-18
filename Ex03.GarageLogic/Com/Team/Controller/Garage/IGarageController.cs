@@ -3,8 +3,8 @@ using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Response;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured;
-using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Standard.Battery;
-using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Standard.Fuel;
+using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery;
+using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Fuel;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
 
 namespace Ex03.GarageLogic.Com.Team.Controller.Garage

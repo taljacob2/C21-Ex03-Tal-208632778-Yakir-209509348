@@ -22,7 +22,8 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl.Motorcycle
             LicensePlate = i_MotorcycleConstructorDTO.LicensePlate;
             LicenseType = i_MotorcycleConstructorDTO.LicenseType;
             ExtendedEngine = i_MotorcycleConstructorDTO.ExtendedEngine;
-            this.SetTires(i_MotorcycleConstructorDTO.TireToSetForAllTires, k_TiresAmount);
+            SetTires(i_MotorcycleConstructorDTO.TireToSetForAllTires,
+                k_TiresAmount);
         }
 
         public ExtendedEngine ExtendedEngine { get; }
