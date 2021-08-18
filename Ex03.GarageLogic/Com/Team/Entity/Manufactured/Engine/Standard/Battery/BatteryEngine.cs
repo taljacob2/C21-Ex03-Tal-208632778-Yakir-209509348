@@ -12,10 +12,10 @@
         {
             ManufacturerMaxValue = i_ManufacturerMaxCapacityInHours;
         }
-        
+
         public void AddCharge(float i_MinutesToAdd)
         {
-            this.AddSelfValue(i_MinutesToAdd);
+            AddSelfValue(i_MinutesToAdd);
         }
     }
 }

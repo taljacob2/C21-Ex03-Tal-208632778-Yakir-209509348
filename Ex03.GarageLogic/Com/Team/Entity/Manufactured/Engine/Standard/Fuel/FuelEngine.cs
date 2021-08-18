@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel;
-using Ex03.GarageLogic.Com.Team.Exception;
 
 namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Standard.Fuel
 {
@@ -42,7 +41,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Standard.Fuel
                 throw enumException;
             }
 
-            this.AddSelfValue(i_Liters);
+            AddSelfValue(i_Liters);
         }
     }
 }

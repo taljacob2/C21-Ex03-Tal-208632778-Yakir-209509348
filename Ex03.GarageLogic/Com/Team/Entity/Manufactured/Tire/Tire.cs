@@ -26,7 +26,7 @@
 
         public void AddPressure(float i_PSIToAdd)
         {
-            this.AddSelfValue(i_PSIToAdd);
+            AddSelfValue(i_PSIToAdd);
         }
     }
 }
