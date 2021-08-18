@@ -56,16 +56,37 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
         private Vehicle createVehicle()
         {
+            string carStringUpper = $"{eVehicleType.Car:G}";
+            carStringUpper = carStringUpper.ToUpper();
+            string motorcycleStringUpper = $"{eVehicleType.Motorcycle:G}";
+            motorcycleStringUpper = motorcycleStringUpper.ToUpper();
+            string truckStringUpper = $"{eVehicleType.Truck:G}";
+            truckStringUpper = truckStringUpper.ToUpper();
+            
             Console.Out.WriteLine("Create Vehicle:");
             string vehicleType = InputUtil.ConvertIgnoreCase<string>(
                 "  Enter vehicle-type: ",
-                $"{eVehicleType.Car:G}", $"{eVehicleType.Motorcycle:G}",
-                $"{eVehicleType.Truck:G}");
-            string name = InputUtil.Convert<string>("  Enter name: ");
-            string phoneNumber =
+                carStringUpper, motorcycleStringUpper, truckStringUpper);
+            string modelName = InputUtil.Convert<string>("  Enter name: ");
+            string licensePlate =
                 InputUtil.Convert<string>("  Enter phone-number: ");
 
-            throw new NotImplementedException();
+            Vehicle returnValue = null;
+            if (vehicleType.ToUpper().Equals(carStringUpper))
+            {
+                returnValue = createCar(vehicleType, modelName, licensePlate);
+            }
+            else if (vehicleType.ToUpper().Equals(motorcycleStringUpper))
+            {
+                returnValue =
+                    createMotorcycle(vehicleType, modelName, licensePlate);
+            }
+            else if (vehicleType.ToUpper().Equals(truckStringUpper))
+            {
+                returnValue = createTruck(vehicleType, modelName, licensePlate);
+            }
+
+            return returnValue;
         }
 
         private void printLicensePlates()
