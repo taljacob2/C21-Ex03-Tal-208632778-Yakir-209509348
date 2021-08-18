@@ -23,18 +23,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl.Car
         }
 
         public const int k_TiresAmount = 4;
-
-        public Car(VehicleConstructorDTO i_VehicleConstructorDTO,
-            eColor i_Color, eDoorsAmount i_DoorsAmount,
-            StandardEngine i_StandardEngine)
-            : base(i_VehicleConstructorDTO)
-        {
-            Color = i_Color;
-            DoorsAmount = i_DoorsAmount;
-            StandardEngine = i_StandardEngine;
-            this.SetTires(k_TiresAmount);
-        }
-
+        
         public Car(CarConstructorDTO i_CarConstructorDTO)
         {
             StandardEngine = i_CarConstructorDTO.StandardEngine;
@@ -42,7 +31,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl.Car
             LicensePlate = i_CarConstructorDTO.LicensePlate;
             Color = i_CarConstructorDTO.Color;
             DoorsAmount = i_CarConstructorDTO.DoorsAmount;
-            this.SetTires(k_TiresAmount);
+            this.SetTires(i_CarConstructorDTO.TireToSetForAllTires, k_TiresAmount);
         }
 
         public eColor Color { get; }

@@ -12,7 +12,6 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle
         {
             ModelName = i_VehicleConstructorDTO.ModelName;
             LicensePlate = i_VehicleConstructorDTO.LicensePlate;
-            TireToSetForAllTires = i_VehicleConstructorDTO.TireToSetForAllTires;
         }
 
         protected Vehicle() {}
@@ -24,8 +23,6 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle
 
         public string ModelName { get; protected set; }
 
-        public Tire TireToSetForAllTires { get; }
-
         public Tires Tires { get;} = new Tires();
 
         public Engine Engine { get; }
@@ -35,11 +32,11 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle
             return Engine.GetValuePercentage();
         }
 
-        protected void SetTires(int i_TiresAmount)
+        protected void SetTires(Tire i_TireToSetForAllTires, int i_TiresAmount)
         {
             for (int i = 0; i < i_TiresAmount; i++)
             {
-                this.Tires.List.Add(this.TireToSetForAllTires);
+                this.Tires.List.Add(i_TireToSetForAllTires.Copy());
             }
         }
 

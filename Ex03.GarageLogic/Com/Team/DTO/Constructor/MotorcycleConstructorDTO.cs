@@ -10,8 +10,9 @@ namespace Ex03.GarageLogic.Com.Team.DTO.Constructor
             string i_LicensePlate, Tire i_TireToSetForAllTires,
             Motorcycle.eLicenseType i_LicenseType,
             ExtendedEngine i_ExtendedEngine) : base(
-            i_ModelName, i_LicensePlate, i_TireToSetForAllTires)
+            i_ModelName, i_LicensePlate)
         {
+            TireToSetForAllTires = i_TireToSetForAllTires;
             LicenseType = i_LicenseType;
             ExtendedEngine = i_ExtendedEngine;
         }
@@ -19,5 +20,7 @@ namespace Ex03.GarageLogic.Com.Team.DTO.Constructor
         public Motorcycle.eLicenseType LicenseType { get; }
 
         public ExtendedEngine ExtendedEngine { get; }
+
+        public Tire TireToSetForAllTires { get; }
     }
 }

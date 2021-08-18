@@ -10,12 +10,15 @@ namespace Ex03.GarageLogic.Com.Team.DTO.Constructor
             bool i_IsContainingDangerousMaterials,
             float i_MaxCarryingCapabilityInKilos,
             StandardEngine i_StandardEngine) : base(
-            i_ModelName, i_LicensePlate, i_TireToSetForAllTires)
+            i_ModelName, i_LicensePlate)
         {
+            TireToSetForAllTires = i_TireToSetForAllTires;
             IsContainingDangerousMaterials = i_IsContainingDangerousMaterials;
             MaxCarryingCapabilityInKilos = i_MaxCarryingCapabilityInKilos;
             StandardEngine = i_StandardEngine;
         }
+
+        public Tire TireToSetForAllTires { get; }
 
         public bool IsContainingDangerousMaterials { get; }
 

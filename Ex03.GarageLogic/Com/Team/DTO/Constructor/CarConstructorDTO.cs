@@ -11,12 +11,15 @@ namespace Ex03.GarageLogic.Com.Team.DTO.Constructor
             Car.eColor i_Color,
             Car.eDoorsAmount i_DoorsAmount, StandardEngine i_StandardEngine) :
             base(i_ModelName,
-                i_LicensePlate, i_TireToSetForAllTires)
+                i_LicensePlate)
         {
+            TireToSetForAllTires = i_TireToSetForAllTires;
             Color = i_Color;
             DoorsAmount = i_DoorsAmount;
             StandardEngine = i_StandardEngine;
         }
+
+        public Tire TireToSetForAllTires { get; }
 
         public Car.eColor Color { get; }
 

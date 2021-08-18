@@ -19,7 +19,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire
             {
                 stringBuilder.Append(tire);
                 i++;
-                if (i < List.Count - 1)
+                if (i < List.Count)
                 {
                     stringBuilder.Append(", ");
                 }
