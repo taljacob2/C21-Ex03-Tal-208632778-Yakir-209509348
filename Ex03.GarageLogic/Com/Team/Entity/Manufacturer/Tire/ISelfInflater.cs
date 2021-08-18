@@ -1,4 +1,4 @@
-﻿namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Tire
+﻿namespace Ex03.GarageLogic.Com.Team.Entity.Manufacturer.Tire
 {
     public interface ISelfInflater
     {

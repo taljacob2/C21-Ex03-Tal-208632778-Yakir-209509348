@@ -1,4 +1,4 @@
-﻿namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Engine
+﻿namespace Ex03.GarageLogic.Com.Team.Entity.Manufacturer.Engine
 {
     public abstract class Engine
     {

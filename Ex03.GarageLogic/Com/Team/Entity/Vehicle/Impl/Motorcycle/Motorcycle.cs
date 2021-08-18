@@ -1,5 +1,4 @@
 ﻿using Ex03.GarageLogic.Com.Team.DTO.Constructor;
-using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Engine.Extended;
 
 namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl.Motorcycle
 {

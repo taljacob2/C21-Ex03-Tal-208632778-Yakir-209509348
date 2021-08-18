@@ -1,7 +1,4 @@
-﻿using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Engine;
-using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Engine.Standard.Battery;
-
-namespace Ex03.GarageLogic.Com.Team.DTO.Model.Request
+﻿namespace Ex03.GarageLogic.Com.Team.DTO.Model.Request
 {
     /// <summary>
     ///     A Request used for <see cref="BatteryEngine" /> only.

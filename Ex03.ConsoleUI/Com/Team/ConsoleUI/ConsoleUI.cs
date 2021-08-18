@@ -1,4 +1,5 @@
-﻿using Ex03.GarageLogic.Com.Team.Controller.Garage;
+﻿using System;
+using Ex03.GarageLogic.Com.Team.Controller.Garage;
 using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
 
 namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
@@ -15,7 +16,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
         private void printMenu()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

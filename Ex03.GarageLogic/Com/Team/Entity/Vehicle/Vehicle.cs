@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 using Ex03.GarageLogic.Com.Team.DTO.Constructor;
+using Ex03.GarageLogic.Com.Team.Entity.Manufacturer.Engine;
+using Ex03.GarageLogic.Com.Team.Entity.Manufacturer.Tire;
 
 namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle
 {
@@ -22,11 +24,11 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle
         /// </summary>
         public string LicensePlate { get; protected set; }
 
-        public List<Tire.Tire> Tires { get; protected set; }
+        public List<Tire> Tires { get; protected set; }
 
         public float TiresMaxAirPressure { get; protected set; }
 
-        public Engine.Engine Engine { get; }
+        public Engine Engine { get; }
 
         public float GetRemainedEnergyPercentage()
         {
@@ -41,7 +43,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle
                 $" {nameof(LicensePlate)}: {LicensePlate}," +
                 $" {nameof(TiresMaxAirPressure)}: {TiresMaxAirPressure}");
             stringBuilder.Append($"{nameof(Tires)}:");
-            foreach (Tire.Tire tire in Tires)
+            foreach (Tire tire in Tires)
             {
                 stringBuilder.Append(tire);
             }

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using Ex03.GarageLogic.Com.Team.Exception;
 
-namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Engine.Standard.Fuel
+namespace Ex03.GarageLogic.Com.Team.Entity.Manufacturer.Engine.Standard.Fuel
 {
     public sealed class FuelEngine : StandardEngine, ISelfRefueler
     {
