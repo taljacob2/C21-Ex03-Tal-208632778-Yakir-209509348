@@ -13,6 +13,8 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
         {
             printLicensePlates();
 
+            printSelectedLicensePlates(Record.eState.InProgress);
+
             // printMenu();
         }
 

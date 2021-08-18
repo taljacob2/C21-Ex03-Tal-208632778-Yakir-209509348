@@ -50,7 +50,7 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
 
         public List<string> GetLicensePlatesList(Record.eState i_StateToSelect)
         {
-            throw new NotImplementedException();
+            return VehicleService.SelectVehicleLicensePlates(i_StateToSelect);
         }
 
         public bool PostNewState(NewStateRequest i_Request)

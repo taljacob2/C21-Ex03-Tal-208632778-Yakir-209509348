@@ -12,5 +12,7 @@ namespace Ex03.GarageLogic.Com.Team.Repository
         Record? FindByLicensePlate(string i_LicensePlate);
 
         List<string> SelectVehicleLicensePlates();
+        
+        List<string> SelectVehicleLicensePlates(Record.eState i_StateToSelect);
     }
 }

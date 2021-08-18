@@ -29,6 +29,11 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             return RecordRepository.SelectVehicleLicensePlates();
         }
 
+        public List<string> SelectVehicleLicensePlates(Record.eState i_StateToSelect)
+        {
+            return RecordRepository.SelectVehicleLicensePlates(i_StateToSelect);
+        }
+
 
         // TODO: disabled.
         // public void FuelVehicle(string i_LicensePlate,

@@ -79,5 +79,14 @@ namespace Ex03.GarageLogic.Com.Team.Repository.Impl
             return r_Database.GetRef()
                 .Select(i_Record => i_Record.Vehicle.LicensePlate).ToList();
         }
+
+        public List<string> SelectVehicleLicensePlates(
+            Record.eState i_StateToSelect)
+        {
+            return r_Database.GetRef()
+                .FindAll(i_Record => i_Record.State == i_StateToSelect)
+                .Select(i_Record => i_Record.Vehicle.LicensePlate)
+                .ToList();
+        }
     }
 }
