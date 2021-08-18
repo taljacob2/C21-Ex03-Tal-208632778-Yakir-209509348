@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Text;
 using Ex03.GarageLogic.Com.Team.Misc.ArrayExtensions;
 
 #endregion
@@ -14,6 +15,28 @@ namespace Ex03.GarageLogic.Com.Team.Misc
         private static readonly MethodInfo sr_CloneMethod =
             typeof(object).GetMethod("MemberwiseClone",
                 BindingFlags.NonPublic | BindingFlags.Instance);
+
+        public static string ToStringExtension(this object i_Obj)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            foreach (PropertyInfo property in i_Obj.GetType().GetProperties())
+            {
+                stringBuilder.Append(property.Name);
+                stringBuilder.Append(": ");
+                if (property.GetIndexParameters().Length > 0)
+                {
+                    stringBuilder.Append("Indexed Property cannot be used");
+                }
+                else
+                {
+                    stringBuilder.Append(property.GetValue(i_Obj, null));
+                }
+
+                stringBuilder.Append(Environment.NewLine);
+            }
+
+            return stringBuilder.ToString();
+        }
 
         public static bool IsPrimitive(this Type i_Type)
         {

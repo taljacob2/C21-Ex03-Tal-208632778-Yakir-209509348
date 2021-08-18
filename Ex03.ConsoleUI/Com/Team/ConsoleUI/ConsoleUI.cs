@@ -1,6 +1,7 @@
 ﻿using System;
 using Ex03.GarageLogic.Com.Team.Controller.Garage;
 using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
+using Ex03.GarageLogic.Com.Team.Misc;
 
 namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 {
@@ -24,6 +25,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             )
             {
                 Console.Out.WriteLine(licensePlate);
+                licensePlate.ToStringExtension();
             }
         }
 
