@@ -92,17 +92,6 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
         private Vehicle createTruck(string i_VehicleType, string i_ModelName,
             string i_LicensePlate)
         {
-            Tire tire = createTire();
-
-            string blackStringUpper = $"{Car.eColor.Black:G}";
-            blackStringUpper = blackStringUpper.ToUpper();
-            string redStringUpper = $"{Car.eColor.Red:G}";
-            redStringUpper = redStringUpper.ToUpper();
-            string silverStringUpper = $"{Car.eColor.Silver:G}";
-            silverStringUpper = silverStringUpper.ToUpper();
-            string whiteStringUpper = $"{Car.eColor.White:G}";
-            whiteStringUpper = whiteStringUpper.ToUpper();
-            
             throw new NotImplementedException();
         }
 
@@ -115,6 +104,18 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
         private Vehicle createCar(string i_VehicleType, string i_ModelName,
             string i_LicensePlate)
         {
+            Tire tire = createTire();
+
+            string blackStringUpper = $"{Car.eColor.Black:G}";
+            blackStringUpper = blackStringUpper.ToUpper();
+            string redStringUpper = $"{Car.eColor.Red:G}";
+            redStringUpper = redStringUpper.ToUpper();
+            string silverStringUpper = $"{Car.eColor.Silver:G}";
+            silverStringUpper = silverStringUpper.ToUpper();
+            string whiteStringUpper = $"{Car.eColor.White:G}";
+            whiteStringUpper = whiteStringUpper.ToUpper();
+            
+            
             throw new NotImplementedException();
         }
 
