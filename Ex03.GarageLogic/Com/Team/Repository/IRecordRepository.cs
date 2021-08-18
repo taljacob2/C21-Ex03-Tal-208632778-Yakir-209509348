@@ -5,7 +5,16 @@ namespace Ex03.GarageLogic.Com.Team.Repository
 {
     public interface IRecordRepository
     {
-        bool Insert(Record i_Record);
+        /// <summary />
+        /// <param name="io_Record" />
+        /// <param name="o_ResponseMessage">
+        ///     In case of success: <code>A-Success-Message</code>
+        ///     In case of fail: <code>An-Error-Message</code>.
+        /// </param>
+        /// <returns>
+        ///     Record retrieved / inserted.
+        /// </returns>
+        Record Insert(Record io_Record, out string o_ResponseMessage);
 
         bool Delete(Record i_Record);
 

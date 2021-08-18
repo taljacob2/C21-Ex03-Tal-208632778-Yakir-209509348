@@ -1,11 +1,6 @@
 ﻿using System;
 using Ex03.GarageLogic.Com.Team.Controller.Garage;
 using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
-using Ex03.GarageLogic.Com.Team.DTO.Constructor;
-using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery;
-using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
-using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
-using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl.Car;
 
 namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 {
@@ -31,13 +26,6 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             {
                 Console.Out.WriteLine(licensePlate);
             }
-
-            // DEBUG test
-            Console.Out.WriteLine(new Record(new Car(new CarConstructorDTO
-                ("modelName3", "licensePlate4",
-                    new Tire("talINC", 32, 0), Car.eColor.Black,
-                    Car.eDoorsAmount.Four, new BatteryEngine(3.2F))),
-                new Owner("054noregex...", "tal")));
         }
 
         private void printSelectedLicensePlates(Record.eState i_State)

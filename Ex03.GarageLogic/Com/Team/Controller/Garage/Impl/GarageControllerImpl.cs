@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Response;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
@@ -10,6 +11,8 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
 {
     public class GarageControllerImpl : IGarageController
     {
+        private const string k_SuccessResponseMessage = "success";
+
         public IVehicleService VehicleService { get; } =
             new VehicleServiceImpl();
 
@@ -38,9 +41,9 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
             throw new NotImplementedException();
         }
 
-        public bool PostInsert(Vehicle i_Vehicle)
+        public Record PostInsert(Record io_Record, out string o_ResponseMessage)
         {
-            throw new NotImplementedException();
+            return VehicleService.Insert(io_Record, out o_ResponseMessage);
         }
 
         public List<string> GetLicensePlatesList()

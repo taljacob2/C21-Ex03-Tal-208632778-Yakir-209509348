@@ -5,13 +5,12 @@ using Ex03.GarageLogic.Com.Team.DTO.Model.Response;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Fuel;
-using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
 
 namespace Ex03.GarageLogic.Com.Team.Controller.Garage
 {
     public interface IGarageController
     {
-        bool PostInsert(Vehicle i_Vehicle);
+        Record PostInsert(Record io_Record, out string o_ResponseMessage);
 
         List<string> GetLicensePlatesList();
 

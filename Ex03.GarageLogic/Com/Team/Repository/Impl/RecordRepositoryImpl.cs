@@ -8,20 +8,36 @@ namespace Ex03.GarageLogic.Com.Team.Repository.Impl
 {
     public class RecordRepositoryImpl : IRecordRepository
     {
+        private const string k_SuccessResponseMessage = "success";
+
         private readonly IDatabase<List<Record>> r_Database =
             new Database.Impl.Database();
 
-        public bool Insert(Record i_Record)
+        /// <summary />
+        /// <param name="io_Record" />
+        /// <param name="o_ResponseMessage">
+        ///     In case of success: <see cref="k_SuccessResponseMessage" />
+        ///     In case of fail: <code>An-Error-Message</code>.
+        /// </param>
+        /// <returns>
+        ///     Record retrieved / inserted.
+        /// </returns>
+        public Record Insert(Record io_Record, out string o_ResponseMessage)
         {
-            bool returnValue = true;
+            o_ResponseMessage = k_SuccessResponseMessage;
+            Record returnValue;
+            Record? foundNullableRecord =
+                FindByLicensePlate(io_Record.Vehicle.LicensePlate);
 
-            if (r_Database.GetRef().Contains(i_Record))
+            if (foundNullableRecord.HasValue)
             {
-                returnValue = false;
+                returnValue = foundNullableRecord.Value;
             }
             else
             {
-                r_Database.GetRef().Add(i_Record);
+                r_Database.GetRef().Add(io_Record);
+                returnValue = io_Record;
+                o_ResponseMessage = 
             }
 
             return returnValue;

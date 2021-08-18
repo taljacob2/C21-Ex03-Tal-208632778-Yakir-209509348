@@ -35,7 +35,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle
         {
             for (int i = 0; i < i_TiresAmount; i++)
             {
-                Tires.List.Add(i_TireToSetForAllTires.Copy());
+                Tires.List.Add(i_TireToSetForAllTires.Copy()); // Deep copy.
             }
         }
 

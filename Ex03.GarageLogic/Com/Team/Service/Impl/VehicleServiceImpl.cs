@@ -17,7 +17,8 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             return new Record(i_Vehicle, i_Owner);
         }
 
-        public void Refuel(RefuelRequest i_Request) // TODO: continue implementation.
+        public void
+            Refuel(RefuelRequest i_Request) // TODO: continue implementation.
         {
             Record? nullableRecord =
                 RecordRepository.FindByLicensePlate(i_Request.LicensePlate);
@@ -32,6 +33,13 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             Record.eState i_StateToSelect)
         {
             return RecordRepository.SelectVehicleLicensePlates(i_StateToSelect);
+        }
+
+        public Record Insert(Record io_Record, out string o_ResponseMessage)
+        {
+            Record record = 
+            RecordRepository.Insert(io_Record, out o_ResponseMessage);
+            record.State = Record.eState.InProgress;
         }
 
 

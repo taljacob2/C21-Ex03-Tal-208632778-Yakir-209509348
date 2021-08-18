@@ -23,7 +23,7 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
 
         public Vehicle Vehicle { get; }
 
-        public eState State { get; }
+        public eState State { get; set; }
 
         public override string ToString()
         {
