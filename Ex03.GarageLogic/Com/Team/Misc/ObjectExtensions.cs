@@ -22,6 +22,7 @@ namespace Ex03.GarageLogic.Com.Team.Misc
         {
             StringBuilder stringBuilder = new StringBuilder();
             int i = 0;
+            newIndentLine(stringBuilder,s_NumOfTabs);
             stringBuilder.Append("{");
             foreach (PropertyInfo property in i_Obj.GetType().GetProperties())
             {
