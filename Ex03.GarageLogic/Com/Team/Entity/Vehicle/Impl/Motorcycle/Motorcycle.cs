@@ -22,15 +22,16 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl.Motorcycle
         {
             LicenseType = i_LicenseType;
             ExtendedEngine = i_ExtendedEngine;
+            this.SetTires(k_TiresAmount);
         }
 
         public Motorcycle(MotorcycleConstructorDTO i_MotorcycleConstructorDTO)
         {
-            ExtendedEngine = i_MotorcycleConstructorDTO.ExtendedEngine;
             ModelName = i_MotorcycleConstructorDTO.ModelName;
             LicensePlate = i_MotorcycleConstructorDTO.LicensePlate;
-
             LicenseType = i_MotorcycleConstructorDTO.LicenseType;
+            ExtendedEngine = i_MotorcycleConstructorDTO.ExtendedEngine;
+            this.SetTires(k_TiresAmount);
         }
 
         public ExtendedEngine ExtendedEngine { get; }
@@ -39,7 +40,6 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl.Motorcycle
 
         public override string ToString()
         {
-            // return $"{base.ToString()}, {nameof(LicenseType)}: {LicenseType}"; // TODO: remove
             return this.ToStringExtension();
         }
     }

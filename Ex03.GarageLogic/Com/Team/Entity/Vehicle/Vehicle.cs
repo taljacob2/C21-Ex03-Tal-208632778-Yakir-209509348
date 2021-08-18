@@ -12,27 +12,35 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle
         {
             ModelName = i_VehicleConstructorDTO.ModelName;
             LicensePlate = i_VehicleConstructorDTO.LicensePlate;
-            TiresMaxAirPressure = i_VehicleConstructorDTO.TiresMaxAirPressure;
+            TireToSetForAllTires = i_VehicleConstructorDTO.TireToSetForAllTires;
         }
 
         protected Vehicle() {}
-
-        public string ModelName { get; protected set; }
 
         /// <summary>
         ///     Unique ID.
         /// </summary>
         public string LicensePlate { get; protected set; }
 
-        public List<Tire> Tires { get; protected set; }
+        public string ModelName { get; protected set; }
 
-        public float TiresMaxAirPressure { get; protected set; }
+        public Tire TireToSetForAllTires { get; }
+
+        public List<Tire> Tires { get;} = new List<Tire>();
 
         public Engine Engine { get; }
 
         public float GetRemainedEnergyPercentage()
         {
             return Engine.GetValuePercentage();
+        }
+
+        protected void SetTires(int i_TiresAmount)
+        {
+            for (int i = 0; i < i_TiresAmount; i++)
+            {
+                this.Tires.Add(this.TireToSetForAllTires);
+            }
         }
 
         public override string ToString()

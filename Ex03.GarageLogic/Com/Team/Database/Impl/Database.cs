@@ -4,6 +4,7 @@ using Ex03.GarageLogic.Com.Team.DTO.Constructor;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Extended;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Standard.Battery;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Standard.Fuel;
+using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl.Car;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl.Motorcycle;
@@ -32,33 +33,33 @@ namespace Ex03.GarageLogic.Com.Team.Database.Impl
             {
                 new Record(new Motorcycle(new MotorcycleConstructorDTO
                     ("modelName1", "licensePlate1",
-                        30, Motorcycle.eLicenseType.A,
+                        new Tire("talINC", 30, 0), Motorcycle.eLicenseType.A,
                         new ExtendedEngine(new FuelEngine(eType.Octan98, 6),
                             2000))),
                     new Owner("054noregex...", "tal")),
 
                 new Record(new Motorcycle(new MotorcycleConstructorDTO
                     ("modelName2", "licensePlate2",
-                        30, Motorcycle.eLicenseType.A,
+                        new Tire("talINC", 30, 0), Motorcycle.eLicenseType.A,
                         new ExtendedEngine(new BatteryEngine(1.8F), 2000))),
                     new Owner("054noregex...", "tal")),
 
                 new Record(new Car(new CarConstructorDTO
                     ("modelName3", "licensePlate3",
-                        32, Car.eColor.Black,
+                        new Tire("talINC", 32, 0), Car.eColor.Black,
                         Car.eDoorsAmount.Four,
                         new FuelEngine(eType.Octan95, 45))),
                     new Owner("054noregex...", "tal")),
 
                 new Record(new Car(new CarConstructorDTO
                     ("modelName3", "licensePlate4",
-                        32, Car.eColor.Black,
+                        new Tire("talINC", 32, 0), Car.eColor.Black,
                         Car.eDoorsAmount.Four, new BatteryEngine(3.2F))),
                     new Owner("054noregex...", "tal")),
 
                 new Record(new Truck(new TruckConstructorDTO(
                         "modelName3", "licensePlate5",
-                        26, true,
+                        new Tire("talINC", 26, 0), true,
                         100000, new FuelEngine(eType.Soler, 120))),
                     new Owner("054noregex...", "tal"))
             };

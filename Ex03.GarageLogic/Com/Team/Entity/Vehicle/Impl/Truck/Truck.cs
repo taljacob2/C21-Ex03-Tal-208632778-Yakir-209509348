@@ -15,9 +15,9 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl.Truck
             : base(i_VehicleConstructorDTO)
         {
             StandardEngine = i_StandardEngine;
-
             IsContainingDangerousMaterials = i_IsContainingDangerousMaterials;
             MaxCarryingCapabilityInKilos = i_MaxCarryingCapabilityInKilos;
+            this.SetTires(k_TiresAmount);
         }
 
         public Truck(TruckConstructorDTO i_TruckConstructorDTO)
@@ -25,11 +25,11 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl.Truck
             StandardEngine = i_TruckConstructorDTO.StandardEngine;
             ModelName = i_TruckConstructorDTO.ModelName;
             LicensePlate = i_TruckConstructorDTO.LicensePlate;
-
             IsContainingDangerousMaterials = i_TruckConstructorDTO
                 .IsContainingDangerousMaterials;
             MaxCarryingCapabilityInKilos =
                 i_TruckConstructorDTO.MaxCarryingCapabilityInKilos;
+            this.SetTires(k_TiresAmount);
         }
 
         public StandardEngine StandardEngine { get; }
@@ -44,12 +44,6 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl.Truck
 
         public override string ToString()
         {
-            // TODO: remove
-            // return
-            //     $"{base.ToString()}, {nameof(IsContainingDangerousMaterials)}:" +
-            //     $" {IsContainingDangerousMaterials}," +
-            //     $" {nameof(MaxCarryingCapabilityInKilos)}: {MaxCarryingCapabilityInKilos}";
-
             return this.ToStringExtension();
         }
     }

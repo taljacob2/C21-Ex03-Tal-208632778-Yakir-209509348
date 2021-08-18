@@ -20,12 +20,6 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire
 
         public override string ToString()
         {
-            // TODO: remove.
-            // return
-            //     $"{nameof(ManufacturerName)}: {ManufacturerName}," +
-            //     $" {nameof(ManufacturerMaxValue)}: {ManufacturerMaxValue}," +
-            //     $" {nameof(Value)}: {Value}";
-
             return this.ToStringExtension();
         }
 

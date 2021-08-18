@@ -29,10 +29,10 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl.Car
             StandardEngine i_StandardEngine)
             : base(i_VehicleConstructorDTO)
         {
-            StandardEngine = i_StandardEngine;
-
             Color = i_Color;
             DoorsAmount = i_DoorsAmount;
+            StandardEngine = i_StandardEngine;
+            this.SetTires(k_TiresAmount);
         }
 
         public Car(CarConstructorDTO i_CarConstructorDTO)
@@ -40,9 +40,9 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl.Car
             StandardEngine = i_CarConstructorDTO.StandardEngine;
             ModelName = i_CarConstructorDTO.ModelName;
             LicensePlate = i_CarConstructorDTO.LicensePlate;
-
             Color = i_CarConstructorDTO.Color;
             DoorsAmount = i_CarConstructorDTO.DoorsAmount;
+            this.SetTires(k_TiresAmount);
         }
 
         public eColor Color { get; }
@@ -53,10 +53,6 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl.Car
 
         public override string ToString()
         {
-            // TODO: remove
-            // return
-            //     $"{base.ToString()}, {nameof(Color)}: {Color}, {nameof(DoorsAmount)}: {DoorsAmount}";
-
             return this.ToStringExtension();
         }
     }
