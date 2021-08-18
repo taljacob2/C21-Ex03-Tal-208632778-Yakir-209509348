@@ -6,7 +6,7 @@
         {
             Com.Team.ConsoleUI.ConsoleUI consoleUI =
                 new Com.Team.ConsoleUI.ConsoleUI();
-            consoleUI.RunUI();
+            consoleUI.RunConsoleUI();
         }
     }
 }

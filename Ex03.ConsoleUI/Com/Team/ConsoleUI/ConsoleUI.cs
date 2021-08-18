@@ -9,7 +9,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
         public IGarageController GarageController { get; } =
             new GarageControllerImpl();
 
-        public void RunUI()
+        public void RunConsoleUI()
         {
             printLicensePlates();
 
