@@ -1,4 +1,6 @@
-﻿namespace Ex03.GarageLogic.Com.Team.DTO.Model.Request
+﻿using Ex03.GarageLogic.Com.Team.Entity.Manufacturer.Engine.Standard.Fuel;
+
+namespace Ex03.GarageLogic.Com.Team.DTO.Model.Request
 {
     /// <summary>
     ///     A Request used for <see cref="FuelEngine" /> only.
