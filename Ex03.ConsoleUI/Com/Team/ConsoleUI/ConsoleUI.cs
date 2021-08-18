@@ -38,7 +38,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                         new ExtendedEngine(new FuelEngine(eType.Octan98, 6),
                             2000))),
                     new Owner("054noregex...", "tal"));
-                Console.Out.WriteLine("record = {0}", record.ToStringExtension());
+                Console.Out.WriteLine("record = {0}", record);
             }
         }
 
