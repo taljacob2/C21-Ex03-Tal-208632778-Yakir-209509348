@@ -26,7 +26,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle
 
         public Tire TireToSetForAllTires { get; }
 
-        public List<Tire> Tires { get;} = new List<Tire>();
+        public Tires Tires { get;} = new Tires();
 
         public Engine Engine { get; }
 
@@ -39,26 +39,12 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle
         {
             for (int i = 0; i < i_TiresAmount; i++)
             {
-                this.Tires.Add(this.TireToSetForAllTires);
+                this.Tires.List.Add(this.TireToSetForAllTires);
             }
         }
 
         public override string ToString()
         {
-            // TODO: remove
-            // StringBuilder stringBuilder = new StringBuilder();
-            // stringBuilder.Append(
-            //     $"{nameof(ModelName)}: {ModelName}," +
-            //     $" {nameof(LicensePlate)}: {LicensePlate}," +
-            //     $" {nameof(TiresMaxAirPressure)}: {TiresMaxAirPressure}");
-            // stringBuilder.Append($"{nameof(Tires)}:");
-            // foreach (Tire tire in Tires)
-            // {
-            //     stringBuilder.Append(tire);
-            // }
-            //
-            // return stringBuilder.ToString();
-
             return this.ToStringExtension();
         }
     }
