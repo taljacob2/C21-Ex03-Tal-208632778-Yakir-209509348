@@ -3,6 +3,8 @@ using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Response;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
+using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Engine.Standard.Battery;
+using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Engine.Standard.Fuel;
 
 namespace Ex03.GarageLogic.Com.Team.Controller.Garage
 {
@@ -18,9 +20,21 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage
 
         bool PostInflateTiresToMax(string i_LicensePlate);
 
-        bool PostFuel(FuelRequest i_Request);
+        /// <summary>
+        ///     A Request used for <see cref="FuelEngine" /> only.
+        ///     Measured in `Liter` units.
+        /// </summary>
+        bool PostRefuel(RefuelRequest i_Request);
 
-        bool PostCharge(ChargeRequest i_Request);
+        /// <summary>
+        ///     A Request used for <see cref="BatteryEngine" /> only.
+        ///     Measured in `Minute` units.
+        ///     <remarks>
+        ///         Note: The <see cref="BatteryEngine.MaxEnergy" /> is measured in
+        ///         `Hour` units.
+        ///     </remarks>
+        /// </summary>
+        bool PostRecharge(RechargeRequest i_Request);
 
         VehicleResponse GetVehicleDetails(string i_LicensePlate);
     }

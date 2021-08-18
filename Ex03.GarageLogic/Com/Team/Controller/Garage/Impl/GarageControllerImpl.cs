@@ -23,12 +23,12 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
         //         $" Owners phone number: {record.Owner.PhoneNumber}";
         // }
 
-        public bool PostFuel(FuelRequest i_Request)
+        public bool PostRefuel(RefuelRequest i_Request)
         {
             throw new NotImplementedException();
         }
 
-        public bool PostCharge(ChargeRequest i_Request)
+        public bool PostRecharge(RechargeRequest i_Request)
         {
             throw new NotImplementedException();
         }

@@ -4,12 +4,13 @@
     {
         /// <summary>
         ///     Determines the Remained-Energy.
-        ///     Measured in `derived: Liter/Hour` units.
+        ///     <example>Measured in `derived: Liter/Hour` units.</example>
         /// </summary>
         public float Energy { get; set; } = 0;
 
         /// <summary>
-        ///     Measured in `derived: Liter/Hour` units.
+        ///     Determines the Total-Max-Energy.
+        ///     <example>Measured in `derived: Liter/Hour` units.</example>
         /// </summary>
         public float MaxEnergy { get; protected set; } = 100;
 

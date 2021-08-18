@@ -17,7 +17,7 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
         }
 
         public void
-            Fuel(FuelRequest i_Request) // TODO: continue implementation.
+            Refuel(RefuelRequest i_Request) // TODO: continue implementation.
         {
             Record? nullableRecord =
                 RecordRepository.FindByLicensePlate(i_Request.LicensePlate);
