@@ -15,6 +15,8 @@ namespace Ex03.GarageLogic.Com.Team.Misc
         private static readonly MethodInfo sr_CloneMethod =
             typeof(object).GetMethod("MemberwiseClone",
                 BindingFlags.NonPublic | BindingFlags.Instance);
+        
+        private static int s_NumOfTabs = 0;
 
         public static string ToStringExtension(this object i_Obj)
         {
@@ -23,8 +25,16 @@ namespace Ex03.GarageLogic.Com.Team.Misc
             stringBuilder.Append("{");
             foreach (PropertyInfo property in i_Obj.GetType().GetProperties())
             {
+
+                if (property.GetType().GetProperties().Length > 0)
+                {
+                    s_NumOfTabs++;
+                    newIndentLine(stringBuilder,s_NumOfTabs);
+                }
+                // stringBuilder.Append("  ");
                 stringBuilder.Append(property.Name);
                 stringBuilder.Append(": ");
+                // stringBuilder.Append(tabConcatString(s_NumOfTabs));
                 if (property.GetIndexParameters().Length > 0)
                 {
                     stringBuilder.Append("Indexed Property cannot be used");
@@ -39,13 +49,39 @@ namespace Ex03.GarageLogic.Com.Team.Misc
                 if (i < i_Obj.GetType().GetProperties().Length)
                 {
                     // stringBuilder.Append(Environment.NewLine);
-                    stringBuilder.Append(", ");
+                    // stringBuilder.Append(", ");
+                    // stringBuilder.Append(tabConcatString(s_NumOfTabs));
                 }
+                s_NumOfTabs--;
             }
-
+            
+            newIndentLine(stringBuilder,s_NumOfTabs);
+            // stringBuilder.Append("  ");
             stringBuilder.Append("}");
+            
+            
+            // newIndentLine(stringBuilder,s_NumOfTabs);
+            
+
 
             return stringBuilder.ToString();
+        }
+
+        private static void newIndentLine(StringBuilder io_StringBuilder, int i_NumOfTabs)
+        {
+            io_StringBuilder.Append(Environment.NewLine);
+            io_StringBuilder.Append(tabConcatString(i_NumOfTabs));
+        }
+
+        private static string tabConcatString(int i_NumOfTabs)
+        {
+            StringBuilder builder = new StringBuilder();
+            for (int i = 1; i <= i_NumOfTabs; i++)
+            {
+                builder.Append("    ");
+            }
+
+            return builder.ToString();
         }
 
         public static bool IsPrimitive(this Type i_Type)
