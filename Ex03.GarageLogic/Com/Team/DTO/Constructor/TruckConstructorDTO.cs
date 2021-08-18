@@ -1,6 +1,7 @@
 ﻿using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
 
+// ReSharper disable once TooManyDependencies
 namespace Ex03.GarageLogic.Com.Team.DTO.Constructor
 {
     public class TruckConstructorDTO : VehicleConstructorDTO

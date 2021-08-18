@@ -1,4 +1,6 @@
-﻿namespace Ex03.GarageLogic.Com.Team.Exception
+﻿// ReSharper disable UnusedAutoPropertyAccessor.Local
+
+namespace Ex03.GarageLogic.Com.Team.Exception
 {
     public class ValueOutOfRangeException : System.Exception
     {

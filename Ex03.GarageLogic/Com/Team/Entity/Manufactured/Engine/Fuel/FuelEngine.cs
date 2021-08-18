@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 
+// ReSharper disable once FlagArgument
 namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Fuel
 {
     public sealed class FuelEngine : Engine
