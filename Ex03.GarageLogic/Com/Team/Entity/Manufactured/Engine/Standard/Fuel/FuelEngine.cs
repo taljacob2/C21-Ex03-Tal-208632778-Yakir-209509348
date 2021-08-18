@@ -3,7 +3,7 @@ using Ex03.GarageLogic.Com.Team.Exception;
 
 namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Standard.Fuel
 {
-    public sealed class FuelEngine : StandardEngine, ISelfRefueler
+    public sealed class FuelEngine : StandardEngine
     {
         /// <summary>
         ///     Note: Capacity is measured in `Liter` units.
@@ -11,15 +11,15 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Standard.Fuel
         /// <param name="i_ManufacturerFuelType">
         ///     Determines the Manufacturer's fuel type for this engine.
         /// </param>
-        /// <param name="i_ManufacturerMaxEnergyAsVolumeOfFuelTankInLiters">
-        ///     Sets the <see cref="Engine.ManufacturerMaxEnergy" />
+        /// <param name="i_ManufacturerMaxVolumeOfFuelTankInLiters">
+        ///     Sets the <see cref="Manufactured.ManufacturerMaxValue" />
         /// </param>
         public FuelEngine(eType i_ManufacturerFuelType,
-            float i_ManufacturerMaxEnergyAsVolumeOfFuelTankInLiters)
+            float i_ManufacturerMaxVolumeOfFuelTankInLiters)
         {
             ManufacturerFuelType = i_ManufacturerFuelType;
-            ManufacturerMaxEnergy =
-                i_ManufacturerMaxEnergyAsVolumeOfFuelTankInLiters;
+            ManufacturerMaxValue =
+                i_ManufacturerMaxVolumeOfFuelTankInLiters;
         }
 
         /// <summary>
@@ -27,11 +27,8 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Standard.Fuel
         /// </summary>
         public eType ManufacturerFuelType { get; }
 
-        public void RefuelSelf(eType i_Type, float i_LitersToAdd)
+        public void AddFuel(eType i_Type, float i_Liters)
         {
-            ValueOutOfRangeException rangeException =
-                new ValueOutOfRangeException(ManufacturerMaxEnergy, 0);
-
             InvalidEnumArgumentException enumException =
                 new InvalidEnumArgumentException(string.Format(
                     "Invalid request of Fuel-Type, Manufacturer Fuel-Type: {0}," +
@@ -45,19 +42,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Standard.Fuel
                 throw enumException;
             }
 
-            // Assert minimum:
-            if (i_LitersToAdd < 0)
-            {
-                throw rangeException;
-            }
-
-            // Assert maximum:
-            if (ManufacturerMaxEnergy > Energy + i_LitersToAdd)
-            {
-                throw rangeException;
-            }
-
-            Energy += i_LitersToAdd;
+            this.AddSelfValue(i_Liters);
         }
     }
 }

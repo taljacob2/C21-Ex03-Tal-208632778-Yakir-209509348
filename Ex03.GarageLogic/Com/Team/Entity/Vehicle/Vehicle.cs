@@ -32,7 +32,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle
 
         public float GetRemainedEnergyPercentage()
         {
-            return Engine.GetRemainedEnergyPercentage();
+            return Engine.GetValuePercentage();
         }
 
         public override string ToString()

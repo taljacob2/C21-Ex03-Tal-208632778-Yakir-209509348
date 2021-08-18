@@ -1,7 +1,7 @@
 ﻿namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured
 {
-    /// <summary>
-    ///     Mark interface.
-    /// </summary>
-    public interface ISelfValueAdder {}
+    public interface ISelfValueAdder
+    {
+        void AddSelfValue(float i_ValueToAdd);
+    }
 }

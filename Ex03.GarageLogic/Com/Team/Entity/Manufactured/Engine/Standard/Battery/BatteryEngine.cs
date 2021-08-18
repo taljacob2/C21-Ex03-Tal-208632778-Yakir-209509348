@@ -1,38 +1,21 @@
-﻿using Ex03.GarageLogic.Com.Team.Exception;
-
-namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Standard.Battery
+﻿namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Standard.Battery
 {
-    public sealed class BatteryEngine : StandardEngine, ISelfRecharger
+    public sealed class BatteryEngine : StandardEngine
     {
         /// <summary>
         ///     Note: Capacity is measured in `Hour` units.
         /// </summary>
-        /// <param name="i_ManufacturerMaxEnergyAsCapacityInHours">
-        ///     Sets the <see cref="Engine.ManufacturerMaxEnergy" />
+        /// <param name="i_ManufacturerMaxCapacityInHours">
+        ///     Sets the <see cref="Manufactured.ManufacturerMaxValue" />
         /// </param>
-        public BatteryEngine(float i_ManufacturerMaxEnergyAsCapacityInHours)
+        public BatteryEngine(float i_ManufacturerMaxCapacityInHours)
         {
-            ManufacturerMaxEnergy = i_ManufacturerMaxEnergyAsCapacityInHours;
+            ManufacturerMaxValue = i_ManufacturerMaxCapacityInHours;
         }
-
-        public void RechargeSelf(float i_MinutesToAdd)
+        
+        public void AddCharge(float i_MinutesToAdd)
         {
-            ValueOutOfRangeException exception =
-                new ValueOutOfRangeException(ManufacturerMaxEnergy, 0);
-
-            // Assert minimum:
-            if (i_MinutesToAdd < 0)
-            {
-                throw exception;
-            }
-
-            // Assert maximum:
-            if (ManufacturerMaxEnergy > Energy + i_MinutesToAdd)
-            {
-                throw exception;
-            }
-
-            Energy += i_MinutesToAdd;
+            this.AddSelfValue(i_MinutesToAdd);
         }
     }
 }
