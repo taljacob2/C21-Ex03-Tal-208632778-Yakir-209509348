@@ -8,6 +8,14 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
         private readonly IGarageController r_GarageController =
             new GarageControllerImpl();
 
-        public void RunUI() {}
+        public void RunUI()
+        {
+            printMenu();
+        }
+
+        private void printMenu()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
