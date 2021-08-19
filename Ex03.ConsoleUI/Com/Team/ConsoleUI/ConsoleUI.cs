@@ -421,11 +421,26 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                 StringIndentation.Create(io_IndentationLevel);
             Console.Out.WriteLine(
                 $"{indentationString}Create {nameof(ExtendedEngine)}:");
-            int extendedEngineVolumeInCC =
-                InputUtil.ConvertWithAssertByRange<int>(
-                    $"{indentationString}Enter {nameof(extendedEngineVolumeInCC)}: ",
-                    1, int.MaxValue);
-
+            int extendedEngineVolumeInCC = 0;
+            while (extendedEngineVolumeInCC == 0)
+            {
+                try
+                {
+                    extendedEngineVolumeInCC =
+                        InputUtil.ConvertWithAssertByRangeWithException<int>(
+                            $"{indentationString}Enter {nameof(extendedEngineVolumeInCC)}: ",
+                            1, int.MaxValue);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+            }
+            // Comment: instead, you may do so, and avoid exceptions:
+            // InputUtil.ConvertWithAssertByRange<int>(
+            //     $"{indentationString}Enter {nameof(extendedEngineVolumeInCC)}: ",
+            //     1, int.MaxValue);
+            
             io_IndentationLevel--;
 
             return extendedEngineVolumeInCC;

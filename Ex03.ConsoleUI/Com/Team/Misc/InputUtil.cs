@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using Ex03.GarageLogic.Com.Team.Exception;
 using MiscUtil;
 
 #endregion
@@ -59,6 +60,23 @@ namespace Ex03.ConsoleUI.Com.Team.Misc
 
             return converted;
         }
+        
+        // DEPRECATED (just for this exercise):        
+        public static int ConvertWithAssertByRangeWithException<T>(string 
+        i_Message, int i_MinimumRange, int i_MaximumRange)
+        {
+            int converted = Convert<int>(i_Message);
+            if (!isConvertedInRange(converted, i_MinimumRange, i_MaximumRange)
+            )
+            {
+                Console.Out.WriteLine(k_BadInputMessage);
+                throw new ValueOutOfRangeException(i_MaximumRange,
+                    i_MinimumRange);
+            }
+
+            return converted;
+        }        
+        
 
         /// <summary>
         ///     Generic comparison by range.
