@@ -13,45 +13,6 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 {
     public class ConsoleUI
     {
-        private static class EnumUpperString
-        {
-            static EnumUpperString()
-            {
-                // eVehicleType:
-                sr_CarStringUpper = sr_CarStringUpper.ToUpper();
-                sr_MotorcycleStringUpper = sr_MotorcycleStringUpper.ToUpper();
-                sr_TruckStringUpper = sr_TruckStringUpper.ToUpper();
-
-                // eColor:
-                sr_BlackStringUpper = sr_BlackStringUpper.ToUpper();
-                sr_RedStringUpper = sr_RedStringUpper.ToUpper();
-                sr_SilverStringUpper = sr_SilverStringUpper.ToUpper();
-                sr_WhiteStringUpper = sr_WhiteStringUpper.ToUpper();
-            }
-
-            public static readonly string sr_CarStringUpper =
-                $"{eVehicleType.Car:G}";
-
-            public static readonly string sr_MotorcycleStringUpper =
-                $"{eVehicleType.Motorcycle:G}";
-
-            public static readonly string sr_TruckStringUpper =
-                $"{eVehicleType.Truck:G}";
-
-            public static readonly string sr_BlackStringUpper =
-                $"{Car.eColor.Black:G}";
-
-            public static readonly string sr_RedStringUpper =
-                $"{Car.eColor.Red:G}";
-
-            public static readonly string sr_SilverStringUpper =
-                $"{Car.eColor.Silver:G}";
-
-            public static readonly string sr_WhiteStringUpper =
-                $"{Car.eColor.White:G}";
-        }
-
-
         public IGarageController GarageController { get; } =
             new GarageControllerImpl();
 
@@ -184,13 +145,6 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             throw new NotImplementedException();
         }
 
-        private enum eVehicleType
-        {
-            Car,
-            Motorcycle,
-            Truck
-        }
-
         private static string indentationString(int i_IndentationLevel)
         {
             StringBuilder builder = new StringBuilder();
@@ -200,6 +154,51 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             }
 
             return builder.ToString();
+        }
+
+        private static class EnumUpperString
+        {
+            public static readonly string sr_CarStringUpper =
+                $"{eVehicleType.Car:G}";
+
+            public static readonly string sr_MotorcycleStringUpper =
+                $"{eVehicleType.Motorcycle:G}";
+
+            public static readonly string sr_TruckStringUpper =
+                $"{eVehicleType.Truck:G}";
+
+            public static readonly string sr_BlackStringUpper =
+                $"{Car.eColor.Black:G}";
+
+            public static readonly string sr_RedStringUpper =
+                $"{Car.eColor.Red:G}";
+
+            public static readonly string sr_SilverStringUpper =
+                $"{Car.eColor.Silver:G}";
+
+            public static readonly string sr_WhiteStringUpper =
+                $"{Car.eColor.White:G}";
+
+            static EnumUpperString()
+            {
+                // eVehicleType:
+                sr_CarStringUpper = sr_CarStringUpper.ToUpper();
+                sr_MotorcycleStringUpper = sr_MotorcycleStringUpper.ToUpper();
+                sr_TruckStringUpper = sr_TruckStringUpper.ToUpper();
+
+                // eColor:
+                sr_BlackStringUpper = sr_BlackStringUpper.ToUpper();
+                sr_RedStringUpper = sr_RedStringUpper.ToUpper();
+                sr_SilverStringUpper = sr_SilverStringUpper.ToUpper();
+                sr_WhiteStringUpper = sr_WhiteStringUpper.ToUpper();
+            }
+        }
+
+        private enum eVehicleType
+        {
+            Car,
+            Motorcycle,
+            Truck
         }
     }
 }

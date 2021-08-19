@@ -20,7 +20,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl
             SetTires(i_TruckConstructorDTO.TireToSetForAllTires,
                 k_TiresAmount);
         }
-        
+
         public Truck(Engine i_Engine)
         {
             Engine = i_Engine;

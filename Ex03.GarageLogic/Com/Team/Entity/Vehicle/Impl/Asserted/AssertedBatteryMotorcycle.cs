@@ -15,7 +15,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl.Asserted
                 new Motorcycle(new ExtendedEngine(new BatteryEngine(1.8F),
                     i_EngineVolumeInCC));
             Motorcycle.SetTires(new Tire(i_TireManufacturerName,
-                30, 0), Motorcycle.k_TiresAmount);            
+                30, 0), Motorcycle.k_TiresAmount);
             Motorcycle.ModelName = i_ModelName;
             Motorcycle.LicensePlate = i_LicensePlate;
             Motorcycle.LicenseType = i_LicenseType;
