@@ -39,9 +39,9 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl
             Engine = i_Engine;
         }
         
-        public eColor Color { get; }
+        public eColor Color { get; set; }
 
-        public eDoorsAmount DoorsAmount { get; }
+        public eDoorsAmount DoorsAmount { get; set; }
 
         public override string ToString()
         {

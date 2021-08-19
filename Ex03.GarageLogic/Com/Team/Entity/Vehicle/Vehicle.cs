@@ -18,9 +18,9 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle
         /// <summary>
         ///     Unique ID.
         /// </summary>
-        public string LicensePlate { get; protected set; }
+        public string LicensePlate { get; protected internal set; }
 
-        public string ModelName { get; protected set; }
+        public string ModelName { get; protected internal set; }
 
         public Tires Tires { get; } = new Tires();
 

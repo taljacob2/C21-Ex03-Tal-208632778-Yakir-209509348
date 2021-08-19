@@ -1,18 +1,17 @@
-﻿using Ex03.GarageLogic.Com.Team.Entity.Manufactured;
-using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Fuel;
+﻿using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
 
 namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl.Asserted
 {
-    public class AssertedFuelCar
+    public class AssertedBatteryCar
     {
-        private AssertedFuelCar(string i_TireManufacturerName)
+        public AssertedBatteryCar(string i_TireManufacturerName)
         {
             Car.SetTires(new Tire(i_TireManufacturerName,
                 32, 0), Car.k_TiresAmount);
         }
 
-        public AssertedFuelCar(string i_ModelName, string i_LicensePlate,
+        public AssertedBatteryCar(string i_ModelName, string i_LicensePlate,
             Car.eColor i_Color,
             Car.eDoorsAmount i_DoorsAmount,
             string i_TireManufacturerName) : this(i_TireManufacturerName)
@@ -24,17 +23,17 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl.Asserted
         }
 
         protected Car Car { get; } =
-            new Car(new FuelEngine(eType.Octan95, 45));
+            new Car(new BatteryEngine(3.2F));
 
-        public FuelEngine Engine => (FuelEngine) Car.Engine;
+        public BatteryEngine Engine => (BatteryEngine) Car.Engine;
 
         public Car.eColor Color => Car.Color;
 
         public Car.eDoorsAmount DoorsAmount => Car.DoorsAmount;
 
-        public void AddFuel(eType i_Type, float i_Liters)
+        public void AddCharge(float i_MinutesToAdd)
         {
-            Engine.AddFuel(i_Type, i_Liters);
+            Engine.AddCharge(i_MinutesToAdd);
         }
     }
 }
