@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 using Ex03.ConsoleUI.Com.Team.Misc;
@@ -21,24 +22,35 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
         public void RunConsoleUI()
         {
+            Console.Out.WriteLine("Welcome To The Garage Manager!");
             int selectedMenuOption = -1;
             while (selectedMenuOption != Menu.k_ExitProgram)
             {
                 switchInvokeMenuOptions(ref selectedMenuOption);
             }
+            
+            Console.Out.WriteLine("Good Bye.");
         }
 
         private void switchInvokeMenuOptions(ref int io_SelectedMenuOption)
         {
-            io_SelectedMenuOption = InputUtil.Convert<int>(Menu.GetMenu());
+            io_SelectedMenuOption = InputUtil.Convert<int>
+            (Menu.GetMenu(), Menu.k_CreateAndInsertVehicleRecord,
+                Menu.k_PrintLicensePlates, Menu
+                    .k_PrintSelectedLicensePlatesByState,
+                Menu.k_SetStateOfRecordByLicensePlate, Menu.k_ExitProgram);
+
             switch (io_SelectedMenuOption)
             {
-                case Menu.k_PostCreateAndInsertRecord:
-
+                case Menu.k_CreateAndInsertVehicleRecord:
+                    break;
+                case Menu.k_PrintLicensePlates:
+                    break;
+                case Menu.k_PrintSelectedLicensePlatesByState:
+                    break;
+                case Menu.k_SetStateOfRecordByLicensePlate:
                     break;
             }
-
-            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -773,7 +785,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
         private static class Menu
         {
-            public const int k_PostCreateAndInsertRecord = 1;
+            public const int k_CreateAndInsertVehicleRecord = 1;
             public const int k_PrintLicensePlates = 2;
             public const int k_PrintSelectedLicensePlatesByState = 3;
             public const int k_SetStateOfRecordByLicensePlate = 4;
@@ -784,22 +796,22 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             {
                 // Using string.Format:
                 return String.Format(
-                           "{0}. PostCreateAndInsertRecord" +
+                           "{0}. Create And Insert Vehicle Record" +
                            Environment.NewLine,
-                           k_PostCreateAndInsertRecord) +
+                           k_CreateAndInsertVehicleRecord) +
                        String.Format(
-                           "{0}. PrintLicensePlates" + Environment.NewLine,
+                           "{0}. Print License Plates" + Environment.NewLine,
                            k_PrintLicensePlates) +
                        String.Format(
-                           "{0}. PrintSelectedLicensePlatesByState" +
+                           "{0}. Print Selected License Plates By State" +
                            Environment.NewLine,
                            k_PrintSelectedLicensePlatesByState) +
                        String.Format(
-                           "{0}. SetStateOfRecordByLicensePlate" +
+                           "{0}. Set State Of Record By License Plate" +
                            Environment.NewLine,
                            k_SetStateOfRecordByLicensePlate) +
                        String.Format("{0}. Exit Program",
-                           k_ExitProgram);
+                           k_ExitProgram) + Environment.NewLine;
             }
         }
     }
