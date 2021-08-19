@@ -77,6 +77,22 @@ namespace Ex03.ConsoleUI.Com.Team.Misc
 
             return converted;
         }
+        
+        // DEPRECATED (just for this exercise):        
+        public static float ConvertWithAssertByRangeWithException<T>(string
+            i_Message, float i_MinimumRange, float i_MaximumRange)
+        {
+            float converted = Convert<float>(i_Message);
+            if (!isConvertedInRange(converted, i_MinimumRange, i_MaximumRange)
+            )
+            {
+                Console.Out.WriteLine(k_BadInputMessage);
+                throw new ValueOutOfRangeException(i_MaximumRange,
+                    i_MinimumRange);
+            }
+
+            return converted;
+        }
 
         // DEPRECATED (just for this exercise):  
         public static string ConvertWithAssertByRegexWithException(

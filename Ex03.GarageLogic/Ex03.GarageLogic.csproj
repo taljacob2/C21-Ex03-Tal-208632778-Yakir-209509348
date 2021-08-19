@@ -53,6 +53,7 @@
         <Compile Include="Com\Team\DTO\Constructor\VehicleComponentConstructorDTO.cs" />
         <Compile Include="Com\Team\DTO\Model\Request\CreateAndInsertAssertedCarRequest.cs" />
         <Compile Include="Com\Team\DTO\Model\Request\CreateAndInsertAssertedMotorcycleRequest.cs" />
+        <Compile Include="Com\Team\DTO\Model\Request\CreateAndInsertAssertedTruckRequest.cs" />
         <Compile Include="Com\Team\DTO\Model\Request\RechargeRequest.cs" />
         <Compile Include="Com\Team\DTO\Model\Request\RefuelRequest.cs" />
         <Compile Include="Com\Team\DTO\Model\Request\NewStateRequest.cs" />

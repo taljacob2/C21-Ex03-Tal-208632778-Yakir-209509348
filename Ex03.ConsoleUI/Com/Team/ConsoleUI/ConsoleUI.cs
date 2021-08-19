@@ -289,6 +289,41 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return nullableReturnValue.Value;
         }
 
+        private Record createTruckTypeSwitch(Owner i_Owner, string i_ModelName,
+            string i_LicensePlate,
+            string i_TireManufacturerName,
+            bool i_IsContainingDangerousMaterials,
+            float i_MaxCarryingCapabilityInKilos,
+            GarageEnums.eEngineType i_EngineType)
+        {
+            CreateAndInsertAssertedTruckRequest request =
+                new CreateAndInsertAssertedTruckRequest(
+                    i_Owner,
+                    i_ModelName, i_LicensePlate, i_TireManufacturerName,
+                    i_IsContainingDangerousMaterials, i_MaxCarryingCapabilityInKilos, i_EngineType);
+            Record? nullableReturnValue = null;
+            GarageEnums.eEngineType valueToSwitch = i_EngineType;
+            string responseMessage = "";
+            if (valueToSwitch == GarageEnums.eEngineType.Fuel)
+            {
+                nullableReturnValue =
+                    GarageController.PostCreateAndInsertAssertedFuelCar(request,
+                        out
+                        responseMessage);
+            }
+            else if (valueToSwitch == GarageEnums.eEngineType.Battery)
+            {
+                nullableReturnValue =
+                    GarageController.PostCreateAndInsertAssertedBatteryCar(
+                        request, out
+                        responseMessage);
+            }
+
+            Console.Out.WriteLine(responseMessage);
+
+            return nullableReturnValue.Value;
+        }
+
         private GarageEnums.eEngineType createEngineType(
             string i_IndentationString)
         {
@@ -454,14 +489,39 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                 createTireManufacturerName(ref io_IndentationLevel);
             bool isContainingDangerousMaterials =
                 createIsContainingDangerousMaterials(indentationString);
-            Car.eDoorsAmount doorsAmount = createDoorsAmount(indentationString);
+            float maxCarryingCapabilityInKilos =
+                createMaxCarryingCapabilityInKilos(indentationString);
+
             GarageEnums.eEngineType engineType =
                 createEngineType(indentationString);
 
             io_IndentationLevel--;
 
-            return createCarTypeSwitch(i_Owner, i_ModelName, i_LicensePlate,
-                tireManufacturerName, color, doorsAmount, engineType);
+            return createTruckTypeSwitch(i_Owner, i_ModelName, i_LicensePlate,
+                tireManufacturerName, isContainingDangerousMaterials,
+                maxCarryingCapabilityInKilos, engineType);
+        }
+
+        private static float createMaxCarryingCapabilityInKilos(
+            string i_IndentationString)
+        {
+            float maxCarryingCapabilityInKilos = -1;
+            while (maxCarryingCapabilityInKilos == -1)
+            {
+                try
+                {
+                    maxCarryingCapabilityInKilos =
+                        InputUtil.ConvertWithAssertByRangeWithException<float>(
+                            $"{i_IndentationString}Enter {nameof(maxCarryingCapabilityInKilos)}: ",
+                            0, float.MaxValue);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+            }
+
+            return maxCarryingCapabilityInKilos;
         }
 
         private bool createIsContainingDangerousMaterials(
