@@ -16,7 +16,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 {
     public class ConsoleUI
     {
-        public IGarageController GarageController { get; } =
+        public static IGarageController GarageController { get; } =
             new GarageControllerImpl();
 
         public void RunConsoleUI()
@@ -35,7 +35,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             Console.Out.WriteLine(responseMessage);
 
             // DEBUG: test 
-            PostCreateRecord();
+            PostCreateAndInsertRecord();
 
             // printMenu();
         }
@@ -48,7 +48,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
         ///     requested to insert an unavailable vehicle.
         ///     Otherwise contains the retrieved success record.
         /// </returns>
-        public Record? PostCreateRecord()
+        public static Record? PostCreateAndInsertRecord()
         {
             int indentationLevel = 0;
             Console.Out.WriteLine(
@@ -57,7 +57,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return createVehicle(owner, ref indentationLevel);
         }
 
-        private Owner createOwner(ref int io_IndentationLevel)
+        private static Owner createOwner(ref int io_IndentationLevel)
         {
             io_IndentationLevel++;
 
@@ -116,7 +116,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return name;
         }
 
-        private Record? createVehicle(Owner i_Owner,
+        private static Record? createVehicle(Owner i_Owner,
             ref int io_IndentationLevel)
         {
             io_IndentationLevel++;
@@ -173,7 +173,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return builder.ToString();
         }
 
-        private Record? createVehicleTypeSwitch(Owner i_Owner,
+        private static Record? createVehicleTypeSwitch(Owner i_Owner,
             ref int io_IndentationLevel,
             string i_VehicleType, string i_ModelName, string i_LicensePlate)
         {
@@ -205,7 +205,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return nullableReturnValue;
         }
 
-        private Record? createCar(Owner i_Owner,
+        private static Record? createCar(Owner i_Owner,
             ref int io_IndentationLevel,
             string i_ModelName, string i_LicensePlate)
         {
@@ -227,7 +227,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                 tireManufacturerName, color, doorsAmount, engineType);
         }
 
-        private Record? createMotorcycleTypeSwitch(Owner i_Owner,
+        private static Record? createMotorcycleTypeSwitch(Owner i_Owner,
             string i_ModelName,
             string i_LicensePlate,
             string i_TireManufacturerName,
@@ -263,7 +263,8 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return nullableReturnValue;
         }
 
-        private Record? createCarTypeSwitch(Owner i_Owner, string i_ModelName,
+        private static Record? createCarTypeSwitch(Owner i_Owner,
+            string i_ModelName,
             string i_LicensePlate,
             string i_TireManufacturerName, Car.eColor i_Color,
             Car.eDoorsAmount i_DoorsAmount,
@@ -297,7 +298,8 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return nullableReturnValue;
         }
 
-        private Record? createTruckTypeSwitch(Owner i_Owner, string i_ModelName,
+        private static Record? createTruckTypeSwitch(Owner i_Owner,
+            string i_ModelName,
             string i_LicensePlate,
             string i_TireManufacturerName,
             bool i_IsContainingDangerousMaterials,
@@ -336,7 +338,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return nullableReturnValue;
         }
 
-        private GarageEnums.eEngineType createEngineType(
+        private static GarageEnums.eEngineType createEngineType(
             string i_IndentationString)
         {
             string validEnumStrings = createValidStringsMessage(
@@ -427,7 +429,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return nullableOfReturnValue.Value;
         }
 
-        private Record? createMotorcycle(Owner i_Owner,
+        private static Record? createMotorcycle(Owner i_Owner,
             ref int io_IndentationLevel,
             string i_ModelName, string i_LicensePlate)
         {
@@ -454,7 +456,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                 engineType);
         }
 
-        private Motorcycle.eLicenseType createLicenseType(
+        private static Motorcycle.eLicenseType createLicenseType(
             string i_IndentationString)
         {
             string validEnumStrings = createValidStringsMessage(
@@ -487,7 +489,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return nullableOfReturnValue.Value;
         }
 
-        private Record? createTruck(Owner i_Owner,
+        private static Record? createTruck(Owner i_Owner,
             ref int io_IndentationLevel,
             string i_ModelName, string i_LicensePlate)
         {
@@ -536,7 +538,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return maxCarryingCapabilityInKilos;
         }
 
-        private bool createIsContainingDangerousMaterials(
+        private static bool createIsContainingDangerousMaterials(
             string i_IndentationString)
         {
             const string k_True = "true";
@@ -561,7 +563,8 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return nullableOfReturnValue.Value;
         }
 
-        private int createExtendedEngineVolumeInCC(ref int io_IndentationLevel)
+        private static int createExtendedEngineVolumeInCC(
+            ref int io_IndentationLevel)
         {
             io_IndentationLevel++;
 
@@ -595,7 +598,8 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return extendedEngineVolumeInCC;
         }
 
-        private string createTireManufacturerName(ref int io_IndentationLevel)
+        private static string createTireManufacturerName(
+            ref int io_IndentationLevel)
         {
             io_IndentationLevel++;
 
@@ -768,6 +772,13 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                     sr_BB = sr_BB.ToUpper();
                 }
             }
+        }
+
+        private static class Menu
+        {
+            private const int k_PostCreateAndInsertRecord = 1;
+
+            public static void Print() {}
         }
     }
 }
