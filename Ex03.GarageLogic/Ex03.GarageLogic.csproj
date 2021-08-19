@@ -66,7 +66,9 @@
         <Compile Include="Com\Team\Entity\Manufactured\Tire\Tire.cs" />
         <Compile Include="Com\Team\Entity\Manufactured\Tire\Tires.cs" />
         <Compile Include="Com\Team\Entity\Vehicle\Impl\Asserted\AssertedBatteryCar.cs" />
+        <Compile Include="Com\Team\Entity\Vehicle\Impl\Asserted\AssertedBatteryMotorcycle.cs" />
         <Compile Include="Com\Team\Entity\Vehicle\Impl\Asserted\AssertedFuelCar.cs" />
+        <Compile Include="Com\Team\Entity\Vehicle\Impl\Asserted\AssertedFuelMotorcycle.cs" />
         <Compile Include="Com\Team\Entity\Vehicle\Impl\Car.cs" />
         <Compile Include="Com\Team\Entity\Vehicle\Impl\Motorcycle.cs" />
         <Compile Include="Com\Team\Entity\Vehicle\Impl\Truck.cs" />

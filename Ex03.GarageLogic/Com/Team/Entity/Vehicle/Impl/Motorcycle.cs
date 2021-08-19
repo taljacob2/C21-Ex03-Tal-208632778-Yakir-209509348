@@ -1,4 +1,5 @@
 ﻿using Ex03.GarageLogic.Com.Team.DTO.Constructor;
+using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Extended;
 using Ex03.GarageLogic.Com.Team.Misc;
 
@@ -26,9 +27,14 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl
                 k_TiresAmount);
         }
 
+        public Motorcycle(ExtendedEngine i_ExtendedEngine)
+        {
+            ExtendedEngine = i_ExtendedEngine;
+        }
+
         public ExtendedEngine ExtendedEngine { get; }
 
-        public eLicenseType LicenseType { get; }
+        public eLicenseType LicenseType { get; set; }
 
         public override string ToString()
         {
