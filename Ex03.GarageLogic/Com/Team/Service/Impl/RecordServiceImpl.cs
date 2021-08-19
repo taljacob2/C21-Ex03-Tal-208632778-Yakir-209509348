@@ -9,6 +9,9 @@ using Ex03.GarageLogic.Com.Team.Repository.Impl;
 
 namespace Ex03.GarageLogic.Com.Team.Service.Impl
 {
+    /// <summary>
+    /// Create `new` objects here. 
+    /// </summary>
     public class RecordServiceImpl : IRecordService
     {
         public IRecordRepository RecordRepository { get; } =
@@ -19,9 +22,9 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             return new Record(i_Vehicle, i_Owner);
         }
 
-        public void
-            Refuel(RefuelRequest i_Request) // TODO: continue implementation.
+        public void Refuel(RefuelRequest i_Request)
         {
+            // TODO: continue implementation.
             Record? nullableRecord =
                 RecordRepository.FindByLicensePlate(i_Request.LicensePlate);
         }
