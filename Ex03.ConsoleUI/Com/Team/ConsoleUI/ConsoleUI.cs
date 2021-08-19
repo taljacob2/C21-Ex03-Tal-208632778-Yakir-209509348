@@ -13,6 +13,45 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 {
     public class ConsoleUI
     {
+        private static class EnumUpperString
+        {
+            static EnumUpperString()
+            {
+                // eVehicleType:
+                sr_CarStringUpper = sr_CarStringUpper.ToUpper();
+                sr_MotorcycleStringUpper = sr_MotorcycleStringUpper.ToUpper();
+                sr_TruckStringUpper = sr_TruckStringUpper.ToUpper();
+
+                // eColor:
+                sr_BlackStringUpper = sr_BlackStringUpper.ToUpper();
+                sr_RedStringUpper = sr_RedStringUpper.ToUpper();
+                sr_SilverStringUpper = sr_SilverStringUpper.ToUpper();
+                sr_WhiteStringUpper = sr_WhiteStringUpper.ToUpper();
+            }
+
+            public static readonly string sr_CarStringUpper =
+                $"{eVehicleType.Car:G}";
+
+            public static readonly string sr_MotorcycleStringUpper =
+                $"{eVehicleType.Motorcycle:G}";
+
+            public static readonly string sr_TruckStringUpper =
+                $"{eVehicleType.Truck:G}";
+
+            public static readonly string sr_BlackStringUpper =
+                $"{Car.eColor.Black:G}";
+
+            public static readonly string sr_RedStringUpper =
+                $"{Car.eColor.Red:G}";
+
+            public static readonly string sr_SilverStringUpper =
+                $"{Car.eColor.Silver:G}";
+
+            public static readonly string sr_WhiteStringUpper =
+                $"{Car.eColor.White:G}";
+        }
+
+
         public IGarageController GarageController { get; } =
             new GarageControllerImpl();
 
@@ -45,42 +84,48 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
         }
 
         private Owner createOwner()
+
         {
+            const int k_Indentation = 1;
             Console.Out.WriteLine("Create Owner:");
-            string name = InputUtil.Convert<string>("  Enter name: ");
+            string name =
+                InputUtil.Convert<string>(
+                    indentationString(k_Indentation) + "Enter name: ");
             string phoneNumber =
-                InputUtil.Convert<string>("  Enter phone-number: ");
+                InputUtil.Convert<string>(
+                    indentationString(k_Indentation) + "Enter phone-number: ");
             return new Owner(phoneNumber, name);
         }
 
         private Vehicle createVehicle()
         {
-            string carStringUpper = $"{eVehicleType.Car:G}";
-            carStringUpper = carStringUpper.ToUpper();
-            string motorcycleStringUpper = $"{eVehicleType.Motorcycle:G}";
-            motorcycleStringUpper = motorcycleStringUpper.ToUpper();
-            string truckStringUpper = $"{eVehicleType.Truck:G}";
-            truckStringUpper = truckStringUpper.ToUpper();
-
+            const int k_Indentation = 1;
             Console.Out.WriteLine("Create Vehicle:");
             string vehicleType = InputUtil.ConvertIgnoreCase(
-                "  Enter vehicle-type: ",
-                carStringUpper, motorcycleStringUpper, truckStringUpper);
-            string modelName = InputUtil.Convert<string>("  Enter name: ");
+                indentationString(k_Indentation) + "Enter vehicle-type: ",
+                EnumUpperString.sr_CarStringUpper, EnumUpperString
+                    .sr_MotorcycleStringUpper,
+                EnumUpperString.sr_TruckStringUpper);
+            string modelName =
+                InputUtil.Convert<string>(
+                    indentationString(k_Indentation) + "Enter name: ");
             string licensePlate =
-                InputUtil.Convert<string>("  Enter phone-number: ");
+                InputUtil.Convert<string>(
+                    indentationString(k_Indentation) + "Enter phone-number: ");
 
             Vehicle returnValue = null;
-            if (vehicleType.ToUpper().Equals(carStringUpper))
+            if (vehicleType.ToUpper().Equals(EnumUpperString.sr_CarStringUpper))
             {
                 returnValue = createCar(vehicleType, modelName, licensePlate);
             }
-            else if (vehicleType.ToUpper().Equals(motorcycleStringUpper))
+            else if (vehicleType.ToUpper()
+                .Equals(EnumUpperString.sr_MotorcycleStringUpper))
             {
                 returnValue =
                     createMotorcycle(vehicleType, modelName, licensePlate);
             }
-            else if (vehicleType.ToUpper().Equals(truckStringUpper))
+            else if (vehicleType.ToUpper()
+                .Equals(EnumUpperString.sr_TruckStringUpper))
             {
                 returnValue = createTruck(vehicleType, modelName, licensePlate);
             }
@@ -105,16 +150,12 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
         {
             Tire tire = createTire();
 
-            string blackStringUpper = $"{Car.eColor.Black:G}";
-            blackStringUpper = blackStringUpper.ToUpper();
-            string redStringUpper = $"{Car.eColor.Red:G}";
-            redStringUpper = redStringUpper.ToUpper();
-            string silverStringUpper = $"{Car.eColor.Silver:G}";
-            silverStringUpper = silverStringUpper.ToUpper();
-            string whiteStringUpper = $"{Car.eColor.White:G}";
-            whiteStringUpper = whiteStringUpper.ToUpper();
 
+            throw new NotImplementedException();
+        }
 
+        private Tire createTire()
+        {
             throw new NotImplementedException();
         }
 
@@ -148,6 +189,17 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             Car,
             Motorcycle,
             Truck
+        }
+
+        private static string indentationString(int i_IndentationLevel)
+        {
+            StringBuilder builder = new StringBuilder();
+            for (int i = 1; i <= i_IndentationLevel; i++)
+            {
+                builder.Append("    ");
+            }
+
+            return builder.ToString();
         }
     }
 }

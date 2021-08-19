@@ -32,11 +32,8 @@ namespace Ex03.GarageLogic.Com.Team.Misc
                     newIndentLine(stringBuilder, s_NumOfTabs);
                 }
 
-                // stringBuilder.Append("  ");
                 stringBuilder.Append(property.Name);
                 stringBuilder.Append(": ");
-
-                // stringBuilder.Append(tabConcatString(s_NumOfTabs));
                 if (property.GetIndexParameters().Length > 0)
                 {
                     stringBuilder.Append("Indexed Property cannot be used");
@@ -59,13 +56,7 @@ namespace Ex03.GarageLogic.Com.Team.Misc
             }
 
             newIndentLine(stringBuilder, s_NumOfTabs);
-
-            // stringBuilder.Append("  ");
             stringBuilder.Append("}");
-
-
-            // newIndentLine(stringBuilder,s_NumOfTabs);
-
 
             return stringBuilder.ToString();
         }
