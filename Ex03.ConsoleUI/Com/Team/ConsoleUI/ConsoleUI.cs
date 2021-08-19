@@ -77,11 +77,11 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                     phoneNumber =
                         InputUtil.ConvertWithAssertByRegexWithException(
                             $"{i_IndentationString}Enter {nameof(phoneNumber)}: ",
-                            new Regex("[0-9]{7}"));
+                            new Regex("[0-9]{10}"));
                 }
                 catch (Exception)
                 {
-                    Console.Out.WriteLine("Insert exactly 7 numbers.");
+                    Console.Out.WriteLine("Insert exactly 10 numbers.");
                 }
             }
 
@@ -103,7 +103,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                 }
                 catch (Exception)
                 {
-                    Console.Out.WriteLine("Insert the letters only.");
+                    Console.Out.WriteLine("Insert letters only.");
                 }
             }
 
