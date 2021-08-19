@@ -21,23 +21,24 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
         public void RunConsoleUI()
         {
-            // DEBUG: test
-            PrintLicensePlates();
+            int selectedMenuOption = -1;
+            while (selectedMenuOption != Menu.k_ExitProgram)
+            {
+                switchInvokeMenuOptions(ref selectedMenuOption);
+            }
+        }
 
-            // DEBUG: test 
-            GarageController.PostInsert(new Record(new Car(new CarConstructorDTO
-                    ("modelName3", "licensePlate4",
-                        new Tire("talINC", 32, 0), Car.eColor.Black,
-                        Car.eDoorsAmount.Four, new BatteryEngine(3.2F))),
-                    new Owner("054noregex...", "tal")),
-                out StringBuilder responseMessage);
+        private void switchInvokeMenuOptions(ref int io_SelectedMenuOption)
+        {
+            io_SelectedMenuOption = InputUtil.Convert<int>(Menu.GetMenu());
+            switch (io_SelectedMenuOption)
+            {
+                case Menu.k_PostCreateAndInsertRecord:
 
-            Console.Out.WriteLine(responseMessage);
+                    break;
+            }
 
-            // DEBUG: test 
-            PostCreateAndInsertRecord();
-
-            // printMenu();
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -625,7 +626,8 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             }
         }
 
-        public static void PrintSelectedLicensePlatesByState(Record.eState i_State)
+        public static void PrintSelectedLicensePlatesByState(
+            Record.eState i_State)
         {
             foreach (string licensePlate in GarageController
                 .GetLicensePlatesList(i_State)
@@ -633,11 +635,6 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             {
                 Console.Out.WriteLine(licensePlate);
             }
-        }
-
-        private void printMenu()
-        {
-            throw new NotImplementedException();
         }
 
         private static class EnumString
@@ -776,19 +773,33 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
         private static class Menu
         {
-            private const int k_PostCreateAndInsertRecord = 1;
-            private const int k_PrintLicensePlates = 2;
-            private const int k_PrintSelectedLicensePlatesByState = 3;
-            private const int k_ChangeStateOfRecordByLicensePlate = 4;
-            
+            public const int k_PostCreateAndInsertRecord = 1;
+            public const int k_PrintLicensePlates = 2;
+            public const int k_PrintSelectedLicensePlatesByState = 3;
+            public const int k_SetStateOfRecordByLicensePlate = 4;
+            public const int k_ExitProgram = 0;
 
-            public static void Print()
+
+            public static string GetMenu()
             {
                 // Using string.Format:
-                Console.Out.WriteLine("{0}. PostCreateAndInsertRecord", k_PostCreateAndInsertRecord);
-                Console.Out.WriteLine("{0}. PrintLicensePlates", k_PrintLicensePlates);
-                Console.Out.WriteLine("{0}. PrintSelectedLicensePlatesByState", k_PrintSelectedLicensePlatesByState);
-                Console.Out.WriteLine("{0}. ChangeStateOfRecordByLicensePlate", k_ChangeStateOfRecordByLicensePlate);
+                return String.Format(
+                           "{0}. PostCreateAndInsertRecord" +
+                           Environment.NewLine,
+                           k_PostCreateAndInsertRecord) +
+                       String.Format(
+                           "{0}. PrintLicensePlates" + Environment.NewLine,
+                           k_PrintLicensePlates) +
+                       String.Format(
+                           "{0}. PrintSelectedLicensePlatesByState" +
+                           Environment.NewLine,
+                           k_PrintSelectedLicensePlatesByState) +
+                       String.Format(
+                           "{0}. SetStateOfRecordByLicensePlate" +
+                           Environment.NewLine,
+                           k_SetStateOfRecordByLicensePlate) +
+                       String.Format("{0}. Exit Program",
+                           k_ExitProgram);
             }
         }
     }
