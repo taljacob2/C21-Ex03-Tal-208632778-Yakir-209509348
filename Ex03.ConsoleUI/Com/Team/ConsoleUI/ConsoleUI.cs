@@ -305,9 +305,54 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
         {
             io_IndentationLevel++;
 
+            string indentationString =
+                StringIndentation.Create(io_IndentationLevel);
+            Console.Out.WriteLine($"{indentationString}Create {nameof(Motorcycle)}:");
+            string tireManufacturerName =
+                createTireManufacturerName(ref io_IndentationLevel);
+            Car.eColor color = createColor(indentationString);
+            Motorcycle.eLicenseType licenseType = createLicenseType(indentationString);
+            Car.eDoorsAmount doorsAmount = createDoorsAmount(indentationString);
+            GarageEnums.eEngineType engineType =
+                createEngineType(indentationString);
+
             io_IndentationLevel--;
 
-            throw new NotImplementedException();
+            return createCarTypeSwitch(i_Owner, i_ModelName, i_LicensePlate,
+                tireManufacturerName, color, doorsAmount, engineType);
+        }
+
+        private Motorcycle.eLicenseType createLicenseType(string i_IndentationString)
+        {
+            string validEnumStrings = createValidStringsMessage(
+                EnumString.sr_Red, EnumString.sr_Silver,
+                EnumString.sr_White, EnumString.sr_Black);
+            string color = InputUtil.ConvertIgnoreCase(
+                $"{i_IndentationString}Enter {nameof(color)}: {validEnumStrings}",
+                EnumString.Upper.sr_Red, EnumString.Upper.sr_Silver,
+                EnumString.Upper.sr_White, EnumString.Upper.sr_Black);
+
+            string valueToSwitch = color.ToUpper();
+            Car.eColor? nullableOfReturnValue = null;
+            if (valueToSwitch.Equals(EnumString.Upper.sr_Red))
+            {
+                nullableOfReturnValue = Car.eColor.Red;
+            }
+            else if (valueToSwitch
+                .Equals(EnumString.Upper.sr_Silver))
+            {
+                nullableOfReturnValue = Car.eColor.Silver;
+            }
+            else if (valueToSwitch.Equals(EnumString.Upper.sr_White))
+            {
+                nullableOfReturnValue = Car.eColor.White;
+            }
+            else if (valueToSwitch.Equals(EnumString.Upper.sr_Black))
+            {
+                nullableOfReturnValue = Car.eColor.Black;
+            }
+
+            return nullableOfReturnValue.Value;
         }
 
         private Record createTruck(Owner i_Owner,
@@ -397,6 +442,15 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
                 public static readonly string
                     sr_Battery = EnumString.sr_Battery;
+                
+                // eLicenseType:
+                public static readonly string sr_A = EnumString.sr_A;
+
+                public static readonly string sr_B1 = EnumString.sr_B1;
+
+                public static readonly string sr_AA = EnumString.sr_AA;
+
+                public static readonly string sr_BB = EnumString.sr_BB;                
 
                 static Upper()
                 {
@@ -420,6 +474,12 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                     // eEngineType:
                     sr_Fuel = sr_Fuel.ToUpper();
                     sr_Battery = sr_Battery.ToUpper();
+                    
+                    // eLicenseType:
+                    sr_A = sr_A.ToUpper();
+                    sr_B1 = sr_B1.ToUpper();
+                    sr_AA = sr_AA.ToUpper();
+                    sr_BB = sr_BB.ToUpper();
                 }
             }
 
@@ -464,6 +524,19 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
             public static readonly string sr_Battery =
                 $"{GarageEnums.eEngineType.Battery:G}";
+            
+            // eLicenseType:
+            public static readonly string
+                sr_A = $"{Motorcycle.eLicenseType.A:G}";
+
+            public static readonly string
+                sr_B1 = $"{Motorcycle.eLicenseType.B1:G}";
+            
+            public static readonly string
+                sr_AA = $"{Motorcycle.eLicenseType.AA:G}";  
+            
+            public static readonly string
+                sr_BB = $"{Motorcycle.eLicenseType.BB:G}";
 
             static EnumString() {}
         }
