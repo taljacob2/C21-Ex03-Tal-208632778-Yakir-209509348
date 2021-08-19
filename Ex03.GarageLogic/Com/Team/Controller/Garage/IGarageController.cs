@@ -7,6 +7,7 @@ using Ex03.GarageLogic.Com.Team.Entity.Manufactured;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Fuel;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
+using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl;
 
 namespace Ex03.GarageLogic.Com.Team.Controller.Garage
 {
@@ -51,5 +52,9 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage
         VehicleResponse GetVehicleDetails(string i_LicensePlate);
 
         Record PostCreateRecord(Vehicle i_Vehicle, Owner i_Owner);
+        Car PostCreateAsertedFuelCar(string i_ModelName, string i_LicensePlate,
+            string i_TireManufacturerName, Car.eColor i_Color,
+            Car.eDoorsAmount i_DoorsAmount, GarageEnums.eEngineType i_EngineType);
+        Car PostCreateAsertedBatteryCar(string i_ModelName, string i_LicensePlate, string i_TireManufacturerName, Car.eColor i_Color, Car.eDoorsAmount i_DoorsAmount, GarageEnums.eEngineType i_EngineType);
     }
 }

@@ -165,7 +165,8 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                 createTireManufacturerName(ref io_IndentationLevel);
             Car.eColor color = createColor(indentationString);
             Car.eDoorsAmount doorsAmount = createDoorsAmount(indentationString);
-            eEngineType engineType = createEngineType(indentationString);
+            GarageEnums.eEngineType engineType =
+                createEngineType(indentationString);
 
             io_IndentationLevel--;
 
@@ -177,31 +178,30 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             string i_LicensePlate,
             string i_TireManufacturerName, Car.eColor i_Color,
             Car.eDoorsAmount i_DoorsAmount,
-            eEngineType i_EngineType)
+            GarageEnums.eEngineType i_EngineType)
         {
             Car returnValue = null;
-            eEngineType valueToSwitch = i_EngineType;
-            if (valueToSwitch == eEngineType.Fuel)
+            GarageEnums.eEngineType valueToSwitch = i_EngineType;
+            if (valueToSwitch == GarageEnums.eEngineType.Fuel)
             {
                 returnValue = GarageController.PostCreateAsertedFuelCar(
-                    i_ModelName, i_LicensePlate,
-                    i_TireManufacturerName, i_Color, i_DoorsAmount,
-                    i_EngineType);
+                    i_ModelName, i_LicensePlate, i_TireManufacturerName,
+                    i_Color, i_DoorsAmount, i_EngineType);
             }
-            else if (valueToSwitch == eEngineType.Battery)
+            else if (valueToSwitch == GarageEnums.eEngineType.Battery)
             {
                 returnValue =
                     GarageController.PostCreateAsertedBatteryCar(i_ModelName,
-                        i_LicensePlate,
-                        i_TireManufacturerName, i_Color, i_DoorsAmount,
-                        i_EngineType);
+                        i_LicensePlate, i_TireManufacturerName, i_Color,
+                        i_DoorsAmount, i_EngineType);
             }
 
 
             return returnValue;
         }
 
-        private eEngineType createEngineType(string i_IndentationString)
+        private GarageEnums.eEngineType createEngineType(
+            string i_IndentationString)
         {
             string validEnumStrings = createValidStringsMessage(
                 EnumString.sr_Fuel, EnumString.sr_Battery);
@@ -210,15 +210,15 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                 EnumString.Upper.sr_Fuel, EnumString.Upper.sr_Battery);
 
             string valueToSwitch = engineType.ToUpper();
-            eEngineType? nullableOfReturnValue = null;
+            GarageEnums.eEngineType? nullableOfReturnValue = null;
             if (valueToSwitch.Equals(EnumString.Upper.sr_Fuel))
             {
-                nullableOfReturnValue = eEngineType.Fuel;
+                nullableOfReturnValue = GarageEnums.eEngineType.Fuel;
             }
             else if (valueToSwitch
                 .Equals(EnumString.Upper.sr_Battery))
             {
-                nullableOfReturnValue = eEngineType.Battery;
+                nullableOfReturnValue = GarageEnums.eEngineType.Battery;
             }
 
             return nullableOfReturnValue.Value;
@@ -413,13 +413,14 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             }
 
             // eVehicleType:
-            public static readonly string sr_Car = $"{eVehicleType.Car:G}";
+            public static readonly string sr_Car =
+                $"{GarageEnums.eVehicleType.Car:G}";
 
             public static readonly string sr_Motorcycle =
-                $"{eVehicleType.Motorcycle:G}";
+                $"{GarageEnums.eVehicleType.Motorcycle:G}";
 
             public static readonly string sr_Truck =
-                $"{eVehicleType.Truck:G}";
+                $"{GarageEnums.eVehicleType.Truck:G}";
 
             // eColor:
             public static readonly string
@@ -448,25 +449,12 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
             // eEngineType:
             public static readonly string
-                sr_Fuel = $"{eEngineType.Fuel:G}";
+                sr_Fuel = $"{GarageEnums.eEngineType.Fuel:G}";
 
             public static readonly string sr_Battery =
-                $"{eEngineType.Battery:G}";
+                $"{GarageEnums.eEngineType.Battery:G}";
 
             static EnumString() {}
-        }
-
-        private enum eVehicleType
-        {
-            Car,
-            Motorcycle,
-            Truck
-        }
-
-        private enum eEngineType
-        {
-            Fuel,
-            Battery,
         }
     }
 }

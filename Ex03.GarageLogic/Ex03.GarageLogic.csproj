@@ -39,6 +39,7 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Com\Team\Controller\Garage\GarageEnums.cs" />
         <Compile Include="Com\Team\Controller\Garage\IGarageController.cs" />
         <Compile Include="Com\Team\Controller\Garage\Impl\GarageControllerImpl.cs" />
         <Compile Include="Com\Team\Controller\Garage\Impl\IRecorder.cs" />
