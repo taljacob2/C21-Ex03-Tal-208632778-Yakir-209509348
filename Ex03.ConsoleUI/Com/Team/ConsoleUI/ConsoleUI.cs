@@ -779,6 +779,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             private const int k_PostCreateAndInsertRecord = 1;
             private const int k_PrintLicensePlates = 2;
             private const int k_PrintSelectedLicensePlatesByState = 3;
+            private const int k_ChangeStateOfRecordByLicensePlate = 4;
             
 
             public static void Print()
@@ -786,7 +787,8 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                 // Using string.Format:
                 Console.Out.WriteLine("{0}. PostCreateAndInsertRecord", k_PostCreateAndInsertRecord);
                 Console.Out.WriteLine("{0}. PrintLicensePlates", k_PrintLicensePlates);
-                Console.Out.WriteLine("{0}. PostCreateAndInsertRecord", k_PrintSelectedLicensePlatesByState);
+                Console.Out.WriteLine("{0}. PrintSelectedLicensePlatesByState", k_PrintSelectedLicensePlatesByState);
+                Console.Out.WriteLine("{0}. ChangeStateOfRecordByLicensePlate", k_ChangeStateOfRecordByLicensePlate);
             }
         }
     }
