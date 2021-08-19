@@ -4,7 +4,6 @@ using Ex03.ConsoleUI.Com.Team.Misc;
 using Ex03.GarageLogic.Com.Team.Controller.Garage;
 using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
 using Ex03.GarageLogic.Com.Team.DTO.Constructor;
-using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
@@ -64,7 +63,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             truckStringUpper = truckStringUpper.ToUpper();
 
             Console.Out.WriteLine("Create Vehicle:");
-            string vehicleType = InputUtil.ConvertIgnoreCase<string>(
+            string vehicleType = InputUtil.ConvertIgnoreCase(
                 "  Enter vehicle-type: ",
                 carStringUpper, motorcycleStringUpper, truckStringUpper);
             string modelName = InputUtil.Convert<string>("  Enter name: ");
@@ -114,8 +113,8 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             silverStringUpper = silverStringUpper.ToUpper();
             string whiteStringUpper = $"{Car.eColor.White:G}";
             whiteStringUpper = whiteStringUpper.ToUpper();
-            
-            
+
+
             throw new NotImplementedException();
         }
 

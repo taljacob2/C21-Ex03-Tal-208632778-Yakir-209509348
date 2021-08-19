@@ -1,22 +1,17 @@
-﻿using Ex03.GarageLogic.Com.Team.Entity.Manufactured;
-using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Fuel;
+﻿using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Fuel;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
 
 namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl.Asserted
 {
     public class AssertedFuelCar
     {
-        private AssertedFuelCar(string i_TireManufacturerName)
-        {
-            Car.SetTires(new Tire(i_TireManufacturerName,
-                32, 0), Car.k_TiresAmount);
-        }
-
         public AssertedFuelCar(string i_ModelName, string i_LicensePlate,
             Car.eColor i_Color,
             Car.eDoorsAmount i_DoorsAmount,
-            string i_TireManufacturerName) : this(i_TireManufacturerName)
+            string i_TireManufacturerName)
         {
+            Car.SetTires(new Tire(i_TireManufacturerName,
+                32, 0), Car.k_TiresAmount);
             Car.ModelName = i_ModelName;
             Car.LicensePlate = i_LicensePlate;
             Car.Color = i_Color;

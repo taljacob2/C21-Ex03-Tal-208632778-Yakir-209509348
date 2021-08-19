@@ -6,19 +6,15 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl.Asserted
 {
     public class AssertedFuelMotorcycle
     {
-        private AssertedFuelMotorcycle(string i_TireManufacturerName)
-        {
-            Motorcycle.SetTires(new Tire(i_TireManufacturerName,
-                30, 0), Motorcycle.k_TiresAmount);
-        }
-
         public AssertedFuelMotorcycle(string i_ModelName,
             string i_LicensePlate,
             Motorcycle.eLicenseType i_LicenseType, int i_EngineVolumeInCC,
-            string i_TireManufacturerName) : this(i_TireManufacturerName)
+            string i_TireManufacturerName)
         {
             Motorcycle = new Motorcycle(new ExtendedEngine(new FuelEngine(eType
                 .Octan95, 45), i_EngineVolumeInCC));
+            Motorcycle.SetTires(new Tire(i_TireManufacturerName,
+                30, 0), Motorcycle.k_TiresAmount);
             Motorcycle.ModelName = i_ModelName;
             Motorcycle.LicensePlate = i_LicensePlate;
             Motorcycle.LicenseType = i_LicenseType;

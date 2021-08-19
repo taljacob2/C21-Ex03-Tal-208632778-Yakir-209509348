@@ -44,7 +44,8 @@ namespace Ex03.ConsoleUI.Com.Team.Misc
         ///     <see langword="string" /> to an object,
         ///     asserted by a given range.
         /// </summary>
-        public static T ConvertWithAssertByRange<T>(string i_Message, T i_MinimumRange,
+        public static T ConvertWithAssertByRange<T>(string i_Message,
+            T i_MinimumRange,
             T i_MaximumRange)
         {
             T converted = Convert<T>(i_Message);
@@ -52,7 +53,8 @@ namespace Ex03.ConsoleUI.Com.Team.Misc
             )
             {
                 Console.Out.WriteLine(k_BadInputMessage);
-                return ConvertWithAssertByRange(i_Message, i_MinimumRange, i_MaximumRange);
+                return ConvertWithAssertByRange(i_Message, i_MinimumRange,
+                    i_MaximumRange);
             }
 
             return converted;
@@ -92,7 +94,7 @@ namespace Ex03.ConsoleUI.Com.Team.Misc
 
             return converted;
         }
-        
+
         /// <summary>
         ///     Converts a generic <see cref="IComparable" /> input type to an object,
         ///     asserted by given possible valid values.
@@ -108,13 +110,15 @@ namespace Ex03.ConsoleUI.Com.Team.Misc
             }
 
             return converted;
-        }        
-        
+        }
+
         /// <summary>
-        ///     Converts a generic <see cref="IComparable" /> input <see langword="char" /> to an object,
+        ///     Converts a generic <see cref="IComparable" /> input <see langword="char" />
+        ///     to an object,
         ///     asserted by given possible valid values, case-ignored.
         /// </summary>
-        public static T ConvertKeyIgnoreCase<T>(string i_Message, List<T> i_List)
+        public static T ConvertKeyIgnoreCase<T>(string i_Message,
+            List<T> i_List)
         {
             T converted = ConvertKey<T>(i_Message);
             if (!isConvertedPossibleValidValueIgnoreCase(converted, i_List)
@@ -128,7 +132,8 @@ namespace Ex03.ConsoleUI.Com.Team.Misc
         }
 
         /// <summary>
-        ///     Converts a generic <see cref="IComparable" /> input <see langword="string" />
+        ///     Converts a generic <see cref="IComparable" /> input
+        ///     <see langword="string" />
         ///     to an object,
         ///     asserted by given possible valid values.
         /// </summary>
@@ -145,9 +150,10 @@ namespace Ex03.ConsoleUI.Com.Team.Misc
 
             return converted;
         }
-        
+
         /// <summary>
-        ///     Converts a generic <see cref="IComparable" /> input <see langword="string" />
+        ///     Converts a generic <see cref="IComparable" /> input
+        ///     <see langword="string" />
         ///     to an object,
         ///     asserted by given possible valid values.
         /// </summary>
@@ -155,7 +161,8 @@ namespace Ex03.ConsoleUI.Com.Team.Misc
             T[] i_PossibleValidValues)
         {
             T converted = Convert<T>(i_Message);
-            if (!isConvertedPossibleValidValueIgnoreCase(converted, i_PossibleValidValues)
+            if (!isConvertedPossibleValidValueIgnoreCase(converted,
+                i_PossibleValidValues)
             )
             {
                 Console.Out.WriteLine(k_BadInputMessage);
@@ -163,10 +170,11 @@ namespace Ex03.ConsoleUI.Com.Team.Misc
             }
 
             return converted;
-        }        
-        
+        }
+
         /// <summary>
-        ///     Converts a generic <see cref="IComparable" /> input <see langword="char" /> to an object.
+        ///     Converts a generic <see cref="IComparable" /> input <see langword="char" />
+        ///     to an object.
         /// </summary>
         public static T ConvertKey<T>(string i_Message)
         {
@@ -206,7 +214,7 @@ namespace Ex03.ConsoleUI.Com.Team.Misc
 
             return converted;
         }
-        
+
         /// <summary>
         ///     Converts a generic <see cref="IComparable" /> input <see langword="char" />
         ///     to an object,
@@ -216,7 +224,8 @@ namespace Ex03.ConsoleUI.Com.Team.Misc
             T[] i_PossibleValidValues)
         {
             T converted = ConvertKey<T>(i_Message);
-            if (!isConvertedPossibleValidValueIgnoreCase(converted, i_PossibleValidValues)
+            if (!isConvertedPossibleValidValueIgnoreCase(converted,
+                i_PossibleValidValues)
             )
             {
                 Console.Out.WriteLine(k_BadInputMessage);
@@ -224,7 +233,7 @@ namespace Ex03.ConsoleUI.Com.Team.Misc
             }
 
             return converted;
-        }        
+        }
 
         /// <summary>
         ///     Generic comparison, to check if the
@@ -243,10 +252,11 @@ namespace Ex03.ConsoleUI.Com.Team.Misc
             return i_PossibleValidValues.Any(i_T =>
                 Operator.Equal(i_Converted, i_T));
         }
-        
+
         /// <summary>
         ///     Generic comparison, to check if the
-        ///     <param name="i_Converted"></param> is a possible valid value, case-ignored.
+        ///     <param name="i_Converted"></param>
+        ///     is a possible valid value, case-ignored.
         ///     <see cref="Operator" />
         ///     <seealso cref="MiscUtil" />
         /// </summary>
@@ -254,13 +264,14 @@ namespace Ex03.ConsoleUI.Com.Team.Misc
         /// <param name="i_PossibleValidValues">All possible valid values.</param>
         /// <typeparam name="T">Must be Comparable</typeparam>
         /// <returns />
-        private static bool isConvertedPossibleValidValueIgnoreCase<T>(T i_Converted,
+        private static bool isConvertedPossibleValidValueIgnoreCase<T>(
+            T i_Converted,
             params T[] i_PossibleValidValues)
         {
             return i_PossibleValidValues.Any(i_T =>
                 Operator.Equal(i_Converted.ToString().ToUpper(), i_T.ToString
-                ().ToUpper()));
-        }        
+                    ().ToUpper()));
+        }
 
         /// <summary>
         ///     Converts a generic <see cref="IComparable" /> input <see langword="char" />
@@ -291,7 +302,7 @@ namespace Ex03.ConsoleUI.Com.Team.Misc
             return i_List.Any(i_T =>
                 Operator.Equal(i_Converted, i_T));
         }
-        
+
         /// <summary>
         ///     Converts a generic <see cref="IComparable" /> input <see langword="char" />
         ///     to an object,
@@ -302,8 +313,8 @@ namespace Ex03.ConsoleUI.Com.Team.Misc
         {
             return i_List.Any(i_T =>
                 Operator.Equal(i_Converted.ToString().ToUpper(), i_T.ToString
-                ().ToUpper()));
-        }        
+                    ().ToUpper()));
+        }
 
         public static List<char> Range(char i_Start, char i_End)
         {
