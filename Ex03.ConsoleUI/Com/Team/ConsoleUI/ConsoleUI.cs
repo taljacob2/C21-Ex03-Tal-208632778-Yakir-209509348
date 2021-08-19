@@ -40,7 +40,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             // printMenu();
         }
 
-        public Record PostCreateRecord()
+        public Record? PostCreateRecord()
         {
             int indentationLevel = 0;
             Console.Out.WriteLine(
@@ -108,7 +108,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return name;
         }
 
-        private Record createVehicle(Owner i_Owner,
+        private Record? createVehicle(Owner i_Owner,
             ref int io_IndentationLevel)
         {
             io_IndentationLevel++;
@@ -165,7 +165,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return builder.ToString();
         }
 
-        private Record createVehicleTypeSwitch(Owner i_Owner,
+        private Record? createVehicleTypeSwitch(Owner i_Owner,
             ref int io_IndentationLevel,
             string i_VehicleType, string i_ModelName, string i_LicensePlate)
         {
@@ -194,10 +194,10 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
             io_IndentationLevel--;
 
-            return nullableReturnValue.Value;
+            return nullableReturnValue;
         }
 
-        private Record createCar(Owner i_Owner,
+        private Record? createCar(Owner i_Owner,
             ref int io_IndentationLevel,
             string i_ModelName, string i_LicensePlate)
         {
@@ -219,7 +219,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                 tireManufacturerName, color, doorsAmount, engineType);
         }
 
-        private Record createMotorcycleTypeSwitch(Owner i_Owner,
+        private Record? createMotorcycleTypeSwitch(Owner i_Owner,
             string i_ModelName,
             string i_LicensePlate,
             string i_TireManufacturerName,
@@ -252,10 +252,10 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
             Console.Out.WriteLine(responseMessage);
 
-            return nullableReturnValue.Value;
+            return nullableReturnValue;
         }
 
-        private Record createCarTypeSwitch(Owner i_Owner, string i_ModelName,
+        private Record? createCarTypeSwitch(Owner i_Owner, string i_ModelName,
             string i_LicensePlate,
             string i_TireManufacturerName, Car.eColor i_Color,
             Car.eDoorsAmount i_DoorsAmount,
@@ -286,10 +286,10 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
             Console.Out.WriteLine(responseMessage);
 
-            return nullableReturnValue.Value;
+            return nullableReturnValue;
         }
 
-        private Record createTruckTypeSwitch(Owner i_Owner, string i_ModelName,
+        private Record? createTruckTypeSwitch(Owner i_Owner, string i_ModelName,
             string i_LicensePlate,
             string i_TireManufacturerName,
             bool i_IsContainingDangerousMaterials,
@@ -323,7 +323,8 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
             Console.Out.WriteLine(responseMessage);
 
-            return nullableReturnValue.Value;
+            return nullableReturnValue;
+
         }
 
         private GarageEnums.eEngineType createEngineType(
@@ -417,7 +418,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return nullableOfReturnValue.Value;
         }
 
-        private Record createMotorcycle(Owner i_Owner,
+        private Record? createMotorcycle(Owner i_Owner,
             ref int io_IndentationLevel,
             string i_ModelName, string i_LicensePlate)
         {
@@ -477,7 +478,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return nullableOfReturnValue.Value;
         }
 
-        private Record createTruck(Owner i_Owner,
+        private Record? createTruck(Owner i_Owner,
             ref int io_IndentationLevel,
             string i_ModelName, string i_LicensePlate)
         {
