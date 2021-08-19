@@ -28,7 +28,8 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage
 
         List<string> GetLicensePlatesList(Record.eState i_StateToSelect);
 
-        bool PostSetState(SetStateRequest i_Request);
+        bool PostSetState(SetStateRequest i_Request,
+            out string o_ResponseMessage);
 
         bool PostInflateTiresToMax(string i_LicensePlate);
 
@@ -53,23 +54,23 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage
         Record PostCreateRecord(VehicleComponent i_VehicleComponent,
             Owner i_Owner); // TODO: remove.
 
-        Record? PostCreateAndInsertAssertedFuelCar(
+        Record PostCreateAndInsertAssertedFuelCar(
             CreateAndInsertAssertedCarRequest i_Request,
             out string o_ResponseMessage);
 
-        Record? PostCreateAndInsertAssertedBatteryCar(
+        Record PostCreateAndInsertAssertedBatteryCar(
             CreateAndInsertAssertedCarRequest i_Request,
             out string o_ResponseMessage);
 
-        Record? PostCreateAndInsertAssertedFuelMotorcycle(
+        Record PostCreateAndInsertAssertedFuelMotorcycle(
             CreateAndInsertAssertedMotorcycleRequest i_Request,
             out string o_ResponseMessage);
 
-        Record? PostCreateAndInsertAssertedBatteryMotorcycle(
+        Record PostCreateAndInsertAssertedBatteryMotorcycle(
             CreateAndInsertAssertedMotorcycleRequest i_Request,
             out string o_ResponseMessage);
 
-        Record? PostCreateAndInsertAssertedFuelTruck(
+        Record PostCreateAndInsertAssertedFuelTruck(
             CreateAndInsertAssertedTruckRequest i_Request,
             out string o_ResponseMessage);
     }

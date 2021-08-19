@@ -58,19 +58,21 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                     break;
                 case Menu.k_SetStateOfRecordByLicensePlate:
                     string licensePlate = createLicensePlate
-                    (ref indentationLevel);
+                        (ref indentationLevel);
                     setStateOfRecordByLicensePlate(ref indentationLevel,
-                    licensePlate);
+                        licensePlate);
                     break;
             }
         }
 
-        private void setStateOfRecordByLicensePlate(ref int io_IndentationLevel, 
-        string i_LicensePlate)
+        private void setStateOfRecordByLicensePlate(ref int io_IndentationLevel,
+            string i_LicensePlate)
         {
             Record.eState stateToSet = createState(ref io_IndentationLevel);
             GarageController.PostSetState(
-                new SetStateRequest(i_LicensePlate, stateToSet));
+                new SetStateRequest(i_LicensePlate, stateToSet),
+                out string responseMessage);
+            Console.Out.WriteLine(responseMessage);
         }
 
         private Record.eState createState(ref int io_IndentationLevel)
@@ -402,9 +404,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             {
                 returnValue =
                     GarageController.PostCreateAndInsertAssertedFuelTruck(
-                        request,
-                        out
-                        responseMessage);
+                        request, out responseMessage);
             }
             else if (valueToSwitch == GarageEnums.eEngineType.Battery)
             {

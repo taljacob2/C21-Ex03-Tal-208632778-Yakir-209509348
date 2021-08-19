@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
@@ -115,15 +116,26 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
                 i_Request.TireManufacturerName);
         }
 
-        public bool SetState(SetStateRequest i_Request)
+        public bool SetState(SetStateRequest i_Request,
+            out StringBuilder o_ResponseMessage)
         {
+            bool returnValue = true;
+            o_ResponseMessage = new StringBuilder();
             try
             {
                 Record record = RecordRepository.FindByLicensePlate(i_Request
                     .LicensePlate);
                 record.State = i_Request.NewState;
+                o_ResponseMessage.Append(
+                    $"Changed Record's State to: `{i_Request.NewState:G}`.");
             }
-            catch () {}
+            catch (System.Exception e)
+            {
+                o_ResponseMessage.Append(e.Message);
+                returnValue = false;
+            }
+
+            return returnValue;
         }
 
 

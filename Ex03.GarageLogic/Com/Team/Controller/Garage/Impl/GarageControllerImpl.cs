@@ -131,9 +131,14 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
             return GarageService.SelectVehicleLicensePlates(i_StateToSelect);
         }
 
-        public bool PostSetState(SetStateRequest i_Request)
+        public bool PostSetState(SetStateRequest i_Request,
+            out string o_ResponseMessage)
         {
-            return GarageService.SetState(i_Request);
+            StringBuilder stringBuilder = new StringBuilder();
+            bool returnValue = GarageService.SetState(i_Request, out
+                stringBuilder);
+            o_ResponseMessage = stringBuilder.ToString();
+            return returnValue;
         }
 
         public bool PostInflateTiresToMax(string i_LicensePlate)

@@ -86,8 +86,7 @@ namespace Ex03.GarageLogic.Com.Team.Repository.Impl
             if (returnValue == null)
             {
                 throw new ArgumentException(
-                    $"LicensePlate provided: {i_LicensePlate} ->" +
-                    " Record does not exist in database.");
+                    $"Could not find a Record with the provided LicensePlate : `{i_LicensePlate}`.");
             }
 
             return returnValue;
