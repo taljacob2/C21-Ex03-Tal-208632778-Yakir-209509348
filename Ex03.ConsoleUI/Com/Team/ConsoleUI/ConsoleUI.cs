@@ -57,8 +57,16 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                     PrintSelectedLicensePlatesByState(stateToSelect);
                     break;
                 case Menu.k_SetStateOfRecordByLicensePlate:
+                    string licensePlate = createLicensePlate
+                    (ref indentationLevel);
+                    SetStateOfRecordByLicensePlate(licensePlate);
                     break;
             }
+        }
+
+        private void SetStateOfRecordByLicensePlate(string i_LicensePlate)
+        {
+            throw new NotImplementedException();
         }
 
         private Record.eState createState(ref int io_IndentationLevel)
@@ -184,15 +192,31 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             string modelName =
                 InputUtil.Convert<string>(
                     $"{indentationString}Enter {nameof(modelName)}: ");
-            string licensePlate =
-                InputUtil.Convert<string>(
-                    $"{indentationString}Enter {nameof(licensePlate)}: ");
+            string licensePlate = createLicensePlate(indentationString);
 
             io_IndentationLevel--;
 
             return createVehicleTypeSwitch(i_Owner, ref io_IndentationLevel,
                 vehicleType,
                 modelName, licensePlate);
+        }
+
+        private static string createLicensePlate(string i_IndentationString)
+        {
+            string licensePlate =
+                InputUtil.Convert<string>(
+                    $"{i_IndentationString}Enter {nameof(licensePlate)}: ");
+            return licensePlate;
+        }
+
+        private static string createLicensePlate(ref int io_IndentationLevel)
+        {
+            string indentationString =
+                StringIndentation.Create(io_IndentationLevel);
+            string licensePlate =
+                InputUtil.Convert<string>(
+                    $"{indentationString}Enter {nameof(licensePlate)}: ");
+            return licensePlate;
         }
 
         private static string createVehicleType(string i_IndentationString)
