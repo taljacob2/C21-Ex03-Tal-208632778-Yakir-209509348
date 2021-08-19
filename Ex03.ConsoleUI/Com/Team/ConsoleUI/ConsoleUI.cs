@@ -446,9 +446,47 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
         {
             io_IndentationLevel++;
 
+            string indentationString =
+                StringIndentation.Create(io_IndentationLevel);
+            Console.Out.WriteLine(
+                $"{indentationString}Create {nameof(Truck)}:");
+            string tireManufacturerName =
+                createTireManufacturerName(ref io_IndentationLevel);
+            bool isContainingDangerousMaterials =
+                createIsContainingDangerousMaterials(indentationString);
+            Car.eDoorsAmount doorsAmount = createDoorsAmount(indentationString);
+            GarageEnums.eEngineType engineType =
+                createEngineType(indentationString);
+
             io_IndentationLevel--;
 
-            throw new NotImplementedException();
+            return createCarTypeSwitch(i_Owner, i_ModelName, i_LicensePlate,
+                tireManufacturerName, color, doorsAmount, engineType);
+        }
+
+        private bool createIsContainingDangerousMaterials(
+            string i_IndentationString)
+        {
+            const string k_True = "true";
+            const string k_False = "false";
+            string validEnumStrings = createValidStringsMessage(k_True,
+                k_False);
+            string isContainingDangerousMaterials = InputUtil.ConvertIgnoreCase(
+                $"{i_IndentationString}Enter {nameof(isContainingDangerousMaterials)}: {validEnumStrings}",
+                k_True, k_False);
+
+            string valueToSwitch = isContainingDangerousMaterials.ToLower();
+            bool? nullableOfReturnValue = null;
+            if (valueToSwitch.Equals(k_True))
+            {
+                nullableOfReturnValue = true;
+            }
+            else if (valueToSwitch.Equals(k_False))
+            {
+                nullableOfReturnValue = false;
+            }
+
+            return nullableOfReturnValue.Value;
         }
 
         private int createExtendedEngineVolumeInCC(ref int io_IndentationLevel)
