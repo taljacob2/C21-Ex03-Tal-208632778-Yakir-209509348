@@ -77,7 +77,7 @@ namespace Ex03.GarageLogic.Com.Team.Database.Impl
             {
                 Vehicles = new List<Record>();
                 InstanceOfVehicles = Vehicles;
-                Boot(); // Note: Boot is called last. 
+                // Boot(); // Note: Boot is called last. 
             }
         }
     }

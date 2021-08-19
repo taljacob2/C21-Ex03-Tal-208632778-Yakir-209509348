@@ -40,6 +40,14 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             // printMenu();
         }
 
+        /// <summary>
+        ///     Create a vehicle-record.
+        /// </summary>
+        /// <returns>
+        ///     Inserted Record. Contains <see langword="null" /> if the user
+        ///     requested to insert an unavailable vehicle.
+        ///     Otherwise contains the retrieved success record.
+        /// </returns>
         public Record? PostCreateRecord()
         {
             int indentationLevel = 0;
@@ -300,14 +308,16 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                 new CreateAndInsertAssertedTruckRequest(
                     i_Owner,
                     i_ModelName, i_LicensePlate, i_TireManufacturerName,
-                    i_IsContainingDangerousMaterials, i_MaxCarryingCapabilityInKilos, i_EngineType);
+                    i_IsContainingDangerousMaterials,
+                    i_MaxCarryingCapabilityInKilos, i_EngineType);
             Record? nullableReturnValue = null;
             GarageEnums.eEngineType valueToSwitch = i_EngineType;
             string responseMessage = "";
             if (valueToSwitch == GarageEnums.eEngineType.Fuel)
             {
                 nullableReturnValue =
-                    GarageController.PostCreateAndInsertAssertedFuelTruck(request,
+                    GarageController.PostCreateAndInsertAssertedFuelTruck(
+                        request,
                         out
                         responseMessage);
             }
@@ -324,7 +334,6 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             Console.Out.WriteLine(responseMessage);
 
             return nullableReturnValue;
-
         }
 
         private GarageEnums.eEngineType createEngineType(
