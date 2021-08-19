@@ -65,6 +65,7 @@
         <Compile Include="Com\Team\Entity\Manufactured\Tire\ISelfInflater.cs" />
         <Compile Include="Com\Team\Entity\Manufactured\Tire\Tire.cs" />
         <Compile Include="Com\Team\Entity\Manufactured\Tire\Tires.cs" />
+        <Compile Include="Com\Team\Entity\Vehicle\Impl\Car\AssertedFuelCar.cs" />
         <Compile Include="Com\Team\Entity\Vehicle\Impl\Car\Car.cs" />
         <Compile Include="Com\Team\Entity\Vehicle\Impl\Motorcycle\Motorcycle.cs" />
         <Compile Include="Com\Team\Entity\Vehicle\Impl\Truck\Truck.cs" />

@@ -1,4 +1,5 @@
 ﻿using Ex03.GarageLogic.Com.Team.DTO.Constructor;
+using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine;
 using Ex03.GarageLogic.Com.Team.Misc;
 
 namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl.Car
@@ -33,6 +34,11 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl.Car
             SetTires(i_CarConstructorDTO.TireToSetForAllTires, k_TiresAmount);
         }
 
+        public Car(Engine i_Engine)
+        {
+            Engine = i_Engine;
+        }
+        
         public eColor Color { get; }
 
         public eDoorsAmount DoorsAmount { get; }

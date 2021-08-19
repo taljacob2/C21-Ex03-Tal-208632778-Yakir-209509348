@@ -31,7 +31,8 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle
             return Engine.GetValuePercentage();
         }
 
-        protected void SetTires(Tire i_TireToSetForAllTires, int i_TiresAmount)
+        protected internal void SetTires(Tire i_TireToSetForAllTires,
+            int i_TiresAmount)
         {
             for (int i = 0; i < i_TiresAmount; i++)
             {
