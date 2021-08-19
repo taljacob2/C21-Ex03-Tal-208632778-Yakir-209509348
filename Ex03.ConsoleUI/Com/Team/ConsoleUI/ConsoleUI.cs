@@ -39,50 +39,52 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
         public Record PostCreateRecord()
         {
-            Console.Out.WriteLine($"Create {nameof(Record)}:");
-            const int k_IndentationLevel = 1;
-            Owner owner = createOwner(k_IndentationLevel);
-            Vehicle vehicle = createVehicle(k_IndentationLevel);
+            int indentationLevel = 0;
+            Console.Out.WriteLine(
+                $"{StringIndentation.IndentationString(indentationLevel)}Create {nameof(Record)}:");
+            Owner owner = createOwner(++indentationLevel);
+            Vehicle vehicle = createVehicle(++indentationLevel);
             return GarageController.PostCreateRecord(vehicle, owner);
         }
 
         private Owner createOwner(int i_IndentationLevel)
         {
-            Console.Out.WriteLine($"Create {nameof(Owner)}:");
+            string indentationString =
+                StringIndentation.IndentationString(i_IndentationLevel);
+            Console.Out.WriteLine(
+                $"{indentationString}Create {nameof(Owner)}:");
             string name =
                 InputUtil.Convert<string>(
-                    StringIndentation.IndentationString(i_IndentationLevel) +
-                    $"Enter {nameof(name)}: ");
+                    $"{indentationString}Enter {nameof(name)}: ");
             string phoneNumber =
                 InputUtil.Convert<string>(
-                    StringIndentation.IndentationString(i_IndentationLevel) +
-                    $"Enter {nameof(phoneNumber)}: ");
+                    $"{indentationString}Enter {nameof(phoneNumber)}: ");
             return new Owner(phoneNumber, name);
         }
 
         private Vehicle createVehicle(int i_IndentationLevel)
         {
-            Console.Out.WriteLine($"Create {nameof(Vehicle)}:");
+            string indentationString =
+                StringIndentation.IndentationString(i_IndentationLevel);
+            Console.Out.WriteLine(
+                $"{StringIndentation.IndentationString(i_IndentationLevel)}Create {nameof(Vehicle)}:");
 
             string validEnumStrings = createValidStringsMessage(
                 EnumString.sr_Car, EnumString.sr_Motorcycle,
                 EnumString.sr_Truck);
             string vehicleType = InputUtil.ConvertIgnoreCase(
-                StringIndentation.IndentationString(i_IndentationLevel) +
-                $"Enter {nameof(vehicleType)}: {validEnumStrings}",
+                $"{indentationString}Enter {nameof(vehicleType)}: {validEnumStrings}",
                 EnumString.Upper.sr_Car, EnumString.Upper.sr_Motorcycle,
                 EnumString.Upper.sr_Truck);
             string modelName =
                 InputUtil.Convert<string>(
-                    StringIndentation.IndentationString(i_IndentationLevel) +
-                    $"Enter {nameof(modelName)}: ");
+                    $"{indentationString}Enter {nameof(modelName)}: ");
             string licensePlate =
                 InputUtil.Convert<string>(
-                    StringIndentation.IndentationString(i_IndentationLevel) +
-                    $"Enter {nameof(licensePlate)}: ");
+                    $"{indentationString}Enter {nameof(licensePlate)}: ");
 
-            return createVehicleReturnValue(vehicleType, modelName,
-                licensePlate);
+            return createVehicleReturnValue(++i_IndentationLevel, vehicleType,
+                modelName, licensePlate);
         }
 
         private static string createValidStringsMessage(
@@ -106,50 +108,53 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return builder.ToString();
         }
 
-        private Vehicle createVehicleReturnValue(string i_VehicleType,
-            string i_ModelName,
-            string i_LicensePlate)
+        private Vehicle createVehicleReturnValue(int i_IndentationLevel,
+            string i_VehicleType, string i_ModelName, string i_LicensePlate)
         {
             Vehicle returnValue = null;
             if (i_VehicleType.ToUpper()
                 .Equals(EnumString.Upper.sr_Car))
             {
-                returnValue = createCar(i_VehicleType, i_ModelName,
-                    i_LicensePlate);
+                returnValue = createCar(i_IndentationLevel, i_VehicleType,
+                    i_ModelName, i_LicensePlate);
             }
             else if (i_VehicleType.ToUpper()
                 .Equals(EnumString.Upper.sr_Motorcycle))
             {
                 returnValue =
-                    createMotorcycle(i_VehicleType, i_ModelName,
-                        i_LicensePlate);
+                    createMotorcycle(i_IndentationLevel, i_VehicleType,
+                        i_ModelName, i_LicensePlate);
             }
             else if (i_VehicleType.ToUpper()
                 .Equals(EnumString.Upper.sr_Truck))
             {
-                returnValue = createTruck(i_VehicleType, i_ModelName,
-                    i_LicensePlate);
+                returnValue = createTruck(i_IndentationLevel, i_VehicleType,
+                    i_ModelName, i_LicensePlate);
             }
 
             return returnValue;
         }
 
-        private Vehicle createCar(string i_VehicleType, string i_ModelName,
-            string i_LicensePlate)
+        private Car createCar(int i_IndentationLevel, string i_VehicleType,
+            string i_ModelName, string i_LicensePlate)
         {
+            Console.Out.WriteLine(
+                $"{StringIndentation.IndentationString(i_IndentationLevel)}Create {nameof(Car)}:");
             Tire tire = createTire();
 
 
             throw new NotImplementedException();
         }
 
-        private Vehicle createMotorcycle(string i_VehicleType,
+        private Vehicle createMotorcycle(int i_IndentationLevel,
+            string i_VehicleType,
             string i_ModelName, string i_LicensePlate)
         {
             throw new NotImplementedException();
         }
 
-        private Vehicle createTruck(string i_VehicleType, string i_ModelName,
+        private Vehicle createTruck(int i_IndentationLevel,
+            string i_VehicleType, string i_ModelName,
             string i_LicensePlate)
         {
             throw new NotImplementedException();
