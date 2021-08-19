@@ -101,6 +101,20 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
             return returnValue;
         }
 
+        public Record? PostCreateAndInsertAssertedFuelTruck(
+            CreateAndInsertAssertedTruckRequest i_Request,
+            out string o_ResponseMessage)
+        {
+            Record returnValue = GarageService.CreateRecord(
+                GarageService.CreateAssertedFuelTruck(i_Request),
+                i_Request.Owner);
+
+            PostInsert(returnValue, out StringBuilder stringBuilder);
+            o_ResponseMessage = stringBuilder.ToString();
+
+            return returnValue;
+        }
+
         public Record PostInsert(Record io_Record,
             out StringBuilder o_ResponseMessage)
         {

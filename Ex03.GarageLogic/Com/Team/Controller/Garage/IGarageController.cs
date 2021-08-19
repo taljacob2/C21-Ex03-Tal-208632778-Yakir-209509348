@@ -68,5 +68,9 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage
         Record? PostCreateAndInsertAssertedBatteryMotorcycle(
             CreateAndInsertAssertedMotorcycleRequest i_Request,
             out string o_ResponseMessage);
+
+        Record? PostCreateAndInsertAssertedFuelTruck(
+            CreateAndInsertAssertedTruckRequest i_Request,
+            out string o_ResponseMessage);
     }
 }

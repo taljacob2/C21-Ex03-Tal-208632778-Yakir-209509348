@@ -105,6 +105,16 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
                 i_Request.TireManufacturerName);
         }
 
+        public Vehicle CreateAssertedFuelTruck(
+            CreateAndInsertAssertedTruckRequest i_Request)
+        {
+            return new AssertedFuelTruck(i_Request
+                    .ModelName, i_Request.LicensePlate,
+                i_Request.IsContainingDangerousMaterials,
+                i_Request.MaxCarryingCapabilityInKilos,
+                i_Request.TireManufacturerName);
+        }
+
 
         // TODO: disabled.
         // public void FuelVehicle(string i_LicensePlate,
