@@ -5,9 +5,7 @@ using System.Text.RegularExpressions;
 using Ex03.ConsoleUI.Com.Team.Misc;
 using Ex03.GarageLogic.Com.Team.Controller.Garage;
 using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
-using Ex03.GarageLogic.Com.Team.DTO.Constructor;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
-using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Extended;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component;
@@ -17,10 +15,10 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 {
     public class ConsoleUI
     {
+        private const string k_ListIsEmpty = "List is empty.";
+
         public static IGarageController GarageController { get; } =
             new GarageControllerImpl();
-
-        private const string k_ListIsEmpty = "List is empty.";
 
         public void RunConsoleUI()
         {
@@ -37,7 +35,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
         private void switchInvokeMenuOptions(ref int io_SelectedMenuOption)
         {
             int indentationLevel = 0;
-            io_SelectedMenuOption = InputUtil.Convert<int>
+            io_SelectedMenuOption = InputUtil.Convert
             (Menu.GetMenu(), Menu.k_CreateAndInsertVehicleRecord,
                 Menu.k_PrintLicensePlates, Menu
                     .k_PrintSelectedLicensePlatesByState,
@@ -899,22 +897,22 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             public static string GetMenu()
             {
                 // Using string.Format:
-                return String.Format(
+                return string.Format(
                            "{0}. Create And Insert Vehicle Record" +
                            Environment.NewLine,
                            k_CreateAndInsertVehicleRecord) +
-                       String.Format(
+                       string.Format(
                            "{0}. Print License Plates" + Environment.NewLine,
                            k_PrintLicensePlates) +
-                       String.Format(
+                       string.Format(
                            "{0}. Print Selected License Plates By State" +
                            Environment.NewLine,
                            k_PrintSelectedLicensePlatesByState) +
-                       String.Format(
+                       string.Format(
                            "{0}. Set State Of Record By License Plate" +
                            Environment.NewLine,
                            k_SetStateOfRecordByLicensePlate) +
-                       String.Format("{0}. Exit Program",
+                       string.Format("{0}. Exit Program",
                            k_ExitProgram) + Environment.NewLine;
             }
         }
