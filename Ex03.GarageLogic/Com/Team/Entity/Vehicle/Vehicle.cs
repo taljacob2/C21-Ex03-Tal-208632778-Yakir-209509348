@@ -1,4 +1,6 @@
-﻿namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle
+﻿using Ex03.GarageLogic.Com.Team.Misc;
+
+namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle
 {
     public abstract class Vehicle
     {
@@ -8,5 +10,10 @@
         public virtual string LicensePlate { get; protected internal set; }
 
         public virtual string ModelName { get; protected internal set; }
+
+        public override string ToString()
+        {
+            return this.ToStringExtension();
+        }
     }
 }

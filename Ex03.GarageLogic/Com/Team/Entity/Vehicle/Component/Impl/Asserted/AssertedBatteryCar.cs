@@ -1,9 +1,10 @@
-﻿using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery;
+﻿using Ex03.GarageLogic.Com.Team.Entity.Manufactured;
+using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
 
 namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component.Impl.Asserted
 {
-    public class AssertedBatteryCar : Vehicle
+    public class AssertedBatteryCar : Vehicle, ISelfValueAdder
     {
         public AssertedBatteryCar(string i_ModelName, string i_LicensePlate,
             Car.eColor i_Color,
@@ -30,10 +31,10 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component.Impl.Asserted
         public Car.eColor Color => Car.Color;
 
         public Car.eDoorsAmount DoorsAmount => Car.DoorsAmount;
-
-        public void AddCharge(float i_MinutesToAdd)
+        
+        public void AddSelfValue(float i_MinutesToAdd)
         {
-            Engine.AddCharge(i_MinutesToAdd);
+            Engine.AddSelfValue(i_MinutesToAdd);
         }
     }
 }

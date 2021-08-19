@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.AccessControl;
+using System.Security.Permissions;
 using System.Text;
 using System.Text.RegularExpressions;
 using Ex03.ConsoleUI.Com.Team.Misc;
@@ -44,7 +46,9 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             (Menu.GetMenu(), Menu.k_CreateAndInsertVehicleRecord,
                 Menu.k_PrintLicensePlates, Menu
                     .k_PrintSelectedLicensePlatesByState,
-                Menu.k_SetStateOfRecordByLicensePlate, Menu.k_ExitProgram);
+                Menu.k_SetStateOfRecordByLicensePlate,
+                Menu.k_InflateTiresToMaxByLicensePlate, Menu
+                    .k_ExitProgram);
 
             switch (io_SelectedMenuOption)
             {
@@ -55,25 +59,45 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                     printLicensePlates();
                     break;
                 case Menu.k_PrintSelectedLicensePlatesByState:
+                {
                     Record.eState stateToSelect = createState
                         (ref indentationLevel);
                     printSelectedLicensePlatesByState(stateToSelect);
                     break;
+                }
                 case Menu.k_SetStateOfRecordByLicensePlate:
-                    string licensePlate = createLicensePlate
-                        (ref indentationLevel);
-                    setStateOfRecordByLicensePlate(ref indentationLevel,
-                        licensePlate);
+                    setStateOfRecordByLicensePlate(ref indentationLevel);
+                    break;
+                case Menu.k_InflateTiresToMaxByLicensePlate:
+                    inflateTiresToMaxByLicensePlate(ref indentationLevel);
                     break;
             }
         }
 
-        private void setStateOfRecordByLicensePlate(ref int io_IndentationLevel,
-            string i_LicensePlate)
+        private static void inflateTiresToMaxByLicensePlate(
+            ref int io_IndentationLevel)
         {
+            string licensePlate = createLicensePlate
+                (ref io_IndentationLevel);
+            bool success = GarageController.PostInflateTiresToMaxByLicensePlate(licensePlate);
+            if (success)
+            {
+                Console.Out.WriteLine("success");
+            }
+            else
+            {
+                // Won't go here.
+                Console.Out.WriteLine("failed.");
+            }
+        }
+
+        private void setStateOfRecordByLicensePlate(ref int io_IndentationLevel)
+        {
+            string licensePlate = createLicensePlate
+                (ref io_IndentationLevel);
             Record.eState stateToSet = createState(ref io_IndentationLevel);
             GarageController.PostSetState(
-                new SetStateRequest(i_LicensePlate, stateToSet),
+                new SetStateRequest(licensePlate, stateToSet),
                 out string responseMessage);
             Console.Out.WriteLine(responseMessage);
         }
@@ -896,6 +920,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             public const int k_PrintLicensePlates = 2;
             public const int k_PrintSelectedLicensePlatesByState = 3;
             public const int k_SetStateOfRecordByLicensePlate = 4;
+            public const int k_InflateTiresToMaxByLicensePlate = 5;
             public const int k_ExitProgram = 0;
 
 
@@ -917,6 +942,10 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                            "{0}. Set State Of Record By License Plate" +
                            Environment.NewLine,
                            k_SetStateOfRecordByLicensePlate) +
+                       string.Format(
+                           "{0}. Inflate Tires To Max By License Plate" +
+                           Environment.NewLine,
+                           k_InflateTiresToMaxByLicensePlate) +
                        string.Format("{0}. Exit Program",
                            k_ExitProgram) + Environment.NewLine;
             }

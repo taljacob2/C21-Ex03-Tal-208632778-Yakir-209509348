@@ -27,5 +27,13 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire
 
             return stringBuilder.ToString();
         }
+
+        public void InflateAllTires(float i_PSIToAdd)
+        {
+            foreach (var tire in this.List)
+            {
+                tire.AddSelfValue(i_PSIToAdd);
+            }
+        }
     }
 }

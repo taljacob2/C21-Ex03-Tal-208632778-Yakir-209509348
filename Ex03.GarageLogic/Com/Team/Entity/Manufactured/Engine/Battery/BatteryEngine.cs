@@ -14,12 +14,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery
         {
             ManufacturerMaxValue = i_ManufacturerMaxCapacityInHours;
         }
-
-        public void AddCharge(float i_MinutesToAdd)
-        {
-            AddSelfValue(i_MinutesToAdd);
-        }
-
+        
         public override string ToString()
         {
             return this.ToStringExtension();

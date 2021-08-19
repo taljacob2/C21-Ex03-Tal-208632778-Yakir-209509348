@@ -22,10 +22,6 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire
         {
             return this.ToStringExtension();
         }
-
-        public void AddPressure(float i_PSIToAdd)
-        {
-            AddSelfValue(i_PSIToAdd);
-        }
+        
     }
 }

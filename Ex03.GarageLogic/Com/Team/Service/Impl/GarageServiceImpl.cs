@@ -137,6 +137,33 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             return returnValue;
         }
 
+        public bool PostInflateTiresToMaxByLicensePlate(string i_LicensePlate,
+            out StringBuilder o_ResponseMessage)
+        {
+            bool returnValue = true;
+            o_ResponseMessage = new StringBuilder();
+            try
+            {
+                Record record = RecordRepository.FindByLicensePlate(i_LicensePlate);
+                if (record.Vehicle is VehicleComponent)
+                {
+                    ((VehicleComponent) record.Vehicle).Tires.
+                }
+                    
+                    
+                o_ResponseMessage.Append(
+                    $"Changed Record's State to: `{i_Request.NewState:G}`.");
+            }
+            catch (System.Exception e)
+            {
+                o_ResponseMessage.Append(e.Message);
+                returnValue = false;
+            }
+
+            return returnValue;
+        }
+        
+
 
         // TODO: disabled.
         // public void FuelVehicle(string i_LicensePlate,

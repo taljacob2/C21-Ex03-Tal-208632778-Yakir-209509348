@@ -49,5 +49,8 @@ namespace Ex03.GarageLogic.Com.Team.Service
 
         bool SetState(SetStateRequest i_Request,
             out StringBuilder o_ResponseMessage);
+
+        bool PostInflateTiresToMaxByLicensePlate(string i_LicensePlate,
+            out StringBuilder o_ResponseMessage);
     }
 }

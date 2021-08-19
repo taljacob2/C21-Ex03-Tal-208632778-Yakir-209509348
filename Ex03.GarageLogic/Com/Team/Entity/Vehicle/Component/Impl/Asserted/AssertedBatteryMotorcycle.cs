@@ -33,7 +33,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component.Impl.Asserted
 
         public void AddCharge(float i_MinutesToAdd)
         {
-            Engine.AddCharge(i_MinutesToAdd);
+            Engine.AddSelfValue(i_MinutesToAdd);
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Extended
 {
-    public class ExtendedEngine : ISelfValueAdder
+    public class ExtendedEngine
     {
         public ExtendedEngine(Engine i_Engine, int i_VolumeInCC)
         {
@@ -18,7 +18,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Extended
         /// </summary>
         public int VolumeInCC { get; }
 
-        public void AddSelfValue(float i_ValueToAdd)
+        protected void AddSelfValue(float i_ValueToAdd)
         {
             Engine.AddSelfValue(i_ValueToAdd);
         }

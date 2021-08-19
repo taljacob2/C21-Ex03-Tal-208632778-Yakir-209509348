@@ -141,9 +141,15 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
             return returnValue;
         }
 
-        public bool PostInflateTiresToMax(string i_LicensePlate)
+        public bool PostInflateTiresToMaxByLicensePlate(string i_LicensePlate,
+            out string o_ResponseMessage)
         {
-            throw new NotImplementedException();
+            StringBuilder stringBuilder = new StringBuilder();
+            bool returnValue =
+                GarageService.PostInflateTiresToMaxByLicensePlate(
+                    i_LicensePlate, out stringBuilder);
+            o_ResponseMessage = stringBuilder.ToString();
+            return returnValue;
         }
 
         public Record PostInsertAssertedFuelCar(
