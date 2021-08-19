@@ -325,31 +325,30 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
         private Motorcycle.eLicenseType createLicenseType(string i_IndentationString)
         {
             string validEnumStrings = createValidStringsMessage(
-                EnumString.sr_Red, EnumString.sr_Silver,
-                EnumString.sr_White, EnumString.sr_Black);
+                EnumString.sr_A, EnumString.sr_B1,
+                EnumString.sr_AA, EnumString.sr_BB);
             string color = InputUtil.ConvertIgnoreCase(
                 $"{i_IndentationString}Enter {nameof(color)}: {validEnumStrings}",
-                EnumString.Upper.sr_Red, EnumString.Upper.sr_Silver,
-                EnumString.Upper.sr_White, EnumString.Upper.sr_Black);
+                EnumString.Upper.sr_A, EnumString.Upper.sr_B1,
+                EnumString.Upper.sr_AA, EnumString.Upper.sr_BB);
 
             string valueToSwitch = color.ToUpper();
-            Car.eColor? nullableOfReturnValue = null;
-            if (valueToSwitch.Equals(EnumString.Upper.sr_Red))
+            Motorcycle.eLicenseType? nullableOfReturnValue = null;
+            if (valueToSwitch.Equals(EnumString.Upper.sr_A))
             {
-                nullableOfReturnValue = Car.eColor.Red;
+                nullableOfReturnValue = Motorcycle.eLicenseType.A;
             }
-            else if (valueToSwitch
-                .Equals(EnumString.Upper.sr_Silver))
+            else if (valueToSwitch.Equals(EnumString.Upper.sr_B1))
             {
-                nullableOfReturnValue = Car.eColor.Silver;
+                nullableOfReturnValue = Motorcycle.eLicenseType.B1;
             }
-            else if (valueToSwitch.Equals(EnumString.Upper.sr_White))
+            else if (valueToSwitch.Equals(EnumString.Upper.sr_AA))
             {
-                nullableOfReturnValue = Car.eColor.White;
+                nullableOfReturnValue = Motorcycle.eLicenseType.AA;
             }
-            else if (valueToSwitch.Equals(EnumString.Upper.sr_Black))
+            else if (valueToSwitch.Equals(EnumString.Upper.sr_BB))
             {
-                nullableOfReturnValue = Car.eColor.Black;
+                nullableOfReturnValue = Motorcycle.eLicenseType.BB;
             }
 
             return nullableOfReturnValue.Value;
