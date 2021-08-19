@@ -5,14 +5,14 @@ namespace Ex03.GarageLogic.Com.Team.DTO
     public class VehicleRecordDTO
     {
         public VehicleRecordDTO(Owner i_Owner,
-            VehicleComponent i_VehicleComponent)
+            ComponentVehicle i_ComponentVehicle)
         {
             Owner = i_Owner;
-            VehicleComponent = i_VehicleComponent;
+            ComponentVehicle = i_ComponentVehicle;
         }
 
         public Owner Owner { get; }
 
-        public VehicleComponent VehicleComponent { get; }
+        public ComponentVehicle ComponentVehicle { get; }
     }
 }

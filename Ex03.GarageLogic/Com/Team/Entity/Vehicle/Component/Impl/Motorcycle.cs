@@ -4,7 +4,7 @@ using Ex03.GarageLogic.Com.Team.Misc;
 
 namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component.Impl
 {
-    public class Motorcycle : VehicleComponent
+    public class Motorcycle : ComponentVehicle
     {
         public enum eLicenseType
         {

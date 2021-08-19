@@ -39,10 +39,10 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
             throw new NotImplementedException();
         }
 
-        public Record PostCreateRecord(VehicleComponent i_VehicleComponent,
+        public Record PostCreateRecord(ComponentVehicle i_ComponentVehicle,
             Owner i_Owner)
         {
-            return GarageService.CreateRecord(i_VehicleComponent, i_Owner);
+            return GarageService.CreateRecord(i_ComponentVehicle, i_Owner);
         }
 
         public Record PostCreateAndInsertAssertedFuelCar(

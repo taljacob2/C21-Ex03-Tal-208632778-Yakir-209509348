@@ -35,5 +35,16 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire
                 tire.AddSelfValue(i_PSIToAdd);
             }
         }
+        
+        public void InflateAllTiresToMaxValue()
+        {
+            InflateAllTires(GetManufacturerMaxValue());
+        }        
+        
+        public float GetManufacturerMaxValue()
+        {
+            // All tires are equal, and have the same ManufacturerMaxValue.
+            return this.List[0].ManufacturerMaxValue;
+        }
     }
 }

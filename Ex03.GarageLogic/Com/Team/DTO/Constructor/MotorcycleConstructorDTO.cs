@@ -5,7 +5,7 @@ using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component.Impl;
 // ReSharper disable once TooManyDependencies
 namespace Ex03.GarageLogic.Com.Team.DTO.Constructor
 {
-    public class MotorcycleConstructorDTO : VehicleComponentConstructorDTO
+    public class MotorcycleConstructorDTO : ComponentVehicleConstructorDTO
     {
         public MotorcycleConstructorDTO(string i_ModelName,
             string i_LicensePlate, Tire i_TireToSetForAllTires,

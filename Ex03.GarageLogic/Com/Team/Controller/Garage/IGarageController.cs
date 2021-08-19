@@ -51,7 +51,7 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage
 
         VehicleResponse GetVehicleDetails(string i_LicensePlate);
 
-        Record PostCreateRecord(VehicleComponent i_VehicleComponent,
+        Record PostCreateRecord(ComponentVehicle i_ComponentVehicle,
             Owner i_Owner); // TODO: remove.
 
         Record PostCreateAndInsertAssertedFuelCar(

@@ -4,7 +4,7 @@ using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
 // ReSharper disable once TooManyDependencies
 namespace Ex03.GarageLogic.Com.Team.DTO.Constructor
 {
-    public class TruckConstructorDTO : VehicleComponentConstructorDTO
+    public class TruckConstructorDTO : ComponentVehicleConstructorDTO
     {
         public TruckConstructorDTO(string i_ModelName,
             string i_LicensePlate, Tire i_TireToSetForAllTires,

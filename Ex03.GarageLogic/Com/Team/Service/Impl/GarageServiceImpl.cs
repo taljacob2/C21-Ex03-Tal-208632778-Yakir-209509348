@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Text;
 using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
+using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
+using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted;
+using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component;
-using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component.Impl.Asserted;
 using Ex03.GarageLogic.Com.Team.Repository;
 using Ex03.GarageLogic.Com.Team.Repository.Impl;
 
@@ -144,13 +146,18 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             o_ResponseMessage = new StringBuilder();
             try
             {
-                Record record = RecordRepository.FindByLicensePlate(i_LicensePlate);
-                if (record.Vehicle is VehicleComponent)
+                Record record =
+                    RecordRepository.FindByLicensePlate(i_LicensePlate);
+                if (record.Vehicle is ComponentVehicle)
                 {
-                    ((VehicleComponent) record.Vehicle).Tires.
+                    Tires tires = ((ComponentVehicle) record.Vehicle).Tires;
+                    tires.InflateAllTiresToMaxValue();
                 }
+                else if (record.Vehicle is Asserted)
+                {
                     
-                    
+                }
+                
                 o_ResponseMessage.Append(
                     $"Changed Record's State to: `{i_Request.NewState:G}`.");
             }
@@ -162,7 +169,6 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
 
             return returnValue;
         }
-        
 
 
         // TODO: disabled.

@@ -1,8 +1,8 @@
 ﻿namespace Ex03.GarageLogic.Com.Team.DTO.Constructor
 {
-    public class VehicleComponentConstructorDTO
+    public class ComponentVehicleConstructorDTO
     {
-        public VehicleComponentConstructorDTO(string i_ModelName,
+        public ComponentVehicleConstructorDTO(string i_ModelName,
             string i_LicensePlate)
         {
             ModelName = i_ModelName;

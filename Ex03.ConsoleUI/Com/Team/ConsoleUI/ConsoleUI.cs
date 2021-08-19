@@ -220,7 +220,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             string indentationString =
                 StringIndentation.Create(io_IndentationLevel);
             Console.Out.WriteLine(
-                $"{StringIndentation.Create(io_IndentationLevel)}Create {nameof(VehicleComponent)}:");
+                $"{StringIndentation.Create(io_IndentationLevel)}Create {nameof(ComponentVehicle)}:");
             string vehicleType = createVehicleType(indentationString);
             string modelName =
                 InputUtil.Convert<string>(

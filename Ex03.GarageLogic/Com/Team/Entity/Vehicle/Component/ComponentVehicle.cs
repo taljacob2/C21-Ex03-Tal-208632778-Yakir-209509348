@@ -5,16 +5,16 @@ using Ex03.GarageLogic.Com.Team.Misc;
 
 namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component
 {
-    public abstract class VehicleComponent : Vehicle
+    public abstract class ComponentVehicle : Vehicle
     {
-        protected VehicleComponent(
-            VehicleComponentConstructorDTO i_VehicleComponentConstructorDTO)
+        protected ComponentVehicle(
+            ComponentVehicleConstructorDTO i_ComponentVehicleConstructorDTO)
         {
-            ModelName = i_VehicleComponentConstructorDTO.ModelName;
-            LicensePlate = i_VehicleComponentConstructorDTO.LicensePlate;
+            ModelName = i_ComponentVehicleConstructorDTO.ModelName;
+            LicensePlate = i_ComponentVehicleConstructorDTO.LicensePlate;
         }
 
-        protected VehicleComponent() {}
+        protected ComponentVehicle() {}
 
         public Tires Tires { get; } = new Tires();
 
