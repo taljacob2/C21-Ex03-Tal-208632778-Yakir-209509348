@@ -197,11 +197,11 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
         private static Car.eColor createColor(string i_IndentationString)
         {
-            string validEnumColorStrings = createValidStringsMessage(
+            string validEnumStrings = createValidStringsMessage(
                 EnumString.sr_Red, EnumString.sr_Silver,
                 EnumString.sr_White, EnumString.sr_Black);
             string color = InputUtil.ConvertIgnoreCase(
-                $"{i_IndentationString}Enter {nameof(color)}: {validEnumColorStrings}",
+                $"{i_IndentationString}Enter {nameof(color)}: {validEnumStrings}",
                 EnumString.Upper.sr_Red, EnumString.Upper.sr_Silver,
                 EnumString.Upper.sr_White, EnumString.Upper.sr_Black);
 
@@ -230,11 +230,11 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
         static Car.eDoorsAmount createDoorsAmount(string i_IndentationString)
         {
-            string validEnumDoorsAmountStrings = createValidStringsMessage(
+            string validEnumStrings = createValidStringsMessage(
                 EnumString.sr_Two, EnumString.sr_Three,
                 EnumString.sr_Four, EnumString.sr_Five);
             string doorsAmount = InputUtil.ConvertIgnoreCase(
-                $"{i_IndentationString}Enter {nameof(doorsAmount)}: {validEnumDoorsAmountStrings}",
+                $"{i_IndentationString}Enter {nameof(doorsAmount)}: {validEnumStrings}",
                 EnumString.Upper.sr_Two, EnumString.Upper.sr_Three,
                 EnumString.Upper.sr_Four, EnumString.Upper.sr_Five);
 
