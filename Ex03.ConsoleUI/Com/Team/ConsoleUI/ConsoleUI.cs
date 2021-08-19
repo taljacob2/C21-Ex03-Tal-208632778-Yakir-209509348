@@ -165,7 +165,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             string tireManufacturerName =
                 createTireManufacturerName(ref io_IndentationLevel);
             Car.eColor color = createColor(indentationString);
-            string doorsAmount = createDoorsAmount(indentationString);
+            Car.eDoorsAmount doorsAmount = createDoorsAmount(indentationString);
 
 
             io_IndentationLevel--;
@@ -206,7 +206,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return nullableOfReturnValue.Value;
         }
 
-        private static string createDoorsAmount(string i_IndentationString)
+         static Car.eDoorsAmount createDoorsAmount(string i_IndentationString)
         {
             string validEnumDoorsAmountStrings = createValidStringsMessage(
                 EnumString.sr_Two, EnumString.sr_Three,
@@ -215,7 +215,29 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                 $"{i_IndentationString}Enter {nameof(doorsAmount)}: {validEnumDoorsAmountStrings}",
                 EnumString.Upper.sr_Two, EnumString.Upper.sr_Three,
                 EnumString.Upper.sr_Four, EnumString.Upper.sr_Five);
-            return doorsAmount;
+            
+            string valueToSwitch = doorsAmount.ToUpper();
+            Car.eDoorsAmount? nullableOfReturnValue = null;
+            if (valueToSwitch.Equals(EnumString.Upper.sr_Two))
+            {
+                nullableOfReturnValue = Car.eDoorsAmount.Two;
+            }
+            else if (valueToSwitch
+                .Equals(EnumString.Upper.sr_Three))
+            {
+                nullableOfReturnValue = Car.eDoorsAmount.Three;
+            }
+            else if (valueToSwitch.Equals(EnumString.Upper.sr_Four))
+            {
+                nullableOfReturnValue = Car.eDoorsAmount.Four;
+            }
+            else if (valueToSwitch.Equals(EnumString.Upper.sr_Five))
+            {
+                nullableOfReturnValue = Car.eDoorsAmount.Five;
+            }
+
+            return nullableOfReturnValue.Value;            
+            
         }
 
         private Vehicle createMotorcycle(ref int io_IndentationLevel,
