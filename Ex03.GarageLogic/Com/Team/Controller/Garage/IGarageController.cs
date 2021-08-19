@@ -54,10 +54,10 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage
         Record PostCreateRecord(VehicleComponent i_VehicleComponent,
             Owner i_Owner); // TODO: remove.
 
-        Record PostCreateAssertedFuelCar(CreateAssertedCarRequest i_Request,
+        Record PostInsertAssertedFuelCar(CreateAssertedCarRequest i_Request,
             out string o_ResponseMessage);
 
-        Record PostCreateAssertedBatteryCar(CreateAssertedCarRequest i_Request,
+        Record PostInsertAssertedBatteryCar(CreateAssertedCarRequest i_Request,
             out string o_ResponseMessage);
     }
 }

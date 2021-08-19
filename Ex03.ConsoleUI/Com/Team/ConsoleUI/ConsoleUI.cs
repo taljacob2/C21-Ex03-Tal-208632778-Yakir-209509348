@@ -194,13 +194,13 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             if (valueToSwitch == GarageEnums.eEngineType.Fuel)
             {
                 nullableReturnValue =
-                    GarageController.PostCreateAssertedFuelCar(request, out
+                    GarageController.PostInsertAssertedFuelCar(request, out
                         responseMessage);
             }
             else if (valueToSwitch == GarageEnums.eEngineType.Battery)
             {
                 nullableReturnValue =
-                    GarageController.PostCreateAssertedBatteryCar(request, out
+                    GarageController.PostInsertAssertedBatteryCar(request, out
                         responseMessage);
             }
 
