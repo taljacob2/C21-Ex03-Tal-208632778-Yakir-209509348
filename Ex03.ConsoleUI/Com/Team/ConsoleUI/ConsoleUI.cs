@@ -169,27 +169,30 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
             io_IndentationLevel--;
 
-            return createCarTypeSwitch(i_ModelName,i_LicensePlate,
-            tireManufacturerName,color,doorsAmount,engineType);
+            return createCarTypeSwitch(i_ModelName, i_LicensePlate,
+                tireManufacturerName, color, doorsAmount, engineType);
         }
 
-        private Car createCarTypeSwitch(string i_ModelName, string i_LicensePlate,
+        private Car createCarTypeSwitch(string i_ModelName,
+            string i_LicensePlate,
             string i_TireManufacturerName, Car.eColor i_Color,
             Car.eDoorsAmount i_DoorsAmount,
             eEngineType i_EngineType)
         {
-            Vehicle returnValue = null;
+            Car returnValue = null;
             eEngineType valueToSwitch = i_EngineType;
             if (valueToSwitch == eEngineType.Fuel)
             {
-                returnValue = GarageController.PostCreateAsertedFuelCar(i_ModelName,i_LicensePlate,
+                returnValue = GarageController.PostCreateAsertedFuelCar(
+                    i_ModelName, i_LicensePlate,
                     i_TireManufacturerName, i_Color, i_DoorsAmount,
                     i_EngineType);
             }
             else if (valueToSwitch == eEngineType.Battery)
             {
                 returnValue =
-                    GarageController.PostCreateAsertedBatteryCar(i_ModelName,i_LicensePlate,
+                    GarageController.PostCreateAsertedBatteryCar(i_ModelName,
+                        i_LicensePlate,
                         i_TireManufacturerName, i_Color, i_DoorsAmount,
                         i_EngineType);
             }
@@ -288,7 +291,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
         }
 
         private Vehicle createMotorcycle(ref int io_IndentationLevel,
-            string i_VehicleType, string i_ModelName, string i_LicensePlate)
+            string i_ModelName, string i_LicensePlate)
         {
             io_IndentationLevel++;
 
@@ -298,7 +301,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
         }
 
         private Vehicle createTruck(ref int io_IndentationLevel,
-            string i_VehicleType, string i_ModelName, string i_LicensePlate)
+            string i_ModelName, string i_LicensePlate)
         {
             io_IndentationLevel++;
 
