@@ -148,18 +148,8 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             {
                 Record record =
                     RecordRepository.FindByLicensePlate(i_LicensePlate);
-                if (record.Vehicle is ComponentVehicle)
-                {
-                    Tires tires = ((ComponentVehicle) record.Vehicle).Tires;
-                    tires.InflateAllTiresToMaxValue();
-                }
-                else if (record.Vehicle is Asserted)
-                {
-                    
-                }
-                
-                o_ResponseMessage.Append(
-                    $"Changed Record's State to: `{i_Request.NewState:G}`.");
+
+                typeOfSwitchForPSI(o_ResponseMessage, record);
             }
             catch (System.Exception e)
             {
@@ -168,6 +158,34 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             }
 
             return returnValue;
+        }
+
+        private static void typeOfSwitchForPSI(StringBuilder o_ResponseMessage,
+            Record io_Record)
+        {
+            float psi = 0;
+            if (io_Record.Vehicle is ComponentVehicle)
+            {
+                Tires tires = ((ComponentVehicle) io_Record.Vehicle).Tires;
+                tires.InflateAllTiresToMaxValue();
+                psi = tires.GetManufacturerMaxValue();
+
+                o_ResponseMessage.Append(
+                    $"Changed Tires' PSI to: `{psi}`.");
+            }
+            else if (io_Record.Vehicle is AssertedVehicle)
+            {
+                Tires tires = ((ComponentVehicle) io_Record.Vehicle).Tires;
+                tires.InflateAllTiresToMaxValue();
+                psi = tires.GetManufacturerMaxValue();
+
+                o_ResponseMessage.Append(
+                    $"Changed Tires' PSI to: `{psi}`.");
+            }
+            else
+            {
+                // Won't go here. Not possible.
+            }
         }
 
 
