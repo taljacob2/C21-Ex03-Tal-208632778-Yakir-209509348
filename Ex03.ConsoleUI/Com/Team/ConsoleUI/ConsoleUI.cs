@@ -51,10 +51,12 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             Console.Out.WriteLine("Create Owner:");
             string name =
                 InputUtil.Convert<string>(
-                    indentationString(k_Indentation) + "Enter name: ");
+                    StringIndentation.IndentationString(k_Indentation) +
+                    "Enter name: ");
             string phoneNumber =
                 InputUtil.Convert<string>(
-                    indentationString(k_Indentation) + "Enter phone-number: ");
+                    StringIndentation.IndentationString(k_Indentation) +
+                    "Enter phone-number: ");
             return new Owner(phoneNumber, name);
         }
 
@@ -63,16 +65,19 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             const int k_Indentation = 1;
             Console.Out.WriteLine("Create Vehicle:");
             string vehicleType = InputUtil.ConvertIgnoreCase(
-                indentationString(k_Indentation) + "Enter vehicle-type: ",
+                StringIndentation.IndentationString(k_Indentation) +
+                "Enter vehicle-type: ",
                 EnumUpperString.sr_CarStringUpper, EnumUpperString
                     .sr_MotorcycleStringUpper,
                 EnumUpperString.sr_TruckStringUpper);
             string modelName =
                 InputUtil.Convert<string>(
-                    indentationString(k_Indentation) + "Enter name: ");
+                    StringIndentation.IndentationString(k_Indentation) +
+                    "Enter name: ");
             string licensePlate =
                 InputUtil.Convert<string>(
-                    indentationString(k_Indentation) + "Enter phone-number: ");
+                    StringIndentation.IndentationString(k_Indentation) +
+                    "Enter phone-number: ");
 
             Vehicle returnValue = null;
             if (vehicleType.ToUpper().Equals(EnumUpperString.sr_CarStringUpper))
@@ -143,17 +148,6 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
         private void printMenu()
         {
             throw new NotImplementedException();
-        }
-
-        private static string indentationString(int i_IndentationLevel)
-        {
-            StringBuilder builder = new StringBuilder();
-            for (int i = 1; i <= i_IndentationLevel; i++)
-            {
-                builder.Append("    ");
-            }
-
-            return builder.ToString();
         }
 
         private static class EnumUpperString

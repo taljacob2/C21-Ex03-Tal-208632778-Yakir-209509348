@@ -45,6 +45,7 @@
     <ItemGroup>
         <Compile Include="Com\Team\ConsoleUI\ConsoleUI.cs" />
         <Compile Include="Com\Team\Misc\InputUtil.cs" />
+        <Compile Include="Com\Team\Misc\StringIndentation.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>

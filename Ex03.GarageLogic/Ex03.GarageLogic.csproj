@@ -78,6 +78,7 @@
         <Compile Include="Com\Team\Exception\ValueOutOfRangeException.cs" />
         <Compile Include="Com\Team\Misc\EnumeratorGetter.cs" />
         <Compile Include="Com\Team\Misc\ObjectExtensions.cs" />
+        <Compile Include="Com\Team\Misc\StringIndentation.cs" />
         <Compile Include="Com\Team\Repository\Impl\RecordRepositoryImpl.cs" />
         <Compile Include="Com\Team\Repository\IRecordRepository.cs" />
         <Compile Include="Com\Team\Service\Impl\RecordServiceImpl.cs" />
