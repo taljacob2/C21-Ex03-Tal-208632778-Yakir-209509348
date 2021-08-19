@@ -44,12 +44,14 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                 $"{StringIndentation.IndentationString(indentationLevel)}Create {nameof(Record)}:");
             Owner owner = createOwner(ref indentationLevel);
             Vehicle vehicle = createVehicle(ref indentationLevel);
+            
             return GarageController.PostCreateRecord(vehicle, owner);
         }
 
         private Owner createOwner(ref int io_IndentationLevel)
         {
             io_IndentationLevel++;
+            
             string indentationString =
                 StringIndentation.IndentationString(io_IndentationLevel);
             Console.Out.WriteLine(
@@ -62,17 +64,18 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                     $"{indentationString}Enter {nameof(phoneNumber)}: ");
 
             io_IndentationLevel--;
+            
             return new Owner(phoneNumber, name);
         }
 
         private Vehicle createVehicle(ref int io_IndentationLevel)
         {
             io_IndentationLevel++;
+            
             string indentationString =
                 StringIndentation.IndentationString(io_IndentationLevel);
             Console.Out.WriteLine(
                 $"{StringIndentation.IndentationString(io_IndentationLevel)}Create {nameof(Vehicle)}:");
-
             string validEnumStrings = createValidStringsMessage(
                 EnumString.sr_Car, EnumString.sr_Motorcycle,
                 EnumString.sr_Truck);
@@ -88,6 +91,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                     $"{indentationString}Enter {nameof(licensePlate)}: ");
 
             io_IndentationLevel--;
+            
             return createVehicleReturnValue(ref io_IndentationLevel, vehicleType,
                 modelName, licensePlate);
         }
@@ -117,6 +121,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             string i_VehicleType, string i_ModelName, string i_LicensePlate)
         {
             io_IndentationLevel++;
+            
             Vehicle returnValue = null;
             if (i_VehicleType.ToUpper()
                 .Equals(EnumString.Upper.sr_Car))
@@ -140,6 +145,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             }
 
             io_IndentationLevel--;
+            
             return returnValue;
         }
 
@@ -147,12 +153,14 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             string i_ModelName, string i_LicensePlate)
         {
             io_IndentationLevel++;
+            
             Console.Out.WriteLine(
                 $"{StringIndentation.IndentationString(io_IndentationLevel)}Create {nameof(Car)}:");
             Tire tire = createTire(ref io_IndentationLevel);
             
 
             io_IndentationLevel--;
+            
             throw new NotImplementedException();
         }
 
@@ -161,7 +169,9 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             string i_ModelName, string i_LicensePlate)
         {
             io_IndentationLevel++;
+            
             io_IndentationLevel--;
+            
             throw new NotImplementedException();
         }
 
@@ -170,14 +180,18 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             string i_LicensePlate)
         {
             io_IndentationLevel++;
+            
             io_IndentationLevel--;
+            
             throw new NotImplementedException();
         }
 
         private Tire createTire(ref int io_IndentationLevel)
         {
             io_IndentationLevel++;
+            
             io_IndentationLevel--;
+            
             throw new NotImplementedException();
         }
 
