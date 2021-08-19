@@ -742,8 +742,6 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
             string indentationString =
                 StringIndentation.Create(io_IndentationLevel);
-            Console.Out.WriteLine(
-                $"{indentationString}Create {nameof(ExtendedEngine)}:");
             float volumeToRefuelInLiters = 0;
             while (volumeToRefuelInLiters == 0)
             {

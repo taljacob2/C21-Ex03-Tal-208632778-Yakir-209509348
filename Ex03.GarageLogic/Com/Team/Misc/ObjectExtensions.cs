@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Reflection;
 using System.Text;
 using Ex03.GarageLogic.Com.Team.Misc.ArrayExtensions;
@@ -59,6 +60,60 @@ namespace Ex03.GarageLogic.Com.Team.Misc
 
             return stringBuilder.ToString();
         }
+
+        public static T GetPropertyValue<T>(this object i_SourceInstance,
+            string i_TargetPropertyName,
+            bool i_ThrowExceptionIfNotExists = false)
+        {
+            string errorMsg = null;
+
+            try
+            {
+                if (i_SourceInstance == null ||
+                    string.IsNullOrWhiteSpace(i_TargetPropertyName))
+                {
+                    errorMsg =
+                        $"Source object is null or property name is null or whitespace. '{i_TargetPropertyName}'";
+                    Console.Out.WriteLine(errorMsg);
+
+                    if (i_ThrowExceptionIfNotExists)
+                        throw new ArgumentException(errorMsg);
+                    else
+                        return default(T);
+                }
+
+                Type returnType = typeof(T);
+                Type sourceType = i_SourceInstance.GetType();
+
+                PropertyInfo propertyInfo =
+                    sourceType.GetProperty(i_TargetPropertyName, returnType);
+                if (propertyInfo == null)
+                {
+                    errorMsg =
+                        $"Property name '{i_TargetPropertyName}' of type '{returnType}' not found for source object of type '{sourceType}'";
+                    Console.Out.WriteLine(errorMsg);
+
+                    if (i_ThrowExceptionIfNotExists)
+                        throw new ArgumentException(errorMsg);
+                    else
+                        return default(T);
+                }
+
+                return (T) propertyInfo.GetValue(i_SourceInstance, null);
+            }
+            catch (System.Exception ex)
+            {
+                errorMsg =
+                    $"Problem getting property name '{i_TargetPropertyName}' from source instance.";
+                Console.Out.WriteLine(errorMsg);
+
+                if (i_ThrowExceptionIfNotExists)
+                    throw;
+            }
+
+            return default(T);
+        }
+
 
         public static bool IsPrimitive(this Type i_Type)
         {

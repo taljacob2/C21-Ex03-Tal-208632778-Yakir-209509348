@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Text;
 using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
+using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine;
+using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Extended;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Fuel;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component;
+using Ex03.GarageLogic.Com.Team.Misc;
 using Ex03.GarageLogic.Com.Team.Repository;
 using Ex03.GarageLogic.Com.Team.Repository.Impl;
 
@@ -160,29 +163,54 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
         private void postRefuel(Record io_Record, eType i_FuelType, float
             i_LitersToAdd, StringBuilder o_ResponseMessage)
         {
-            if (io_Record.Vehicle is ComponentVehicle)
+            if (io_Record.Vehicle.Engine is FuelEngine)
             {
-                if ((((ComponentVehicle) io_Record.Vehicle).Engine) is
-                    FuelEngine)
-                {
-                    FuelEngine fuelEngine =
-                        (FuelEngine) (((ComponentVehicle) io_Record.Vehicle)
-                            .Engine);
-                    tryToRefuel(i_FuelType, i_LitersToAdd, o_ResponseMessage,
-                        fuelEngine);
-                }
+                FuelEngine fuelEngine =
+                    (FuelEngine) (((ComponentVehicle) io_Record.Vehicle)
+                        .Engine);
+                tryToRefuel(i_FuelType, i_LitersToAdd, o_ResponseMessage,
+                    fuelEngine);
             }
-            else if (io_Record.Vehicle is AssertedVehicle)
+
+            // Engine is a Property. Find it:
+            else if (io_Record.Vehicle
+                         .GetPropertyValue<ExtendedEngine>("ExtendedEngine") !=
+                     null)
             {
-                if ((((AssertedVehicle) io_Record.Vehicle).Engine) is FuelEngine
-                )
-                {
-                    FuelEngine fuelEngine =
-                        (FuelEngine) (((AssertedVehicle) io_Record.Vehicle)
-                            .Engine);
-                    tryToRefuel(i_FuelType, i_LitersToAdd, o_ResponseMessage,
-                        fuelEngine);
-                }
+                ExtendedEngine extendedEngine = io_Record.Vehicle
+                    .GetPropertyValue<ExtendedEngine>
+                        ("ExtendedEngine");
+                extendedEngineInvokeTryRefuel(i_FuelType, i_LitersToAdd,
+                    o_ResponseMessage, extendedEngine);
+            }
+            else if (io_Record.Vehicle.GetPropertyValue<ExtendedEngine>
+                ("Engine") != null)
+            {
+                // Just for backup. // todo : may remove.
+                ExtendedEngine extendedEngine = io_Record.Vehicle
+                    .GetPropertyValue<ExtendedEngine>
+                        ("Engine");
+                extendedEngineInvokeTryRefuel(i_FuelType, i_LitersToAdd,
+                    o_ResponseMessage, extendedEngine);
+            }
+            else
+            {
+                o_ResponseMessage.Append(
+                    $"Refuel Failed. You do not own a {nameof(FuelEngine)}.");
+            }
+        }
+
+        private static void extendedEngineInvokeTryRefuel(eType i_FuelType,
+            float i_LitersToAdd, StringBuilder o_ResponseMessage,
+            ExtendedEngine i_ExtendedEngine)
+        {
+            Engine engine =
+                i_ExtendedEngine.GetPropertyValue<Engine>("Engine");
+            if (engine is FuelEngine)
+            {
+                FuelEngine fuelEngine = (FuelEngine) engine;
+                tryToRefuel(i_FuelType, i_LitersToAdd, o_ResponseMessage,
+                    fuelEngine);
             }
         }
 
@@ -193,14 +221,13 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             {
                 i_FuelEngine.AddFuelByManualRequest(i_FuelType,
                     i_LitersToAdd);
+                o_ResponseMessage.Append(
+                    $"Successful Refuel. You have `{i_FuelEngine.Value}` liters.");
             }
             catch (System.Exception e)
             {
                 o_ResponseMessage.Append(e.Message);
             }
-
-            o_ResponseMessage.Append(
-                $"Successful Refuel. You have `{i_FuelEngine.Value}` liters.");
         }
 
         public bool PostInflateTiresToMaxByLicensePlate(string i_LicensePlate,
