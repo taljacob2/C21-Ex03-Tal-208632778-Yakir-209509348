@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
+using Ex03.GarageLogic.Com.Team.DTO.Constructor;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
 using Ex03.GarageLogic.Com.Team.Repository;
@@ -12,7 +13,7 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
     /// <summary>
     /// Create `new` objects here. 
     /// </summary>
-    public class RecordServiceImpl : IRecordService
+    public class GarageServiceImpl : IGarageService
     {
         public IRecordRepository RecordRepository { get; } =
             new RecordRepositoryImpl();
@@ -20,6 +21,13 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
         public Record CreateRecord(Vehicle i_Vehicle, Owner i_Owner)
         {
             return new Record(i_Vehicle, i_Owner);
+        }
+
+        public Record CreateRecord(CreateAssertedCarRequest i_Request)
+        {
+            return CreateRecord(new Vehicle(
+                new VehicleConstructorDTO(i_Request.ModelName,
+                    i_Request.LicensePlate)),new Owner(i_Request.))
         }
 
         public void Refuel(RefuelRequest i_Request)

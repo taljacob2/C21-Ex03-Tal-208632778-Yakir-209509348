@@ -12,8 +12,8 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
 {
     public class GarageControllerImpl : IGarageController
     {
-        public IRecordService RecordService { get; } =
-            new RecordServiceImpl();
+        public IGarageService GarageService { get; } =
+            new GarageServiceImpl();
 
         // TODO : disabled.
         // public string GetVehicleDetails(string i_LicensePlate)
@@ -42,15 +42,17 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
 
         public Record PostCreateRecord(Vehicle i_Vehicle, Owner i_Owner)
         {
-            return RecordService.CreateRecord(i_Vehicle, i_Owner);
+            return GarageService.CreateRecord(i_Vehicle, i_Owner);
         }
 
         public Car PostCreateAssertedFuelCar(CreateAssertedCarRequest i_Request)
         {
-            throw new NotImplementedException();
+            PostInsert(GarageService.CreateRecord(
+                GarageService.CreateAssertedFuelCar(i_Request),));
         }
 
-        public Car PostCreateAssertedBatteryCar(CreateAssertedCarRequest i_Request)
+        public Car PostCreateAssertedBatteryCar(
+            CreateAssertedCarRequest i_Request)
         {
             throw new NotImplementedException();
         }
@@ -58,17 +60,17 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
         public Record PostInsert(Record io_Record,
             out StringBuilder o_ResponseMessage)
         {
-            return RecordService.Insert(io_Record, out o_ResponseMessage);
+            return GarageService.Insert(io_Record, out o_ResponseMessage);
         }
 
         public List<string> GetLicensePlatesList()
         {
-            return RecordService.SelectVehicleLicensePlates();
+            return GarageService.SelectVehicleLicensePlates();
         }
 
         public List<string> GetLicensePlatesList(Record.eState i_StateToSelect)
         {
-            return RecordService.SelectVehicleLicensePlates(i_StateToSelect);
+            return GarageService.SelectVehicleLicensePlates(i_StateToSelect);
         }
 
         public bool PostNewState(NewStateRequest i_Request)

@@ -1,15 +1,17 @@
 ﻿using Ex03.GarageLogic.Com.Team.Controller.Garage;
+using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl;
 
 namespace Ex03.GarageLogic.Com.Team.DTO.Model.Request
 {
     public class CreateAssertedCarRequest
     {
-        public CreateAssertedCarRequest(string i_ModelName,
+        public CreateAssertedCarRequest(Owner i_Owner, string i_ModelName,
             string i_LicensePlate, string i_TireManufacturerName,
             Car.eColor i_Color, Car.eDoorsAmount i_DoorsAmount,
             GarageEnums.eEngineType i_EngineType)
         {
+            Owner = i_Owner;
             ModelName = i_ModelName;
             LicensePlate = i_LicensePlate;
             TireManufacturerName = i_TireManufacturerName;
@@ -17,6 +19,8 @@ namespace Ex03.GarageLogic.Com.Team.DTO.Model.Request
             DoorsAmount = i_DoorsAmount;
             EngineType = i_EngineType;
         }
+
+        public Owner Owner { get; }
 
         public string ModelName { get; }
 

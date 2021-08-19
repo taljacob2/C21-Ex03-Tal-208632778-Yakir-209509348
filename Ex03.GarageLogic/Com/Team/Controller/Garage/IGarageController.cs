@@ -53,8 +53,8 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage
 
         Record PostCreateRecord(Vehicle i_Vehicle, Owner i_Owner);
 
-        Car PostCreateAssertedFuelCar(CreateAssertedCarRequest i_Request);
+        Record PostCreateAssertedFuelCar(CreateAssertedCarRequest i_Request);
 
-        Car PostCreateAssertedBatteryCar(CreateAssertedCarRequest i_Request);
+        Record PostCreateAssertedBatteryCar(CreateAssertedCarRequest i_Request);
     }
 }

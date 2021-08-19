@@ -44,9 +44,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             Console.Out.WriteLine(
                 $"{StringIndentation.Create(indentationLevel)}Create {nameof(Record)}:");
             Owner owner = createOwner(ref indentationLevel);
-            Vehicle vehicle = createVehicle(ref indentationLevel);
-
-            return GarageController.PostCreateRecord(vehicle, owner);
+            return createVehicle(owner, ref indentationLevel);
         }
 
         private Owner createOwner(ref int io_IndentationLevel)
@@ -69,7 +67,8 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return new Owner(phoneNumber, name);
         }
 
-        private Vehicle createVehicle(ref int io_IndentationLevel)
+        private Record createVehicle(Owner i_Owner,
+            ref int io_IndentationLevel)
         {
             io_IndentationLevel++;
 
@@ -87,7 +86,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
             io_IndentationLevel--;
 
-            return createVehicleTypeSwitch(ref io_IndentationLevel,
+            return createVehicleTypeSwitch(i_Owner, ref io_IndentationLevel,
                 vehicleType,
                 modelName, licensePlate);
         }
@@ -125,27 +124,28 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return builder.ToString();
         }
 
-        private Vehicle createVehicleTypeSwitch(ref int io_IndentationLevel,
+        private Record createVehicleTypeSwitch(Owner i_Owner,
+            ref int io_IndentationLevel,
             string i_VehicleType, string i_ModelName, string i_LicensePlate)
         {
             io_IndentationLevel++;
 
-            Vehicle returnValue = null;
+            Record returnValue;
             string valueToSwitch = i_VehicleType.ToUpper();
             if (valueToSwitch.Equals(EnumString.Upper.sr_Car))
             {
-                returnValue = createCar(ref io_IndentationLevel,
+                returnValue = createCar(i_Owner, ref io_IndentationLevel,
                     i_ModelName, i_LicensePlate);
             }
             else if (valueToSwitch.Equals(EnumString.Upper.sr_Motorcycle))
             {
                 returnValue =
-                    createMotorcycle(ref io_IndentationLevel,
+                    createMotorcycle(i_Owner, ref io_IndentationLevel,
                         i_ModelName, i_LicensePlate);
             }
             else if (valueToSwitch.Equals(EnumString.Upper.sr_Truck))
             {
-                returnValue = createTruck(ref io_IndentationLevel,
+                returnValue = createTruck(i_Owner, ref io_IndentationLevel,
                     i_ModelName, i_LicensePlate);
             }
 
@@ -154,7 +154,8 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return returnValue;
         }
 
-        private Car createCar(ref int io_IndentationLevel,
+        private Record createCar(Owner i_Owner,
+            ref int io_IndentationLevel,
             string i_ModelName, string i_LicensePlate)
         {
             io_IndentationLevel++;
@@ -171,32 +172,34 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
             io_IndentationLevel--;
 
-            return createCarTypeSwitch(i_ModelName, i_LicensePlate,
+            return createCarTypeSwitch(i_Owner, i_ModelName, i_LicensePlate,
                 tireManufacturerName, color, doorsAmount, engineType);
         }
 
-        private Car createCarTypeSwitch(string i_ModelName,
+        private Record createCarTypeSwitch(Owner i_Owner, string i_ModelName,
             string i_LicensePlate,
             string i_TireManufacturerName, Car.eColor i_Color,
             Car.eDoorsAmount i_DoorsAmount,
             GarageEnums.eEngineType i_EngineType)
         {
             CreateAssertedCarRequest request = new CreateAssertedCarRequest(
+                i_Owner,
                 i_ModelName, i_LicensePlate, i_TireManufacturerName,
                 i_Color, i_DoorsAmount, i_EngineType);
-            Car returnValue = null;
+            Record? nullableReturnValue = null;
             GarageEnums.eEngineType valueToSwitch = i_EngineType;
             if (valueToSwitch == GarageEnums.eEngineType.Fuel)
             {
-                returnValue = GarageController.PostCreateAssertedFuelCar(request);
+                nullableReturnValue =
+                    GarageController.PostCreateAssertedFuelCar(request);
             }
             else if (valueToSwitch == GarageEnums.eEngineType.Battery)
             {
-                returnValue =
+                nullableReturnValue =
                     GarageController.PostCreateAssertedBatteryCar(request);
             }
-            
-            return returnValue;
+
+            return nullableReturnValue.Value;
         }
 
         private GarageEnums.eEngineType createEngineType(
@@ -289,7 +292,8 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return nullableOfReturnValue.Value;
         }
 
-        private Vehicle createMotorcycle(ref int io_IndentationLevel,
+        private Record createMotorcycle(Owner i_Owner,
+            ref int io_IndentationLevel,
             string i_ModelName, string i_LicensePlate)
         {
             io_IndentationLevel++;
@@ -299,7 +303,8 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             throw new NotImplementedException();
         }
 
-        private Vehicle createTruck(ref int io_IndentationLevel,
+        private Record createTruck(Owner i_Owner,
+            ref int io_IndentationLevel,
             string i_ModelName, string i_LicensePlate)
         {
             io_IndentationLevel++;
