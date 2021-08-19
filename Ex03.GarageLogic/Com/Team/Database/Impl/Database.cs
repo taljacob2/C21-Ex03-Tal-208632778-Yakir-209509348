@@ -35,20 +35,20 @@ namespace Ex03.GarageLogic.Com.Team.Database.Impl
                         new ExtendedEngine(new FuelEngine(eType.Octan98, 6),
                             2000))),
                     new Owner("054noregex...", "tal")),
-
+                
                 new Record(new Motorcycle(new MotorcycleConstructorDTO
                     ("modelName2", "licensePlate2",
                         new Tire("talINC", 30, 0), Motorcycle.eLicenseType.A,
                         new ExtendedEngine(new BatteryEngine(1.8F), 2000))),
                     new Owner("054noregex...", "tal")),
-
+                
                 new Record(new Car(new CarConstructorDTO
                     ("modelName3", "licensePlate3",
                         new Tire("talINC", 32, 0), Car.eColor.Black,
                         Car.eDoorsAmount.Four,
                         new FuelEngine(eType.Octan95, 45))),
                     new Owner("054noregex...", "tal")),
-
+                
                 new Record(new Car(new CarConstructorDTO
                     ("modelName3", "licensePlate4",
                         new Tire("talINC", 32, 0), Car.eColor.Black,
@@ -78,7 +78,7 @@ namespace Ex03.GarageLogic.Com.Team.Database.Impl
                 Vehicles = new List<Record>();
                 InstanceOfVehicles = Vehicles;
 
-                // Boot(); // Note: Boot is called last. 
+                Boot(); // Note: Boot is called last. // TODO REMOVE!
             }
         }
     }
