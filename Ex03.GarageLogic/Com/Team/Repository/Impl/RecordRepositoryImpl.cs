@@ -30,9 +30,9 @@ namespace Ex03.GarageLogic.Com.Team.Repository.Impl
             Record returnValue;
             try
             {
-                Record? foundNullableRecord =
+                Record recordFound =
                     FindByLicensePlate(io_Record.Vehicle.LicensePlate);
-                returnValue = foundNullableRecord.Value;
+                returnValue = recordFound;
                 o_ResponseMessage.Append(
                     $"The provided LicensePlate: `{returnValue.Vehicle.LicensePlate}` is already in database.");
             }
@@ -68,9 +68,9 @@ namespace Ex03.GarageLogic.Com.Team.Repository.Impl
         /// <exception cref="ArgumentException">
         ///     Error, if there is no existing Record found.
         /// </exception>
-        public Record? FindByLicensePlate(string i_LicensePlate)
+        public Record FindByLicensePlate(string i_LicensePlate)
         {
-            Record? returnValue = null; // `Nullable` implementation ready.
+            Record returnValue = null; // `Nullable` implementation ready.
             List<string> licensePlates = SelectVehicleLicensePlates();
 
             for (int i = 0; i < licensePlates.Count; i++)
@@ -82,8 +82,8 @@ namespace Ex03.GarageLogic.Com.Team.Repository.Impl
                 }
             }
 
-            // Throw exception. // TODO: check if "logically" this is an ArgumentException.
-            if (!returnValue.HasValue)
+            // DEPRECATED: Throw exception. (just for this exercise): 
+            if (returnValue == null)
             {
                 throw new ArgumentException(
                     $"LicensePlate provided: {i_LicensePlate} ->" +

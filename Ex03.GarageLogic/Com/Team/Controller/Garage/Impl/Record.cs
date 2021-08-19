@@ -4,7 +4,7 @@ using Ex03.GarageLogic.Com.Team.Misc;
 
 namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
 {
-    public struct Record
+    public class Record
     {
         public enum eState
         {

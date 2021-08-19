@@ -45,7 +45,7 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
             return GarageService.CreateRecord(i_VehicleComponent, i_Owner);
         }
 
-        public Record? PostCreateAndInsertAssertedFuelCar(
+        public Record PostCreateAndInsertAssertedFuelCar(
             CreateAndInsertAssertedCarRequest i_Request,
             out string o_ResponseMessage)
         {
@@ -59,7 +59,7 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
             return returnValue;
         }
 
-        public Record? PostCreateAndInsertAssertedBatteryCar(
+        public Record PostCreateAndInsertAssertedBatteryCar(
             CreateAndInsertAssertedCarRequest i_Request,
             out string o_ResponseMessage)
         {
@@ -73,7 +73,7 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
             return returnValue;
         }
 
-        public Record? PostCreateAndInsertAssertedFuelMotorcycle(
+        public Record PostCreateAndInsertAssertedFuelMotorcycle(
             CreateAndInsertAssertedMotorcycleRequest i_Request,
             out string o_ResponseMessage)
         {
@@ -87,7 +87,7 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
             return returnValue;
         }
 
-        public Record? PostCreateAndInsertAssertedBatteryMotorcycle(
+        public Record PostCreateAndInsertAssertedBatteryMotorcycle(
             CreateAndInsertAssertedMotorcycleRequest i_Request,
             out string o_ResponseMessage)
         {
@@ -101,7 +101,7 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
             return returnValue;
         }
 
-        public Record? PostCreateAndInsertAssertedFuelTruck(
+        public Record PostCreateAndInsertAssertedFuelTruck(
             CreateAndInsertAssertedTruckRequest i_Request,
             out string o_ResponseMessage)
         {
@@ -133,7 +133,7 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
 
         public bool PostSetState(SetStateRequest i_Request)
         {
-            throw new NotImplementedException();
+            return GarageService.SetState(i_Request);
         }
 
         public bool PostInflateTiresToMax(string i_LicensePlate)

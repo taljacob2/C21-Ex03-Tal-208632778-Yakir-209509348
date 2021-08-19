@@ -115,7 +115,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
         ///     requested to insert an unavailable vehicle.
         ///     Otherwise contains the retrieved success record.
         /// </returns>
-        private static Record? postCreateAndInsertRecord()
+        private static Record postCreateAndInsertRecord()
         {
             int indentationLevel = 0;
             Console.Out.WriteLine(
@@ -183,7 +183,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return name;
         }
 
-        private static Record? createVehicle(Owner i_Owner,
+        private static Record createVehicle(Owner i_Owner,
             ref int io_IndentationLevel)
         {
             io_IndentationLevel++;
@@ -256,39 +256,39 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return builder.ToString();
         }
 
-        private static Record? createVehicleTypeSwitch(Owner i_Owner,
+        private static Record createVehicleTypeSwitch(Owner i_Owner,
             ref int io_IndentationLevel,
             string i_VehicleType, string i_ModelName, string i_LicensePlate)
         {
             io_IndentationLevel++;
 
-            Record? nullableReturnValue = null;
+            Record returnValue = null;
             string valueToSwitch = i_VehicleType.ToUpper();
             if (valueToSwitch.Equals(EnumString.Upper.sr_Car))
             {
-                nullableReturnValue = createCar(i_Owner,
+                returnValue = createCar(i_Owner,
                     ref io_IndentationLevel,
                     i_ModelName, i_LicensePlate);
             }
             else if (valueToSwitch.Equals(EnumString.Upper.sr_Motorcycle))
             {
-                nullableReturnValue =
+                returnValue =
                     createMotorcycle(i_Owner, ref io_IndentationLevel,
                         i_ModelName, i_LicensePlate);
             }
             else if (valueToSwitch.Equals(EnumString.Upper.sr_Truck))
             {
-                nullableReturnValue = createTruck(i_Owner,
+                returnValue = createTruck(i_Owner,
                     ref io_IndentationLevel,
                     i_ModelName, i_LicensePlate);
             }
 
             io_IndentationLevel--;
 
-            return nullableReturnValue;
+            return returnValue;
         }
 
-        private static Record? createCar(Owner i_Owner,
+        private static Record createCar(Owner i_Owner,
             ref int io_IndentationLevel,
             string i_ModelName, string i_LicensePlate)
         {
@@ -310,7 +310,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                 tireManufacturerName, color, doorsAmount, engineType);
         }
 
-        private static Record? createMotorcycleTypeSwitch(Owner i_Owner,
+        private static Record createMotorcycleTypeSwitch(Owner i_Owner,
             string i_ModelName,
             string i_LicensePlate,
             string i_TireManufacturerName,
@@ -323,19 +323,19 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                     i_Owner,
                     i_ModelName, i_LicensePlate, i_TireManufacturerName,
                     i_LicenseType, i_ExtendedEngineVolumeInCC, i_EngineType);
-            Record? nullableReturnValue = null;
+            Record returnValue = null;
             GarageEnums.eEngineType valueToSwitch = i_EngineType;
             string responseMessage = "";
             if (valueToSwitch == GarageEnums.eEngineType.Fuel)
             {
-                nullableReturnValue =
+                returnValue =
                     GarageController.PostCreateAndInsertAssertedFuelMotorcycle(
                         request,
                         out responseMessage);
             }
             else if (valueToSwitch == GarageEnums.eEngineType.Battery)
             {
-                nullableReturnValue =
+                returnValue =
                     GarageController
                         .PostCreateAndInsertAssertedBatteryMotorcycle(
                             request, out responseMessage);
@@ -343,10 +343,10 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
             Console.Out.WriteLine(responseMessage);
 
-            return nullableReturnValue;
+            return returnValue;
         }
 
-        private static Record? createCarTypeSwitch(Owner i_Owner,
+        private static Record createCarTypeSwitch(Owner i_Owner,
             string i_ModelName,
             string i_LicensePlate,
             string i_TireManufacturerName, Car.eColor i_Color,
@@ -358,19 +358,19 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                     i_Owner,
                     i_ModelName, i_LicensePlate, i_TireManufacturerName,
                     i_Color, i_DoorsAmount, i_EngineType);
-            Record? nullableReturnValue = null;
+            Record returnValue = null;
             GarageEnums.eEngineType valueToSwitch = i_EngineType;
             string responseMessage = "";
             if (valueToSwitch == GarageEnums.eEngineType.Fuel)
             {
-                nullableReturnValue =
+                returnValue =
                     GarageController.PostCreateAndInsertAssertedFuelCar(request,
                         out
                         responseMessage);
             }
             else if (valueToSwitch == GarageEnums.eEngineType.Battery)
             {
-                nullableReturnValue =
+                returnValue =
                     GarageController.PostCreateAndInsertAssertedBatteryCar(
                         request, out
                         responseMessage);
@@ -378,10 +378,10 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
             Console.Out.WriteLine(responseMessage);
 
-            return nullableReturnValue;
+            return returnValue;
         }
 
-        private static Record? createTruckTypeSwitch(Owner i_Owner,
+        private static Record createTruckTypeSwitch(Owner i_Owner,
             string i_ModelName,
             string i_LicensePlate,
             string i_TireManufacturerName,
@@ -395,12 +395,12 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                     i_ModelName, i_LicensePlate, i_TireManufacturerName,
                     i_IsContainingDangerousMaterials,
                     i_MaxCarryingCapabilityInKilos, i_EngineType);
-            Record? nullableReturnValue = null;
+            Record returnValue = null;
             GarageEnums.eEngineType valueToSwitch = i_EngineType;
             string responseMessage = "";
             if (valueToSwitch == GarageEnums.eEngineType.Fuel)
             {
-                nullableReturnValue =
+                returnValue =
                     GarageController.PostCreateAndInsertAssertedFuelTruck(
                         request,
                         out
@@ -418,7 +418,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
             Console.Out.WriteLine(responseMessage);
 
-            return nullableReturnValue;
+            return returnValue;
         }
 
         private static GarageEnums.eEngineType createEngineType(
@@ -512,7 +512,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return nullableOfReturnValue.Value;
         }
 
-        private static Record? createMotorcycle(Owner i_Owner,
+        private static Record createMotorcycle(Owner i_Owner,
             ref int io_IndentationLevel,
             string i_ModelName, string i_LicensePlate)
         {
@@ -572,7 +572,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return nullableOfReturnValue.Value;
         }
 
-        private static Record? createTruck(Owner i_Owner,
+        private static Record createTruck(Owner i_Owner,
             ref int io_IndentationLevel,
             string i_ModelName, string i_LicensePlate)
         {

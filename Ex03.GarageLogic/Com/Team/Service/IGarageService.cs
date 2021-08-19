@@ -45,5 +45,7 @@ namespace Ex03.GarageLogic.Com.Team.Service
             CreateAndInsertAssertedMotorcycleRequest i_Request);
 
         Vehicle CreateAssertedFuelTruck(CreateAndInsertAssertedTruckRequest i_Request);
+        
+        bool SetState(SetStateRequest i_Request);
     }
 }

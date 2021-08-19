@@ -28,7 +28,7 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
         public void Refuel(RefuelRequest i_Request)
         {
             // TODO: continue implementation.
-            Record? nullableRecord =
+            Record record =
                 RecordRepository.FindByLicensePlate(i_Request.LicensePlate);
         }
 
@@ -113,6 +113,17 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
                 i_Request.IsContainingDangerousMaterials,
                 i_Request.MaxCarryingCapabilityInKilos,
                 i_Request.TireManufacturerName);
+        }
+
+        public bool SetState(SetStateRequest i_Request)
+        {
+            try
+            {
+                Record record = RecordRepository.FindByLicensePlate(i_Request
+                    .LicensePlate);
+                record.State = i_Request.NewState;
+            }
+            catch () {}
         }
 
 
