@@ -28,7 +28,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             {
                 switchInvokeMenuOptions(ref selectedMenuOption);
             }
-            
+
             Console.Out.WriteLine("Good Bye.");
         }
 
@@ -43,14 +43,51 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             switch (io_SelectedMenuOption)
             {
                 case Menu.k_CreateAndInsertVehicleRecord:
+                    PostCreateAndInsertRecord();
                     break;
                 case Menu.k_PrintLicensePlates:
+                    PrintLicensePlates();
                     break;
                 case Menu.k_PrintSelectedLicensePlatesByState:
+                    Record.eState state = createState();
+                    PrintSelectedLicensePlatesByState(state);
                     break;
                 case Menu.k_SetStateOfRecordByLicensePlate:
                     break;
             }
+        }
+
+        private Record.eState createState()
+        {
+            string validEnumStrings = createValidStringsMessage(
+                EnumString.sr_Red, EnumString.sr_Silver,
+                EnumString.sr_White, EnumString.sr_Black);
+            string color = InputUtil.ConvertIgnoreCase(
+                $"{i_IndentationString}Enter {nameof(color)}: {validEnumStrings}",
+                EnumString.Upper.sr_Red, EnumString.Upper.sr_Silver,
+                EnumString.Upper.sr_White, EnumString.Upper.sr_Black);
+
+            string valueToSwitch = color.ToUpper();
+            Car.eColor? nullableOfReturnValue = null;
+            if (valueToSwitch.Equals(EnumString.Upper.sr_Red))
+            {
+                nullableOfReturnValue = Car.eColor.Red;
+            }
+            else if (valueToSwitch
+                .Equals(EnumString.Upper.sr_Silver))
+            {
+                nullableOfReturnValue = Car.eColor.Silver;
+            }
+            else if (valueToSwitch.Equals(EnumString.Upper.sr_White))
+            {
+                nullableOfReturnValue = Car.eColor.White;
+            }
+            else if (valueToSwitch.Equals(EnumString.Upper.sr_Black))
+            {
+                nullableOfReturnValue = Car.eColor.Black;
+            }
+
+            return nullableOfReturnValue.Value;
         }
 
         /// <summary>
@@ -706,6 +743,16 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             public static readonly string
                 sr_BB = $"{Motorcycle.eLicenseType.BB:G}";
 
+            // eState:
+            public static readonly string
+                sr_InProgress = $"{Record.eState.InProgress:G}";
+
+            public static readonly string
+                sr_Fixed = $"{Record.eState.Fixed:G}";
+
+            public static readonly string
+                sr_Payed = $"{Record.eState.Payed:G}";
+
             static EnumString() {}
 
             public static class Upper
@@ -751,6 +798,14 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
                 public static readonly string sr_BB = EnumString.sr_BB;
 
+                // eState:
+                public static readonly string sr_InProgress =
+                    EnumString.sr_InProgress;
+
+                public static readonly string sr_Fixed = EnumString.sr_Fixed;
+
+                public static readonly string sr_Payed = EnumString.sr_Payed;
+
                 static Upper()
                 {
                     // eVehicleType:
@@ -779,6 +834,11 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                     sr_B1 = sr_B1.ToUpper();
                     sr_AA = sr_AA.ToUpper();
                     sr_BB = sr_BB.ToUpper();
+
+                    // eState:
+                    sr_InProgress = sr_InProgress.ToUpper();
+                    sr_Fixed = sr_Fixed.ToUpper();
+                    sr_Payed = sr_Payed.ToUpper();
                 }
             }
         }

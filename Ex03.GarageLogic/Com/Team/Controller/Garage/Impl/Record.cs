@@ -10,7 +10,7 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
         {
             InProgress,
             Fixed,
-            Payed // FIXME: what is this? and when? can't be in parallel -> limitation.
+            Payed
         }
 
         public Record(Vehicle i_Vehicle, Owner i_Owner)
