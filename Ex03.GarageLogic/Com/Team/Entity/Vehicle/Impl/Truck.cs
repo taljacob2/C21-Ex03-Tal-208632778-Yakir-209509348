@@ -1,11 +1,12 @@
 ﻿using Ex03.GarageLogic.Com.Team.DTO.Constructor;
+using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine;
 using Ex03.GarageLogic.Com.Team.Misc;
 
 namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl
 {
     public class Truck : Vehicle
     {
-        private const int k_TiresAmount = 16;
+        public const int k_TiresAmount = 16;
 
         public Truck(TruckConstructorDTO i_TruckConstructorDTO)
         {
@@ -19,13 +20,18 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl
             SetTires(i_TruckConstructorDTO.TireToSetForAllTires,
                 k_TiresAmount);
         }
+        
+        public Truck(Engine i_Engine)
+        {
+            Engine = i_Engine;
+        }
 
-        public bool IsContainingDangerousMaterials { get; }
+        public bool IsContainingDangerousMaterials { get; set; }
 
         /// <summary>
         ///     Measured in `Kilo` units.
         /// </summary>
-        public float MaxCarryingCapabilityInKilos { get; }
+        public float MaxCarryingCapabilityInKilos { get; set; }
 
 
         public override string ToString()
