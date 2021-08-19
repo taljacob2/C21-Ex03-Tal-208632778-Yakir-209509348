@@ -27,24 +27,22 @@ namespace Ex03.GarageLogic.Com.Team.Repository.Impl
             out StringBuilder o_ResponseMessage)
         {
             o_ResponseMessage = new StringBuilder();
-            o_ResponseMessage.Append(k_SuccessResponseMessage);
             Record returnValue;
-            Record? foundNullableRecord =
-                FindByLicensePlate(io_Record.Vehicle.LicensePlate);
-
-            if (foundNullableRecord.HasValue)
+            try
             {
+                Record? foundNullableRecord =
+                    FindByLicensePlate(io_Record.Vehicle.LicensePlate);
                 returnValue = foundNullableRecord.Value;
-                o_ResponseMessage.Clear();
                 o_ResponseMessage.Append(
-                    $"The provided LicensePlate: `{returnValue.Vehicle.LicensePlate}` is already in database.");
+                        $"The provided LicensePlate: `{returnValue.Vehicle.LicensePlate}` is already in database.");
             }
-            else
+            catch (System.Exception e)
             {
                 r_Database.GetRef().Add(io_Record);
                 returnValue = io_Record;
+                o_ResponseMessage.Append(k_SuccessResponseMessage);
             }
-
+            
             return returnValue;
         }
 
