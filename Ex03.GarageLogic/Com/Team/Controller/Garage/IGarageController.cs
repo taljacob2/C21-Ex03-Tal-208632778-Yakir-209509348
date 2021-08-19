@@ -37,7 +37,7 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage
         ///     A Request used for <see cref="FuelEngine" /> only.
         ///     Measured in `Liter` units.
         /// </summary>
-        bool PostRefuel(RefuelRequest i_Request,out string o_ResponseMessage);
+        void PostRefuel(RefuelRequest i_Request, out string o_ResponseMessage);
 
         /// <summary>
         ///     A Request used for <see cref="BatteryEngine" /> only.
@@ -47,7 +47,8 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage
         ///         `Hour` units.
         ///     </remarks>
         /// </summary>
-        bool PostRecharge(RechargeRequest i_Request);
+        void PostRecharge(RechargeRequest i_Request,
+            out string o_ResponseMessage);
 
         void GetRecordDetails(string i_LicensePlate,
             out string o_ResponseMessage);

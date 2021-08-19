@@ -12,14 +12,18 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
     {
         public IGarageService GarageService { get; } =
             new GarageServiceImpl();
-        
-        public bool PostRefuel(RefuelRequest i_Request, out string o_ResponseMessage)
+
+        public void PostRefuel(RefuelRequest i_Request,
+            out string o_ResponseMessage)
         {
             StringBuilder stringBuilder = new StringBuilder();
-            bool returnValue =
-                GarageService.PostRefuel(i_Request, out stringBuilder);
+            GarageService.PostRefuel(i_Request, out stringBuilder);
             o_ResponseMessage = stringBuilder.ToString();
-            return returnValue;
+        }
+
+        public void PostRecharge(RechargeRequest i_Request, out string o_ResponseMessage)
+        {
+            throw new NotImplementedException();
         }
 
         public void GetRecordDetails(string i_LicensePlate,
