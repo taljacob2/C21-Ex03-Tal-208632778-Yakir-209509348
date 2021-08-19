@@ -76,13 +76,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                 StringIndentation.Create(io_IndentationLevel);
             Console.Out.WriteLine(
                 $"{StringIndentation.Create(io_IndentationLevel)}Create {nameof(Vehicle)}:");
-            string validEnumStrings = createValidStringsMessage(
-                EnumString.sr_Car, EnumString.sr_Motorcycle,
-                EnumString.sr_Truck);
-            string vehicleType = InputUtil.ConvertIgnoreCase(
-                $"{indentationString}Enter {nameof(vehicleType)}: {validEnumStrings}",
-                EnumString.Upper.sr_Car, EnumString.Upper.sr_Motorcycle,
-                EnumString.Upper.sr_Truck);
+            string vehicleType = createVehicleType(indentationString);
             string modelName =
                 InputUtil.Convert<string>(
                     $"{indentationString}Enter {nameof(modelName)}: ");
@@ -95,6 +89,18 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return createVehicleReturnValue(ref io_IndentationLevel,
                 vehicleType,
                 modelName, licensePlate);
+        }
+
+        private static string createVehicleType(string i_IndentationString)
+        {
+            string validEnumStrings = createValidStringsMessage(
+                EnumString.sr_Car, EnumString.sr_Motorcycle,
+                EnumString.sr_Truck);
+            string vehicleType = InputUtil.ConvertIgnoreCase(
+                $"{i_IndentationString}Enter {nameof(vehicleType)}: {validEnumStrings}",
+                EnumString.Upper.sr_Car, EnumString.Upper.sr_Motorcycle,
+                EnumString.Upper.sr_Truck);
+            return vehicleType;
         }
 
         private static string createValidStringsMessage(
@@ -161,18 +167,37 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             string tireManufacturerName =
                 createTireManufacturerName(ref io_IndentationLevel);
 
-            string validEnumColorStrings = createValidStringsMessage(
-                EnumString.sr_Red, EnumString.sr_Silver,
-                EnumString.sr_White, EnumString.sr_Black);
-            string color = InputUtil.ConvertIgnoreCase(
-                $"{indentationString}Enter {nameof(color)}: {validEnumColorStrings}",
-                EnumString.Upper.sr_Red, EnumString.Upper.sr_Silver,
-                EnumString.Upper.sr_White, EnumString.Upper.sr_Black);
+            string color = createColor(indentationString);
+            string doorsAmount = createDoorsAmount(indentationString);
 
 
             io_IndentationLevel--;
 
             throw new NotImplementedException();
+        }
+
+        private static string createColor(string i_IndentationString)
+        {
+            string validEnumColorStrings = createValidStringsMessage(
+                EnumString.sr_Red, EnumString.sr_Silver,
+                EnumString.sr_White, EnumString.sr_Black);
+            string color = InputUtil.ConvertIgnoreCase(
+                $"{i_IndentationString}Enter {nameof(color)}: {validEnumColorStrings}",
+                EnumString.Upper.sr_Red, EnumString.Upper.sr_Silver,
+                EnumString.Upper.sr_White, EnumString.Upper.sr_Black);
+            return color;
+        }
+
+        private static string createDoorsAmount(string i_IndentationString)
+        {
+            string validEnumDoorsAmountStrings = createValidStringsMessage(
+                EnumString.sr_Two, EnumString.sr_Three,
+                EnumString.sr_Four, EnumString.sr_Five);
+            string doorsAmount = InputUtil.ConvertIgnoreCase(
+                $"{i_IndentationString}Enter {nameof(doorsAmount)}: {validEnumDoorsAmountStrings}",
+                EnumString.Upper.sr_Two, EnumString.Upper.sr_Three,
+                EnumString.Upper.sr_Four, EnumString.Upper.sr_Five);
+            return doorsAmount;
         }
 
         private Vehicle createMotorcycle(ref int io_IndentationLevel,
