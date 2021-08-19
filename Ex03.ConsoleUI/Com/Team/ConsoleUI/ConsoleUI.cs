@@ -133,19 +133,18 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             string valueToSwitch = i_VehicleType.ToUpper();
             if (valueToSwitch.Equals(EnumString.Upper.sr_Car))
             {
-                returnValue = createCar(ref io_IndentationLevel, i_VehicleType,
+                returnValue = createCar(ref io_IndentationLevel,
                     i_ModelName, i_LicensePlate);
             }
             else if (valueToSwitch.Equals(EnumString.Upper.sr_Motorcycle))
             {
                 returnValue =
-                    createMotorcycle(ref io_IndentationLevel, i_VehicleType,
+                    createMotorcycle(ref io_IndentationLevel,
                         i_ModelName, i_LicensePlate);
             }
             else if (valueToSwitch.Equals(EnumString.Upper.sr_Truck))
             {
                 returnValue = createTruck(ref io_IndentationLevel,
-                    i_VehicleType,
                     i_ModelName, i_LicensePlate);
             }
 
@@ -154,7 +153,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return returnValue;
         }
 
-        private Car createCar(ref int io_IndentationLevel, string i_VehicleType,
+        private Car createCar(ref int io_IndentationLevel,
             string i_ModelName, string i_LicensePlate)
         {
             io_IndentationLevel++;
@@ -168,8 +167,35 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             Car.eDoorsAmount doorsAmount = createDoorsAmount(indentationString);
             eEngineType engineType = createEngineType(indentationString);
 
-
             io_IndentationLevel--;
+
+            return createCarTypeSwitch(i_ModelName,i_LicensePlate,
+            tireManufacturerName,color,doorsAmount,engineType);
+        }
+
+        private Car createCarTypeSwitch(string i_ModelName, string i_LicensePlate,
+            string i_TireManufacturerName, Car.eColor i_Color,
+            Car.eDoorsAmount i_DoorsAmount,
+            eEngineType i_EngineType)
+        {
+            Vehicle returnValue = null;
+            eEngineType valueToSwitch = i_EngineType;
+            if (valueToSwitch == eEngineType.Fuel)
+            {
+                returnValue = GarageController.PostCreateAsertedFuelCar(i_ModelName,i_LicensePlate,
+                    i_TireManufacturerName, i_Color, i_DoorsAmount,
+                    i_EngineType);
+            }
+            else if (valueToSwitch == eEngineType.Battery)
+            {
+                returnValue =
+                    GarageController.PostCreateAsertedBatteryCar(i_ModelName,i_LicensePlate,
+                        i_TireManufacturerName, i_Color, i_DoorsAmount,
+                        i_EngineType);
+            }
+
+
+            return returnValue;
         }
 
         private eEngineType createEngineType(string i_IndentationString)
