@@ -79,16 +79,9 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
         {
             string licensePlate = createLicensePlate
                 (ref io_IndentationLevel);
-            bool success = GarageController.PostInflateTiresToMaxByLicensePlate(licensePlate);
-            if (success)
-            {
-                Console.Out.WriteLine("success");
-            }
-            else
-            {
-                // Won't go here.
-                Console.Out.WriteLine("failed.");
-            }
+            GarageController.PostInflateTiresToMaxByLicensePlate(
+                licensePlate, out string responseMessage);
+            Console.Out.WriteLine(responseMessage);
         }
 
         private void setStateOfRecordByLicensePlate(ref int io_IndentationLevel)
