@@ -953,6 +953,10 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                            "{0}. Inflate Tires To Max By License Plate" +
                            Environment.NewLine,
                            k_InflateTiresToMaxByLicensePlate) +
+                       string.Format(
+                           "{0}. Print Full Details Of Record By License Plate" +
+                           Environment.NewLine,
+                           k_PrintFullDetailsOfRecordByLicensePlate) +                       
                        string.Format("{0}. Exit Program",
                            k_ExitProgram) + Environment.NewLine;
             }
