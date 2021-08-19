@@ -32,7 +32,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured
             }
 
             // Assert maximum:
-            if (ManufacturerMaxValue > Value + i_ValueToAdd)
+            if (ManufacturerMaxValue < Value + i_ValueToAdd)
             {
                 throw exception;
             }

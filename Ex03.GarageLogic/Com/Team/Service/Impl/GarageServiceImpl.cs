@@ -165,9 +165,10 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
         {
             if (io_Record.Vehicle.Engine is BatteryEngine)
             {
-                BatteryEngine fuelEngine =
+                BatteryEngine batteryEngine =
                     (BatteryEngine) io_Record.Vehicle.Engine;
-                tryToRecharge(i_RequestMinutesToAdd, o_ResponseMessage, fuelEngine);
+                tryToRecharge(i_RequestMinutesToAdd, o_ResponseMessage,
+                    batteryEngine);
             }
 
             // Engine is a Property. Find it:
@@ -224,7 +225,8 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             {
                 io_BatteryEngine.AddMinutes(i_RequestMinutesToAdd);
                 o_ResponseMessage.Append(
-                    $"Successful Recharge. You have `{io_BatteryEngine.Value}` hours.");
+                    $"Successful Recharge. You have `{io_BatteryEngine.Value}` hours." +
+                    $" That is: {io_BatteryEngine.GetValuePercentage()}%");
             }
             catch (System.Exception e)
             {
@@ -315,7 +317,8 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
                 io_FuelEngine.AddFuelByManualRequest(i_FuelType,
                     i_LitersToAdd);
                 o_ResponseMessage.Append(
-                    $"Successful Refuel. You have `{io_FuelEngine.Value}` liters.");
+                    $"Successful Refuel. You have `{io_FuelEngine.Value}` liters." +
+                    $" That is: {io_FuelEngine.GetValuePercentage()}%");
             }
             catch (System.Exception e)
             {
