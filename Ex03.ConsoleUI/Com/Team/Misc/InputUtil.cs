@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Ex03.GarageLogic.Com.Team.Exception;
 using MiscUtil;
 
@@ -60,10 +61,10 @@ namespace Ex03.ConsoleUI.Com.Team.Misc
 
             return converted;
         }
-        
+
         // DEPRECATED (just for this exercise):        
-        public static int ConvertWithAssertByRangeWithException<T>(string 
-        i_Message, int i_MinimumRange, int i_MaximumRange)
+        public static int ConvertWithAssertByRangeWithException<T>(string
+            i_Message, int i_MinimumRange, int i_MaximumRange)
         {
             int converted = Convert<int>(i_Message);
             if (!isConvertedInRange(converted, i_MinimumRange, i_MaximumRange)
@@ -75,8 +76,23 @@ namespace Ex03.ConsoleUI.Com.Team.Misc
             }
 
             return converted;
-        }        
-        
+        }
+
+        // DEPRECATED (just for this exercise):  
+        public static string ConvertWithAssertByRegexWithException(
+            string i_Message, Regex i_Regex)
+        {
+            string converted = Convert<string>(i_Message);
+            if (!i_Regex.IsMatch(converted))
+
+            {
+                Console.Out.WriteLine(k_BadInputMessage);
+                throw new FormatException();
+            }
+
+            return converted;
+        }
+
 
         /// <summary>
         ///     Generic comparison by range.

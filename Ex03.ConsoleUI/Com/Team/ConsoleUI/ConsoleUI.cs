@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime;
 using System.Text;
+using System.Text.RegularExpressions;
 using Ex03.ConsoleUI.Com.Team.Misc;
 using Ex03.GarageLogic.Com.Team.Controller.Garage;
 using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
@@ -58,16 +59,55 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                 StringIndentation.Create(io_IndentationLevel);
             Console.Out.WriteLine(
                 $"{indentationString}Create {nameof(Owner)}:");
-            string name =
-                InputUtil.Convert<string>(
-                    $"{indentationString}Enter {nameof(name)}: ");
-            string phoneNumber =
-                InputUtil.Convert<string>(
-                    $"{indentationString}Enter {nameof(phoneNumber)}: ");
+            string name = createOwnerName(indentationString);
+            string phoneNumber = createPhoneNumber(indentationString);
 
             io_IndentationLevel--;
 
             return new Owner(phoneNumber, name);
+        }
+
+        private static string createPhoneNumber(string i_IndentationString)
+        {
+            string phoneNumber = null;
+            while (phoneNumber == null)
+            {
+                try
+                {
+                    phoneNumber =
+                        InputUtil.ConvertWithAssertByRegexWithException(
+                            $"{i_IndentationString}Enter {nameof(phoneNumber)}: ",
+                            new Regex("[0-9]{7}"));
+                }
+                catch (Exception)
+                {
+                    Console.Out.WriteLine("Insert exactly 7 numbers.");
+                }
+            }
+
+            return phoneNumber;
+        }
+
+        private static string createOwnerName(string i_IndentationString)
+        {
+            string name = null;
+
+            while (name == null)
+            {
+                try
+                {
+                    name =
+                        InputUtil.ConvertWithAssertByRegexWithException(
+                            $"{i_IndentationString}Enter {nameof(name)}: ",
+                            new Regex("[a-zA-Z]"));
+                }
+                catch (Exception)
+                {
+                    Console.Out.WriteLine("Insert the letters only.");
+                }
+            }
+
+            return name;
         }
 
         private Record createVehicle(Owner i_Owner,
