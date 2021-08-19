@@ -316,7 +316,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                 responseMessage =
                     "There is no AssertedBatteryTruck in the system. Request failed.";
 
-                // Ready for implementation in the future:
+                // Ready for future implementation:
                 // nullableReturnValue =
                 //     GarageController.PostCreateAndInsertAssertedBatteryTruck(request, out responseMessage);
             }
