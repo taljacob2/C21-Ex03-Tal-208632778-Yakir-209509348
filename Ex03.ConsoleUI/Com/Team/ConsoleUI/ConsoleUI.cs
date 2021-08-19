@@ -87,6 +87,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             string licensePlate = createLicensePlate
                 (ref io_IndentationLevel);
 
+            eType fuelTypeToSet = createFuelType(ref io_IndentationLevel);
 
             GarageController.PostRefuel(licensePlate,
                 out string responseMessage);
@@ -122,6 +123,44 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                 new SetStateRequest(licensePlate, stateToSet),
                 out string responseMessage);
             Console.Out.WriteLine(responseMessage);
+        }
+
+        private eType createFuelType(ref int io_IndentationLevel)
+        {
+            io_IndentationLevel++;
+
+            string indentationString =
+                StringIndentation.Create(io_IndentationLevel);
+            string validEnumStrings = createValidStringsMessage(
+                EnumString.sr_Octan95, EnumString.sr_Octan96,
+                EnumString.sr_Octan98, EnumString.sr_Soler);
+            string fuelType = InputUtil.ConvertIgnoreCase(
+                $"{indentationString}Enter {nameof(fuelType)}: {validEnumStrings}",
+                EnumString.Upper.sr_Octan95, EnumString.Upper.sr_Octan96,
+                EnumString.Upper.sr_Octan98, EnumString.Upper.sr_Soler);
+
+            string valueToSwitch = fuelType.ToUpper();
+            eType? nullableOfReturnValue = null;
+            if (valueToSwitch.Equals(EnumString.Upper.sr_Octan95))
+            {
+                nullableOfReturnValue = eType.Octan95;
+            }
+            else if (valueToSwitch
+                .Equals(EnumString.Upper.sr_Octan96))
+            {
+                nullableOfReturnValue = eType.Octan96;
+            }
+            else if (valueToSwitch.Equals(EnumString.Upper.sr_Octan98))
+            {
+                nullableOfReturnValue = eType.Octan98;
+            }
+            else if (valueToSwitch.Equals(EnumString.Upper.sr_Soler))
+            {
+                nullableOfReturnValue = eType.Soler;
+            }
+
+            io_IndentationLevel--;
+            return nullableOfReturnValue.Value;
         }
 
         private Record.eState createState(ref int io_IndentationLevel)
