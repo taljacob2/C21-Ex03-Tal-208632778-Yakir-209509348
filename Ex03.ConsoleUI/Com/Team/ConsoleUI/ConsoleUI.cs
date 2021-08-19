@@ -153,10 +153,21 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
         {
             io_IndentationLevel++;
 
-            Console.Out.WriteLine(
-                $"{StringIndentation.Create(io_IndentationLevel)}Create {nameof(Car)}:");
+            string indentationString =
+                StringIndentation.Create(io_IndentationLevel);
+
+            Console.Out.WriteLine($"{indentationString}Create {nameof(Car)}:");
+
             string tireManufacturerName =
                 createTireManufacturerName(ref io_IndentationLevel);
+
+            string validEnumColorStrings = createValidStringsMessage(
+                EnumString.sr_Red, EnumString.sr_Silver,
+                EnumString.sr_White, EnumString.sr_Black);
+            string color = InputUtil.ConvertIgnoreCase(
+                $"{indentationString}Enter {nameof(color)}: {validEnumColorStrings}",
+                EnumString.Upper.sr_Red, EnumString.Upper.sr_Silver,
+                EnumString.Upper.sr_White, EnumString.Upper.sr_Black);
 
 
             io_IndentationLevel--;
@@ -189,7 +200,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
         private string createTireManufacturerName(ref int io_IndentationLevel)
         {
             io_IndentationLevel++;
-            
+
             string indentationString =
                 StringIndentation.Create(io_IndentationLevel);
             Console.Out.WriteLine($"{indentationString}Create {nameof(Tire)}:");
@@ -231,6 +242,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
         {
             public static class Upper
             {
+                // eVehicleType:
                 public static readonly string sr_Car = EnumString.sr_Car;
 
                 public static readonly string sr_Motorcycle =
@@ -238,6 +250,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
                 public static readonly string sr_Truck = EnumString.sr_Truck;
 
+                // eColor:
                 public static readonly string sr_Black = EnumString.sr_Black;
 
                 public static readonly string sr_Red = EnumString.sr_Red;
@@ -245,6 +258,15 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                 public static readonly string sr_Silver = EnumString.sr_Silver;
 
                 public static readonly string sr_White = EnumString.sr_White;
+
+                // eDoorsAmount:
+                public static readonly string sr_Two = EnumString.sr_Two;
+
+                public static readonly string sr_Three = EnumString.sr_Three;
+
+                public static readonly string sr_Four = EnumString.sr_Four;
+
+                public static readonly string sr_Five = EnumString.sr_Five;
 
                 static Upper()
                 {
@@ -258,9 +280,16 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                     sr_Red = sr_Red.ToUpper();
                     sr_Silver = sr_Silver.ToUpper();
                     sr_White = sr_White.ToUpper();
+
+                    // eDoorsAmount:
+                    sr_Two = sr_Two.ToUpper();
+                    sr_Three = sr_Three.ToUpper();
+                    sr_Four = sr_Four.ToUpper();
+                    sr_Five = sr_Five.ToUpper();
                 }
             }
 
+            // eVehicleType:
             public static readonly string sr_Car = $"{eVehicleType.Car:G}";
 
             public static readonly string sr_Motorcycle =
@@ -269,6 +298,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             public static readonly string sr_Truck =
                 $"{eVehicleType.Truck:G}";
 
+            // eColor:
             public static readonly string
                 sr_Black = $"{Car.eColor.Black:G}";
 
@@ -279,6 +309,19 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
             public static readonly string
                 sr_White = $"{Car.eColor.White:G}";
+
+            // eDoorsAmount:
+            public static readonly string
+                sr_Two = $"{Car.eDoorsAmount.Two:G}";
+
+            public static readonly string sr_Three =
+                $"{Car.eDoorsAmount.Three:G}";
+
+            public static readonly string sr_Four =
+                $"{Car.eDoorsAmount.Four:G}";
+
+            public static readonly string
+                sr_Five = $"{Car.eDoorsAmount.Five:G}";
 
             static EnumString() {}
         }
