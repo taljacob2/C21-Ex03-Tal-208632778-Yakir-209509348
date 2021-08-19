@@ -136,7 +136,8 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             string valueToSwitch = i_VehicleType.ToUpper();
             if (valueToSwitch.Equals(EnumString.Upper.sr_Car))
             {
-                nullableReturnValue = createCar(i_Owner, ref io_IndentationLevel,
+                nullableReturnValue = createCar(i_Owner,
+                    ref io_IndentationLevel,
                     i_ModelName, i_LicensePlate);
             }
             else if (valueToSwitch.Equals(EnumString.Upper.sr_Motorcycle))
@@ -147,7 +148,8 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             }
             else if (valueToSwitch.Equals(EnumString.Upper.sr_Truck))
             {
-                nullableReturnValue = createTruck(i_Owner, ref io_IndentationLevel,
+                nullableReturnValue = createTruck(i_Owner,
+                    ref io_IndentationLevel,
                     i_ModelName, i_LicensePlate);
             }
 
@@ -194,13 +196,15 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             if (valueToSwitch == GarageEnums.eEngineType.Fuel)
             {
                 nullableReturnValue =
-                    GarageController.PostCreateAndInsertAssertedFuelCar(request, out
+                    GarageController.PostCreateAndInsertAssertedFuelCar(request,
+                        out
                         responseMessage);
             }
             else if (valueToSwitch == GarageEnums.eEngineType.Battery)
             {
                 nullableReturnValue =
-                    GarageController.PostCreateAndInsertAssertedBatteryCar(request, out
+                    GarageController.PostCreateAndInsertAssertedBatteryCar(
+                        request, out
                         responseMessage);
             }
 
@@ -307,14 +311,16 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
             string indentationString =
                 StringIndentation.Create(io_IndentationLevel);
-            Console.Out.WriteLine($"{indentationString}Create {nameof(Motorcycle)}:");
+            Console.Out.WriteLine(
+                $"{indentationString}Create {nameof(Motorcycle)}:");
             string tireManufacturerName =
                 createTireManufacturerName(ref io_IndentationLevel);
             Car.eColor color = createColor(indentationString);
-            Motorcycle.eLicenseType licenseType = createLicenseType(indentationString);
+            Motorcycle.eLicenseType licenseType =
+                createLicenseType(indentationString);
             Car.eDoorsAmount doorsAmount = createDoorsAmount(indentationString);
-            GarageEnums.eEngineType engineType =
-                createEngineType(indentationString);
+            int extendedEngineVolumeInCC =
+                createExtendedEngineVolumeInCC(ref io_IndentationLevel);
 
             io_IndentationLevel--;
 
@@ -322,7 +328,8 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                 tireManufacturerName, color, doorsAmount, engineType);
         }
 
-        private Motorcycle.eLicenseType createLicenseType(string i_IndentationString)
+        private Motorcycle.eLicenseType createLicenseType(
+            string i_IndentationString)
         {
             string validEnumStrings = createValidStringsMessage(
                 EnumString.sr_A, EnumString.sr_B1,
@@ -363,6 +370,23 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             io_IndentationLevel--;
 
             throw new NotImplementedException();
+        }
+
+        private int createExtendedEngineVolumeInCC(ref int io_IndentationLevel)
+        {
+            io_IndentationLevel++;
+
+            string indentationString =
+                StringIndentation.Create(io_IndentationLevel);
+            Console.Out.WriteLine($"{indentationString}Create {nameof(Tire)}:");
+            int extendedEngineVolumeInCC =
+                InputUtil.ConvertWithAssertByRange<int>(
+                    $"{indentationString}Enter {nameof(extendedEngineVolumeInCC)}: ",
+                    1, int.MaxValue);
+
+            io_IndentationLevel--;
+
+            return extendedEngineVolumeInCC;
         }
 
         private string createTireManufacturerName(ref int io_IndentationLevel)
@@ -441,7 +465,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
                 public static readonly string
                     sr_Battery = EnumString.sr_Battery;
-                
+
                 // eLicenseType:
                 public static readonly string sr_A = EnumString.sr_A;
 
@@ -449,7 +473,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
                 public static readonly string sr_AA = EnumString.sr_AA;
 
-                public static readonly string sr_BB = EnumString.sr_BB;                
+                public static readonly string sr_BB = EnumString.sr_BB;
 
                 static Upper()
                 {
@@ -473,7 +497,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                     // eEngineType:
                     sr_Fuel = sr_Fuel.ToUpper();
                     sr_Battery = sr_Battery.ToUpper();
-                    
+
                     // eLicenseType:
                     sr_A = sr_A.ToUpper();
                     sr_B1 = sr_B1.ToUpper();
@@ -523,17 +547,17 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
             public static readonly string sr_Battery =
                 $"{GarageEnums.eEngineType.Battery:G}";
-            
+
             // eLicenseType:
             public static readonly string
                 sr_A = $"{Motorcycle.eLicenseType.A:G}";
 
             public static readonly string
                 sr_B1 = $"{Motorcycle.eLicenseType.B1:G}";
-            
+
             public static readonly string
-                sr_AA = $"{Motorcycle.eLicenseType.AA:G}";  
-            
+                sr_AA = $"{Motorcycle.eLicenseType.AA:G}";
+
             public static readonly string
                 sr_BB = $"{Motorcycle.eLicenseType.BB:G}";
 
