@@ -2,17 +2,17 @@
 {
     public class GarageEnums
     {
+        public enum eEngineType
+        {
+            Fuel,
+            Battery
+        }
+
         public enum eVehicleType
         {
             Car,
             Motorcycle,
             Truck
-        }
-
-        public enum eEngineType
-        {
-            Fuel,
-            Battery,
         }
     }
 }

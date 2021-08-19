@@ -1,5 +1,4 @@
 ﻿using Ex03.GarageLogic.Com.Team.Controller.Garage;
-using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component.Impl;
 
@@ -7,7 +6,8 @@ namespace Ex03.GarageLogic.Com.Team.DTO.Model.Request
 {
     public class CreateAndInsertAssertedCarRequest
     {
-        public CreateAndInsertAssertedCarRequest(Owner i_Owner, string i_ModelName,
+        public CreateAndInsertAssertedCarRequest(Owner i_Owner,
+            string i_ModelName,
             string i_LicensePlate, string i_TireManufacturerName,
             Car.eColor i_Color, Car.eDoorsAmount i_DoorsAmount,
             GarageEnums.eEngineType i_EngineType)

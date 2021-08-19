@@ -7,14 +7,15 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component
 {
     public abstract class VehicleComponent : Vehicle
     {
-        protected VehicleComponent(VehicleComponentConstructorDTO i_VehicleComponentConstructorDTO)
+        protected VehicleComponent(
+            VehicleComponentConstructorDTO i_VehicleComponentConstructorDTO)
         {
             ModelName = i_VehicleComponentConstructorDTO.ModelName;
             LicensePlate = i_VehicleComponentConstructorDTO.LicensePlate;
         }
 
         protected VehicleComponent() {}
-        
+
         public Tires Tires { get; } = new Tires();
 
         public Engine Engine { get; protected set; }

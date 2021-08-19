@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime;
 using System.Text;
 using System.Text.RegularExpressions;
 using Ex03.ConsoleUI.Com.Team.Misc;
@@ -10,7 +9,6 @@ using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Extended;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
-using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component.Impl;
 
@@ -257,7 +255,6 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return nullableReturnValue.Value;
         }
 
-
         private Record createCarTypeSwitch(Owner i_Owner, string i_ModelName,
             string i_LicensePlate,
             string i_TireManufacturerName, Car.eColor i_Color,
@@ -349,7 +346,8 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return nullableOfReturnValue.Value;
         }
 
-        static Car.eDoorsAmount createDoorsAmount(string i_IndentationString)
+        private static Car.eDoorsAmount createDoorsAmount(
+            string i_IndentationString)
         {
             string validEnumStrings = createValidStringsMessage(
                 EnumString.sr_Two, EnumString.sr_Three,
@@ -476,11 +474,12 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                     Console.WriteLine(e);
                 }
             }
+
             // Comment: instead, you may do so, and avoid exceptions:
             // InputUtil.ConvertWithAssertByRange<int>(
             //     $"{indentationString}Enter {nameof(extendedEngineVolumeInCC)}: ",
             //     1, int.MaxValue);
-            
+
             io_IndentationLevel--;
 
             return extendedEngineVolumeInCC;
@@ -529,6 +528,63 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
         private static class EnumString
         {
+            // eVehicleType:
+            public static readonly string sr_Car =
+                $"{GarageEnums.eVehicleType.Car:G}";
+
+            public static readonly string sr_Motorcycle =
+                $"{GarageEnums.eVehicleType.Motorcycle:G}";
+
+            public static readonly string sr_Truck =
+                $"{GarageEnums.eVehicleType.Truck:G}";
+
+            // eColor:
+            public static readonly string
+                sr_Black = $"{Car.eColor.Black:G}";
+
+            public static readonly string sr_Red = $"{Car.eColor.Red:G}";
+
+            public static readonly string sr_Silver =
+                $"{Car.eColor.Silver:G}";
+
+            public static readonly string
+                sr_White = $"{Car.eColor.White:G}";
+
+            // eDoorsAmount:
+            public static readonly string
+                sr_Two = $"{Car.eDoorsAmount.Two:G}";
+
+            public static readonly string sr_Three =
+                $"{Car.eDoorsAmount.Three:G}";
+
+            public static readonly string sr_Four =
+                $"{Car.eDoorsAmount.Four:G}";
+
+            public static readonly string
+                sr_Five = $"{Car.eDoorsAmount.Five:G}";
+
+            // eEngineType:
+            public static readonly string
+                sr_Fuel = $"{GarageEnums.eEngineType.Fuel:G}";
+
+            public static readonly string sr_Battery =
+                $"{GarageEnums.eEngineType.Battery:G}";
+
+            // eLicenseType:
+            public static readonly string
+                sr_A = $"{Motorcycle.eLicenseType.A:G}";
+
+            public static readonly string
+                sr_B1 = $"{Motorcycle.eLicenseType.B1:G}";
+
+            public static readonly string
+                sr_AA = $"{Motorcycle.eLicenseType.AA:G}";
+
+            public static readonly string
+                sr_BB = $"{Motorcycle.eLicenseType.BB:G}";
+
+            static EnumString() {}
+
             public static class Upper
             {
                 // eVehicleType:
@@ -602,63 +658,6 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                     sr_BB = sr_BB.ToUpper();
                 }
             }
-
-            // eVehicleType:
-            public static readonly string sr_Car =
-                $"{GarageEnums.eVehicleType.Car:G}";
-
-            public static readonly string sr_Motorcycle =
-                $"{GarageEnums.eVehicleType.Motorcycle:G}";
-
-            public static readonly string sr_Truck =
-                $"{GarageEnums.eVehicleType.Truck:G}";
-
-            // eColor:
-            public static readonly string
-                sr_Black = $"{Car.eColor.Black:G}";
-
-            public static readonly string sr_Red = $"{Car.eColor.Red:G}";
-
-            public static readonly string sr_Silver =
-                $"{Car.eColor.Silver:G}";
-
-            public static readonly string
-                sr_White = $"{Car.eColor.White:G}";
-
-            // eDoorsAmount:
-            public static readonly string
-                sr_Two = $"{Car.eDoorsAmount.Two:G}";
-
-            public static readonly string sr_Three =
-                $"{Car.eDoorsAmount.Three:G}";
-
-            public static readonly string sr_Four =
-                $"{Car.eDoorsAmount.Four:G}";
-
-            public static readonly string
-                sr_Five = $"{Car.eDoorsAmount.Five:G}";
-
-            // eEngineType:
-            public static readonly string
-                sr_Fuel = $"{GarageEnums.eEngineType.Fuel:G}";
-
-            public static readonly string sr_Battery =
-                $"{GarageEnums.eEngineType.Battery:G}";
-
-            // eLicenseType:
-            public static readonly string
-                sr_A = $"{Motorcycle.eLicenseType.A:G}";
-
-            public static readonly string
-                sr_B1 = $"{Motorcycle.eLicenseType.B1:G}";
-
-            public static readonly string
-                sr_AA = $"{Motorcycle.eLicenseType.AA:G}";
-
-            public static readonly string
-                sr_BB = $"{Motorcycle.eLicenseType.BB:G}";
-
-            static EnumString() {}
         }
     }
 }

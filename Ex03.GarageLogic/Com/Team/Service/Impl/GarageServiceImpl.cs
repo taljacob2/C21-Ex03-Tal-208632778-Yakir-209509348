@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
-using Ex03.GarageLogic.Com.Team.DTO.Constructor;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component;
@@ -13,7 +12,7 @@ using Ex03.GarageLogic.Com.Team.Repository.Impl;
 namespace Ex03.GarageLogic.Com.Team.Service.Impl
 {
     /// <summary>
-    /// Create `new` objects here. 
+    ///     Create `new` objects here.
     /// </summary>
     public class GarageServiceImpl : IGarageService
     {

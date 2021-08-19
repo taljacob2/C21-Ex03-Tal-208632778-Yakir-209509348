@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Response;
-using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component;
 using Ex03.GarageLogic.Com.Team.Service;
 using Ex03.GarageLogic.Com.Team.Service.Impl;
@@ -40,13 +39,15 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
             throw new NotImplementedException();
         }
 
-        public Record PostCreateRecord(VehicleComponent i_VehicleComponent, Owner i_Owner)
+        public Record PostCreateRecord(VehicleComponent i_VehicleComponent,
+            Owner i_Owner)
         {
             return GarageService.CreateRecord(i_VehicleComponent, i_Owner);
         }
 
         public Record? PostCreateAndInsertAssertedFuelCar(
-            CreateAndInsertAssertedCarRequest i_Request, out string o_ResponseMessage)
+            CreateAndInsertAssertedCarRequest i_Request,
+            out string o_ResponseMessage)
         {
             Record returnValue = GarageService.CreateRecord(
                 GarageService.CreateAssertedFuelCar(i_Request),
@@ -58,7 +59,8 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
             return returnValue;
         }
 
-        public Record? PostCreateAndInsertAssertedBatteryCar(CreateAndInsertAssertedCarRequest i_Request,
+        public Record? PostCreateAndInsertAssertedBatteryCar(
+            CreateAndInsertAssertedCarRequest i_Request,
             out string o_ResponseMessage)
         {
             Record returnValue = GarageService.CreateRecord(
@@ -99,19 +101,6 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
             return returnValue;
         }
 
-        public Record PostInsertAssertedFuelCar(CreateAndInsertAssertedCarRequest 
-        i_Request, out string o_ResponseMessage)
-        {
-            Record returnValue = GarageService.CreateRecord(
-                GarageService.CreateAssertedBatteryCar(i_Request),
-                i_Request.Owner);
-
-            PostInsert(returnValue, out StringBuilder stringBuilder);
-            o_ResponseMessage = stringBuilder.ToString();
-
-            return returnValue;
-        }
-
         public Record PostInsert(Record io_Record,
             out StringBuilder o_ResponseMessage)
         {
@@ -136,6 +125,20 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
         public bool PostInflateTiresToMax(string i_LicensePlate)
         {
             throw new NotImplementedException();
+        }
+
+        public Record PostInsertAssertedFuelCar(
+            CreateAndInsertAssertedCarRequest
+                i_Request, out string o_ResponseMessage)
+        {
+            Record returnValue = GarageService.CreateRecord(
+                GarageService.CreateAssertedBatteryCar(i_Request),
+                i_Request.Owner);
+
+            PostInsert(returnValue, out StringBuilder stringBuilder);
+            o_ResponseMessage = stringBuilder.ToString();
+
+            return returnValue;
         }
 
         // TODO : disabled.

@@ -34,7 +34,7 @@ namespace Ex03.GarageLogic.Com.Team.Repository.Impl
                     FindByLicensePlate(io_Record.Vehicle.LicensePlate);
                 returnValue = foundNullableRecord.Value;
                 o_ResponseMessage.Append(
-                        $"The provided LicensePlate: `{returnValue.Vehicle.LicensePlate}` is already in database.");
+                    $"The provided LicensePlate: `{returnValue.Vehicle.LicensePlate}` is already in database.");
             }
             catch (System.Exception e)
             {
@@ -42,7 +42,7 @@ namespace Ex03.GarageLogic.Com.Team.Repository.Impl
                 returnValue = io_Record;
                 o_ResponseMessage.Append(k_SuccessResponseMessage);
             }
-            
+
             return returnValue;
         }
 

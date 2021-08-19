@@ -2,7 +2,8 @@
 {
     public class VehicleComponentConstructorDTO
     {
-        public VehicleComponentConstructorDTO(string i_ModelName, string i_LicensePlate)
+        public VehicleComponentConstructorDTO(string i_ModelName,
+            string i_LicensePlate)
         {
             ModelName = i_ModelName;
             LicensePlate = i_LicensePlate;

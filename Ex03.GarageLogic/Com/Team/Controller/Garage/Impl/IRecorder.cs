@@ -1,5 +1,4 @@
-﻿using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
-using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component;
+﻿using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component;
 
 namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
 {

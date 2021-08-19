@@ -13,7 +13,7 @@ namespace Ex03.GarageLogic.Com.Team.Service
     public interface IGarageService
     {
         Record CreateRecord(Vehicle i_Vehicle, Owner i_Owner);
-        
+
         void Refuel(RefuelRequest i_Request);
 
         List<string> SelectVehicleLicensePlates();
@@ -31,11 +31,17 @@ namespace Ex03.GarageLogic.Com.Team.Service
         ///     Record retrieved / inserted.
         /// </returns>
         Record Insert(Record io_Record, out StringBuilder o_ResponseMessage);
-        
-        Vehicle CreateAssertedFuelCar(CreateAndInsertAssertedCarRequest i_Request);
-        
-        Vehicle CreateAssertedBatteryCar(CreateAndInsertAssertedCarRequest i_Request);
-        Vehicle CreateAssertedFuelMotorcycle(CreateAndInsertAssertedMotorcycleRequest i_Request);
-        Vehicle CreateAssertedBatteryMotorcycle(CreateAndInsertAssertedMotorcycleRequest i_Request);
+
+        Vehicle CreateAssertedFuelCar(
+            CreateAndInsertAssertedCarRequest i_Request);
+
+        Vehicle CreateAssertedBatteryCar(
+            CreateAndInsertAssertedCarRequest i_Request);
+
+        Vehicle CreateAssertedFuelMotorcycle(
+            CreateAndInsertAssertedMotorcycleRequest i_Request);
+
+        Vehicle CreateAssertedBatteryMotorcycle(
+            CreateAndInsertAssertedMotorcycleRequest i_Request);
     }
 }

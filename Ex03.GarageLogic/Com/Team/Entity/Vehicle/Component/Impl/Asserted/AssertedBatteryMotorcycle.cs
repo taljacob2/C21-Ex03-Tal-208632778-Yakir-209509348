@@ -22,7 +22,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component.Impl.Asserted
         }
 
         protected Motorcycle Motorcycle { get; }
-        
+
         public override string LicensePlate => Motorcycle.LicensePlate;
 
         public override string ModelName => Motorcycle.ModelName;

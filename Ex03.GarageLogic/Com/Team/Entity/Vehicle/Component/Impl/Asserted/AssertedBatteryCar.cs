@@ -20,7 +20,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component.Impl.Asserted
 
         protected Car Car { get; } =
             new Car(new BatteryEngine(3.2F));
-        
+
         public override string LicensePlate => Car.LicensePlate;
 
         public override string ModelName => Car.ModelName;
