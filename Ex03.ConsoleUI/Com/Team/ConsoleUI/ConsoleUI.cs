@@ -7,6 +7,7 @@ using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
 using Ex03.GarageLogic.Com.Team.DTO.Constructor;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery;
+using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Extended;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component;
@@ -188,26 +189,27 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             int i_ExtendedEngineVolumeInCC,
             GarageEnums.eEngineType i_EngineType)
         {
-            CreateAndInsertAssertedMotorcycleRequest request = new 
+            CreateAndInsertAssertedMotorcycleRequest request = new
                 CreateAndInsertAssertedMotorcycleRequest(
-                i_Owner,
-                i_ModelName, i_LicensePlate, i_TireManufacturerName,
-                i_LicenseType, i_ExtendedEngineVolumeInCC, i_EngineType);
+                    i_Owner,
+                    i_ModelName, i_LicensePlate, i_TireManufacturerName,
+                    i_LicenseType, i_ExtendedEngineVolumeInCC, i_EngineType);
             Record? nullableReturnValue = null;
             GarageEnums.eEngineType valueToSwitch = i_EngineType;
             string responseMessage = "";
             if (valueToSwitch == GarageEnums.eEngineType.Fuel)
             {
                 nullableReturnValue =
-                    GarageController.PostCreateAndInsertAssertedFuelMotorcycle(request,
+                    GarageController.PostCreateAndInsertAssertedFuelMotorcycle(
+                        request,
                         out responseMessage);
             }
             else if (valueToSwitch == GarageEnums.eEngineType.Battery)
             {
                 nullableReturnValue =
                     GarageController
-                    .PostCreateAndInsertAssertedBatteryMotorcycle(
-                        request, out responseMessage);
+                        .PostCreateAndInsertAssertedBatteryMotorcycle(
+                            request, out responseMessage);
             }
 
             Console.Out.WriteLine(responseMessage);
@@ -222,10 +224,11 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             Car.eDoorsAmount i_DoorsAmount,
             GarageEnums.eEngineType i_EngineType)
         {
-            CreateAndInsertAssertedCarRequest request = new CreateAndInsertAssertedCarRequest(
-                i_Owner,
-                i_ModelName, i_LicensePlate, i_TireManufacturerName,
-                i_Color, i_DoorsAmount, i_EngineType);
+            CreateAndInsertAssertedCarRequest request =
+                new CreateAndInsertAssertedCarRequest(
+                    i_Owner,
+                    i_ModelName, i_LicensePlate, i_TireManufacturerName,
+                    i_Color, i_DoorsAmount, i_EngineType);
             Record? nullableReturnValue = null;
             GarageEnums.eEngineType valueToSwitch = i_EngineType;
             string responseMessage = "";
@@ -372,12 +375,12 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             string validEnumStrings = createValidStringsMessage(
                 EnumString.sr_A, EnumString.sr_B1,
                 EnumString.sr_AA, EnumString.sr_BB);
-            string color = InputUtil.ConvertIgnoreCase(
-                $"{i_IndentationString}Enter {nameof(color)}: {validEnumStrings}",
+            string licenseType = InputUtil.ConvertIgnoreCase(
+                $"{i_IndentationString}Enter {nameof(licenseType)}: {validEnumStrings}",
                 EnumString.Upper.sr_A, EnumString.Upper.sr_B1,
                 EnumString.Upper.sr_AA, EnumString.Upper.sr_BB);
 
-            string valueToSwitch = color.ToUpper();
+            string valueToSwitch = licenseType.ToUpper();
             Motorcycle.eLicenseType? nullableOfReturnValue = null;
             if (valueToSwitch.Equals(EnumString.Upper.sr_A))
             {
@@ -416,7 +419,8 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
             string indentationString =
                 StringIndentation.Create(io_IndentationLevel);
-            Console.Out.WriteLine($"{indentationString}Create {nameof(Tire)}:");
+            Console.Out.WriteLine(
+                $"{indentationString}Create {nameof(ExtendedEngine)}:");
             int extendedEngineVolumeInCC =
                 InputUtil.ConvertWithAssertByRange<int>(
                     $"{indentationString}Enter {nameof(extendedEngineVolumeInCC)}: ",
