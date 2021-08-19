@@ -47,7 +47,8 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                     .k_PrintSelectedLicensePlatesByState,
                 Menu.k_SetStateOfRecordByLicensePlate,
                 Menu.k_InflateTiresToMaxByLicensePlate,
-                Menu.k_RequestRefuelByLicensePlate, Menu.k_RequestRechargeByLicensePlate,
+                Menu.k_RequestRefuelByLicensePlate,
+                Menu.k_RequestRechargeByLicensePlate,
                 Menu.k_PrintFullDetailsOfRecordByLicensePlate, Menu
                     .k_ExitProgram);
 
@@ -91,12 +92,12 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                 (ref io_IndentationLevel);
             float minutesToAdd = createMinutesToAdd(ref io_IndentationLevel);
 
-            GarageController.PostRecharge(new RechargeRequest(licensePlate, 
-            minutesToAdd)
-            , out string responseMessage);
+            GarageController.PostRecharge(new RechargeRequest(licensePlate,
+                    minutesToAdd)
+                , out string responseMessage);
             Console.Out.WriteLine(responseMessage);
         }
-        
+
         private void requestRefuelByLicensePlate(ref int io_IndentationLevel)
         {
             string licensePlate = createLicensePlate
@@ -109,7 +110,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                 fuelTypeToSet, volumeInLiters), out string responseMessage);
             Console.Out.WriteLine(responseMessage);
         }
-        
+
         private static void printFullDetailsOfRecordByLicensePlate(
             ref int io_IndentationLevel)
         {
@@ -782,7 +783,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
             return volumeToRefuelInLiters;
         }
-        
+
         private static float createMinutesToAdd(ref int io_IndentationLevel)
         {
             io_IndentationLevel++;
@@ -813,7 +814,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             io_IndentationLevel--;
 
             return minutesToAdd;
-        }        
+        }
 
         private static int createExtendedEngineVolumeInCC(
             ref int io_IndentationLevel)

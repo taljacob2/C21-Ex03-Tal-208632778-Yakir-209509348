@@ -160,6 +160,61 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             }
         }
 
+        public void PostRefuel(RefuelRequest i_Request,
+            out StringBuilder o_ResponseMessage)
+        {
+            o_ResponseMessage = new StringBuilder();
+            try
+            {
+                Record record =
+                    RecordRepository.FindByLicensePlate(i_Request.LicensePlate);
+                postRefuel(record, i_Request.FuelType, i_Request.LitersToAdd,
+                    o_ResponseMessage);
+            }
+            catch (System.Exception e)
+            {
+                o_ResponseMessage.Append(e.Message);
+            }
+        }
+
+        public bool PostInflateTiresToMaxByLicensePlate(string i_LicensePlate,
+            out StringBuilder o_ResponseMessage)
+        {
+            bool returnValue = true;
+            o_ResponseMessage = new StringBuilder();
+            try
+            {
+                Record record =
+                    RecordRepository.FindByLicensePlate(i_LicensePlate);
+
+                typeOfSwitchForPSI(o_ResponseMessage, record);
+            }
+            catch (System.Exception e)
+            {
+                o_ResponseMessage.Append(e.Message);
+                returnValue = false;
+            }
+
+            return returnValue;
+        }
+
+        public void GetRecordDetails(string i_LicensePlate,
+            out StringBuilder o_ResponseMessage)
+        {
+            o_ResponseMessage = new StringBuilder();
+            try
+            {
+                Record record =
+                    RecordRepository.FindByLicensePlate(i_LicensePlate);
+                o_ResponseMessage.Append("Record Found:" + Environment.NewLine +
+                                         record);
+            }
+            catch (System.Exception e)
+            {
+                o_ResponseMessage.Append(e.Message);
+            }
+        }
+
         private void postRecharge(Record io_Record, float i_RequestMinutesToAdd,
             StringBuilder o_ResponseMessage)
         {
@@ -227,23 +282,6 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
                 o_ResponseMessage.Append(
                     $"Successful Recharge. You have `{io_BatteryEngine.Value}` hours." +
                     $" That is: {io_BatteryEngine.GetValuePercentage()}%");
-            }
-            catch (System.Exception e)
-            {
-                o_ResponseMessage.Append(e.Message);
-            }
-        }
-
-        public void PostRefuel(RefuelRequest i_Request,
-            out StringBuilder o_ResponseMessage)
-        {
-            o_ResponseMessage = new StringBuilder();
-            try
-            {
-                Record record =
-                    RecordRepository.FindByLicensePlate(i_Request.LicensePlate);
-                postRefuel(record, i_Request.FuelType, i_Request.LitersToAdd,
-                    o_ResponseMessage);
             }
             catch (System.Exception e)
             {
@@ -326,27 +364,6 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             }
         }
 
-        public bool PostInflateTiresToMaxByLicensePlate(string i_LicensePlate,
-            out StringBuilder o_ResponseMessage)
-        {
-            bool returnValue = true;
-            o_ResponseMessage = new StringBuilder();
-            try
-            {
-                Record record =
-                    RecordRepository.FindByLicensePlate(i_LicensePlate);
-
-                typeOfSwitchForPSI(o_ResponseMessage, record);
-            }
-            catch (System.Exception e)
-            {
-                o_ResponseMessage.Append(e.Message);
-                returnValue = false;
-            }
-
-            return returnValue;
-        }
-
         private static void typeOfSwitchForPSI(StringBuilder o_ResponseMessage,
             Record io_Record)
         {
@@ -368,23 +385,6 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
 
                 o_ResponseMessage.Append(
                     $"Changed Tires' PSI to: `{psi}`.");
-            }
-        }
-
-        public void GetRecordDetails(string i_LicensePlate,
-            out StringBuilder o_ResponseMessage)
-        {
-            o_ResponseMessage = new StringBuilder();
-            try
-            {
-                Record record =
-                    RecordRepository.FindByLicensePlate(i_LicensePlate);
-                o_ResponseMessage.Append("Record Found:" + Environment.NewLine +
-                                         record);
-            }
-            catch (System.Exception e)
-            {
-                o_ResponseMessage.Append(e.Message);
             }
         }
     }

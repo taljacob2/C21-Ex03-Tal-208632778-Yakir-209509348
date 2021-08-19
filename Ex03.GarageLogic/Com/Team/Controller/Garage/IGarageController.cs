@@ -47,7 +47,8 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage
         ///         `Hour` units.
         ///     </remarks>
         /// </summary>
-        void PostRecharge(RechargeRequest i_Request, out string o_ResponseMessage);
+        void PostRecharge(RechargeRequest i_Request,
+            out string o_ResponseMessage);
 
         void GetRecordDetails(string i_LicensePlate,
             out string o_ResponseMessage);

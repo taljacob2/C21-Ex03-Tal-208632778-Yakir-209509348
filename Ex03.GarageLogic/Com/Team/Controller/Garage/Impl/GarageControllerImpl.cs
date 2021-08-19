@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component;
@@ -21,7 +20,8 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
             o_ResponseMessage = stringBuilder.ToString();
         }
 
-        public void PostRecharge(RechargeRequest i_Request, out string o_ResponseMessage)
+        public void PostRecharge(RechargeRequest i_Request,
+            out string o_ResponseMessage)
         {
             StringBuilder stringBuilder = new StringBuilder();
             GarageService.PostRecharge(i_Request, out stringBuilder);
