@@ -70,7 +70,35 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
 
             return returnValue;
         }
-        
+
+        public Record? PostCreateAndInsertAssertedFuelMotorcycle(
+            CreateAndInsertAssertedMotorcycleRequest i_Request,
+            out string o_ResponseMessage)
+        {
+            Record returnValue = GarageService.CreateRecord(
+                GarageService.CreateAssertedFuelMotorcycle(i_Request),
+                i_Request.Owner);
+
+            PostInsert(returnValue, out StringBuilder stringBuilder);
+            o_ResponseMessage = stringBuilder.ToString();
+
+            return returnValue;
+        }
+
+        public Record? PostCreateAndInsertAssertedBatteryMotorcycle(
+            CreateAndInsertAssertedMotorcycleRequest i_Request,
+            out string o_ResponseMessage)
+        {
+            Record returnValue = GarageService.CreateRecord(
+                GarageService.CreateAssertedBatteryMotorcycle(i_Request),
+                i_Request.Owner);
+
+            PostInsert(returnValue, out StringBuilder stringBuilder);
+            o_ResponseMessage = stringBuilder.ToString();
+
+            return returnValue;
+        }
+
         public Record PostInsertAssertedFuelCar(CreateAndInsertAssertedCarRequest 
         i_Request, out string o_ResponseMessage)
         {

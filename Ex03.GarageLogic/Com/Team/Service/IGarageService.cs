@@ -35,5 +35,7 @@ namespace Ex03.GarageLogic.Com.Team.Service
         Vehicle CreateAssertedFuelCar(CreateAndInsertAssertedCarRequest i_Request);
         
         Vehicle CreateAssertedBatteryCar(CreateAndInsertAssertedCarRequest i_Request);
+        Vehicle CreateAssertedFuelMotorcycle(CreateAndInsertAssertedMotorcycleRequest i_Request);
+        Vehicle CreateAssertedBatteryMotorcycle(CreateAndInsertAssertedMotorcycleRequest i_Request);
     }
 }

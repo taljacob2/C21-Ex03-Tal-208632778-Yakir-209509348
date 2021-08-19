@@ -84,6 +84,28 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
                 i_Request.TireManufacturerName);
         }
 
+        public Vehicle CreateAssertedFuelMotorcycle(
+            CreateAndInsertAssertedMotorcycleRequest i_Request)
+        {
+            return new AssertedFuelMotorcycle(i_Request
+                    .ModelName, i_Request.LicensePlate,
+                i_Request.LicenseType,
+                i_Request
+                    .ExtendedEngineVolumeInCC,
+                i_Request.TireManufacturerName);
+        }
+
+        public Vehicle CreateAssertedBatteryMotorcycle(
+            CreateAndInsertAssertedMotorcycleRequest i_Request)
+        {
+            return new AssertedBatteryMotorcycle(i_Request
+                    .ModelName, i_Request.LicensePlate,
+                i_Request.LicenseType,
+                i_Request
+                    .ExtendedEngineVolumeInCC,
+                i_Request.TireManufacturerName);
+        }
+
 
         // TODO: disabled.
         // public void FuelVehicle(string i_LicensePlate,
