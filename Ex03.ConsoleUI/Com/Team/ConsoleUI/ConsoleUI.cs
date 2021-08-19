@@ -86,11 +86,12 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
         {
             string licensePlate = createLicensePlate
                 (ref io_IndentationLevel);
-
             eType fuelTypeToSet = createFuelType(ref io_IndentationLevel);
+            float volumeInLiters =
+                createVolumeToRefuelInLiters(ref io_IndentationLevel);
 
-            GarageController.PostRefuel(licensePlate,
-                out string responseMessage);
+            GarageController.PostRefuel(new RefuelRequest(licensePlate,
+                fuelTypeToSet, volumeInLiters), out string responseMessage);
             Console.Out.WriteLine(responseMessage);
         }
 
@@ -732,6 +733,41 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             }
 
             return nullableOfReturnValue.Value;
+        }
+
+        private static float createVolumeToRefuelInLiters(ref int
+            io_IndentationLevel)
+        {
+            io_IndentationLevel++;
+
+            string indentationString =
+                StringIndentation.Create(io_IndentationLevel);
+            Console.Out.WriteLine(
+                $"{indentationString}Create {nameof(ExtendedEngine)}:");
+            float volumeToRefuelInLiters = 0;
+            while (volumeToRefuelInLiters == 0)
+            {
+                try
+                {
+                    volumeToRefuelInLiters =
+                        InputUtil.ConvertWithAssertByRangeWithException<float>(
+                            $"{indentationString}Enter {nameof(volumeToRefuelInLiters)}: ",
+                            1, float.MaxValue);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+            }
+
+            // Comment: instead, you may do so, and avoid exceptions:
+            // InputUtil.ConvertWithAssertByRange<float>(
+            //     $"{indentationString}Enter {nameof(volumeToRefuelInLiters)}: ",
+            //     1, float.MaxValue);
+
+            io_IndentationLevel--;
+
+            return volumeToRefuelInLiters;
         }
 
         private static int createExtendedEngineVolumeInCC(

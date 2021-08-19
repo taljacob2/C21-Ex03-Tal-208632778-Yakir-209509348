@@ -17,11 +17,11 @@ namespace Ex03.GarageLogic.Com.Team.DTO.Model.Request
         public float LitersToAdd { get; }
 
         public RefuelRequest(string i_LicensePlate, eType i_FuelType,
-            float i_Amount)
+            float i_VolumeInLiters)
         {
             LicensePlate = i_LicensePlate;
             FuelType = i_FuelType;
-            LitersToAdd = i_Amount;
+            LitersToAdd = i_VolumeInLiters;
         }
     }
 }
