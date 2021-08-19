@@ -63,9 +63,13 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
         private Vehicle createVehicle(int i_IndentationLevel)
         {
             Console.Out.WriteLine($"Create {nameof(Vehicle)}:");
+
+            string validEnumStrings = ConsoleUI.validEnumStrings(
+                EnumString.sr_Car, EnumString.sr_Motorcycle,
+                EnumString.sr_Truck);
             string vehicleType = InputUtil.ConvertIgnoreCase(
                 StringIndentation.IndentationString(i_IndentationLevel) +
-                "Enter vehicle-type: ",
+                $"Enter {nameof(vehicleType)}: {validEnumStrings}",
                 EnumString.Upper.sr_Car, EnumString.Upper.sr_Motorcycle,
                 EnumString.Upper.sr_Truck);
             string modelName =
@@ -79,6 +83,26 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
             return createVehicleReturnValue(vehicleType, modelName,
                 licensePlate);
+        }
+
+        private static string validEnumStrings(params string[] i_ValidStrings)
+        {
+            StringBuilder builder = new StringBuilder();
+
+            for (int i = 0; i < i_ValidStrings.Length; i++)
+            {
+                builder.Append("`");
+                builder.Append(i_ValidStrings[i]);
+                builder.Append("`");
+                if (i < i_ValidStrings.Length - 1)
+                {
+                    builder.Append(" / ");
+                }
+            }
+
+            builder.Append(": ");
+
+            return builder.ToString();
         }
 
         private Vehicle createVehicleReturnValue(string i_VehicleType,
