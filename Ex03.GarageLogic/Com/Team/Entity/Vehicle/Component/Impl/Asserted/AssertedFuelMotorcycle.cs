@@ -20,6 +20,10 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component.Impl.Asserted
             Motorcycle.LicenseType = i_LicenseType;
         }
 
+        public override string LicensePlate => Motorcycle.LicensePlate;
+
+        public override string ModelName => Motorcycle.ModelName;
+
         protected Motorcycle Motorcycle { get; }
 
         public FuelEngine Engine => (FuelEngine) Motorcycle.Engine;

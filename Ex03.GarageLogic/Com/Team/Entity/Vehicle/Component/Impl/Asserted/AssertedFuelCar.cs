@@ -20,6 +20,10 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component.Impl.Asserted
 
         protected Car Car { get; } =
             new Car(new FuelEngine(eType.Octan95, 45));
+        
+        public override string LicensePlate => Car.LicensePlate;
+
+        public override string ModelName => Car.ModelName;
 
         public FuelEngine Engine => (FuelEngine) Car.Engine;
 
