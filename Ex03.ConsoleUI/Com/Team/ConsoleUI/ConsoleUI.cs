@@ -22,7 +22,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
         public void RunConsoleUI()
         {
             // DEBUG: test
-            printLicensePlates();
+            PrintLicensePlates();
 
             // DEBUG: test 
             GarageController.PostInsert(new Record(new Car(new CarConstructorDTO
@@ -615,7 +615,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return manufacturerName;
         }
 
-        private void printLicensePlates()
+        public static void PrintLicensePlates()
         {
             foreach (string licensePlate in GarageController
                 .GetLicensePlatesList()
@@ -625,7 +625,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             }
         }
 
-        private void printSelectedLicensePlates(Record.eState i_State)
+        public static void PrintSelectedLicensePlatesByState(Record.eState i_State)
         {
             foreach (string licensePlate in GarageController
                 .GetLicensePlatesList(i_State)
@@ -777,8 +777,17 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
         private static class Menu
         {
             private const int k_PostCreateAndInsertRecord = 1;
+            private const int k_PrintLicensePlates = 2;
+            private const int k_PrintSelectedLicensePlatesByState = 3;
+            
 
-            public static void Print() {}
+            public static void Print()
+            {
+                // Using string.Format:
+                Console.Out.WriteLine("{0}. PostCreateAndInsertRecord", k_PostCreateAndInsertRecord);
+                Console.Out.WriteLine("{0}. PrintLicensePlates", k_PrintLicensePlates);
+                Console.Out.WriteLine("{0}. PostCreateAndInsertRecord", k_PrintSelectedLicensePlatesByState);
+            }
         }
     }
 }
