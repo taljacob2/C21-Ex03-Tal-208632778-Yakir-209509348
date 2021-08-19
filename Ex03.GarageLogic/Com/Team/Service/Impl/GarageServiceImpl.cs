@@ -210,6 +210,11 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
                 tryToRecharge(i_RequestMinutesToAdd, o_ResponseMessage,
                     batteryEngine);
             }
+            else
+            {
+                o_ResponseMessage.Append(
+                    $"Recharge Failed. You do not own a {nameof(BatteryEngine)}.");
+            }
         }
 
         private void tryToRecharge(float i_RequestMinutesToAdd,
@@ -294,6 +299,11 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
                 FuelEngine fuelEngine = (FuelEngine) engine;
                 tryToRefuel(i_FuelType, i_LitersToAdd, o_ResponseMessage,
                     fuelEngine);
+            }
+            else
+            {
+                o_ResponseMessage.Append(
+                    $"Refuel Failed. You do not own a {nameof(FuelEngine)}.");
             }
         }
 
