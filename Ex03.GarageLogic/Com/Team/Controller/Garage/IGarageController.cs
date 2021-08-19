@@ -28,7 +28,7 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage
 
         List<string> GetLicensePlatesList(Record.eState i_StateToSelect);
 
-        bool PostNewState(NewStateRequest i_Request);
+        bool PostSetState(SetStateRequest i_Request);
 
         bool PostInflateTiresToMax(string i_LicensePlate);
 

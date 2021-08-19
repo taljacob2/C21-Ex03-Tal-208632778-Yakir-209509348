@@ -66,11 +66,11 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
         }
 
         private void setStateOfRecordByLicensePlate(ref int io_IndentationLevel, 
-        string 
-        i_LicensePlate)
+        string i_LicensePlate)
         {
-            Record.eState stateToSet = createState(); 
-            throw new NotImplementedException();
+            Record.eState stateToSet = createState(ref io_IndentationLevel);
+            GarageController.PostSetState(
+                new SetStateRequest(i_LicensePlate, stateToSet));
         }
 
         private Record.eState createState(ref int io_IndentationLevel)

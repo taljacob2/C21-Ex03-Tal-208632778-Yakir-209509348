@@ -131,7 +131,7 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
             return GarageService.SelectVehicleLicensePlates(i_StateToSelect);
         }
 
-        public bool PostNewState(NewStateRequest i_Request)
+        public bool PostSetState(SetStateRequest i_Request)
         {
             throw new NotImplementedException();
         }
