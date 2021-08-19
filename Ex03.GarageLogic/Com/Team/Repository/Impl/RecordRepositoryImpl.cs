@@ -30,14 +30,14 @@ namespace Ex03.GarageLogic.Com.Team.Repository.Impl
             o_ResponseMessage.Append(k_SuccessResponseMessage);
             Record returnValue;
             Record? foundNullableRecord =
-                FindByLicensePlate(io_Record.AbstractVehicle.LicensePlate);
+                FindByLicensePlate(io_Record.VehicleComponent.LicensePlate);
 
             if (foundNullableRecord.HasValue)
             {
                 returnValue = foundNullableRecord.Value;
                 o_ResponseMessage.Clear();
                 o_ResponseMessage.Append(
-                    $"The provided LicensePlate: `{returnValue.AbstractVehicle.LicensePlate}` is already in database.");
+                    $"The provided LicensePlate: `{returnValue.VehicleComponent.LicensePlate}` is already in database.");
             }
             else
             {
@@ -98,7 +98,7 @@ namespace Ex03.GarageLogic.Com.Team.Repository.Impl
         public List<string> SelectVehicleLicensePlates()
         {
             return r_Database.GetRef()
-                .Select(i_Record => i_Record.AbstractVehicle.LicensePlate).ToList();
+                .Select(i_Record => i_Record.VehicleComponent.LicensePlate).ToList();
         }
 
         public List<string> SelectVehicleLicensePlates(
@@ -106,7 +106,7 @@ namespace Ex03.GarageLogic.Com.Team.Repository.Impl
         {
             return r_Database.GetRef()
                 .FindAll(i_Record => i_Record.State == i_StateToSelect)
-                .Select(i_Record => i_Record.AbstractVehicle.LicensePlate)
+                .Select(i_Record => i_Record.VehicleComponent.LicensePlate)
                 .ToList();
         }
     }

@@ -2,9 +2,9 @@
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine;
 using Ex03.GarageLogic.Com.Team.Misc;
 
-namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Abstract.Impl
+namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component.Impl
 {
-    public class Car : AbstractVehicle
+    public class Car : VehicleComponent
     {
         public enum eColor
         {

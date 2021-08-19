@@ -7,7 +7,7 @@ using Ex03.GarageLogic.Com.Team.Entity.Manufactured;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Fuel;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
-using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Abstract;
+using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component;
 
 namespace Ex03.GarageLogic.Com.Team.Controller.Garage
 {
@@ -51,7 +51,7 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage
 
         VehicleResponse GetVehicleDetails(string i_LicensePlate);
 
-        Record PostCreateRecord(AbstractVehicle i_AbstractVehicle,
+        Record PostCreateRecord(VehicleComponent i_VehicleComponent,
             Owner i_Owner); // TODO: remove.
 
         Record PostCreateAssertedFuelCar(CreateAssertedCarRequest i_Request,

@@ -5,8 +5,8 @@ using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
 using Ex03.GarageLogic.Com.Team.DTO.Constructor;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
-using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Abstract;
-using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Abstract.Impl.Asserted;
+using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component;
+using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component.Impl.Asserted;
 using Ex03.GarageLogic.Com.Team.Repository;
 using Ex03.GarageLogic.Com.Team.Repository.Impl;
 
@@ -20,9 +20,9 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
         public IRecordRepository RecordRepository { get; } =
             new RecordRepositoryImpl();
 
-        public Record CreateRecord(AbstractVehicle i_AbstractVehicle, Owner i_Owner)
+        public Record CreateRecord(VehicleComponent i_VehicleComponent, Owner i_Owner)
         {
-            return new Record(i_AbstractVehicle, i_Owner);
+            return new Record(i_VehicleComponent, i_Owner);
         }
         
 
@@ -62,7 +62,7 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             return record;
         }
 
-        public AbstractVehicle CreateAssertedFuelCar(
+        public VehicleComponent CreateAssertedFuelCar(
             CreateAssertedCarRequest io_CreateAssertedCarRequest)
         {
             CreateRecord(new AssertedFuelCar(io_CreateAssertedCarRequest
@@ -76,7 +76,7 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             throw new NotImplementedException();
         }
 
-        public AbstractVehicle CreateAssertedBatteryCar(CreateAssertedCarRequest i_Request)
+        public VehicleComponent CreateAssertedBatteryCar(CreateAssertedCarRequest i_Request)
         {
             throw new NotImplementedException();
         }

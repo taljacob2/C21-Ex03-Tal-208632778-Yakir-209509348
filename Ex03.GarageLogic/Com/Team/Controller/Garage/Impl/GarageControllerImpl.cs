@@ -4,7 +4,7 @@ using System.Text;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Response;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
-using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Abstract;
+using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component;
 using Ex03.GarageLogic.Com.Team.Service;
 using Ex03.GarageLogic.Com.Team.Service.Impl;
 
@@ -40,9 +40,9 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
             throw new NotImplementedException();
         }
 
-        public Record PostCreateRecord(AbstractVehicle i_AbstractVehicle, Owner i_Owner)
+        public Record PostCreateRecord(VehicleComponent i_VehicleComponent, Owner i_Owner)
         {
-            return GarageService.CreateRecord(i_AbstractVehicle, i_Owner);
+            return GarageService.CreateRecord(i_VehicleComponent, i_Owner);
         }
 
         public Record PostCreateAssertedFuelCar(

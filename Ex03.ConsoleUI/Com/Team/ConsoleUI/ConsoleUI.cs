@@ -9,8 +9,8 @@ using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
-using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Abstract;
-using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Abstract.Impl;
+using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component;
+using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component.Impl;
 
 namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 {
@@ -77,7 +77,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             string indentationString =
                 StringIndentation.Create(io_IndentationLevel);
             Console.Out.WriteLine(
-                $"{StringIndentation.Create(io_IndentationLevel)}Create {nameof(AbstractVehicle)}:");
+                $"{StringIndentation.Create(io_IndentationLevel)}Create {nameof(VehicleComponent)}:");
             string vehicleType = createVehicleType(indentationString);
             string modelName =
                 InputUtil.Convert<string>(

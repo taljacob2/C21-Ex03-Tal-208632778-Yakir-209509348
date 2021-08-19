@@ -3,17 +3,17 @@ using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
 using Ex03.GarageLogic.Com.Team.Misc;
 
-namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Abstract
+namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component
 {
-    public abstract class AbstractVehicle : Vehicle
+    public abstract class VehicleComponent : Vehicle
     {
-        protected AbstractVehicle(VehicleConstructorDTO i_VehicleConstructorDTO)
+        protected VehicleComponent(VehicleComponentConstructorDTO i_VehicleComponentConstructorDTO)
         {
-            ModelName = i_VehicleConstructorDTO.ModelName;
-            LicensePlate = i_VehicleConstructorDTO.LicensePlate;
+            ModelName = i_VehicleComponentConstructorDTO.ModelName;
+            LicensePlate = i_VehicleComponentConstructorDTO.LicensePlate;
         }
 
-        protected AbstractVehicle() {}
+        protected VehicleComponent() {}
 
         /// <summary>
         ///     Unique ID.

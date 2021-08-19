@@ -1,11 +1,11 @@
 ﻿using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Extended;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
-using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Abstract.Impl;
+using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component.Impl;
 
 // ReSharper disable once TooManyDependencies
 namespace Ex03.GarageLogic.Com.Team.DTO.Constructor
 {
-    public class MotorcycleConstructorDTO : VehicleConstructorDTO
+    public class MotorcycleConstructorDTO : VehicleComponentConstructorDTO
     {
         public MotorcycleConstructorDTO(string i_ModelName,
             string i_LicensePlate, Tire i_TireToSetForAllTires,
