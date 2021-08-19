@@ -132,28 +132,28 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
         {
             io_IndentationLevel++;
 
-            Record returnValue;
+            Record? nullableReturnValue = null;
             string valueToSwitch = i_VehicleType.ToUpper();
             if (valueToSwitch.Equals(EnumString.Upper.sr_Car))
             {
-                returnValue = createCar(i_Owner, ref io_IndentationLevel,
+                nullableReturnValue = createCar(i_Owner, ref io_IndentationLevel,
                     i_ModelName, i_LicensePlate);
             }
             else if (valueToSwitch.Equals(EnumString.Upper.sr_Motorcycle))
             {
-                returnValue =
+                nullableReturnValue =
                     createMotorcycle(i_Owner, ref io_IndentationLevel,
                         i_ModelName, i_LicensePlate);
             }
             else if (valueToSwitch.Equals(EnumString.Upper.sr_Truck))
             {
-                returnValue = createTruck(i_Owner, ref io_IndentationLevel,
+                nullableReturnValue = createTruck(i_Owner, ref io_IndentationLevel,
                     i_ModelName, i_LicensePlate);
             }
 
             io_IndentationLevel--;
 
-            return returnValue;
+            return nullableReturnValue.Value;
         }
 
         private Record createCar(Owner i_Owner,
