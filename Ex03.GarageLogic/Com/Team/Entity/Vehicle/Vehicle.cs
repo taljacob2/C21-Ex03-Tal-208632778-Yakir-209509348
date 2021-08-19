@@ -11,7 +11,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle
         public virtual string LicensePlate { get; protected internal set; }
 
         public virtual string ModelName { get; protected internal set; }
-        
+
         public Engine Engine { get; protected set; }
 
         public override string ToString()

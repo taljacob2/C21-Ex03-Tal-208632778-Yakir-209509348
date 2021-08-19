@@ -2,7 +2,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Reflection;
 using System.Text;
 using Ex03.GarageLogic.Com.Team.Misc.ArrayExtensions;
@@ -77,9 +76,11 @@ namespace Ex03.GarageLogic.Com.Team.Misc
                     Console.Out.WriteLine(errorMsg);
 
                     if (i_ThrowExceptionIfNotExists)
+                    {
                         throw new ArgumentException(errorMsg);
-                    else
-                        return default(T);
+                    }
+
+                    return default(T);
                 }
 
                 Type returnType = typeof(T);
@@ -94,9 +95,11 @@ namespace Ex03.GarageLogic.Com.Team.Misc
                     Console.Out.WriteLine(errorMsg);
 
                     if (i_ThrowExceptionIfNotExists)
+                    {
                         throw new ArgumentException(errorMsg);
-                    else
-                        return default(T);
+                    }
+
+                    return default(T);
                 }
 
                 return (T) propertyInfo.GetValue(i_SourceInstance, null);
@@ -108,7 +111,9 @@ namespace Ex03.GarageLogic.Com.Team.Misc
                 Console.Out.WriteLine(errorMsg);
 
                 if (i_ThrowExceptionIfNotExists)
+                {
                     throw;
+                }
             }
 
             return default(T);
