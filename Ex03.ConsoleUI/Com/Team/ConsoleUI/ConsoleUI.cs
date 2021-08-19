@@ -46,26 +46,30 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             switch (io_SelectedMenuOption)
             {
                 case Menu.k_CreateAndInsertVehicleRecord:
-                    PostCreateAndInsertRecord();
+                    postCreateAndInsertRecord();
                     break;
                 case Menu.k_PrintLicensePlates:
-                    PrintLicensePlates();
+                    printLicensePlates();
                     break;
                 case Menu.k_PrintSelectedLicensePlatesByState:
                     Record.eState stateToSelect = createState
                         (ref indentationLevel);
-                    PrintSelectedLicensePlatesByState(stateToSelect);
+                    printSelectedLicensePlatesByState(stateToSelect);
                     break;
                 case Menu.k_SetStateOfRecordByLicensePlate:
                     string licensePlate = createLicensePlate
                     (ref indentationLevel);
-                    SetStateOfRecordByLicensePlate(licensePlate);
+                    setStateOfRecordByLicensePlate(ref indentationLevel,
+                    licensePlate);
                     break;
             }
         }
 
-        private void SetStateOfRecordByLicensePlate(string i_LicensePlate)
+        private void setStateOfRecordByLicensePlate(ref int io_IndentationLevel, 
+        string 
+        i_LicensePlate)
         {
+            Record.eState stateToSet = createState(); 
             throw new NotImplementedException();
         }
 
@@ -111,7 +115,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
         ///     requested to insert an unavailable vehicle.
         ///     Otherwise contains the retrieved success record.
         /// </returns>
-        public static Record? PostCreateAndInsertRecord()
+        private static Record? postCreateAndInsertRecord()
         {
             int indentationLevel = 0;
             Console.Out.WriteLine(
@@ -694,7 +698,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return manufacturerName;
         }
 
-        public static void PrintLicensePlates()
+        private static void printLicensePlates()
         {
             List<string> list = GarageController.GetLicensePlatesList();
             foreach (string licensePlate in list
@@ -709,7 +713,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             }
         }
 
-        public static void PrintSelectedLicensePlatesByState(
+        private static void printSelectedLicensePlatesByState(
             Record.eState i_State)
         {
             List<string> list = GarageController
