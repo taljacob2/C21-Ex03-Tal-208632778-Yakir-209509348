@@ -20,11 +20,11 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
         public IRecordRepository RecordRepository { get; } =
             new RecordRepositoryImpl();
 
-        public Record CreateRecord(VehicleComponent i_VehicleComponent, Owner i_Owner)
+
+        public Record CreateRecord(Vehicle i_Vehicle, Owner i_Owner)
         {
-            return new Record(i_VehicleComponent, i_Owner);
+            return new Record(i_Vehicle, i_Owner);
         }
-        
 
         public void Refuel(RefuelRequest i_Request)
         {
@@ -62,23 +62,26 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             return record;
         }
 
-        public VehicleComponent CreateAssertedFuelCar(
-            CreateAssertedCarRequest io_CreateAssertedCarRequest)
+        public Vehicle CreateAssertedFuelCar(
+            CreateAssertedCarRequest i_Request)
         {
-            CreateRecord(new AssertedFuelCar(io_CreateAssertedCarRequest
-                        .ModelName, io_CreateAssertedCarRequest.LicensePlate,
-                    io_CreateAssertedCarRequest.Color,
-                    io_CreateAssertedCarRequest
-                        .DoorsAmount,
-                    io_CreateAssertedCarRequest.TireManufacturerName),
-                io_CreateAssertedCarRequest.Owner);
-            
-            throw new NotImplementedException();
+            return new AssertedFuelCar(i_Request
+                    .ModelName, i_Request.LicensePlate,
+                i_Request.Color,
+                i_Request
+                    .DoorsAmount,
+                i_Request.TireManufacturerName);
         }
 
-        public VehicleComponent CreateAssertedBatteryCar(CreateAssertedCarRequest i_Request)
+        public Vehicle CreateAssertedBatteryCar(
+            CreateAssertedCarRequest i_Request)
         {
-            throw new NotImplementedException();
+            return new AssertedBatteryCar(i_Request
+                    .ModelName, i_Request.LicensePlate,
+                i_Request.Color,
+                i_Request
+                    .DoorsAmount,
+                i_Request.TireManufacturerName);
         }
 
 

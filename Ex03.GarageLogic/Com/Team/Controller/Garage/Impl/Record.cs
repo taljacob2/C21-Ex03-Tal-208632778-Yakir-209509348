@@ -13,16 +13,16 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
             Payed // FIXME: what is this? and when? can't be in parallel -> limitation.
         }
 
-        public Record(VehicleComponent i_VehicleComponent, Owner i_Owner)
+        public Record(Vehicle i_Vehicle, Owner i_Owner)
         {
-            VehicleComponent = i_VehicleComponent;
+            Vehicle = i_Vehicle;
             Owner = i_Owner;
             State = eState.InProgress;
         }
 
         public Owner Owner { get; }
 
-        public VehicleComponent VehicleComponent { get; }
+        public Vehicle Vehicle { get; }
 
         public eState State { get; set; }
 

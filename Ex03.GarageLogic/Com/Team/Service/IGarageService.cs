@@ -32,7 +32,8 @@ namespace Ex03.GarageLogic.Com.Team.Service
         /// </returns>
         Record Insert(Record io_Record, out StringBuilder o_ResponseMessage);
         
-        Vehicle CreateAssertedFuelCar(CreateAssertedCarRequest io_CreateAssertedCarRequest);
+        Vehicle CreateAssertedFuelCar(CreateAssertedCarRequest i_Request);
+        
         Vehicle CreateAssertedBatteryCar(CreateAssertedCarRequest i_Request);
     }
 }
