@@ -15,21 +15,26 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 {
     public class ConsoleUI
     {
-        private const string k_ListIsEmpty = "List is empty.";
+        private const string k_ListIsEmptyMessage = "List is empty.";
+
+        private const string k_WelcomeMessage =
+            "Welcome To The Garage Manager!";
+
+        private const string k_ExitMessage = "Good Bye.";
 
         public static IGarageController GarageController { get; } =
             new GarageControllerImpl();
 
         public void RunConsoleUI()
         {
-            Console.Out.WriteLine("Welcome To The Garage Manager!");
+            Console.Out.WriteLine(k_WelcomeMessage);
             int selectedMenuOption = -1;
             while (selectedMenuOption != Menu.k_ExitProgram)
             {
                 switchInvokeMenuOptions(ref selectedMenuOption);
             }
 
-            Console.Out.WriteLine("Good Bye.");
+            Console.Out.WriteLine(k_ExitMessage);
         }
 
         private void switchInvokeMenuOptions(ref int io_SelectedMenuOption)
@@ -707,7 +712,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
             if (list.Count == 0)
             {
-                Console.Out.WriteLine(k_ListIsEmpty);
+                Console.Out.WriteLine(k_ListIsEmptyMessage);
             }
         }
 
@@ -724,7 +729,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
             if (list.Count == 0)
             {
-                Console.Out.WriteLine(k_ListIsEmpty);
+                Console.Out.WriteLine(k_ListIsEmptyMessage);
             }
         }
 
