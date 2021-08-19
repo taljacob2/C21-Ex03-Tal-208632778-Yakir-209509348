@@ -39,61 +39,72 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
         public Record PostCreateRecord()
         {
-            Owner owner = createOwner();
-            Vehicle vehicle = createVehicle();
+            Console.Out.WriteLine($"Create {nameof(Record)}:");
+            const int k_IndentationLevel = 1;
+            Owner owner = createOwner(k_IndentationLevel);
+            Vehicle vehicle = createVehicle(k_IndentationLevel);
             return GarageController.PostCreateRecord(vehicle, owner);
         }
 
-        private Owner createOwner()
-
+        private Owner createOwner(int i_IndentationLevel)
         {
-            const int k_Indentation = 1;
-            Console.Out.WriteLine("Create Owner:");
+            Console.Out.WriteLine($"Create {nameof(Owner)}:");
             string name =
                 InputUtil.Convert<string>(
-                    StringIndentation.IndentationString(k_Indentation) +
-                    "Enter name: ");
+                    StringIndentation.IndentationString(i_IndentationLevel) +
+                    $"Enter {nameof(name)}: ");
             string phoneNumber =
                 InputUtil.Convert<string>(
-                    StringIndentation.IndentationString(k_Indentation) +
-                    "Enter phone-number: ");
+                    StringIndentation.IndentationString(i_IndentationLevel) +
+                    $"Enter {nameof(phoneNumber)}: ");
             return new Owner(phoneNumber, name);
         }
 
-        private Vehicle createVehicle()
+        private Vehicle createVehicle(int i_IndentationLevel)
         {
-            const int k_Indentation = 1;
-            Console.Out.WriteLine("Create Vehicle:");
+            Console.Out.WriteLine($"Create {nameof(Vehicle)}:");
             string vehicleType = InputUtil.ConvertIgnoreCase(
-                StringIndentation.IndentationString(k_Indentation) +
+                StringIndentation.IndentationString(i_IndentationLevel) +
                 "Enter vehicle-type: ",
                 EnumUpperString.sr_CarStringUpper, EnumUpperString
                     .sr_MotorcycleStringUpper,
                 EnumUpperString.sr_TruckStringUpper);
             string modelName =
                 InputUtil.Convert<string>(
-                    StringIndentation.IndentationString(k_Indentation) +
-                    "Enter name: ");
+                    StringIndentation.IndentationString(i_IndentationLevel) +
+                    $"Enter {nameof(modelName)}: ");
             string licensePlate =
                 InputUtil.Convert<string>(
-                    StringIndentation.IndentationString(k_Indentation) +
-                    "Enter phone-number: ");
+                    StringIndentation.IndentationString(i_IndentationLevel) +
+                    $"Enter {nameof(licensePlate)}: ");
 
+            return createVehicleReturnValue(vehicleType, modelName,
+                licensePlate);
+        }
+
+        private Vehicle createVehicleReturnValue(string i_VehicleType,
+            string i_ModelName,
+            string i_LicensePlate)
+        {
             Vehicle returnValue = null;
-            if (vehicleType.ToUpper().Equals(EnumUpperString.sr_CarStringUpper))
+            if (i_VehicleType.ToUpper()
+                .Equals(EnumUpperString.sr_CarStringUpper))
             {
-                returnValue = createCar(vehicleType, modelName, licensePlate);
+                returnValue = createCar(i_VehicleType, i_ModelName,
+                    i_LicensePlate);
             }
-            else if (vehicleType.ToUpper()
+            else if (i_VehicleType.ToUpper()
                 .Equals(EnumUpperString.sr_MotorcycleStringUpper))
             {
                 returnValue =
-                    createMotorcycle(vehicleType, modelName, licensePlate);
+                    createMotorcycle(i_VehicleType, i_ModelName,
+                        i_LicensePlate);
             }
-            else if (vehicleType.ToUpper()
+            else if (i_VehicleType.ToUpper()
                 .Equals(EnumUpperString.sr_TruckStringUpper))
             {
-                returnValue = createTruck(vehicleType, modelName, licensePlate);
+                returnValue = createTruck(i_VehicleType, i_ModelName,
+                    i_LicensePlate);
             }
 
             return returnValue;
