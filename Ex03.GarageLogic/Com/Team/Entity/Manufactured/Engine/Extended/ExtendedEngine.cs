@@ -2,7 +2,7 @@
 
 namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Extended
 {
-    public class ExtendedEngine
+    public class ExtendedEngine : ISelfValueAdder
     {
         public ExtendedEngine(Engine i_Engine, int i_VolumeInCC)
         {
@@ -21,6 +21,19 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Extended
         public override string ToString()
         {
             return this.ToStringExtension();
+        }
+
+        public void AddSelfValue(float i_ValueToAdd)
+        {
+            Engine.AddSelfValue(i_ValueToAdd);
+        }
+
+        /// <summary>
+        ///     Measured in `Percentage` units.
+        /// </summary>
+        public float GetValuePercentage()
+        {
+            return Engine.GetValuePercentage();
         }
     }
 }
