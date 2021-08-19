@@ -4,6 +4,7 @@ using Ex03.ConsoleUI.Com.Team.Misc;
 using Ex03.GarageLogic.Com.Team.Controller.Garage;
 using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
 using Ex03.GarageLogic.Com.Team.DTO.Constructor;
+using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
@@ -180,23 +181,21 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             Car.eDoorsAmount i_DoorsAmount,
             GarageEnums.eEngineType i_EngineType)
         {
+            CreateAssertedCarRequest request = new CreateAssertedCarRequest(
+                i_ModelName, i_LicensePlate, i_TireManufacturerName,
+                i_Color, i_DoorsAmount, i_EngineType);
             Car returnValue = null;
             GarageEnums.eEngineType valueToSwitch = i_EngineType;
             if (valueToSwitch == GarageEnums.eEngineType.Fuel)
             {
-                returnValue = GarageController.PostCreateAsertedFuelCar(
-                    i_ModelName, i_LicensePlate, i_TireManufacturerName,
-                    i_Color, i_DoorsAmount, i_EngineType);
+                returnValue = GarageController.PostCreateAssertedFuelCar(request);
             }
             else if (valueToSwitch == GarageEnums.eEngineType.Battery)
             {
                 returnValue =
-                    GarageController.PostCreateAsertedBatteryCar(i_ModelName,
-                        i_LicensePlate, i_TireManufacturerName, i_Color,
-                        i_DoorsAmount, i_EngineType);
+                    GarageController.PostCreateAssertedBatteryCar(request);
             }
-
-
+            
             return returnValue;
         }
 

@@ -52,9 +52,9 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage
         VehicleResponse GetVehicleDetails(string i_LicensePlate);
 
         Record PostCreateRecord(Vehicle i_Vehicle, Owner i_Owner);
-        Car PostCreateAsertedFuelCar(string i_ModelName, string i_LicensePlate,
-            string i_TireManufacturerName, Car.eColor i_Color,
-            Car.eDoorsAmount i_DoorsAmount, GarageEnums.eEngineType i_EngineType);
-        Car PostCreateAsertedBatteryCar(string i_ModelName, string i_LicensePlate, string i_TireManufacturerName, Car.eColor i_Color, Car.eDoorsAmount i_DoorsAmount, GarageEnums.eEngineType i_EngineType);
+
+        Car PostCreateAssertedFuelCar(CreateAssertedCarRequest i_Request);
+
+        Car PostCreateAssertedBatteryCar(CreateAssertedCarRequest i_Request);
     }
 }
