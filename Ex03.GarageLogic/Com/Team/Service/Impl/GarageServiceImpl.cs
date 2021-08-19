@@ -177,6 +177,11 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             }
         }
 
+        public bool PostRefuel(RefuelRequest i_Request, out StringBuilder o_StringBuilder)
+        {
+            throw new NotImplementedException();
+        }
+
         private static void typeOfSwitchForPSI(StringBuilder o_ResponseMessage,
             Record io_Record)
         {

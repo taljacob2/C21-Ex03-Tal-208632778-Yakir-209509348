@@ -55,5 +55,7 @@ namespace Ex03.GarageLogic.Com.Team.Service
 
         void GetRecordDetails(string i_LicensePlate,
             out StringBuilder o_ResponseMessage);
+
+        bool PostRefuel(RefuelRequest i_Request, out StringBuilder o_StringBuilder);
     }
 }
