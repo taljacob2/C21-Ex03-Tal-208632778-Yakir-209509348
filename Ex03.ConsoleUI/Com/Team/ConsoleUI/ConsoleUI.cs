@@ -86,7 +86,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
             io_IndentationLevel--;
 
-            return createVehicleReturnValue(ref io_IndentationLevel,
+            return createVehicleTypeSwitch(ref io_IndentationLevel,
                 vehicleType,
                 modelName, licensePlate);
         }
@@ -124,7 +124,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return builder.ToString();
         }
 
-        private Vehicle createVehicleReturnValue(ref int io_IndentationLevel,
+        private Vehicle createVehicleTypeSwitch(ref int io_IndentationLevel,
             string i_VehicleType, string i_ModelName, string i_LicensePlate)
         {
             io_IndentationLevel++;
@@ -161,13 +161,10 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
             string indentationString =
                 StringIndentation.Create(io_IndentationLevel);
-
             Console.Out.WriteLine($"{indentationString}Create {nameof(Car)}:");
-
             string tireManufacturerName =
                 createTireManufacturerName(ref io_IndentationLevel);
-
-            string color = createColor(indentationString);
+            Car.eColor color = createColor(indentationString);
             string doorsAmount = createDoorsAmount(indentationString);
 
 
@@ -176,7 +173,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             throw new NotImplementedException();
         }
 
-        private static string createColor(string i_IndentationString)
+        private static Car.eColor createColor(string i_IndentationString)
         {
             string validEnumColorStrings = createValidStringsMessage(
                 EnumString.sr_Red, EnumString.sr_Silver,
@@ -185,7 +182,28 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                 $"{i_IndentationString}Enter {nameof(color)}: {validEnumColorStrings}",
                 EnumString.Upper.sr_Red, EnumString.Upper.sr_Silver,
                 EnumString.Upper.sr_White, EnumString.Upper.sr_Black);
-            return color;
+            
+            string valueToSwitch = color.ToUpper();
+            Car.eColor? nullableOfReturnValue = null;
+            if (valueToSwitch.Equals(EnumString.Upper.sr_Red))
+            {
+                nullableOfReturnValue = Car.eColor.Red;
+            }
+            else if (valueToSwitch
+                .Equals(EnumString.Upper.sr_Silver))
+            {
+                nullableOfReturnValue = Car.eColor.Silver;
+            }
+            else if (valueToSwitch.Equals(EnumString.Upper.sr_White))
+            {
+                nullableOfReturnValue = Car.eColor.White;
+            }
+            else if (valueToSwitch.Equals(EnumString.Upper.sr_Black))
+            {
+                nullableOfReturnValue = Car.eColor.Black;
+            }
+
+            return nullableOfReturnValue.Value;
         }
 
         private static string createDoorsAmount(string i_IndentationString)
@@ -201,8 +219,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
         }
 
         private Vehicle createMotorcycle(ref int io_IndentationLevel,
-            string i_VehicleType,
-            string i_ModelName, string i_LicensePlate)
+            string i_VehicleType, string i_ModelName, string i_LicensePlate)
         {
             io_IndentationLevel++;
 
@@ -212,8 +229,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
         }
 
         private Vehicle createTruck(ref int io_IndentationLevel,
-            string i_VehicleType, string i_ModelName,
-            string i_LicensePlate)
+            string i_VehicleType, string i_ModelName, string i_LicensePlate)
         {
             io_IndentationLevel++;
 
