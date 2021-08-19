@@ -130,19 +130,19 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             io_IndentationLevel++;
 
             Vehicle returnValue = null;
-            if (i_VehicleType.ToUpper().Equals(EnumString.Upper.sr_Car))
+            string valueToSwitch = i_VehicleType.ToUpper();
+            if (valueToSwitch.Equals(EnumString.Upper.sr_Car))
             {
                 returnValue = createCar(ref io_IndentationLevel, i_VehicleType,
                     i_ModelName, i_LicensePlate);
             }
-            else if (i_VehicleType.ToUpper()
-                .Equals(EnumString.Upper.sr_Motorcycle))
+            else if (valueToSwitch.Equals(EnumString.Upper.sr_Motorcycle))
             {
                 returnValue =
                     createMotorcycle(ref io_IndentationLevel, i_VehicleType,
                         i_ModelName, i_LicensePlate);
             }
-            else if (i_VehicleType.ToUpper().Equals(EnumString.Upper.sr_Truck))
+            else if (valueToSwitch.Equals(EnumString.Upper.sr_Truck))
             {
                 returnValue = createTruck(ref io_IndentationLevel,
                     i_VehicleType,
@@ -182,7 +182,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                 $"{i_IndentationString}Enter {nameof(color)}: {validEnumColorStrings}",
                 EnumString.Upper.sr_Red, EnumString.Upper.sr_Silver,
                 EnumString.Upper.sr_White, EnumString.Upper.sr_Black);
-            
+
             string valueToSwitch = color.ToUpper();
             Car.eColor? nullableOfReturnValue = null;
             if (valueToSwitch.Equals(EnumString.Upper.sr_Red))
@@ -206,7 +206,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return nullableOfReturnValue.Value;
         }
 
-         static Car.eDoorsAmount createDoorsAmount(string i_IndentationString)
+        static Car.eDoorsAmount createDoorsAmount(string i_IndentationString)
         {
             string validEnumDoorsAmountStrings = createValidStringsMessage(
                 EnumString.sr_Two, EnumString.sr_Three,
@@ -215,7 +215,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                 $"{i_IndentationString}Enter {nameof(doorsAmount)}: {validEnumDoorsAmountStrings}",
                 EnumString.Upper.sr_Two, EnumString.Upper.sr_Three,
                 EnumString.Upper.sr_Four, EnumString.Upper.sr_Five);
-            
+
             string valueToSwitch = doorsAmount.ToUpper();
             Car.eDoorsAmount? nullableOfReturnValue = null;
             if (valueToSwitch.Equals(EnumString.Upper.sr_Two))
@@ -236,8 +236,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                 nullableOfReturnValue = Car.eDoorsAmount.Five;
             }
 
-            return nullableOfReturnValue.Value;            
-            
+            return nullableOfReturnValue.Value;
         }
 
         private Vehicle createMotorcycle(ref int io_IndentationLevel,
