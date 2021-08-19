@@ -180,13 +180,51 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                 tireManufacturerName, color, doorsAmount, engineType);
         }
 
+        private Record createMotorcycleTypeSwitch(Owner i_Owner,
+            string i_ModelName,
+            string i_LicensePlate,
+            string i_TireManufacturerName,
+            Motorcycle.eLicenseType i_LicenseType,
+            int i_ExtendedEngineVolumeInCC,
+            GarageEnums.eEngineType i_EngineType)
+        {
+            CreateAndInsertAssertedMotorcycleRequest request = new 
+                CreateAndInsertAssertedMotorcycleRequest(
+                i_Owner,
+                i_ModelName, i_LicensePlate, i_TireManufacturerName,
+                i_LicenseType, i_ExtendedEngineVolumeInCC, i_EngineType);
+            Record? nullableReturnValue = null;
+            GarageEnums.eEngineType valueToSwitch = i_EngineType;
+            string responseMessage = "";
+            if (valueToSwitch == GarageEnums.eEngineType.Fuel)
+            {
+                nullableReturnValue =
+                    GarageController.PostCreateAndInsertAssertedFuelMotorcycle(request,
+                        out
+                        responseMessage);
+            }
+            else if (valueToSwitch == GarageEnums.eEngineType.Battery)
+            {
+                nullableReturnValue =
+                    GarageController
+                    .PostCreateAndInsertAssertedBatteryMotorcycle(
+                        request, out
+                        responseMessage);
+            }
+
+            Console.Out.WriteLine(responseMessage);
+
+            return nullableReturnValue.Value;
+        }
+
+
         private Record createCarTypeSwitch(Owner i_Owner, string i_ModelName,
             string i_LicensePlate,
             string i_TireManufacturerName, Car.eColor i_Color,
             Car.eDoorsAmount i_DoorsAmount,
             GarageEnums.eEngineType i_EngineType)
         {
-            CreateAssertedCarRequest request = new CreateAssertedCarRequest(
+            CreateAndInsertAssertedCarRequest request = new CreateAndInsertAssertedCarRequest(
                 i_Owner,
                 i_ModelName, i_LicensePlate, i_TireManufacturerName,
                 i_Color, i_DoorsAmount, i_EngineType);
@@ -315,17 +353,19 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                 $"{indentationString}Create {nameof(Motorcycle)}:");
             string tireManufacturerName =
                 createTireManufacturerName(ref io_IndentationLevel);
-            Car.eColor color = createColor(indentationString);
             Motorcycle.eLicenseType licenseType =
                 createLicenseType(indentationString);
-            Car.eDoorsAmount doorsAmount = createDoorsAmount(indentationString);
             int extendedEngineVolumeInCC =
                 createExtendedEngineVolumeInCC(ref io_IndentationLevel);
+            GarageEnums.eEngineType engineType =
+                createEngineType(indentationString);
 
             io_IndentationLevel--;
 
-            return createCarTypeSwitch(i_Owner, i_ModelName, i_LicensePlate,
-                tireManufacturerName, color, doorsAmount, engineType);
+            return createMotorcycleTypeSwitch(i_Owner, i_ModelName,
+                i_LicensePlate,
+                tireManufacturerName, licenseType, extendedEngineVolumeInCC,
+                engineType);
         }
 
         private Motorcycle.eLicenseType createLicenseType(

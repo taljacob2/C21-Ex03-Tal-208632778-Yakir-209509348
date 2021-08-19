@@ -46,7 +46,7 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
         }
 
         public Record PostCreateAndInsertAssertedFuelCar(
-            CreateAssertedCarRequest i_Request, out string o_ResponseMessage)
+            CreateAndInsertAssertedCarRequest i_Request, out string o_ResponseMessage)
         {
             Record returnValue = GarageService.CreateRecord(
                 GarageService.CreateAssertedFuelCar(i_Request),
@@ -58,7 +58,7 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
             return returnValue;
         }
 
-        public Record PostCreateAndInsertAssertedBatteryCar(CreateAssertedCarRequest i_Request,
+        public Record PostCreateAndInsertAssertedBatteryCar(CreateAndInsertAssertedCarRequest i_Request,
             out string o_ResponseMessage)
         {
             Record returnValue = GarageService.CreateRecord(
@@ -71,7 +71,7 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
             return returnValue;
         }
         
-        public Record PostInsertAssertedFuelCar(CreateAssertedCarRequest 
+        public Record PostInsertAssertedFuelCar(CreateAndInsertAssertedCarRequest 
         i_Request, out string o_ResponseMessage)
         {
             Record returnValue = GarageService.CreateRecord(

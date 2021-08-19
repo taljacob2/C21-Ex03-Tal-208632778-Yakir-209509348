@@ -63,7 +63,7 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
         }
 
         public Vehicle CreateAssertedFuelCar(
-            CreateAssertedCarRequest i_Request)
+            CreateAndInsertAssertedCarRequest i_Request)
         {
             return new AssertedFuelCar(i_Request
                     .ModelName, i_Request.LicensePlate,
@@ -74,7 +74,7 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
         }
 
         public Vehicle CreateAssertedBatteryCar(
-            CreateAssertedCarRequest i_Request)
+            CreateAndInsertAssertedCarRequest i_Request)
         {
             return new AssertedBatteryCar(i_Request
                     .ModelName, i_Request.LicensePlate,
