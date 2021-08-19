@@ -1,7 +1,7 @@
 ﻿using Ex03.GarageLogic.Com.Team.DTO.Constructor;
 using Ex03.GarageLogic.Com.Team.Misc;
 
-namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl.Truck
+namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl
 {
     public class Truck : Vehicle
     {

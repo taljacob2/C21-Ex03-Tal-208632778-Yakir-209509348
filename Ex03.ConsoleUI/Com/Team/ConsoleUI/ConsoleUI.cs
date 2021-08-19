@@ -8,7 +8,7 @@ using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
-using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl.Car;
+using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl;
 
 namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 {

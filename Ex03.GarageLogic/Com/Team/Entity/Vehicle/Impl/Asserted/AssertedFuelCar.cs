@@ -1,7 +1,7 @@
 ﻿using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Fuel;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
 
-namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl.Car
+namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl.Asserted
 {
     public class AssertedFuelCar
     {

@@ -2,7 +2,7 @@
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Extended;
 using Ex03.GarageLogic.Com.Team.Misc;
 
-namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl.Motorcycle
+namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl
 {
     public class Motorcycle : Vehicle
     {
