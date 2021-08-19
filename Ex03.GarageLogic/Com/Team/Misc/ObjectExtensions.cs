@@ -22,14 +22,14 @@ namespace Ex03.GarageLogic.Com.Team.Misc
         {
             StringBuilder stringBuilder = new StringBuilder();
             int i = 0;
-            StringIndentation.NewIndentLine(stringBuilder, s_IndentationLevel);
+            StringIndentation.NewLine(stringBuilder, s_IndentationLevel);
             stringBuilder.Append("{");
             foreach (PropertyInfo property in i_Obj.GetType().GetProperties())
             {
                 if (property.GetType().GetProperties().Length > 0)
                 {
                     s_IndentationLevel++;
-                    StringIndentation.NewIndentLine(stringBuilder,
+                    StringIndentation.NewLine(stringBuilder,
                         s_IndentationLevel);
                 }
 
@@ -54,7 +54,7 @@ namespace Ex03.GarageLogic.Com.Team.Misc
                 s_IndentationLevel--;
             }
 
-            StringIndentation.NewIndentLine(stringBuilder, s_IndentationLevel);
+            StringIndentation.NewLine(stringBuilder, s_IndentationLevel);
             stringBuilder.Append("}");
 
             return stringBuilder.ToString();
