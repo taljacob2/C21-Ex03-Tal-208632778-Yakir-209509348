@@ -166,11 +166,33 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                 createTireManufacturerName(ref io_IndentationLevel);
             Car.eColor color = createColor(indentationString);
             Car.eDoorsAmount doorsAmount = createDoorsAmount(indentationString);
+            eEngineType engineType = createEngineType(indentationString);
 
 
             io_IndentationLevel--;
+        }
 
-            throw new NotImplementedException();
+        private eEngineType createEngineType(string i_IndentationString)
+        {
+            string validEnumStrings = createValidStringsMessage(
+                EnumString.sr_Fuel, EnumString.sr_Battery);
+            string engineType = InputUtil.ConvertIgnoreCase(
+                $"{i_IndentationString}Enter {nameof(engineType)}: {validEnumStrings}",
+                EnumString.Upper.sr_Fuel, EnumString.Upper.sr_Battery);
+
+            string valueToSwitch = engineType.ToUpper();
+            eEngineType? nullableOfReturnValue = null;
+            if (valueToSwitch.Equals(EnumString.Upper.sr_Fuel))
+            {
+                nullableOfReturnValue = eEngineType.Fuel;
+            }
+            else if (valueToSwitch
+                .Equals(EnumString.Upper.sr_Battery))
+            {
+                nullableOfReturnValue = eEngineType.Battery;
+            }
+
+            return nullableOfReturnValue.Value;
         }
 
         private static Car.eColor createColor(string i_IndentationString)
@@ -330,6 +352,12 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
                 public static readonly string sr_Five = EnumString.sr_Five;
 
+                // eEngineType:
+                public static readonly string sr_Fuel = EnumString.sr_Fuel;
+
+                public static readonly string
+                    sr_Battery = EnumString.sr_Battery;
+
                 static Upper()
                 {
                     // eVehicleType:
@@ -348,6 +376,10 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                     sr_Three = sr_Three.ToUpper();
                     sr_Four = sr_Four.ToUpper();
                     sr_Five = sr_Five.ToUpper();
+
+                    // eEngineType:
+                    sr_Fuel = sr_Fuel.ToUpper();
+                    sr_Battery = sr_Battery.ToUpper();
                 }
             }
 
@@ -385,6 +417,13 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             public static readonly string
                 sr_Five = $"{Car.eDoorsAmount.Five:G}";
 
+            // eEngineType:
+            public static readonly string
+                sr_Fuel = $"{eEngineType.Fuel:G}";
+
+            public static readonly string sr_Battery =
+                $"{eEngineType.Battery:G}";
+
             static EnumString() {}
         }
 
@@ -393,6 +432,12 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             Car,
             Motorcycle,
             Truck
+        }
+
+        private enum eEngineType
+        {
+            Fuel,
+            Battery,
         }
     }
 }
