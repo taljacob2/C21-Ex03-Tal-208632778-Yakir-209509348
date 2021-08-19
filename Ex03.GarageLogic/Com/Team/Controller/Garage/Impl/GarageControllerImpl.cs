@@ -45,13 +45,21 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
             return GarageService.CreateRecord(i_Vehicle, i_Owner);
         }
 
-        public Car PostCreateAssertedFuelCar(CreateAssertedCarRequest i_Request)
+        public Record PostCreateAssertedFuelCar(
+            CreateAssertedCarRequest i_Request, out string o_ResponseMessage)
         {
-            PostInsert(GarageService.CreateRecord(
-                GarageService.CreateAssertedFuelCar(i_Request),));
+            Record returnValue = GarageService.CreateRecord(
+                GarageService.CreateAssertedFuelCar(i_Request),
+                i_Request.Owner);
+
+            PostInsert(returnValue, out StringBuilder stringBuilder);
+            o_ResponseMessage = stringBuilder.ToString();
+
+            return returnValue;
         }
 
-        public Car PostCreateAssertedBatteryCar(
+
+        public Record PostCreateAssertedBatteryCar(
             CreateAssertedCarRequest i_Request)
         {
             throw new NotImplementedException();

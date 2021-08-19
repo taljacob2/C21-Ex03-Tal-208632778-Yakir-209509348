@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime;
 using System.Text;
 using Ex03.ConsoleUI.Com.Team.Misc;
 using Ex03.GarageLogic.Com.Team.Controller.Garage;
@@ -188,16 +189,21 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                 i_Color, i_DoorsAmount, i_EngineType);
             Record? nullableReturnValue = null;
             GarageEnums.eEngineType valueToSwitch = i_EngineType;
+            string responseMessage = "";
             if (valueToSwitch == GarageEnums.eEngineType.Fuel)
             {
                 nullableReturnValue =
-                    GarageController.PostCreateAssertedFuelCar(request);
+                    GarageController.PostCreateAssertedFuelCar(request, out
+                        responseMessage);
             }
             else if (valueToSwitch == GarageEnums.eEngineType.Battery)
             {
                 nullableReturnValue =
-                    GarageController.PostCreateAssertedBatteryCar(request);
+                    GarageController.PostCreateAssertedBatteryCar(request, out
+                        responseMessage);
             }
+
+            Console.Out.WriteLine(responseMessage);
 
             return nullableReturnValue.Value;
         }
