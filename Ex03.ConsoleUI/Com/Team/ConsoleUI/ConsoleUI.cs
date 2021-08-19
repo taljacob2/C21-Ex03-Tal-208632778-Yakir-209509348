@@ -307,16 +307,17 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             if (valueToSwitch == GarageEnums.eEngineType.Fuel)
             {
                 nullableReturnValue =
-                    GarageController.PostCreateAndInsertAssertedFuelCar(request,
+                    GarageController.PostCreateAndInsertAssertedFuelTruck(request,
                         out
                         responseMessage);
             }
             else if (valueToSwitch == GarageEnums.eEngineType.Battery)
             {
-                nullableReturnValue =
-                    GarageController.PostCreateAndInsertAssertedBatteryCar(
-                        request, out
-                        responseMessage);
+                responseMessage =
+                    "There is no AssertedBatteryTruck in the system. Request failed.";
+
+                // nullableReturnValue =
+                //     GarageController.PostCreateAndInsertAssertedBatteryTruck(request, out responseMessage);
             }
 
             Console.Out.WriteLine(responseMessage);
