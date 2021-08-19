@@ -7,6 +7,7 @@ using Ex03.GarageLogic.Com.Team.Controller.Garage;
 using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Extended;
+using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Fuel;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component.Impl;
@@ -46,6 +47,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                     .k_PrintSelectedLicensePlatesByState,
                 Menu.k_SetStateOfRecordByLicensePlate,
                 Menu.k_InflateTiresToMaxByLicensePlate,
+                Menu.k_RequestRefuelByLicensePlate,
                 Menu.k_PrintFullDetailsOfRecordByLicensePlate, Menu
                     .k_ExitProgram);
 
@@ -70,11 +72,25 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                 case Menu.k_InflateTiresToMaxByLicensePlate:
                     inflateTiresToMaxByLicensePlate(ref indentationLevel);
                     break;
+                case Menu.k_RequestRefuelByLicensePlate:
+                    requestRefuelByLicensePlate(ref indentationLevel);
+                    break;
                 case Menu.k_PrintFullDetailsOfRecordByLicensePlate:
                     printFullDetailsOfRecordByLicensePlate(
                         ref indentationLevel);
                     break;
             }
+        }
+
+        private void requestRefuelByLicensePlate(ref int io_IndentationLevel)
+        {
+            string licensePlate = createLicensePlate
+                (ref io_IndentationLevel);
+
+
+            GarageController.PostRefuel(licensePlate,
+                out string responseMessage);
+            Console.Out.WriteLine(responseMessage);
         }
 
         private static void printFullDetailsOfRecordByLicensePlate(
@@ -830,6 +846,19 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             public static readonly string
                 sr_Payed = $"{Record.eState.Payed:G}";
 
+            // eFuelType:
+            public static readonly string
+                sr_Octan95 = $"{eType.Octan95:G}";
+
+            public static readonly string
+                sr_Octan96 = $"{eType.Octan96:G}";
+
+            public static readonly string
+                sr_Octan98 = $"{eType.Octan98:G}";
+
+            public static readonly string
+                sr_Soler = $"{eType.Soler:G}";
+
             static EnumString() {}
 
             public static class Upper
@@ -883,6 +912,18 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
                 public static readonly string sr_Payed = EnumString.sr_Payed;
 
+                // eFuelType:
+                public static readonly string
+                    sr_Octan95 = EnumString.sr_Octan95;
+
+                public static readonly string
+                    sr_Octan96 = EnumString.sr_Octan96;
+
+                public static readonly string
+                    sr_Octan98 = EnumString.sr_Octan98;
+
+                public static readonly string sr_Soler = EnumString.sr_Soler;
+
                 static Upper()
                 {
                     // eVehicleType:
@@ -916,6 +957,12 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                     sr_InProgress = sr_InProgress.ToUpper();
                     sr_Fixed = sr_Fixed.ToUpper();
                     sr_Payed = sr_Payed.ToUpper();
+
+                    // eFuelType:
+                    sr_Octan95 = sr_Octan95.ToUpper();
+                    sr_Octan96 = sr_Octan96.ToUpper();
+                    sr_Octan98 = sr_Octan98.ToUpper();
+                    sr_Soler = sr_Soler.ToUpper();
                 }
             }
         }
@@ -927,9 +974,9 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             public const int k_PrintSelectedLicensePlatesByState = 3;
             public const int k_SetStateOfRecordByLicensePlate = 4;
             public const int k_InflateTiresToMaxByLicensePlate = 5;
+            public const int k_RequestRefuelByLicensePlate = 6;
             public const int k_PrintFullDetailsOfRecordByLicensePlate = 8;
             public const int k_ExitProgram = 0;
-
 
             public static string GetMenu()
             {
@@ -954,9 +1001,13 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                            Environment.NewLine,
                            k_InflateTiresToMaxByLicensePlate) +
                        string.Format(
+                           "{0}. Request Refuel By License Plate" +
+                           Environment.NewLine,
+                           k_RequestRefuelByLicensePlate) +
+                       string.Format(
                            "{0}. Print Full Details Of Record By License Plate" +
                            Environment.NewLine,
-                           k_PrintFullDetailsOfRecordByLicensePlate) +                       
+                           k_PrintFullDetailsOfRecordByLicensePlate) +
                        string.Format("{0}. Exit Program",
                            k_ExitProgram) + Environment.NewLine;
             }

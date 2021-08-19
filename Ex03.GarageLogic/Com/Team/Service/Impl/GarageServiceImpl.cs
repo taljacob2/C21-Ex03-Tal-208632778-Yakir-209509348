@@ -200,32 +200,5 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
                     $"Changed Tires' PSI to: `{psi}`.");
             }
         }
-
-
-        // TODO: disabled.
-        // public void FuelVehicle(string i_LicensePlate,
-        //     eType i_FuelType, float i_Amount)
-        // {
-        //     Record record =
-        //         FindVehicleRecordByLicensePlate(i_LicensePlate);
-        //     if (!(record.Vehicle is IFuelVehicle vehicle))
-        //     {
-        //         throw new ArgumentException("This Vehicle does not use Fuel.");
-        //     }
-        //
-        //     vehicle.AddFuel(i_Amount, i_FuelType);
-        // }
-
-        // TODO: disabled.
-        // public void FuelVehicle<T>(Vehicle io_Vehicle, float i_Amount) where
-        //     T : IFuelVehicle
-        // {
-        //     if (!(record.Vehicle is IFuelVehicle vehicle))
-        //     {
-        //         throw new ArgumentException("This Vehicle does not use Fuel.");
-        //     }
-        //
-        //     vehicle.AddFuel(i_Amount, i_FuelType);
-        // }
     }
 }
