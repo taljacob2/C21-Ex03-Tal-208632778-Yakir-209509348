@@ -121,20 +121,21 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             if (i_VehicleType.ToUpper()
                 .Equals(EnumString.Upper.sr_Car))
             {
-                returnValue = createCar(io_IndentationLevel, i_VehicleType,
+                returnValue = createCar(ref io_IndentationLevel, i_VehicleType,
                     i_ModelName, i_LicensePlate);
             }
             else if (i_VehicleType.ToUpper()
                 .Equals(EnumString.Upper.sr_Motorcycle))
             {
                 returnValue =
-                    createMotorcycle(io_IndentationLevel, i_VehicleType,
+                    createMotorcycle(ref io_IndentationLevel, i_VehicleType,
                         i_ModelName, i_LicensePlate);
             }
             else if (i_VehicleType.ToUpper()
                 .Equals(EnumString.Upper.sr_Truck))
             {
-                returnValue = createTruck(io_IndentationLevel, i_VehicleType,
+                returnValue = createTruck(ref io_IndentationLevel, 
+                i_VehicleType,
                     i_ModelName, i_LicensePlate);
             }
 
@@ -148,7 +149,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             io_IndentationLevel++;
             Console.Out.WriteLine(
                 $"{StringIndentation.IndentationString(io_IndentationLevel)}Create {nameof(Car)}:");
-            Tire tire = createTire(io_IndentationLevel);
+            Tire tire = createTire(ref io_IndentationLevel);
             
 
             io_IndentationLevel--;
