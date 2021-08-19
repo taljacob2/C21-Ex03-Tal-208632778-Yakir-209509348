@@ -160,6 +160,23 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             return returnValue;
         }
 
+        public void GetRecordDetails(string i_LicensePlate,
+            out StringBuilder o_ResponseMessage)
+        {
+            o_ResponseMessage = new StringBuilder();
+            try
+            {
+                Record record =
+                    RecordRepository.FindByLicensePlate(i_LicensePlate);
+                o_ResponseMessage.Append("Record:" + Environment.NewLine +
+                                         record);
+            }
+            catch (System.Exception e)
+            {
+                o_ResponseMessage.Append(e.Message);
+            }
+        }
+
         private static void typeOfSwitchForPSI(StringBuilder o_ResponseMessage,
             Record io_Record)
         {
@@ -181,10 +198,6 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
 
                 o_ResponseMessage.Append(
                     $"Changed Tires' PSI to: `{psi}`.");
-            }
-            else
-            {
-                // Won't go here. Not possible.
             }
         }
 

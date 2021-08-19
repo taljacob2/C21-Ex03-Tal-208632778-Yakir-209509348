@@ -2,7 +2,6 @@
 using System.Text;
 using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
-using Ex03.GarageLogic.Com.Team.DTO.Model.Response;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Fuel;
@@ -50,7 +49,8 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage
         /// </summary>
         bool PostRecharge(RechargeRequest i_Request);
 
-        VehicleResponse GetVehicleDetails(string i_LicensePlate);
+        void GetRecordDetails(string i_LicensePlate,
+            out string o_ResponseMessage);
 
         Record PostCreateRecord(ComponentVehicle i_ComponentVehicle,
             Owner i_Owner); // TODO: remove.

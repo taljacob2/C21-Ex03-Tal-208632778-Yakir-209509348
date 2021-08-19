@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Security.AccessControl;
-using System.Security.Permissions;
 using System.Text;
 using System.Text.RegularExpressions;
 using Ex03.ConsoleUI.Com.Team.Misc;
@@ -47,7 +45,8 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                 Menu.k_PrintLicensePlates, Menu
                     .k_PrintSelectedLicensePlatesByState,
                 Menu.k_SetStateOfRecordByLicensePlate,
-                Menu.k_InflateTiresToMaxByLicensePlate, Menu
+                Menu.k_InflateTiresToMaxByLicensePlate,
+                Menu.k_PrintFullDetailsOfRecordByLicensePlate, Menu
                     .k_ExitProgram);
 
             switch (io_SelectedMenuOption)
@@ -71,7 +70,21 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                 case Menu.k_InflateTiresToMaxByLicensePlate:
                     inflateTiresToMaxByLicensePlate(ref indentationLevel);
                     break;
+                case Menu.k_PrintFullDetailsOfRecordByLicensePlate:
+                    printFullDetailsOfRecordByLicensePlate(
+                        ref indentationLevel);
+                    break;
             }
+        }
+
+        private static void printFullDetailsOfRecordByLicensePlate(
+            ref int io_IndentationLevel)
+        {
+            string licensePlate = createLicensePlate
+                (ref io_IndentationLevel);
+            GarageController.GetRecordDetails(
+                licensePlate, out string responseMessage);
+            Console.Out.WriteLine(responseMessage);
         }
 
         private static void inflateTiresToMaxByLicensePlate(
@@ -914,6 +927,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             public const int k_PrintSelectedLicensePlatesByState = 3;
             public const int k_SetStateOfRecordByLicensePlate = 4;
             public const int k_InflateTiresToMaxByLicensePlate = 5;
+            public const int k_PrintFullDetailsOfRecordByLicensePlate = 8;
             public const int k_ExitProgram = 0;
 
 

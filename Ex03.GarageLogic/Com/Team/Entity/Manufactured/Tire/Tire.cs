@@ -22,6 +22,5 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire
         {
             return this.ToStringExtension();
         }
-        
     }
 }

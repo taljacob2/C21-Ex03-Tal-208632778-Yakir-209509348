@@ -57,7 +57,6 @@
         <Compile Include="Com\Team\DTO\Model\Request\RechargeRequest.cs" />
         <Compile Include="Com\Team\DTO\Model\Request\RefuelRequest.cs" />
         <Compile Include="Com\Team\DTO\Model\Request\SetStateRequest.cs" />
-        <Compile Include="Com\Team\DTO\Model\Response\VehicleResponse.cs" />
         <Compile Include="Com\Team\DTO\VehicleRecordDTO.cs" />
         <Compile Include="Com\Team\Entity\Manufactured\Engine\Battery\BatteryEngine.cs" />
         <Compile Include="Com\Team\Entity\Manufactured\Engine\Engine.cs" />

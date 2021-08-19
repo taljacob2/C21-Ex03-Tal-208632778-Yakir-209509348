@@ -52,5 +52,8 @@ namespace Ex03.GarageLogic.Com.Team.Service
 
         bool PostInflateTiresToMaxByLicensePlate(string i_LicensePlate,
             out StringBuilder o_ResponseMessage);
+
+        void GetRecordDetails(string i_LicensePlate,
+            out StringBuilder o_ResponseMessage);
     }
 }

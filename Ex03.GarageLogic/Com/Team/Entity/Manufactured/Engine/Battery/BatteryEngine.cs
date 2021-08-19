@@ -14,7 +14,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery
         {
             ManufacturerMaxValue = i_ManufacturerMaxCapacityInHours;
         }
-        
+
         public override string ToString()
         {
             return this.ToStringExtension();

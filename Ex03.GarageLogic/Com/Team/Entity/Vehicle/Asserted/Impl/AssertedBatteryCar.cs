@@ -32,7 +32,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
         public Car.eColor Color => Car.Color;
 
         public Car.eDoorsAmount DoorsAmount => Car.DoorsAmount;
-        
+
         public void AddSelfValue(float i_MinutesToAdd)
         {
             Engine.AddSelfValue(i_MinutesToAdd);
