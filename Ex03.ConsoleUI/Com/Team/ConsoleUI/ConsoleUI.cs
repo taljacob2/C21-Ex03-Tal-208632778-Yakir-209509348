@@ -155,7 +155,8 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
             Console.Out.WriteLine(
                 $"{StringIndentation.Create(io_IndentationLevel)}Create {nameof(Car)}:");
-            Tire tire = createTire(ref io_IndentationLevel);
+            string tireManufacturerName =
+                createTireManufacturerName(ref io_IndentationLevel);
 
 
             io_IndentationLevel--;
@@ -185,13 +186,20 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             throw new NotImplementedException();
         }
 
-        private Tire createTire(ref int io_IndentationLevel)
+        private string createTireManufacturerName(ref int io_IndentationLevel)
         {
             io_IndentationLevel++;
+            
+            string indentationString =
+                StringIndentation.Create(io_IndentationLevel);
+            Console.Out.WriteLine($"{indentationString}Create {nameof(Tire)}:");
+            string manufacturerName =
+                InputUtil.Convert<string>(
+                    $"{indentationString}Enter {nameof(manufacturerName)}: ");
 
             io_IndentationLevel--;
 
-            throw new NotImplementedException();
+            return manufacturerName;
         }
 
         private void printLicensePlates()
