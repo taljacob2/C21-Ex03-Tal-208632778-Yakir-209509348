@@ -18,8 +18,6 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component
 
         public Tires Tires { get; } = new Tires();
 
-        public Engine Engine { get; protected set; }
-
         public float GetRemainedEnergyPercentage()
         {
             return Engine.GetValuePercentage();

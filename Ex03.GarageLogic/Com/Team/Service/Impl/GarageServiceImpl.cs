@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
+using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Fuel;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted;
@@ -139,6 +140,69 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             return returnValue;
         }
 
+        public void PostRefuel(RefuelRequest i_Request,
+            out StringBuilder o_ResponseMessage)
+        {
+            o_ResponseMessage = new StringBuilder();
+            try
+            {
+                Record record =
+                    RecordRepository.FindByLicensePlate(i_Request.LicensePlate);
+                postRefuel(record, i_Request.FuelType, i_Request.LitersToAdd,
+                    o_ResponseMessage);
+            }
+            catch (System.Exception e)
+            {
+                o_ResponseMessage.Append(e.Message);
+            }
+        }
+
+        private void postRefuel(Record io_Record, eType i_FuelType, float
+            i_LitersToAdd, StringBuilder o_ResponseMessage)
+        {
+            if (io_Record.Vehicle is ComponentVehicle)
+            {
+                if ((((ComponentVehicle) io_Record.Vehicle).Engine) is
+                    FuelEngine)
+                {
+                    FuelEngine fuelEngine =
+                        (FuelEngine) (((ComponentVehicle) io_Record.Vehicle)
+                            .Engine);
+                    tryToRefuel(i_FuelType, i_LitersToAdd, o_ResponseMessage,
+                        fuelEngine);
+                }
+            }
+            else if (io_Record.Vehicle is AssertedVehicle)
+            {
+                if ((((AssertedVehicle) io_Record.Vehicle).Engine) is FuelEngine
+                )
+                {
+                    FuelEngine fuelEngine =
+                        (FuelEngine) (((AssertedVehicle) io_Record.Vehicle)
+                            .Engine);
+                    tryToRefuel(i_FuelType, i_LitersToAdd, o_ResponseMessage,
+                        fuelEngine);
+                }
+            }
+        }
+
+        private static void tryToRefuel(eType i_FuelType, float i_LitersToAdd,
+            StringBuilder o_ResponseMessage, FuelEngine i_FuelEngine)
+        {
+            try
+            {
+                i_FuelEngine.AddFuelByManualRequest(i_FuelType,
+                    i_LitersToAdd);
+            }
+            catch (System.Exception e)
+            {
+                o_ResponseMessage.Append(e.Message);
+            }
+
+            o_ResponseMessage.Append(
+                $"Successful Refuel. You have `{i_FuelEngine.Value}` liters.");
+        }
+
         public bool PostInflateTiresToMaxByLicensePlate(string i_LicensePlate,
             out StringBuilder o_ResponseMessage)
         {
@@ -158,28 +222,6 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             }
 
             return returnValue;
-        }
-
-        public void GetRecordDetails(string i_LicensePlate,
-            out StringBuilder o_ResponseMessage)
-        {
-            o_ResponseMessage = new StringBuilder();
-            try
-            {
-                Record record =
-                    RecordRepository.FindByLicensePlate(i_LicensePlate);
-                o_ResponseMessage.Append("Record Found:" + Environment.NewLine +
-                                         record);
-            }
-            catch (System.Exception e)
-            {
-                o_ResponseMessage.Append(e.Message);
-            }
-        }
-
-        public bool PostRefuel(RefuelRequest i_Request, out StringBuilder o_StringBuilder)
-        {
-            throw new NotImplementedException();
         }
 
         private static void typeOfSwitchForPSI(StringBuilder o_ResponseMessage,
@@ -203,6 +245,23 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
 
                 o_ResponseMessage.Append(
                     $"Changed Tires' PSI to: `{psi}`.");
+            }
+        }
+
+        public void GetRecordDetails(string i_LicensePlate,
+            out StringBuilder o_ResponseMessage)
+        {
+            o_ResponseMessage = new StringBuilder();
+            try
+            {
+                Record record =
+                    RecordRepository.FindByLicensePlate(i_LicensePlate);
+                o_ResponseMessage.Append("Record Found:" + Environment.NewLine +
+                                         record);
+            }
+            catch (System.Exception e)
+            {
+                o_ResponseMessage.Append(e.Message);
             }
         }
     }

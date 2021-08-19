@@ -27,7 +27,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Fuel
         /// </summary>
         public eType ManufacturerFuelType { get; }
 
-        public void AddFuel(eType i_Type, float i_Liters)
+        public void AddFuelByManualRequest(eType i_Type, float i_Liters)
         {
             InvalidEnumArgumentException enumException =
                 new InvalidEnumArgumentException(string.Format(
