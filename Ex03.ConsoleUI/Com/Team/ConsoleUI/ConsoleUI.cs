@@ -20,6 +20,8 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
         public static IGarageController GarageController { get; } =
             new GarageControllerImpl();
 
+        private const string k_ListIsEmpty = "List is empty.";
+
         public void RunConsoleUI()
         {
             Console.Out.WriteLine("Welcome To The Garage Manager!");
@@ -34,6 +36,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
         private void switchInvokeMenuOptions(ref int io_SelectedMenuOption)
         {
+            int indentationLevel = 0;
             io_SelectedMenuOption = InputUtil.Convert<int>
             (Menu.GetMenu(), Menu.k_CreateAndInsertVehicleRecord,
                 Menu.k_PrintLicensePlates, Menu
@@ -49,44 +52,46 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                     PrintLicensePlates();
                     break;
                 case Menu.k_PrintSelectedLicensePlatesByState:
-                    Record.eState state = createState();
-                    PrintSelectedLicensePlatesByState(state);
+                    Record.eState stateToSelect = createState
+                        (ref indentationLevel);
+                    PrintSelectedLicensePlatesByState(stateToSelect);
                     break;
                 case Menu.k_SetStateOfRecordByLicensePlate:
                     break;
             }
         }
 
-        private Record.eState createState()
+        private Record.eState createState(ref int io_IndentationLevel)
         {
-            string validEnumStrings = createValidStringsMessage(
-                EnumString.sr_Red, EnumString.sr_Silver,
-                EnumString.sr_White, EnumString.sr_Black);
-            string color = InputUtil.ConvertIgnoreCase(
-                $"{i_IndentationString}Enter {nameof(color)}: {validEnumStrings}",
-                EnumString.Upper.sr_Red, EnumString.Upper.sr_Silver,
-                EnumString.Upper.sr_White, EnumString.Upper.sr_Black);
+            io_IndentationLevel++;
 
-            string valueToSwitch = color.ToUpper();
-            Car.eColor? nullableOfReturnValue = null;
-            if (valueToSwitch.Equals(EnumString.Upper.sr_Red))
+            string indentationString =
+                StringIndentation.Create(io_IndentationLevel);
+            string validEnumStrings = createValidStringsMessage(
+                EnumString.sr_InProgress, EnumString.sr_Fixed,
+                EnumString.sr_Payed);
+            string stateToSelect = InputUtil.ConvertIgnoreCase(
+                $"{indentationString}Enter {nameof(stateToSelect)}: {validEnumStrings}",
+                EnumString.Upper.sr_InProgress, EnumString.Upper.sr_Fixed,
+                EnumString.Upper.sr_Payed);
+
+            string valueToSwitch = stateToSelect.ToUpper();
+            Record.eState? nullableOfReturnValue = null;
+            if (valueToSwitch.Equals(EnumString.Upper.sr_InProgress))
             {
-                nullableOfReturnValue = Car.eColor.Red;
+                nullableOfReturnValue = Record.eState.InProgress;
             }
             else if (valueToSwitch
-                .Equals(EnumString.Upper.sr_Silver))
+                .Equals(EnumString.Upper.sr_Fixed))
             {
-                nullableOfReturnValue = Car.eColor.Silver;
+                nullableOfReturnValue = Record.eState.Fixed;
             }
-            else if (valueToSwitch.Equals(EnumString.Upper.sr_White))
+            else if (valueToSwitch.Equals(EnumString.Upper.sr_Payed))
             {
-                nullableOfReturnValue = Car.eColor.White;
-            }
-            else if (valueToSwitch.Equals(EnumString.Upper.sr_Black))
-            {
-                nullableOfReturnValue = Car.eColor.Black;
+                nullableOfReturnValue = Record.eState.Payed;
             }
 
+            io_IndentationLevel--;
             return nullableOfReturnValue.Value;
         }
 
@@ -667,22 +672,33 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
         public static void PrintLicensePlates()
         {
-            foreach (string licensePlate in GarageController
-                .GetLicensePlatesList()
+            List<string> list = GarageController.GetLicensePlatesList();
+            foreach (string licensePlate in list
             )
             {
                 Console.Out.WriteLine(licensePlate);
+            }
+
+            if (list.Count == 0)
+            {
+                Console.Out.WriteLine(k_ListIsEmpty);
             }
         }
 
         public static void PrintSelectedLicensePlatesByState(
             Record.eState i_State)
         {
-            foreach (string licensePlate in GarageController
-                .GetLicensePlatesList(i_State)
+            List<string> list = GarageController
+                .GetLicensePlatesList(i_State);
+            foreach (string licensePlate in list
             )
             {
                 Console.Out.WriteLine(licensePlate);
+            }
+
+            if (list.Count == 0)
+            {
+                Console.Out.WriteLine(k_ListIsEmpty);
             }
         }
 
