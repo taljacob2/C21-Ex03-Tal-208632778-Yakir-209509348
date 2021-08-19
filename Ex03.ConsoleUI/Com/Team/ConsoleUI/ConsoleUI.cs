@@ -64,7 +64,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
         {
             Console.Out.WriteLine($"Create {nameof(Vehicle)}:");
 
-            string validEnumStrings = createValidEnumStringsMessage(
+            string validEnumStrings = createValidStringsMessage(
                 EnumString.sr_Car, EnumString.sr_Motorcycle,
                 EnumString.sr_Truck);
             string vehicleType = InputUtil.ConvertIgnoreCase(
@@ -85,7 +85,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                 licensePlate);
         }
 
-        private static string createValidEnumStringsMessage(
+        private static string createValidStringsMessage(
             params string[] i_ValidStrings)
         {
             StringBuilder builder = new StringBuilder();
