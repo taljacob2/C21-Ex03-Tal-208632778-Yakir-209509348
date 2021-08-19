@@ -66,9 +66,8 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             string vehicleType = InputUtil.ConvertIgnoreCase(
                 StringIndentation.IndentationString(i_IndentationLevel) +
                 "Enter vehicle-type: ",
-                EnumUpperString.sr_CarStringUpper, EnumUpperString
-                    .sr_MotorcycleStringUpper,
-                EnumUpperString.sr_TruckStringUpper);
+                EnumString.Upper.sr_Car, EnumString.Upper.sr_Motorcycle,
+                EnumString.Upper.sr_Truck);
             string modelName =
                 InputUtil.Convert<string>(
                     StringIndentation.IndentationString(i_IndentationLevel) +
@@ -88,20 +87,20 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
         {
             Vehicle returnValue = null;
             if (i_VehicleType.ToUpper()
-                .Equals(EnumUpperString.sr_CarStringUpper))
+                .Equals(EnumString.Upper.sr_Car))
             {
                 returnValue = createCar(i_VehicleType, i_ModelName,
                     i_LicensePlate);
             }
             else if (i_VehicleType.ToUpper()
-                .Equals(EnumUpperString.sr_MotorcycleStringUpper))
+                .Equals(EnumString.Upper.sr_Motorcycle))
             {
                 returnValue =
                     createMotorcycle(i_VehicleType, i_ModelName,
                         i_LicensePlate);
             }
             else if (i_VehicleType.ToUpper()
-                .Equals(EnumUpperString.sr_TruckStringUpper))
+                .Equals(EnumString.Upper.sr_Truck))
             {
                 returnValue = createTruck(i_VehicleType, i_ModelName,
                     i_LicensePlate);
@@ -110,9 +109,12 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             return returnValue;
         }
 
-        private Vehicle createTruck(string i_VehicleType, string i_ModelName,
+        private Vehicle createCar(string i_VehicleType, string i_ModelName,
             string i_LicensePlate)
         {
+            Tire tire = createTire();
+
+
             throw new NotImplementedException();
         }
 
@@ -122,12 +124,9 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             throw new NotImplementedException();
         }
 
-        private Vehicle createCar(string i_VehicleType, string i_ModelName,
+        private Vehicle createTruck(string i_VehicleType, string i_ModelName,
             string i_LicensePlate)
         {
-            Tire tire = createTire();
-
-
             throw new NotImplementedException();
         }
 
@@ -161,42 +160,60 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             throw new NotImplementedException();
         }
 
-        private static class EnumUpperString
+        private static class EnumString
         {
-            public static readonly string sr_CarStringUpper =
-                $"{eVehicleType.Car:G}";
+            public static class Upper
+            {
+                public static readonly string sr_Car = EnumString.sr_Car;
 
-            public static readonly string sr_MotorcycleStringUpper =
+                public static readonly string sr_Motorcycle =
+                    EnumString.sr_Motorcycle;
+
+                public static readonly string sr_Truck = EnumString.sr_Truck;
+
+                public static readonly string sr_Black = EnumString.sr_Black;
+
+                public static readonly string sr_Red = EnumString.sr_Red;
+
+                public static readonly string sr_Silver = EnumString.sr_Silver;
+
+                public static readonly string sr_White = EnumString.sr_White;
+
+                static Upper()
+                {
+                    // eVehicleType:
+                    sr_Car = sr_Car.ToUpper();
+                    sr_Motorcycle = sr_Motorcycle.ToUpper();
+                    sr_Truck = sr_Truck.ToUpper();
+
+                    // eColor:
+                    sr_Black = sr_Black.ToUpper();
+                    sr_Red = sr_Red.ToUpper();
+                    sr_Silver = sr_Silver.ToUpper();
+                    sr_White = sr_White.ToUpper();
+                }
+            }
+
+            public static readonly string sr_Car = $"{eVehicleType.Car:G}";
+
+            public static readonly string sr_Motorcycle =
                 $"{eVehicleType.Motorcycle:G}";
 
-            public static readonly string sr_TruckStringUpper =
+            public static readonly string sr_Truck =
                 $"{eVehicleType.Truck:G}";
 
-            public static readonly string sr_BlackStringUpper =
-                $"{Car.eColor.Black:G}";
+            public static readonly string
+                sr_Black = $"{Car.eColor.Black:G}";
 
-            public static readonly string sr_RedStringUpper =
-                $"{Car.eColor.Red:G}";
+            public static readonly string sr_Red = $"{Car.eColor.Red:G}";
 
-            public static readonly string sr_SilverStringUpper =
+            public static readonly string sr_Silver =
                 $"{Car.eColor.Silver:G}";
 
-            public static readonly string sr_WhiteStringUpper =
-                $"{Car.eColor.White:G}";
+            public static readonly string
+                sr_White = $"{Car.eColor.White:G}";
 
-            static EnumUpperString()
-            {
-                // eVehicleType:
-                sr_CarStringUpper = sr_CarStringUpper.ToUpper();
-                sr_MotorcycleStringUpper = sr_MotorcycleStringUpper.ToUpper();
-                sr_TruckStringUpper = sr_TruckStringUpper.ToUpper();
-
-                // eColor:
-                sr_BlackStringUpper = sr_BlackStringUpper.ToUpper();
-                sr_RedStringUpper = sr_RedStringUpper.ToUpper();
-                sr_SilverStringUpper = sr_SilverStringUpper.ToUpper();
-                sr_WhiteStringUpper = sr_WhiteStringUpper.ToUpper();
-            }
+            static EnumString() {}
         }
 
         private enum eVehicleType
