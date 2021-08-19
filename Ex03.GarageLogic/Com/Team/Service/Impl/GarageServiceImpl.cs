@@ -4,6 +4,7 @@ using System.Text;
 using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine;
+using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Extended;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Fuel;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
@@ -143,6 +144,89 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             return returnValue;
         }
 
+        public void PostRecharge(RechargeRequest i_Request,
+            out StringBuilder o_ResponseMessage)
+        {
+            o_ResponseMessage = new StringBuilder();
+            try
+            {
+                Record record =
+                    RecordRepository.FindByLicensePlate(i_Request.LicensePlate);
+                postRecharge(record, i_Request.MinutesToAdd, o_ResponseMessage);
+            }
+            catch (System.Exception e)
+            {
+                o_ResponseMessage.Append(e.Message);
+            }
+        }
+
+        private void postRecharge(Record io_Record, float i_RequestMinutesToAdd,
+            StringBuilder o_ResponseMessage)
+        {
+            if (io_Record.Vehicle.Engine is BatteryEngine)
+            {
+                BatteryEngine fuelEngine =
+                    (BatteryEngine) io_Record.Vehicle.Engine;
+                tryToRecharge(i_RequestMinutesToAdd, o_ResponseMessage, fuelEngine);
+            }
+
+            // Engine is a Property. Find it:
+            else if (io_Record.Vehicle
+                         .GetPropertyValue<ExtendedEngine>("ExtendedEngine") !=
+                     null)
+            {
+                ExtendedEngine extendedEngine = io_Record.Vehicle
+                    .GetPropertyValue<ExtendedEngine>
+                        ("ExtendedEngine");
+                extendedEngineInvokeTryRecharge(i_RequestMinutesToAdd,
+                    o_ResponseMessage, extendedEngine);
+            }
+            else if (io_Record.Vehicle.GetPropertyValue<ExtendedEngine>
+                ("Engine") != null)
+            {
+                // Just for backup. // todo : may remove.
+                ExtendedEngine extendedEngine = io_Record.Vehicle
+                    .GetPropertyValue<ExtendedEngine>
+                        ("Engine");
+                extendedEngineInvokeTryRecharge(i_RequestMinutesToAdd,
+                    o_ResponseMessage, extendedEngine);
+            }
+            else
+            {
+                o_ResponseMessage.Append(
+                    $"Recharge Failed. You do not own a {nameof(BatteryEngine)}.");
+            }
+        }
+
+        private void extendedEngineInvokeTryRecharge(
+            float i_RequestMinutesToAdd, StringBuilder o_ResponseMessage,
+            ExtendedEngine io_ExtendedEngine)
+        {
+            Engine engine =
+                io_ExtendedEngine.GetPropertyValue<Engine>("Engine");
+            if (engine is BatteryEngine)
+            {
+                BatteryEngine batteryEngine = (BatteryEngine) engine;
+                tryToRecharge(i_RequestMinutesToAdd, o_ResponseMessage,
+                    batteryEngine);
+            }
+        }
+
+        private void tryToRecharge(float i_RequestMinutesToAdd,
+            StringBuilder o_ResponseMessage, BatteryEngine io_BatteryEngine)
+        {
+            try
+            {
+                io_BatteryEngine.AddMinutes(i_RequestMinutesToAdd);
+                o_ResponseMessage.Append(
+                    $"Successful Recharge. You have `{io_BatteryEngine.Value}` hours.");
+            }
+            catch (System.Exception e)
+            {
+                o_ResponseMessage.Append(e.Message);
+            }
+        }
+
         public void PostRefuel(RefuelRequest i_Request,
             out StringBuilder o_ResponseMessage)
         {
@@ -166,8 +250,7 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             if (io_Record.Vehicle.Engine is FuelEngine)
             {
                 FuelEngine fuelEngine =
-                    (FuelEngine) (((ComponentVehicle) io_Record.Vehicle)
-                        .Engine);
+                    (FuelEngine) io_Record.Vehicle.Engine;
                 tryToRefuel(i_FuelType, i_LitersToAdd, o_ResponseMessage,
                     fuelEngine);
             }
@@ -215,14 +298,14 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
         }
 
         private static void tryToRefuel(eType i_FuelType, float i_LitersToAdd,
-            StringBuilder o_ResponseMessage, FuelEngine i_FuelEngine)
+            StringBuilder o_ResponseMessage, FuelEngine io_FuelEngine)
         {
             try
             {
-                i_FuelEngine.AddFuelByManualRequest(i_FuelType,
+                io_FuelEngine.AddFuelByManualRequest(i_FuelType,
                     i_LitersToAdd);
                 o_ResponseMessage.Append(
-                    $"Successful Refuel. You have `{i_FuelEngine.Value}` liters.");
+                    $"Successful Refuel. You have `{io_FuelEngine.Value}` liters.");
             }
             catch (System.Exception e)
             {

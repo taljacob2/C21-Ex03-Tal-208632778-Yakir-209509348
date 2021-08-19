@@ -47,7 +47,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                     .k_PrintSelectedLicensePlatesByState,
                 Menu.k_SetStateOfRecordByLicensePlate,
                 Menu.k_InflateTiresToMaxByLicensePlate,
-                Menu.k_RequestRefuelByLicensePlate,
+                Menu.k_RequestRefuelByLicensePlate, Menu.k_RequestRechargeByLicensePlate,
                 Menu.k_PrintFullDetailsOfRecordByLicensePlate, Menu
                     .k_ExitProgram);
 
@@ -75,6 +75,9 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                 case Menu.k_RequestRefuelByLicensePlate:
                     requestRefuelByLicensePlate(ref indentationLevel);
                     break;
+                case Menu.k_RequestRechargeByLicensePlate:
+                    requestRechargeByLicensePlate(ref indentationLevel);
+                    break;
                 case Menu.k_PrintFullDetailsOfRecordByLicensePlate:
                     printFullDetailsOfRecordByLicensePlate(
                         ref indentationLevel);
@@ -82,6 +85,18 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             }
         }
 
+        private void requestRechargeByLicensePlate(ref int io_IndentationLevel)
+        {
+            string licensePlate = createLicensePlate
+                (ref io_IndentationLevel);
+            float minutesToAdd = createMinutesToAdd(ref io_IndentationLevel);
+
+            GarageController.PostRecharge(new RechargeRequest(licensePlate, 
+            minutesToAdd)
+            , out string responseMessage);
+            Console.Out.WriteLine(responseMessage);
+        }
+        
         private void requestRefuelByLicensePlate(ref int io_IndentationLevel)
         {
             string licensePlate = createLicensePlate
@@ -94,7 +109,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                 fuelTypeToSet, volumeInLiters), out string responseMessage);
             Console.Out.WriteLine(responseMessage);
         }
-
+        
         private static void printFullDetailsOfRecordByLicensePlate(
             ref int io_IndentationLevel)
         {
@@ -767,6 +782,38 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
 
             return volumeToRefuelInLiters;
         }
+        
+        private static float createMinutesToAdd(ref int io_IndentationLevel)
+        {
+            io_IndentationLevel++;
+
+            string indentationString =
+                StringIndentation.Create(io_IndentationLevel);
+            float minutesToAdd = 0;
+            while (minutesToAdd == 0)
+            {
+                try
+                {
+                    minutesToAdd =
+                        InputUtil.ConvertWithAssertByRangeWithException<float>(
+                            $"{indentationString}Enter {nameof(minutesToAdd)}: ",
+                            1, float.MaxValue);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+            }
+
+            // Comment: instead, you may do so, and avoid exceptions:
+            // InputUtil.ConvertWithAssertByRange<float>(
+            //     $"{indentationString}Enter {nameof(minutesToAdd)}: ",
+            //     1, float.MaxValue);
+
+            io_IndentationLevel--;
+
+            return minutesToAdd;
+        }        
 
         private static int createExtendedEngineVolumeInCC(
             ref int io_IndentationLevel)
@@ -1048,6 +1095,7 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             public const int k_SetStateOfRecordByLicensePlate = 4;
             public const int k_InflateTiresToMaxByLicensePlate = 5;
             public const int k_RequestRefuelByLicensePlate = 6;
+            public const int k_RequestRechargeByLicensePlate = 7;
             public const int k_PrintFullDetailsOfRecordByLicensePlate = 8;
             public const int k_ExitProgram = 0;
 
@@ -1077,6 +1125,10 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
                            "{0}. Request Refuel By License Plate" +
                            Environment.NewLine,
                            k_RequestRefuelByLicensePlate) +
+                       string.Format(
+                           "{0}. Request Recharge By License Plate" +
+                           Environment.NewLine,
+                           k_RequestRechargeByLicensePlate) +
                        string.Format(
                            "{0}. Print Full Details Of Record By License Plate" +
                            Environment.NewLine,

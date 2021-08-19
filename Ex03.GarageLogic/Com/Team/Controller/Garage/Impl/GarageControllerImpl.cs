@@ -23,7 +23,9 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
 
         public void PostRecharge(RechargeRequest i_Request, out string o_ResponseMessage)
         {
-            throw new NotImplementedException();
+            StringBuilder stringBuilder = new StringBuilder();
+            GarageService.PostRecharge(i_Request, out stringBuilder);
+            o_ResponseMessage = stringBuilder.ToString();
         }
 
         public void GetRecordDetails(string i_LicensePlate,
