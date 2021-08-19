@@ -3,7 +3,7 @@ using System.Text;
 using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
-using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl;
+using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Abstract;
 
 namespace Ex03.GarageLogic.Com.Team.Service
 {
@@ -12,10 +12,8 @@ namespace Ex03.GarageLogic.Com.Team.Service
     /// </summary>
     public interface IGarageService
     {
-        Record CreateRecord(Vehicle i_Vehicle, Owner i_Owner);
+        Record CreateRecord(AbstractVehicle i_AbstractVehicle, Owner i_Owner);
         
-        Record CreateRecord(CreateAssertedCarRequest i_Request);
-
         void Refuel(RefuelRequest i_Request);
 
         List<string> SelectVehicleLicensePlates();
@@ -34,6 +32,7 @@ namespace Ex03.GarageLogic.Com.Team.Service
         /// </returns>
         Record Insert(Record io_Record, out StringBuilder o_ResponseMessage);
         
-        Vehicle CreateAssertedFuelCar(CreateAssertedCarRequest io_CreateAssertedCarRequest);
+        AbstractVehicle CreateAssertedFuelCar(CreateAssertedCarRequest io_CreateAssertedCarRequest);
+        AbstractVehicle CreateAssertedBatteryCar(CreateAssertedCarRequest i_Request);
     }
 }

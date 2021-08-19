@@ -2,9 +2,9 @@
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine;
 using Ex03.GarageLogic.Com.Team.Misc;
 
-namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl
+namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Abstract.Impl
 {
-    public class Truck : Vehicle
+    public class Truck : AbstractVehicle
     {
         public const int k_TiresAmount = 16;
 

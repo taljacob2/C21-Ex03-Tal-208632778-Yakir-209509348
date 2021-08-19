@@ -5,6 +5,8 @@ using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
 using Ex03.GarageLogic.Com.Team.DTO.Constructor;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
+using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Abstract;
+using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Abstract.Impl.Asserted;
 using Ex03.GarageLogic.Com.Team.Repository;
 using Ex03.GarageLogic.Com.Team.Repository.Impl;
 
@@ -18,17 +20,11 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
         public IRecordRepository RecordRepository { get; } =
             new RecordRepositoryImpl();
 
-        public Record CreateRecord(Vehicle i_Vehicle, Owner i_Owner)
+        public Record CreateRecord(AbstractVehicle i_AbstractVehicle, Owner i_Owner)
         {
-            return new Record(i_Vehicle, i_Owner);
+            return new Record(i_AbstractVehicle, i_Owner);
         }
-
-        public Record CreateRecord(CreateAssertedCarRequest i_Request)
-        {
-            return CreateRecord(new Vehicle(
-                new VehicleConstructorDTO(i_Request.ModelName,
-                    i_Request.LicensePlate)),new Owner(i_Request.))
-        }
+        
 
         public void Refuel(RefuelRequest i_Request)
         {
@@ -64,6 +60,25 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             }
 
             return record;
+        }
+
+        public AbstractVehicle CreateAssertedFuelCar(
+            CreateAssertedCarRequest io_CreateAssertedCarRequest)
+        {
+            CreateRecord(new AssertedFuelCar(io_CreateAssertedCarRequest
+                        .ModelName, io_CreateAssertedCarRequest.LicensePlate,
+                    io_CreateAssertedCarRequest.Color,
+                    io_CreateAssertedCarRequest
+                        .DoorsAmount,
+                    io_CreateAssertedCarRequest.TireManufacturerName),
+                io_CreateAssertedCarRequest.Owner);
+            
+            throw new NotImplementedException();
+        }
+
+        public AbstractVehicle CreateAssertedBatteryCar(CreateAssertedCarRequest i_Request)
+        {
+            throw new NotImplementedException();
         }
 
 

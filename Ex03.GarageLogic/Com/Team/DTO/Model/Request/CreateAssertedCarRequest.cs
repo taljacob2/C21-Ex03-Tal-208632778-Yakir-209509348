@@ -1,6 +1,7 @@
 ﻿using Ex03.GarageLogic.Com.Team.Controller.Garage;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
-using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl;
+using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Abstract;
+using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Abstract.Impl;
 
 namespace Ex03.GarageLogic.Com.Team.DTO.Model.Request
 {

@@ -1,4 +1,5 @@
 ﻿using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
+using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Abstract;
 using Ex03.GarageLogic.Com.Team.Misc;
 
 namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
@@ -12,16 +13,16 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
             Payed // FIXME: what is this? and when? can't be in parallel -> limitation.
         }
 
-        public Record(Vehicle i_Vehicle, Owner i_Owner)
+        public Record(AbstractVehicle i_AbstractVehicle, Owner i_Owner)
         {
-            Vehicle = i_Vehicle;
+            AbstractVehicle = i_AbstractVehicle;
             Owner = i_Owner;
             State = eState.InProgress;
         }
 
         public Owner Owner { get; }
 
-        public Vehicle Vehicle { get; }
+        public AbstractVehicle AbstractVehicle { get; }
 
         public eState State { get; set; }
 

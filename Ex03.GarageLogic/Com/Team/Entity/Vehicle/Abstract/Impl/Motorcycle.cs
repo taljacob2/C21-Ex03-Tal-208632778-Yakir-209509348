@@ -2,9 +2,9 @@
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Extended;
 using Ex03.GarageLogic.Com.Team.Misc;
 
-namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl
+namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Abstract.Impl
 {
-    public class Motorcycle : Vehicle
+    public class Motorcycle : AbstractVehicle
     {
         public enum eLicenseType
         {

@@ -4,7 +4,7 @@ using System.Text;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Response;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
-using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl;
+using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Abstract;
 using Ex03.GarageLogic.Com.Team.Service;
 using Ex03.GarageLogic.Com.Team.Service.Impl;
 
@@ -40,9 +40,9 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
             throw new NotImplementedException();
         }
 
-        public Record PostCreateRecord(Vehicle i_Vehicle, Owner i_Owner)
+        public Record PostCreateRecord(AbstractVehicle i_AbstractVehicle, Owner i_Owner)
         {
-            return GarageService.CreateRecord(i_Vehicle, i_Owner);
+            return GarageService.CreateRecord(i_AbstractVehicle, i_Owner);
         }
 
         public Record PostCreateAssertedFuelCar(
@@ -50,6 +50,19 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
         {
             Record returnValue = GarageService.CreateRecord(
                 GarageService.CreateAssertedFuelCar(i_Request),
+                i_Request.Owner);
+
+            PostInsert(returnValue, out StringBuilder stringBuilder);
+            o_ResponseMessage = stringBuilder.ToString();
+
+            return returnValue;
+        }
+
+        public Record PostCreateAssertedBatteryCar(CreateAssertedCarRequest i_Request,
+            out string o_ResponseMessage)
+        {
+            Record returnValue = GarageService.CreateRecord(
+                GarageService.CreateAssertedBatteryCar(i_Request),
                 i_Request.Owner);
 
             PostInsert(returnValue, out StringBuilder stringBuilder);

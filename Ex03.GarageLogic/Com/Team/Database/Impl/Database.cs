@@ -6,7 +6,8 @@ using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Extended;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Fuel;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
-using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl;
+using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Abstract;
+using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Abstract.Impl;
 
 namespace Ex03.GarageLogic.Com.Team.Database.Impl
 {

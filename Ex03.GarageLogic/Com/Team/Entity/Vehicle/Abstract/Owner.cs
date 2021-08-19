@@ -1,6 +1,6 @@
 ﻿using Ex03.GarageLogic.Com.Team.Misc;
 
-namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle
+namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Abstract
 {
     public struct Owner
     {

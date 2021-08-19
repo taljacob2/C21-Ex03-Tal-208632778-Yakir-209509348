@@ -2,9 +2,9 @@
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Extended;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
 
-namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Impl.Asserted
+namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Abstract.Impl.Asserted
 {
-    public class AssertedBatteryMotorcycle
+    public class AssertedBatteryMotorcycle : Vehicle
     {
         public AssertedBatteryMotorcycle(string i_ModelName,
             string i_LicensePlate,
