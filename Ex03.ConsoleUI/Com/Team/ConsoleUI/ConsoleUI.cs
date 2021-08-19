@@ -82,12 +82,12 @@ namespace Ex03.ConsoleUI.Com.Team.ConsoleUI
             string validEnumStrings = createValidStringsMessage(
                 EnumString.sr_InProgress, EnumString.sr_Fixed,
                 EnumString.sr_Payed);
-            string stateToSelect = InputUtil.ConvertIgnoreCase(
-                $"{indentationString}Enter {nameof(stateToSelect)}: {validEnumStrings}",
+            string state = InputUtil.ConvertIgnoreCase(
+                $"{indentationString}Enter {nameof(state)}: {validEnumStrings}",
                 EnumString.Upper.sr_InProgress, EnumString.Upper.sr_Fixed,
                 EnumString.Upper.sr_Payed);
 
-            string valueToSwitch = stateToSelect.ToUpper();
+            string valueToSwitch = state.ToUpper();
             Record.eState? nullableOfReturnValue = null;
             if (valueToSwitch.Equals(EnumString.Upper.sr_InProgress))
             {
