@@ -5,7 +5,7 @@ using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component.Impl;
 
 namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
 {
-    public class AssertedBatteryCar : AssertedVehicle, ISelfValueAdder
+    public class AssertedBatteryCar : AssertedVehicle
     {
         public AssertedBatteryCar(string i_ModelName, string i_LicensePlate,
             Car.eColor i_Color,
@@ -23,11 +23,11 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
         protected Car Car { get; } =
             new Car(new BatteryEngine(3.2F));
 
-        public override string LicensePlate => Car.LicensePlate;
+        public string LicensePlate => Car.LicensePlate;
 
-        public override string ModelName => Car.ModelName;
+        public string ModelName => Car.ModelName;
 
-        public BatteryEngine Engine => (BatteryEngine) Car.Engine;
+        public BatteryEngine Engine => (BatteryEngine) Car.EngineContainer;
 
         public Car.eColor Color => Car.Color;
 

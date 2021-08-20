@@ -1,4 +1,4 @@
-﻿using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Extended;
+﻿using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Fuel;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component.Impl;
@@ -21,13 +21,13 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
             Motorcycle.LicenseType = i_LicenseType;
         }
 
-        public override string LicensePlate => Motorcycle.LicensePlate;
+        public string LicensePlate => Motorcycle.LicensePlate;
 
-        public override string ModelName => Motorcycle.ModelName;
+        public string ModelName => Motorcycle.ModelName;
 
         protected Motorcycle Motorcycle { get; }
 
-        public FuelEngine Engine => (FuelEngine) Motorcycle.Engine;
+        public FuelEngine Engine => (FuelEngine) Motorcycle.EngineContainer;
 
         public Motorcycle.eLicenseType LicenseType => Motorcycle.LicenseType;
 

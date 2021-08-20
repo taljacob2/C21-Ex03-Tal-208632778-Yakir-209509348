@@ -11,18 +11,6 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage
 {
     public interface IGarageController
     {
-        /// <summary />
-        /// <param name="io_Record" />
-        /// <param name="o_ResponseMessage">
-        ///     In case of success: <code>A-Success-Message</code>
-        ///     In case of fail: <code>An-Error-Message</code>.
-        /// </param>
-        /// <returns>
-        ///     Record retrieved / inserted.
-        /// </returns>
-        Record PostInsert(Record io_Record,
-            out StringBuilder o_ResponseMessage);
-
         List<string> GetLicensePlatesList();
 
         List<string> GetLicensePlatesList(Record.eState i_StateToSelect);
@@ -52,9 +40,6 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage
 
         void GetRecordDetails(string i_LicensePlate,
             out string o_ResponseMessage);
-
-        Record PostCreateRecord(ComponentVehicle i_ComponentVehicle,
-            Owner i_Owner); // TODO: remove.
 
         Record PostCreateAndInsertAssertedFuelCar(
             CreateAndInsertAssertedCarRequest i_Request,

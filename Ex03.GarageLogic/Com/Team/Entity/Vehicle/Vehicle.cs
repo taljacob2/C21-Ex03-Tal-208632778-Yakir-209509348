@@ -12,7 +12,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle
 
         public virtual string ModelName { get; protected internal set; }
 
-        public Engine Engine { get; protected set; }
+        public EngineContainer EngineContainer { get; protected set; }
 
         public override string ToString()
         {

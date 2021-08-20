@@ -10,7 +10,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component.Impl
 
         public Truck(TruckConstructorDTO i_TruckConstructorDTO)
         {
-            Engine = i_TruckConstructorDTO.Engine;
+            EngineContainer = i_TruckConstructorDTO.Engine;
             ModelName = i_TruckConstructorDTO.ModelName;
             LicensePlate = i_TruckConstructorDTO.LicensePlate;
             IsContainingDangerousMaterials = i_TruckConstructorDTO
@@ -23,7 +23,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component.Impl
 
         public Truck(Engine i_Engine)
         {
-            Engine = i_Engine;
+            EngineContainer = i_Engine;
         }
 
         public bool IsContainingDangerousMaterials { get; set; }

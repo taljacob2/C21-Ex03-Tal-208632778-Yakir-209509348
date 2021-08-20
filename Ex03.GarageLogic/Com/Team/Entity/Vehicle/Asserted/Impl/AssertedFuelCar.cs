@@ -22,11 +22,11 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
         protected Car Car { get; } =
             new Car(new FuelEngine(eType.Octan95, 45));
 
-        public override string LicensePlate => Car.LicensePlate;
+        public string LicensePlate => Car.LicensePlate;
 
-        public override string ModelName => Car.ModelName;
+        public string ModelName => Car.ModelName;
 
-        public FuelEngine Engine => (FuelEngine) Car.Engine;
+        public FuelEngine Engine => (FuelEngine) Car.EngineContainer;
 
         public Car.eColor Color => Car.Color;
 
@@ -36,5 +36,6 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
         {
             Engine.AddFuelByManualRequest(i_Type, i_Liters);
         }
+
     }
 }

@@ -19,7 +19,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component
 
         public float GetRemainedEnergyPercentage()
         {
-            return Engine.GetValuePercentage();
+            return EngineContainer.GetValuePercentage();
         }
 
         protected internal void SetTires(Tire i_TireToSetForAllTires,

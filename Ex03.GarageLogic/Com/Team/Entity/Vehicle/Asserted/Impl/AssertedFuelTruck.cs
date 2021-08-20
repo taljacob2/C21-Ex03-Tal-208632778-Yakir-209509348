@@ -23,11 +23,11 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
         protected Truck Truck { get; } =
             new Truck(new FuelEngine(eType.Soler, 120));
 
-        public override string LicensePlate => Truck.LicensePlate;
+        public string LicensePlate => Truck.LicensePlate;
 
-        public override string ModelName => Truck.ModelName;
+        public string ModelName => Truck.ModelName;
 
-        public FuelEngine Engine => (FuelEngine) Truck.Engine;
+        public FuelEngine Engine => (FuelEngine) Truck.EngineContainer;
 
         public bool IsContainingDangerousMaterials =>
             Truck.IsContainingDangerousMaterials;

@@ -26,7 +26,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component.Impl
 
         public Car(CarConstructorDTO i_CarConstructorDTO)
         {
-            Engine = i_CarConstructorDTO.Engine;
+            EngineContainer = i_CarConstructorDTO.Engine;
             ModelName = i_CarConstructorDTO.ModelName;
             LicensePlate = i_CarConstructorDTO.LicensePlate;
             Color = i_CarConstructorDTO.Color;
@@ -36,7 +36,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component.Impl
 
         public Car(Engine i_Engine)
         {
-            Engine = i_Engine;
+            EngineContainer = i_Engine;
         }
 
         public eColor Color { get; set; }

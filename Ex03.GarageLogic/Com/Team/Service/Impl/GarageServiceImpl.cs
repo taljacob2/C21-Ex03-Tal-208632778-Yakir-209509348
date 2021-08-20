@@ -5,7 +5,6 @@ using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery;
-using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Extended;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Fuel;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
@@ -25,8 +24,7 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
     {
         public IRecordRepository RecordRepository { get; } =
             new RecordRepositoryImpl();
-
-
+        
         public Record CreateRecord(Vehicle i_Vehicle, Owner i_Owner)
         {
             return new Record(i_Vehicle, i_Owner);
@@ -218,10 +216,10 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
         private void postRecharge(Record io_Record, float i_RequestMinutesToAdd,
             StringBuilder o_ResponseMessage)
         {
-            if (io_Record.Vehicle.Engine is BatteryEngine)
+            if (io_Record.Vehicle.EngineContainer is BatteryEngine)
             {
                 BatteryEngine batteryEngine =
-                    (BatteryEngine) io_Record.Vehicle.Engine;
+                    (BatteryEngine) io_Record.Vehicle.EngineContainer;
                 tryToRecharge(i_RequestMinutesToAdd, o_ResponseMessage,
                     batteryEngine);
             }
@@ -292,10 +290,10 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
         private void postRefuel(Record io_Record, eType i_FuelType, float
             i_LitersToAdd, StringBuilder o_ResponseMessage)
         {
-            if (io_Record.Vehicle.Engine is FuelEngine)
+            if (io_Record.Vehicle.EngineContainer is FuelEngine)
             {
                 FuelEngine fuelEngine =
-                    (FuelEngine) io_Record.Vehicle.Engine;
+                    (FuelEngine) io_Record.Vehicle.EngineContainer;
                 tryToRefuel(i_FuelType, i_LitersToAdd, o_ResponseMessage,
                     fuelEngine);
             }
@@ -368,6 +366,15 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             Record io_Record)
         {
             float psi = 0;
+            // // Debug test:
+            // if (io_Record.Vehicle.GetPropertyValue<Tires>("Tires") != null)
+            // {
+            //     Console.Out.WriteLine("TiresFound");
+            // }
+            
+            
+            
+            
             if (io_Record.Vehicle is ComponentVehicle)
             {
                 Tires tires = ((ComponentVehicle) io_Record.Vehicle).Tires;
@@ -379,12 +386,20 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             }
             else if (io_Record.Vehicle is AssertedVehicle)
             {
-                Tires tires = ((ComponentVehicle) io_Record.Vehicle).Tires;
-                tires.InflateAllTiresToMaxValue();
-                psi = tires.GetManufacturerMaxValue();
+                
+                // Debug test:
+                if (io_Record.Vehicle.GetPropertyValue<ComponentVehicle>("Car") != 
+                null)
+                {
+                    Console.Out.WriteLine("CarFound");
+                }
+                
+                // Tires tires = ((AssertedVehicle) io_Record.Vehicle).
+                // tires.InflateAllTiresToMaxValue();
+                // psi = tires.GetManufacturerMaxValue();
 
-                o_ResponseMessage.Append(
-                    $"Changed Tires' PSI to: `{psi}`.");
+                // o_ResponseMessage.Append(
+                    // $"Changed Tires' PSI to: `{psi}`.");
             }
         }
     }

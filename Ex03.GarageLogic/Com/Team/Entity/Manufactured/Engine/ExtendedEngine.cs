@@ -1,8 +1,8 @@
 ﻿using Ex03.GarageLogic.Com.Team.Misc;
 
-namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Extended
+namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine
 {
-    public class ExtendedEngine
+    public class ExtendedEngine : EngineContainer
     {
         public ExtendedEngine(Engine i_Engine, int i_VolumeInCC)
         {

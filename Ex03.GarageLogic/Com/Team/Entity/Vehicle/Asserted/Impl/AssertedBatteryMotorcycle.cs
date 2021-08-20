@@ -1,5 +1,5 @@
-﻿using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery;
-using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Extended;
+﻿using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine;
+using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component.Impl;
 
@@ -24,15 +24,15 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
 
         protected Motorcycle Motorcycle { get; }
 
-        public override string LicensePlate => Motorcycle.LicensePlate;
+        public string LicensePlate => Motorcycle.LicensePlate;
 
-        public override string ModelName => Motorcycle.ModelName;
+        public string ModelName => Motorcycle.ModelName;
 
-        public BatteryEngine Engine => (BatteryEngine) Motorcycle.Engine;
+        public BatteryEngine Engine => (BatteryEngine) Motorcycle.EngineContainer;
 
         public Motorcycle.eLicenseType LicenseType => Motorcycle.LicenseType;
-
-        public void AddCharge(float i_MinutesToAdd)
+        
+        public void AddSelfValue(float i_MinutesToAdd)
         {
             Engine.AddSelfValue(i_MinutesToAdd);
         }

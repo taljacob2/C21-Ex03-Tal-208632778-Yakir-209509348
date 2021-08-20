@@ -36,12 +36,6 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
             o_ResponseMessage = stringBuilder.ToString();
         }
 
-        public Record PostCreateRecord(ComponentVehicle i_ComponentVehicle,
-            Owner i_Owner)
-        {
-            return GarageService.CreateRecord(i_ComponentVehicle, i_Owner);
-        }
-
         public Record PostCreateAndInsertAssertedFuelCar(
             CreateAndInsertAssertedCarRequest i_Request,
             out string o_ResponseMessage)
@@ -50,7 +44,7 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
                 GarageService.CreateAssertedFuelCar(i_Request),
                 i_Request.Owner);
 
-            PostInsert(returnValue, out StringBuilder stringBuilder);
+            postInsert(returnValue, out StringBuilder stringBuilder);
             o_ResponseMessage = stringBuilder.ToString();
 
             return returnValue;
@@ -64,7 +58,7 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
                 GarageService.CreateAssertedBatteryCar(i_Request),
                 i_Request.Owner);
 
-            PostInsert(returnValue, out StringBuilder stringBuilder);
+            postInsert(returnValue, out StringBuilder stringBuilder);
             o_ResponseMessage = stringBuilder.ToString();
 
             return returnValue;
@@ -78,7 +72,7 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
                 GarageService.CreateAssertedFuelMotorcycle(i_Request),
                 i_Request.Owner);
 
-            PostInsert(returnValue, out StringBuilder stringBuilder);
+            postInsert(returnValue, out StringBuilder stringBuilder);
             o_ResponseMessage = stringBuilder.ToString();
 
             return returnValue;
@@ -92,7 +86,7 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
                 GarageService.CreateAssertedBatteryMotorcycle(i_Request),
                 i_Request.Owner);
 
-            PostInsert(returnValue, out StringBuilder stringBuilder);
+            postInsert(returnValue, out StringBuilder stringBuilder);
             o_ResponseMessage = stringBuilder.ToString();
 
             return returnValue;
@@ -106,13 +100,13 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
                 GarageService.CreateAssertedFuelTruck(i_Request),
                 i_Request.Owner);
 
-            PostInsert(returnValue, out StringBuilder stringBuilder);
+            postInsert(returnValue, out StringBuilder stringBuilder);
             o_ResponseMessage = stringBuilder.ToString();
 
             return returnValue;
         }
 
-        public Record PostInsert(Record io_Record,
+        private Record postInsert(Record io_Record,
             out StringBuilder o_ResponseMessage)
         {
             return GarageService.Insert(io_Record, out o_ResponseMessage);
@@ -146,20 +140,6 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
                 GarageService.PostInflateTiresToMaxByLicensePlate(
                     i_LicensePlate, out stringBuilder);
             o_ResponseMessage = stringBuilder.ToString();
-            return returnValue;
-        }
-
-        public Record PostInsertAssertedFuelCar(
-            CreateAndInsertAssertedCarRequest
-                i_Request, out string o_ResponseMessage)
-        {
-            Record returnValue = GarageService.CreateRecord(
-                GarageService.CreateAssertedBatteryCar(i_Request),
-                i_Request.Owner);
-
-            PostInsert(returnValue, out StringBuilder stringBuilder);
-            o_ResponseMessage = stringBuilder.ToString();
-
             return returnValue;
         }
     }
