@@ -59,49 +59,7 @@ namespace Ex03.GarageLogic.Com.Team.Misc
 
             return stringBuilder.ToString();
         }
-
-        public static string ToStringExtensionFields(this object i_Obj)
-        {
-            StringBuilder stringBuilder = new StringBuilder();
-            int i = 0;
-            StringIndentation.NewLine(stringBuilder, s_IndentationLevel);
-            stringBuilder.Append("{");
-            foreach (var field in i_Obj.GetType().GetFields())
-            {
-                if (field.GetType().GetFields().Length > 0)
-                {
-                    s_IndentationLevel++;
-                    StringIndentation.NewLine(stringBuilder,
-                        s_IndentationLevel);
-                }
         
-                stringBuilder.Append(field.Name);
-                stringBuilder.Append(": ");
-        
-                // if (field.GetIndexParameters().Length > 0)
-                // {
-                //     stringBuilder.Append("Indexed Property cannot be used");
-                // }
-        
-                stringBuilder.Append(field.GetValue(i_Obj));
-        
-        
-                i++;
-        
-                // if (i < i_Obj.GetType().GetProperties().Length)
-                // {
-                //     stringBuilder.Append(", ");
-                // }
-        
-                s_IndentationLevel--;
-            }
-        
-            StringIndentation.NewLine(stringBuilder, s_IndentationLevel);
-            stringBuilder.Append("}");
-        
-            return stringBuilder.ToString();
-        }
-
         public static T GetPropertyValue<T>(this object i_SourceInstance,
             string i_TargetPropertyName, bool i_InformIfIsNull = false,
             bool i_InformIfUnfound = false,

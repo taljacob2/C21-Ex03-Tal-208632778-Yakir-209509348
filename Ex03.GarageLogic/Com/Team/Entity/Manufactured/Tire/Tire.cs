@@ -4,7 +4,7 @@ using Ex03.GarageLogic.Com.Team.Misc;
 namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire
 {
     /// <summary>
-    ///     <see cref="ManufacManufactureComponent /> is measured in `PSI`.
+    ///      Units are measured in `PSI`.
     /// </summary>
     public class Tire : ISelfValueAdder
     {
