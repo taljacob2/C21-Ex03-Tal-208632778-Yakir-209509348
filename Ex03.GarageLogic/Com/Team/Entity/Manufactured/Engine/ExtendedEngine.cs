@@ -27,24 +27,6 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine
             return this.ToStringExtension();
         }
 
-        public override float GetManufacturerMaxValue()
-        {
-            return Engine.GetManufacturerMaxValue();
-        }
-
-        public override float GetValue()
-        {
-            return Engine.GetValue();
-        }
-
-        /// <summary>
-        ///     Measured in `Percentage` units.
-        /// </summary>
-        public override float GetValuePercentage()
-        {
-            return Engine.GetValuePercentage();
-        }
-
         public float ManufacturerMaxValue
         {
             get => Engine.ManufacturerMaxValue;
