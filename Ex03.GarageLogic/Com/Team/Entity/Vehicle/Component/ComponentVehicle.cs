@@ -17,7 +17,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component
 
         public Tires Tires { get; } = new Tires();
 
-        public float GetRemainedEnergyPercentage()
+        public float GetValuePercentage()
         {
             return EngineContainer.GetValuePercentage();
         }
