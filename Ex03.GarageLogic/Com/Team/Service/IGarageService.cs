@@ -3,6 +3,7 @@ using System.Text;
 using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
+using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component;
 
 namespace Ex03.GarageLogic.Com.Team.Service
@@ -31,25 +32,25 @@ namespace Ex03.GarageLogic.Com.Team.Service
         /// </returns>
         Record Insert(Record io_Record, out StringBuilder o_ResponseMessage);
 
-        Vehicle CreateAssertedFuelCar(
+        AssertedVehicle CreateAssertedFuelCar(
             CreateAndInsertAssertedCarRequest i_Request);
 
-        Vehicle CreateAssertedBatteryCar(
+        AssertedVehicle CreateAssertedBatteryCar(
             CreateAndInsertAssertedCarRequest i_Request);
 
-        Vehicle CreateAssertedFuelMotorcycle(
+        AssertedVehicle CreateAssertedFuelMotorcycle(
             CreateAndInsertAssertedMotorcycleRequest i_Request);
 
-        Vehicle CreateAssertedBatteryMotorcycle(
+        AssertedVehicle CreateAssertedBatteryMotorcycle(
             CreateAndInsertAssertedMotorcycleRequest i_Request);
 
-        Vehicle CreateAssertedFuelTruck(
+        AssertedVehicle CreateAssertedFuelTruck(
             CreateAndInsertAssertedTruckRequest i_Request);
 
-        bool SetState(SetStateRequest i_Request,
+        void SetState(SetStateRequest i_Request,
             out StringBuilder o_ResponseMessage);
 
-        bool PostInflateTiresToMaxByLicensePlate(string i_LicensePlate,
+        void PostInflateTiresToMaxByLicensePlate(string i_LicensePlate,
             out StringBuilder o_ResponseMessage);
 
         void GetRecordDetails(string i_LicensePlate,

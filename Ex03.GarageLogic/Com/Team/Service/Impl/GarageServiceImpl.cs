@@ -24,7 +24,7 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
     {
         public IRecordRepository RecordRepository { get; } =
             new RecordRepositoryImpl();
-        
+
         public Record CreateRecord(Vehicle i_Vehicle, Owner i_Owner)
         {
             return new Record(i_Vehicle, i_Owner);
@@ -66,7 +66,7 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             return record;
         }
 
-        public Vehicle CreateAssertedFuelCar(
+        public AssertedVehicle CreateAssertedFuelCar(
             CreateAndInsertAssertedCarRequest i_Request)
         {
             return new AssertedFuelCar(i_Request
@@ -77,7 +77,7 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
                 i_Request.TireManufacturerName);
         }
 
-        public Vehicle CreateAssertedBatteryCar(
+        public AssertedVehicle CreateAssertedBatteryCar(
             CreateAndInsertAssertedCarRequest i_Request)
         {
             return new AssertedBatteryCar(i_Request
@@ -88,7 +88,7 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
                 i_Request.TireManufacturerName);
         }
 
-        public Vehicle CreateAssertedFuelMotorcycle(
+        public AssertedVehicle CreateAssertedFuelMotorcycle(
             CreateAndInsertAssertedMotorcycleRequest i_Request)
         {
             return new AssertedFuelMotorcycle(i_Request
@@ -99,7 +99,7 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
                 i_Request.TireManufacturerName);
         }
 
-        public Vehicle CreateAssertedBatteryMotorcycle(
+        public AssertedVehicle CreateAssertedBatteryMotorcycle(
             CreateAndInsertAssertedMotorcycleRequest i_Request)
         {
             return new AssertedBatteryMotorcycle(i_Request
@@ -110,7 +110,7 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
                 i_Request.TireManufacturerName);
         }
 
-        public Vehicle CreateAssertedFuelTruck(
+        public AssertedVehicle CreateAssertedFuelTruck(
             CreateAndInsertAssertedTruckRequest i_Request)
         {
             return new AssertedFuelTruck(i_Request
@@ -120,10 +120,9 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
                 i_Request.TireManufacturerName);
         }
 
-        public bool SetState(SetStateRequest i_Request,
+        public void SetState(SetStateRequest i_Request,
             out StringBuilder o_ResponseMessage)
         {
-            bool returnValue = true;
             o_ResponseMessage = new StringBuilder();
             try
             {
@@ -136,10 +135,7 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             catch (System.Exception e)
             {
                 o_ResponseMessage.Append(e.Message);
-                returnValue = false;
             }
-
-            return returnValue;
         }
 
         public void PostRecharge(RechargeRequest i_Request,
@@ -175,10 +171,9 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             }
         }
 
-        public bool PostInflateTiresToMaxByLicensePlate(string i_LicensePlate,
+        public void PostInflateTiresToMaxByLicensePlate(string i_LicensePlate,
             out StringBuilder o_ResponseMessage)
         {
-            bool returnValue = true;
             o_ResponseMessage = new StringBuilder();
             try
             {
@@ -190,10 +185,7 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             catch (System.Exception e)
             {
                 o_ResponseMessage.Append(e.Message);
-                returnValue = false;
             }
-
-            return returnValue;
         }
 
         public void GetRecordDetails(string i_LicensePlate,
@@ -366,15 +358,14 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             Record io_Record)
         {
             float psi = 0;
+
             // // Debug test:
             // if (io_Record.Vehicle.GetPropertyValue<Tires>("Tires") != null)
             // {
             //     Console.Out.WriteLine("TiresFound");
             // }
-            
-            
-            
-            
+
+
             if (io_Record.Vehicle is ComponentVehicle)
             {
                 Tires tires = ((ComponentVehicle) io_Record.Vehicle).Tires;
@@ -386,20 +377,20 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             }
             else if (io_Record.Vehicle is AssertedVehicle)
             {
-                
                 // Debug test:
-                if (io_Record.Vehicle.GetPropertyValue<ComponentVehicle>("Car") != 
-                null)
+                if (io_Record.Vehicle
+                        .GetPropertyValue<ComponentVehicle>("Car") !=
+                    null)
                 {
                     Console.Out.WriteLine("CarFound");
                 }
-                
+
                 // Tires tires = ((AssertedVehicle) io_Record.Vehicle).
                 // tires.InflateAllTiresToMaxValue();
                 // psi = tires.GetManufacturerMaxValue();
 
                 // o_ResponseMessage.Append(
-                    // $"Changed Tires' PSI to: `{psi}`.");
+                // $"Changed Tires' PSI to: `{psi}`.");
             }
         }
     }

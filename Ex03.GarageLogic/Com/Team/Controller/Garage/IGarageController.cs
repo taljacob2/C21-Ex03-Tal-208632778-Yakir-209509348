@@ -15,10 +15,10 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage
 
         List<string> GetLicensePlatesList(Record.eState i_StateToSelect);
 
-        bool PostSetState(SetStateRequest i_Request,
+        void PostSetState(SetStateRequest i_Request,
             out string o_ResponseMessage);
 
-        bool PostInflateTiresToMaxByLicensePlate(string i_LicensePlate,
+        void PostInflateTiresToMaxByLicensePlate(string i_LicensePlate,
             out string o_ResponseMessage);
 
         /// <summary>
