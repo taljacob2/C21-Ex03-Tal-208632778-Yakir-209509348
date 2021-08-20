@@ -34,9 +34,9 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component.Impl
             SetTires(i_CarConstructorDTO.TireToSetForAllTires, k_TiresAmount);
         }
 
-        public Car(Engine i_Engine)
+        public Car(Engine i_EngineContainer)
         {
-            EngineContainer = i_Engine;
+            EngineContainer = i_EngineContainer;
         }
 
         public eColor Color { get; set; }

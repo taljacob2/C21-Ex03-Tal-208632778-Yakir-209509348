@@ -12,13 +12,12 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine
 
         public Engine Engine { get; }
 
-
         /// <summary>
         ///     Measured in `CC` units.
         /// </summary>
         public int VolumeInCC { get; }
 
-        protected void AddSelfValue(float i_ValueToAdd)
+        public override void AddSelfValue(float i_ValueToAdd)
         {
             Engine.AddSelfValue(i_ValueToAdd);
         }
@@ -28,10 +27,20 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine
             return this.ToStringExtension();
         }
 
+        public override float GetManufacturerMaxValue()
+        {
+            return Engine.GetManufacturerMaxValue();
+        }
+
+        public override float GetValue()
+        {
+            return Engine.GetValue();
+        }
+
         /// <summary>
         ///     Measured in `Percentage` units.
         /// </summary>
-        public float GetValuePercentage()
+        public override float GetValuePercentage()
         {
             return Engine.GetValuePercentage();
         }

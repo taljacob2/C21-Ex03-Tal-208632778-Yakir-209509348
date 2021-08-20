@@ -3,7 +3,7 @@ using Ex03.GarageLogic.Com.Team.Misc;
 
 namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured
 {
-    public abstract class Manufactured : ISelfValueAdder
+    public class Manufactured : ISelfValueAdder
     {
         /// <summary>
         ///     Defined by the Manufacturer.

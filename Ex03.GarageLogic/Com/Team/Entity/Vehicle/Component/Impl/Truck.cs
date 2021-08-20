@@ -21,9 +21,9 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component.Impl
                 k_TiresAmount);
         }
 
-        public Truck(Engine i_Engine)
+        public Truck(Engine i_EngineContainer)
         {
-            EngineContainer = i_Engine;
+            EngineContainer = i_EngineContainer;
         }
 
         public bool IsContainingDangerousMaterials { get; set; }

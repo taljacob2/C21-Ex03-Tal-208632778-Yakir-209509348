@@ -24,7 +24,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery
 
         public override string ToString()
         {
-            return this.ToStringExtension();
+           return this.ToStringExtension();
         }
     }
 }

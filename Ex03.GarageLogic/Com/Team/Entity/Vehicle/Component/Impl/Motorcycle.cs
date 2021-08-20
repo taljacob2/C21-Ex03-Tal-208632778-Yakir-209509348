@@ -26,9 +26,9 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component.Impl
                 k_TiresAmount);
         }
 
-        public Motorcycle(ExtendedEngine i_ExtendedEngine)
+        public Motorcycle(ExtendedEngine i_ExtendedEngineContainer)
         {
-            EngineContainer = i_ExtendedEngine;
+            EngineContainer = i_ExtendedEngineContainer;
         }
 
         // public ExtendedEngine ExtendedEngine { get; }

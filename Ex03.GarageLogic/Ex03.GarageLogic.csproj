@@ -59,8 +59,8 @@
         <Compile Include="Com\Team\DTO\Model\Request\SetStateRequest.cs" />
         <Compile Include="Com\Team\DTO\VehicleRecordDTO.cs" />
         <Compile Include="Com\Team\Entity\Manufactured\Engine\Battery\BatteryEngine.cs" />
-        <Compile Include="Com\Team\Entity\Manufactured\Engine\EngineContainer.cs" />
         <Compile Include="Com\Team\Entity\Manufactured\Engine\Engine.cs" />
+        <Compile Include="Com\Team\Entity\Manufactured\Engine\EngineContainer.cs" />
         <Compile Include="Com\Team\Entity\Manufactured\Engine\ExtendedEngine.cs" />
         <Compile Include="Com\Team\Entity\Manufactured\Engine\Fuel\eType.cs" />
         <Compile Include="Com\Team\Entity\Manufactured\Engine\Fuel\FuelEngine.cs" />
