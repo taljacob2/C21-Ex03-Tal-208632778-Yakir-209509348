@@ -2,7 +2,6 @@
 using System.Text;
 using Ex03.GarageLogic.Com.Team.Controller.Garage.Impl;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
-using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component;
 
@@ -20,7 +19,7 @@ namespace Ex03.GarageLogic.Com.Team.Service
         List<string> SelectVehicleLicensePlates();
 
         List<string> SelectVehicleLicensePlates(Record.eState i_StateToSelect);
-        
+
         /// <summary />
         /// <param name="io_Record" />
         /// <param name="o_ResponseMessage">

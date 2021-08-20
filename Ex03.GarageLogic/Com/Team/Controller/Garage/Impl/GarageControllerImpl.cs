@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
-using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component;
 using Ex03.GarageLogic.Com.Team.Service;
 using Ex03.GarageLogic.Com.Team.Service.Impl;
 
@@ -106,12 +105,6 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
             return returnValue;
         }
 
-        private Record postInsert(Record io_Record,
-            out StringBuilder o_ResponseMessage)
-        {
-            return GarageService.Insert(io_Record, out o_ResponseMessage);
-        }
-
         public List<string> GetLicensePlatesList()
         {
             return GarageService.SelectVehicleLicensePlates();
@@ -138,6 +131,12 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
             GarageService.PostInflateTiresToMaxByLicensePlate(
                 i_LicensePlate, out stringBuilder);
             o_ResponseMessage = stringBuilder.ToString();
+        }
+
+        private Record postInsert(Record io_Record,
+            out StringBuilder o_ResponseMessage)
+        {
+            return GarageService.Insert(io_Record, out o_ResponseMessage);
         }
     }
 }

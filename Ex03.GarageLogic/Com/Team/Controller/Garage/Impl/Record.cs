@@ -1,8 +1,6 @@
-﻿using Ex03.GarageLogic.Com.Team.Entity.Vehicle;
-using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted;
+﻿using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component;
-using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component.Impl;
 using Ex03.GarageLogic.Com.Team.Misc;
 
 namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
@@ -27,39 +25,43 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
 
         public AssertedVehicle AssertedVehicle { get; }
 
+        public eState State { get; set; }
+
         public string GetLicensePlate()
         {
             string returnValue = null;
-            if (this.AssertedVehicle is AssertedBatteryCar)
+            if (AssertedVehicle is AssertedBatteryCar)
             {
-                returnValue = ((AssertedBatteryCar) this.AssertedVehicle)
+                returnValue = ((AssertedBatteryCar) AssertedVehicle)
                     .LicensePlate;
             }
-            if (this.AssertedVehicle is AssertedFuelCar)
+
+            if (AssertedVehicle is AssertedFuelCar)
             {
-                returnValue = ((AssertedFuelCar) this.AssertedVehicle)
+                returnValue = ((AssertedFuelCar) AssertedVehicle)
                     .LicensePlate;
             }
-            if (this.AssertedVehicle is AssertedBatteryMotorcycle)
+
+            if (AssertedVehicle is AssertedBatteryMotorcycle)
             {
-                returnValue = ((AssertedBatteryMotorcycle) this.AssertedVehicle)
+                returnValue = ((AssertedBatteryMotorcycle) AssertedVehicle)
                     .LicensePlate;
             }
-            if (this.AssertedVehicle is AssertedFuelMotorcycle)
+
+            if (AssertedVehicle is AssertedFuelMotorcycle)
             {
-                returnValue = ((AssertedFuelMotorcycle) this.AssertedVehicle)
+                returnValue = ((AssertedFuelMotorcycle) AssertedVehicle)
                     .LicensePlate;
             }
-            if (this.AssertedVehicle is AssertedFuelTruck)
+
+            if (AssertedVehicle is AssertedFuelTruck)
             {
-                returnValue = ((AssertedFuelTruck) this.AssertedVehicle)
+                returnValue = ((AssertedFuelTruck) AssertedVehicle)
                     .LicensePlate;
             }
 
             return returnValue;
         }
-
-        public eState State { get; set; }
 
         public override string ToString()
         {

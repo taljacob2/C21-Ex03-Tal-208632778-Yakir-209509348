@@ -36,6 +36,5 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
         {
             Engine.AddFuelByManualRequest(i_Type, i_Liters);
         }
-
     }
 }

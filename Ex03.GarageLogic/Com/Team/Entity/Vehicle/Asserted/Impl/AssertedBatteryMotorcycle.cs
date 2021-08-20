@@ -28,10 +28,11 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
 
         public string ModelName => Motorcycle.ModelName;
 
-        public BatteryEngine Engine => (BatteryEngine) Motorcycle.EngineContainer;
+        public BatteryEngine Engine =>
+            (BatteryEngine) Motorcycle.EngineContainer;
 
         public Motorcycle.eLicenseType LicenseType => Motorcycle.LicenseType;
-        
+
         public void AddSelfValue(float i_MinutesToAdd)
         {
             Engine.AddSelfValue(i_MinutesToAdd);
