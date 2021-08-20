@@ -123,6 +123,12 @@ namespace Ex03.GarageLogic.Com.Team.Misc
             return default(T);
         }
 
+        public static T InvokeMethod<T>(this object i_SourceInstance,
+            string i_TargetMethodName, params object[] i_ParamsArray)
+        {
+            return (T) i_SourceInstance.GetType().GetMethod(i_TargetMethodName)
+                ?.Invoke(i_SourceInstance, i_ParamsArray);
+        }
 
         public static bool IsPrimitive(this Type i_Type)
         {

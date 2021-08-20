@@ -204,24 +204,12 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             // BatteryEngine is a property. Find it:
             BatteryEngine batteryEngine = null;
             ExtendedEngine extendedEngine = null;
-            if ((batteryEngine = io_Record.AssertedVehicle
-                .GetPropertyValue<BatteryEngine>
-                    ("BatteryEngine")) != null)
+            if ((batteryEngine =
+                    io_Record.AssertedVehicle.InvokeMethod<BatteryEngine>(
+                        "GetRefBatteryEngine")) != null)
             {
                 tryToRecharge(i_RequestMinutesToAdd, o_ResponseMessage,
                     batteryEngine);
-            }
-            else if ((extendedEngine = io_Record.AssertedVehicle
-                .GetPropertyValue<ExtendedEngine>
-                    ("ExtendedEngine")) != null)
-            {
-                if ((batteryEngine = io_Record.AssertedVehicle
-                    .GetPropertyValue<BatteryEngine>
-                        ("BatteryEngine")) != null)
-                {
-                    tryToRecharge(i_RequestMinutesToAdd, o_ResponseMessage,
-                        batteryEngine);
-                }
             }
             else
             {
@@ -253,22 +241,11 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             FuelEngine fuelEngine = null;
             ExtendedEngine extendedEngine = null;
             if ((fuelEngine =
-                io_Record.AssertedVehicle.GetPropertyValue<FuelEngine>
-                    ("FuelEngine")) != null)
+                io_Record.AssertedVehicle.InvokeMethod<FuelEngine>(
+                    "GetRefFuelEngine")) != null)
             {
                 tryToRefuel(i_FuelType, i_LitersToAdd, o_ResponseMessage,
                     fuelEngine);
-            }
-            else if ((extendedEngine = io_Record.AssertedVehicle
-                .GetPropertyValue<ExtendedEngine>
-                    ("ExtendedEngine")) != null)
-            {
-                if ((fuelEngine = extendedEngine.GetPropertyValue<FuelEngine>
-                    ("FuelEngine")) != null)
-                {
-                    tryToRefuel(i_FuelType, i_LitersToAdd, o_ResponseMessage,
-                        fuelEngine);
-                }
             }
             else
             {
