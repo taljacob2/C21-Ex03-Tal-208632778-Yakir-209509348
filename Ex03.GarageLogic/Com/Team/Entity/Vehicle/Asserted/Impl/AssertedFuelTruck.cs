@@ -1,4 +1,4 @@
-﻿using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Fuel;
+using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Fuel;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component.Impl;
 
@@ -29,7 +29,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
         public bool IsContainingDangerousMaterials =>
             Truck.IsContainingDangerousMaterials;
 
-        public FuelEngine GetRefFuelEngine()
+        public Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Fuel.FuelEngine GetRefFuelEngine()
         {
             return (FuelEngine) Truck.EngineContainer;
         }

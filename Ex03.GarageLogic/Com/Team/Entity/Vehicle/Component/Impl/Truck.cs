@@ -4,7 +4,7 @@ using Ex03.GarageLogic.Com.Team.Misc;
 
 namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component.Impl
 {
-    public class Truck : ComponentVehicle
+    public sealed class Truck : ComponentVehicle
     {
         public const int k_TiresAmount = 16;
 

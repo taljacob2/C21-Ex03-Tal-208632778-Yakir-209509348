@@ -1,4 +1,4 @@
-﻿using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine;
+using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Fuel;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component.Impl;
@@ -26,7 +26,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
         /// </summary>
         public Motorcycle Motorcycle { get; }
 
-        public FuelEngine GetRefFuelEngine()
+        public Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Fuel.FuelEngine GetRefFuelEngine()
         {
             return (FuelEngine) Motorcycle.EngineContainer;
         }

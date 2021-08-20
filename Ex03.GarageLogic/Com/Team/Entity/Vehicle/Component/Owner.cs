@@ -1,8 +1,8 @@
-﻿using Ex03.GarageLogic.Com.Team.Misc;
+using Ex03.GarageLogic.Com.Team.Misc;
 
 namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component
 {
-    public struct Owner
+    public struct Owner    
     {
         public Owner(string i_PhoneNumber, string i_Name)
         {

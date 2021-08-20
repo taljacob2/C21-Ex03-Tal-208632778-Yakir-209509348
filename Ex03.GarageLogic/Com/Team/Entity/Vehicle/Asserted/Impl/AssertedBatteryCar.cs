@@ -1,4 +1,4 @@
-﻿using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery;
+using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component.Impl;
 
@@ -25,7 +25,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
         public Car Car { get; } =
             new Car(new BatteryEngine(3.2F));
 
-        public BatteryEngine GetRefBatteryEngine()
+        public Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery.BatteryEngine GetRefBatteryEngine()
         {
             return (BatteryEngine) Car.EngineContainer;
         }
