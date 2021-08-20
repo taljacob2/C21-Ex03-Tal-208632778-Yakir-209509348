@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Reflection;
 using System.Text;
 using Ex03.GarageLogic.Com.Team.Misc.ArrayExtensions;
@@ -61,7 +62,8 @@ namespace Ex03.GarageLogic.Com.Team.Misc
         }
 
         public static T GetPropertyValue<T>(this object i_SourceInstance,
-            string i_TargetPropertyName, bool i_InformIfUnfound = false,
+            string i_TargetPropertyName, bool i_InformIfIsNull = false,
+            bool i_InformIfUnfound = false,
             bool i_ThrowExceptionIfNotExists = false)
         {
             string errorMsg = null;
@@ -88,7 +90,7 @@ namespace Ex03.GarageLogic.Com.Team.Misc
 
                 PropertyInfo propertyInfo =
                     sourceType.GetProperty(i_TargetPropertyName, returnType);
-                if (propertyInfo == null && i_InformIfUnfound)
+                if (propertyInfo == null && i_InformIfIsNull)
                 {
                     errorMsg =
                         $"Property name '{i_TargetPropertyName}' of type '{returnType}' not found for source object of type '{sourceType}'";
@@ -106,13 +108,16 @@ namespace Ex03.GarageLogic.Com.Team.Misc
             }
             catch (System.Exception ex)
             {
-                errorMsg =
-                    $"Problem getting property name '{i_TargetPropertyName}' from source instance.";
-                Console.Out.WriteLine(errorMsg);
-
-                if (i_ThrowExceptionIfNotExists)
+                if (i_InformIfUnfound)
                 {
-                    throw;
+                    errorMsg =
+                        $"Problem getting property name '{i_TargetPropertyName}' from source instance.";
+                    Console.Out.WriteLine(errorMsg);
+
+                    if (i_ThrowExceptionIfNotExists)
+                    {
+                        throw;
+                    }
                 }
             }
 
