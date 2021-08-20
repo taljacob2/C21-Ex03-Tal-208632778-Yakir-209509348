@@ -30,18 +30,13 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire
             return stringBuilder.ToString();
             
         }
-
-        public void InflateAllTires(float i_PSIToAdd)
+        
+        public void InflateAllTiresToMaxValue()
         {
             foreach (Tire tire in List)
             {
-                tire.AddSelfValue(i_PSIToAdd);
+                tire.Value = GetManufacturerMaxValue();
             }
-        }
-
-        public void InflateAllTiresToMaxValue()
-        {
-            InflateAllTires(GetManufacturerMaxValue());
         }
 
         public float GetManufacturerMaxValue()
