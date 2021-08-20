@@ -31,10 +31,10 @@ namespace Ex03.GarageLogic.Com.Team.Repository.Impl
             try
             {
                 Record recordFound =
-                    FindByLicensePlate(io_Record.AssertedVehicle.LicensePlate);
+                    FindByLicensePlate(io_Record.GetLicensePlate());
                 returnValue = recordFound;
                 o_ResponseMessage.Append(
-                    $"The provided LicensePlate: `{returnValue.AssertedVehicle.LicensePlate}` is already in database.");
+                    $"The provided LicensePlate: `{returnValue.GetLicensePlate()}` is already in database.");
             }
             catch (System.Exception e)
             {
@@ -95,7 +95,8 @@ namespace Ex03.GarageLogic.Com.Team.Repository.Impl
         public List<string> SelectVehicleLicensePlates()
         {
             return r_Database.GetRef()
-                .Select(i_Record => i_Record.AssertedVehicle.LicensePlate).ToList();
+                .Select(i_Record => i_Record.GetLicensePlate())
+                .ToList();
         }
 
         public List<string> SelectVehicleLicensePlates(
@@ -103,7 +104,7 @@ namespace Ex03.GarageLogic.Com.Team.Repository.Impl
         {
             return r_Database.GetRef()
                 .FindAll(i_Record => i_Record.State == i_StateToSelect)
-                .Select(i_Record => i_Record.AssertedVehicle.LicensePlate)
+                .Select(i_Record => i_Record.GetLicensePlate())
                 .ToList();
         }
     }

@@ -245,25 +245,6 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             }
         }
 
-        private void extendedEngineInvokeTryRecharge(
-            float i_RequestMinutesToAdd, StringBuilder o_ResponseMessage,
-            ExtendedEngine io_ExtendedEngine)
-        {
-            Engine engine =
-                io_ExtendedEngine.GetPropertyValue<Engine>("Engine");
-            if (engine is BatteryEngine)
-            {
-                BatteryEngine batteryEngine = (BatteryEngine) engine;
-                tryToRecharge(i_RequestMinutesToAdd, o_ResponseMessage,
-                    batteryEngine);
-            }
-            else
-            {
-                o_ResponseMessage.Append(
-                    $"Recharge Failed. You do not own a {nameof(BatteryEngine)}.");
-            }
-        }
-
         private void tryToRecharge(float i_RequestMinutesToAdd,
             StringBuilder o_ResponseMessage, BatteryEngine io_BatteryEngine)
         {
@@ -308,25 +289,6 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
                     tryToRefuel(i_FuelType, i_LitersToAdd, o_ResponseMessage,
                         fuelEngine);
                 }
-            }
-            else
-            {
-                o_ResponseMessage.Append(
-                    $"Refuel Failed. You do not own a {nameof(FuelEngine)}.");
-            }
-        }
-
-        private static void extendedEngineInvokeTryRefuel(eType i_FuelType,
-            float i_LitersToAdd, StringBuilder o_ResponseMessage,
-            ExtendedEngine i_ExtendedEngine)
-        {
-            Engine engine =
-                i_ExtendedEngine.GetPropertyValue<Engine>("Engine");
-            if (engine is FuelEngine)
-            {
-                FuelEngine fuelEngine = (FuelEngine) engine;
-                tryToRefuel(i_FuelType, i_LitersToAdd, o_ResponseMessage,
-                    fuelEngine);
             }
             else
             {
