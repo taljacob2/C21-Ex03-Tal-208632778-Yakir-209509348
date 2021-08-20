@@ -30,42 +30,30 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
         public string GetLicensePlate()
         {
             string returnValue = null;
-            if (this.AssertedVehicle.GetPropertyValue<AssertedBatteryCar>
-                ("AssertedBatteryCar", ) != null)
+            if (this.AssertedVehicle is AssertedBatteryCar)
             {
-                returnValue = this.AssertedVehicle
-                    .GetPropertyValue<AssertedBatteryCar>
-                        ("AssertedBatteryCar").LicensePlate;
+                returnValue = ((AssertedBatteryCar) this.AssertedVehicle)
+                    .LicensePlate;
             }
-            else if (this.AssertedVehicle.GetPropertyValue<AssertedFuelCar>
-                ("AssertedFuelCar") != null)
+            if (this.AssertedVehicle is AssertedFuelCar)
             {
-                returnValue = this.AssertedVehicle
-                    .GetPropertyValue<AssertedFuelCar>
-                        ("AssertedFuelCar").LicensePlate;
+                returnValue = ((AssertedFuelCar) this.AssertedVehicle)
+                    .LicensePlate;
             }
-            else if (this.AssertedVehicle
-                .GetPropertyValue<AssertedBatteryMotorcycle>
-                    ("AssertedBatteryMotorcycle") != null)
+            if (this.AssertedVehicle is AssertedBatteryMotorcycle)
             {
-                returnValue = this.AssertedVehicle
-                    .GetPropertyValue<AssertedBatteryMotorcycle>
-                        ("AssertedBatteryMotorcycle").LicensePlate;
+                returnValue = ((AssertedBatteryMotorcycle) this.AssertedVehicle)
+                    .LicensePlate;
             }
-            else if (this.AssertedVehicle
-                .GetPropertyValue<AssertedFuelMotorcycle>
-                    ("AssertedFuelMotorcycle") != null)
+            if (this.AssertedVehicle is AssertedFuelMotorcycle)
             {
-                returnValue = this.AssertedVehicle
-                    .GetPropertyValue<AssertedFuelMotorcycle>
-                        ("AssertedFuelMotorcycle").LicensePlate;
+                returnValue = ((AssertedFuelMotorcycle) this.AssertedVehicle)
+                    .LicensePlate;
             }
-            else if (this.AssertedVehicle.GetPropertyValue<AssertedFuelTruck>
-                ("AssertedFuelTruck") != null)
+            if (this.AssertedVehicle is AssertedFuelTruck)
             {
-                returnValue = this.AssertedVehicle
-                    .GetPropertyValue<AssertedFuelTruck>
-                        ("AssertedFuelTruck").LicensePlate;
+                returnValue = ((AssertedFuelTruck) this.AssertedVehicle)
+                    .LicensePlate;
             }
 
             return returnValue;
