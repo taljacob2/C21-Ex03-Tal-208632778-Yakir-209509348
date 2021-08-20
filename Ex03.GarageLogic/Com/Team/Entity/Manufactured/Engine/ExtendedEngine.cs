@@ -32,18 +32,24 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine
             return this.ToStringExtension();
         }
 
-        public float ManufacturerMaxValue
+        public float GetManufacturerMaxValue()
         {
-            get => Engine.ManufacturerMaxValue;
-
-            set => Engine.ManufacturerMaxValue = value;
+            return Engine.ManufacturerMaxValue;
         }
 
-        public float Value
+        public void SetManufacturerMaxValue(float i_Value)
         {
-            get => Engine.Value;
+            Engine.ManufacturerMaxValue = i_Value;
+        }
 
-            set => Engine.Value = value;
+        public float GetValue()
+        {
+            return Engine.Value;
+        }
+
+        public void SetValue(float i_Value)
+        {
+            Engine.Value = i_Value;
         }
     }
 }

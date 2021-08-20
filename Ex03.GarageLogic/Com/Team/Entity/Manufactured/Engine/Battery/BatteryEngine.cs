@@ -7,9 +7,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery
         /// <summary>
         ///     Note: Capacity is measured in `Hour` units.
         /// </summary>
-        /// <param name="i_ManufacturerMaxCapacityInHours">
-        ///     Sets the <see cref="ManufacManufactureComponentcturerMaxValue" />
-        /// </param>
+        /// <param name="i_ManufacturerMaxCapacityInHours" />
         public BatteryEngine(float i_ManufacturerMaxCapacityInHours)
         {
             ManufacturerMaxValue = i_ManufacturerMaxCapacityInHours;
