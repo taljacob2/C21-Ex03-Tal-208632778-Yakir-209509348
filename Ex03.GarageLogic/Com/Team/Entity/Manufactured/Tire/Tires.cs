@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text;
+using Ex03.GarageLogic.Com.Team.Misc;
 
 namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire
 {
@@ -10,7 +12,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire
         public override string ToString()
         {
             StringBuilder stringBuilder = new StringBuilder();
-
+            
             stringBuilder.Append("[");
             int i = 0;
             foreach (Tire tire in List)
@@ -22,10 +24,11 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire
                     stringBuilder.Append(", ");
                 }
             }
-
+            
             stringBuilder.Append("]");
-
+            
             return stringBuilder.ToString();
+            
         }
 
         public void InflateAllTires(float i_PSIToAdd)

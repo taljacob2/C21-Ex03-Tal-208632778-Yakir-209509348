@@ -25,19 +25,31 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
         public Car Car { get; } =
             new Car(new FuelEngine(eType.Octan95, 45));
 
-        public string LicensePlate => Car.LicensePlate;
-
-        public string ModelName => Car.ModelName;
-
         public FuelEngine FuelEngine => (FuelEngine) Car.EngineContainer;
 
-        public Car.eColor Color => Car.Color;
-
-        public Car.eDoorsAmount DoorsAmount => Car.DoorsAmount;
+        public Car.eColor GetColor()
+        {
+            return Car.Color; 
+        }
+        
+        public Car.eDoorsAmount GetDoorsAmount()
+        {
+            return Car.DoorsAmount; 
+        }
 
         public void AddFuel(eType i_Type, float i_Liters)
         {
             FuelEngine.AddFuelByManualRequest(i_Type, i_Liters);
+        }
+
+        public string GetLicensePlate()
+        {
+            return Car.LicensePlate;
+        }
+        
+        public string GetModelName()
+        {
+            return Car.ModelName;
         }
     }
 }

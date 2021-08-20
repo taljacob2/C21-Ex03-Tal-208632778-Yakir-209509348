@@ -27,18 +27,27 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
         /// </summary>
         public Motorcycle Motorcycle { get; }
 
-        public string LicensePlate => Motorcycle.LicensePlate;
-
-        public string ModelName => Motorcycle.ModelName;
-
         public BatteryEngine BatteryEngine =>
             (BatteryEngine) Motorcycle.EngineContainer;
-
-        public Motorcycle.eLicenseType LicenseType => Motorcycle.LicenseType;
-
+        
         public void AddSelfValue(float i_MinutesToAdd)
         {
             BatteryEngine.AddSelfValue(i_MinutesToAdd);
+        }
+        
+        public Motorcycle.eLicenseType GetLicenseType()
+        {
+            return Motorcycle.LicenseType;
+        }
+
+        public string GetLicensePlate()
+        {
+            return Motorcycle.LicensePlate;
+        }
+
+        public string GetModelName()
+        {
+            return Motorcycle.ModelName;
         }
     }
 }

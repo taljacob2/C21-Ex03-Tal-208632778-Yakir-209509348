@@ -33,31 +33,31 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
             if (AssertedVehicle is AssertedBatteryCar)
             {
                 returnValue = ((AssertedBatteryCar) AssertedVehicle)
-                    .LicensePlate;
+                    .GetLicensePlate();
             }
 
             if (AssertedVehicle is AssertedFuelCar)
             {
                 returnValue = ((AssertedFuelCar) AssertedVehicle)
-                    .LicensePlate;
+                    .GetLicensePlate();
             }
 
             if (AssertedVehicle is AssertedBatteryMotorcycle)
             {
                 returnValue = ((AssertedBatteryMotorcycle) AssertedVehicle)
-                    .LicensePlate;
+                    .GetLicensePlate();
             }
 
             if (AssertedVehicle is AssertedFuelMotorcycle)
             {
                 returnValue = ((AssertedFuelMotorcycle) AssertedVehicle)
-                    .LicensePlate;
+                    .GetLicensePlate();
             }
 
             if (AssertedVehicle is AssertedFuelTruck)
             {
                 returnValue = ((AssertedFuelTruck) AssertedVehicle)
-                    .LicensePlate;
+                    .GetLicensePlate();
             }
 
             return returnValue;

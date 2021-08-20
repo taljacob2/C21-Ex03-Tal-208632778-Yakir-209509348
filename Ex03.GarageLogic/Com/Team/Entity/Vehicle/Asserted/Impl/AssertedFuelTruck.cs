@@ -26,21 +26,34 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
         public Truck Truck { get; } =
             new Truck(new FuelEngine(eType.Soler, 120));
 
-        public string LicensePlate => Truck.LicensePlate;
-
-        public string ModelName => Truck.ModelName;
-
         public FuelEngine FuelEngine => (FuelEngine) Truck.EngineContainer;
 
         public bool IsContainingDangerousMaterials =>
             Truck.IsContainingDangerousMaterials;
 
-        public float MaxCarryingCapabilityInKilos =>
-            Truck.MaxCarryingCapabilityInKilos;
+        public bool GetIsContainingDangerousMaterials()
+        {
+            return Truck.IsContainingDangerousMaterials;
+        }
+
+        public float GetMaxCarryingCapabilityInKilos()
+        {
+            return Truck.MaxCarryingCapabilityInKilos;
+        }
 
         public void AddFuel(eType i_Type, float i_Liters)
         {
             FuelEngine.AddFuelByManualRequest(i_Type, i_Liters);
+        }
+
+        public string GetLicensePlate()
+        {
+            return Truck.LicensePlate;
+        }
+
+        public string GetModelName()
+        {
+            return Truck.ModelName;
         }
     }
 }

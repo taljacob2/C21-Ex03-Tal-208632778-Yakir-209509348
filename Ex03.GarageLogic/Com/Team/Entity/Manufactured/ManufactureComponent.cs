@@ -25,7 +25,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured
 
         public override string ToString()
         {
-            return this.ToStringExtension();
+            return "";
         }
     }
 }

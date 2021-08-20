@@ -21,22 +21,31 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
             Motorcycle.LicenseType = i_LicenseType;
         }
 
-        public string LicensePlate => Motorcycle.LicensePlate;
-
-        public string ModelName => Motorcycle.ModelName;
-
         /// <summary>
         ///     Must be <see langword="public" /> for reflection.
         /// </summary>
         public Motorcycle Motorcycle { get; }
 
         public FuelEngine FuelEngine => (FuelEngine) Motorcycle.EngineContainer;
-
-        public Motorcycle.eLicenseType LicenseType => Motorcycle.LicenseType;
-
+        
         public void AddFuel(eType i_Type, float i_Liters)
         {
             FuelEngine.AddFuelByManualRequest(i_Type, i_Liters);
+        }
+        
+        public Motorcycle.eLicenseType GetLicenseType()
+        {
+            return Motorcycle.LicenseType;
+        }
+
+        public string GetLicensePlate()
+        {
+            return Motorcycle.LicensePlate;
+        }
+
+        public string GetModelName()
+        {
+            return Motorcycle.ModelName;
         }
     }
 }

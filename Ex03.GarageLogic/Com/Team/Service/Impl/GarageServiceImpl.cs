@@ -197,8 +197,7 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             {
                 Record record =
                     RecordRepository.FindByLicensePlate(i_LicensePlate);
-                o_ResponseMessage.Append("Record Found:" + Environment.NewLine +
-                                         record);
+                o_ResponseMessage.Append("Record Found. Printing all properties:" + record);
             }
             catch (System.Exception e)
             {

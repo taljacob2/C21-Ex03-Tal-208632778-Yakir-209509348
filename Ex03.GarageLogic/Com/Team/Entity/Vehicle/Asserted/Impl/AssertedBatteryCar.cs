@@ -25,15 +25,27 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
         public Car Car { get; } =
             new Car(new BatteryEngine(3.2F));
 
-        public string LicensePlate => Car.LicensePlate;
-
-        public string ModelName => Car.ModelName;
+        public string GetLicensePlate()
+        {
+            return Car.LicensePlate;
+        }
+        
+        public string GetModelName()
+        {
+            return Car.ModelName;
+        }
 
         public BatteryEngine BatteryEngine => (BatteryEngine) Car.EngineContainer;
 
-        public Car.eColor Color => Car.Color;
-
-        public Car.eDoorsAmount DoorsAmount => Car.DoorsAmount;
+        public Car.eColor GetColor()
+        {
+            return Car.Color; 
+        }
+        
+        public Car.eDoorsAmount GetDoorsAmount()
+        {
+            return Car.DoorsAmount; 
+        }
 
         public void AddSelfValue(float i_MinutesToAdd)
         {
