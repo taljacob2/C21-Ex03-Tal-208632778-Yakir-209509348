@@ -6,6 +6,7 @@ using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Fuel;
+using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component;
@@ -327,13 +328,14 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
         }
 
         private static void inflateWithSuccess(StringBuilder o_ResponseMessage,
-            ComponentVehicle i_ComponentVehicle)
+            ComponentVehicle io_ComponentVehicle)
         {
             float psi;
-            i_ComponentVehicle.Tires.InflateAllTiresToMaxValue();
-            psi = i_ComponentVehicle.Tires.GetManufacturerMaxValue();
+            io_ComponentVehicle.Tires.InflateAllTiresToMaxValue();
+            psi = io_ComponentVehicle.Tires.GetManufacturerMaxValue();
             o_ResponseMessage.Append(
-                $"Changed Tires' PSI to: `{psi}`.");
+                $"Successful Inflation. Changed Tires' PSI to: `{psi}`." +
+                $" That is: {io_ComponentVehicle.Tires.GetValuePercentage()}%");
         }
     }
 }

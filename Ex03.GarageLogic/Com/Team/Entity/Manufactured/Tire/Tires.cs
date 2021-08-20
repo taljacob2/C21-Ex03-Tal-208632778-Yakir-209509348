@@ -46,5 +46,11 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire
             // All tires are equal, and have the same ManufacturerMaxValue.
             return List[0].ManufacturerMaxValue;
         }
+        
+        public float GetValuePercentage()
+        {
+            // All tires are equal, and have the same ManufacturerMaxValue.
+            return List[0].GetValuePercentage();
+        }
     }
 }
