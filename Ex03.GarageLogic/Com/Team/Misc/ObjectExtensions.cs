@@ -61,7 +61,7 @@ namespace Ex03.GarageLogic.Com.Team.Misc
         }
 
         public static T GetPropertyValue<T>(this object i_SourceInstance,
-            string i_TargetPropertyName, bool i_InformIfUnfound = true,
+            string i_TargetPropertyName, bool i_InformIfUnfound = false,
             bool i_ThrowExceptionIfNotExists = false)
         {
             string errorMsg = null;

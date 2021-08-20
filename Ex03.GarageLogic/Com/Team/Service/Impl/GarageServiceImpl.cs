@@ -209,29 +209,23 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             StringBuilder o_ResponseMessage)
         {
             // BatteryEngine is a property. Find it:
-            if (io_Record.AssertedVehicle.GetPropertyValue<BatteryEngine>
-                ("BatteryEngine") != null)
+            BatteryEngine batteryEngine = null;
+            ExtendedEngine extendedEngine = null;
+            if ((batteryEngine = io_Record.AssertedVehicle
+                .GetPropertyValue<BatteryEngine>
+                    ("BatteryEngine")) != null)
             {
-                BatteryEngine batteryEngine =
-                    io_Record.AssertedVehicle.GetPropertyValue<BatteryEngine>
-                        ("BatteryEngine");
                 tryToRecharge(i_RequestMinutesToAdd, o_ResponseMessage,
                     batteryEngine);
             }
-            else if (io_Record.AssertedVehicle.GetPropertyValue<ExtendedEngine>
-                ("ExtendedEngine") != null)
+            else if ((extendedEngine = io_Record.AssertedVehicle
+                .GetPropertyValue<ExtendedEngine>
+                    ("ExtendedEngine")) != null)
             {
-                ExtendedEngine extendedEngine =
-                    io_Record.AssertedVehicle
-                        .GetPropertyValue<ExtendedEngine>("ExtendedEngine");
-
-                if (io_Record.AssertedVehicle.GetPropertyValue<BatteryEngine>
-                    ("BatteryEngine") != null)
+                if ((batteryEngine = io_Record.AssertedVehicle
+                    .GetPropertyValue<BatteryEngine>
+                        ("BatteryEngine")) != null)
                 {
-                    BatteryEngine batteryEngine =
-                        io_Record.AssertedVehicle
-                            .GetPropertyValue<BatteryEngine>
-                                ("BatteryEngine");
                     tryToRecharge(i_RequestMinutesToAdd, o_ResponseMessage,
                         batteryEngine);
                 }
@@ -263,27 +257,22 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             i_LitersToAdd, StringBuilder o_ResponseMessage)
         {
             // FuelEngine is a property. Find it:
-            if (io_Record.AssertedVehicle.GetPropertyValue<FuelEngine>
-                ("FuelEngine") != null)
+            FuelEngine fuelEngine = null;
+            ExtendedEngine extendedEngine = null;
+            if ((fuelEngine =
+                io_Record.AssertedVehicle.GetPropertyValue<FuelEngine>
+                    ("FuelEngine")) != null)
             {
-                FuelEngine fuelEngine =
-                    io_Record.AssertedVehicle.GetPropertyValue<FuelEngine>
-                        ("FuelEngine");
                 tryToRefuel(i_FuelType, i_LitersToAdd, o_ResponseMessage,
                     fuelEngine);
             }
-            else if (io_Record.AssertedVehicle.GetPropertyValue<ExtendedEngine>
-                ("ExtendedEngine") != null)
+            else if ((extendedEngine = io_Record.AssertedVehicle
+                .GetPropertyValue<ExtendedEngine>
+                    ("ExtendedEngine")) != null)
             {
-                ExtendedEngine extendedEngine =
-                    io_Record.AssertedVehicle
-                        .GetPropertyValue<ExtendedEngine>("ExtendedEngine");
-                if (io_Record.AssertedVehicle.GetPropertyValue<FuelEngine>
-                    ("FuelEngine") != null)
+                if ((fuelEngine = extendedEngine.GetPropertyValue<FuelEngine>
+                    ("FuelEngine")) != null)
                 {
-                    FuelEngine fuelEngine =
-                        io_Record.AssertedVehicle.GetPropertyValue<FuelEngine>
-                            ("FuelEngine");
                     tryToRefuel(i_FuelType, i_LitersToAdd, o_ResponseMessage,
                         fuelEngine);
                 }
