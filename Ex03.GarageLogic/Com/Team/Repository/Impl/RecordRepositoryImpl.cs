@@ -36,7 +36,7 @@ namespace Ex03.GarageLogic.Com.Team.Repository.Impl
                 o_ResponseMessage.Append(
                     $"The provided LicensePlate: `{returnValue.GetLicensePlate()}` is already in database.");
             }
-            catch (System.Exception e)
+            catch (System.Exception)
             {
                 r_Database.GetRef().Add(io_Record);
                 returnValue = io_Record;

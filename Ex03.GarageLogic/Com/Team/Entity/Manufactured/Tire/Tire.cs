@@ -4,13 +4,10 @@ using Ex03.GarageLogic.Com.Team.Misc;
 namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire
 {
     /// <summary>
-    ///      Units are measured in `PSI`.
+    ///     Units are measured in `PSI`.
     /// </summary>
     public class Tire : ISelfValueAdder
     {
-        public ManufactureComponent ManufactureComponent { get; private set; 
-        } = new ManufactureComponent();
-
         public Tire(string i_ManufacturerName,
             float i_ManufacturerMaxAirPressure,
             float i_AirPressure)
@@ -19,6 +16,9 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire
             ManufacturerMaxValue = i_ManufacturerMaxAirPressure;
             Value = i_AirPressure;
         }
+
+        public ManufactureComponent ManufactureComponent { get; } =
+            new ManufactureComponent();
 
         public float ManufacturerMaxValue
         {
@@ -34,17 +34,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire
             set => ManufactureComponent.Value = value;
         }
 
-        public float GetValuePercentage()
-        {
-            return ManufactureComponent.GetValuePercentage();
-        }
-
         public string ManufacturerName { get; }
-
-        public override string ToString()
-        {
-            return this.ToStringExtension();
-        }
 
         /// <summary />
         /// <param name="i_ValueToAdd" />
@@ -69,6 +59,16 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire
             }
 
             Value += i_ValueToAdd;
+        }
+
+        public float GetValuePercentage()
+        {
+            return ManufactureComponent.GetValuePercentage();
+        }
+
+        public override string ToString()
+        {
+            return this.ToStringExtension();
         }
     }
 }

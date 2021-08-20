@@ -25,14 +25,14 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
         /// </summary>
         public Truck Truck { get; } =
             new Truck(new FuelEngine(eType.Soler, 120));
-        
+
+        public bool IsContainingDangerousMaterials =>
+            Truck.IsContainingDangerousMaterials;
+
         public FuelEngine GetRefFuelEngine()
         {
             return (FuelEngine) Truck.EngineContainer;
         }
-
-        public bool IsContainingDangerousMaterials =>
-            Truck.IsContainingDangerousMaterials;
 
         public bool GetIsContainingDangerousMaterials()
         {

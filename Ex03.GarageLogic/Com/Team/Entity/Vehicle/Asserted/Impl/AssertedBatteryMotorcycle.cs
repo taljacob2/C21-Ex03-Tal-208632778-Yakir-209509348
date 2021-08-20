@@ -31,12 +31,12 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
         {
             return (BatteryEngine) Motorcycle.EngineContainer;
         }
-        
+
         public void AddSelfValue(float i_MinutesToAdd)
         {
             GetRefBatteryEngine().AddSelfValue(i_MinutesToAdd);
         }
-        
+
         public Motorcycle.eLicenseType GetLicenseType()
         {
             return Motorcycle.LicenseType;

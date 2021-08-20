@@ -1,7 +1,4 @@
-﻿using Ex03.GarageLogic.Com.Team.Exception;
-using Ex03.GarageLogic.Com.Team.Misc;
-
-namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured
+﻿namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured
 {
     public class ManufactureComponent
     {

@@ -59,7 +59,7 @@ namespace Ex03.GarageLogic.Com.Team.Misc
 
             return stringBuilder.ToString();
         }
-        
+
         public static T GetPropertyValue<T>(this object i_SourceInstance,
             string i_TargetPropertyName, bool i_InformIfIsNull = false,
             bool i_InformIfUnfound = false,

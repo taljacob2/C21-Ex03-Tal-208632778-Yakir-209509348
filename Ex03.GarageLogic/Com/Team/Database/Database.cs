@@ -17,7 +17,7 @@ namespace Ex03.GarageLogic.Com.Team.Database
         private List<Record> InstanceOfRecords { get; set; }
 
         public List<Record> Records { get; private set; }
-        
+
         public List<Record> GetRef()
         {
             initInstance();

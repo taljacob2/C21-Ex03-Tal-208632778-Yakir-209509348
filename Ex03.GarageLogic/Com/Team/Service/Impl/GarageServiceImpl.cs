@@ -6,7 +6,6 @@ using Ex03.GarageLogic.Com.Team.DTO.Model.Request;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Fuel;
-using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl;
 using Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component;
@@ -29,13 +28,6 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             Owner i_Owner)
         {
             return new Record(i_AssertedVehicle, i_Owner);
-        }
-
-        public void Refuel(RefuelRequest i_Request)
-        {
-            // TODO: continue implementation.
-            Record record =
-                RecordRepository.FindByLicensePlate(i_Request.LicensePlate);
         }
 
         public List<string> SelectVehicleLicensePlates()

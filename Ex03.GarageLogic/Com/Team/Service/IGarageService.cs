@@ -14,8 +14,6 @@ namespace Ex03.GarageLogic.Com.Team.Service
     {
         Record CreateRecord(AssertedVehicle i_AssertedVehicle, Owner i_Owner);
 
-        void Refuel(RefuelRequest i_Request);
-
         List<string> SelectVehicleLicensePlates();
 
         List<string> SelectVehicleLicensePlates(Record.eState i_StateToSelect);

@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel;
-using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery;
 using Ex03.GarageLogic.Com.Team.Misc;
 
 // ReSharper disable once FlagArgument

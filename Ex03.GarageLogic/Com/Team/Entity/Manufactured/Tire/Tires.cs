@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text;
-using Ex03.GarageLogic.Com.Team.Misc;
 
 namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire
 {
@@ -12,7 +10,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire
         public override string ToString()
         {
             StringBuilder stringBuilder = new StringBuilder();
-            
+
             stringBuilder.Append("[");
             int i = 0;
             foreach (Tire tire in List)
@@ -24,13 +22,12 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire
                     stringBuilder.Append(", ");
                 }
             }
-            
+
             stringBuilder.Append("]");
-            
+
             return stringBuilder.ToString();
-            
         }
-        
+
         public void InflateAllTiresToMaxValue()
         {
             foreach (Tire tire in List)
@@ -44,7 +41,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire
             // All tires are equal, and have the same ManufacturerMaxValue.
             return List[0].ManufacturerMaxValue;
         }
-        
+
         public float GetValuePercentage()
         {
             // All tires are equal, and have the same ManufacturerMaxValue.

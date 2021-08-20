@@ -4,23 +4,23 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine
 {
     public abstract class Engine : EngineContainer
     {
-        public ManufactureComponent ManufactureComponent { get; private set; 
-        } = new ManufactureComponent();
-        
+        public ManufactureComponent ManufactureComponent { get; } =
+            new ManufactureComponent();
+
         public float ManufacturerMaxValue
         {
             get => ManufactureComponent.ManufacturerMaxValue;
 
             set => ManufactureComponent.ManufacturerMaxValue = value;
         }
-        
+
         public float Value
         {
             get => ManufactureComponent.Value;
 
             set => ManufactureComponent.Value = value;
         }
-        
+
         /// <summary>
         ///     Measured in `Percentage` units.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine
         {
             return ManufactureComponent.GetValuePercentage();
         }
-        
+
         public override void AddSelfValue(float i_ValueToAdd)
         {
             ValueOutOfRangeException exception =
@@ -48,6 +48,5 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine
 
             Value += i_ValueToAdd;
         }
-
     }
 }

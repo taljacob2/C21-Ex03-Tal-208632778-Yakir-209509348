@@ -32,12 +32,12 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
 
         public Car.eColor GetColor()
         {
-            return Car.Color; 
+            return Car.Color;
         }
-        
+
         public Car.eDoorsAmount GetDoorsAmount()
         {
-            return Car.DoorsAmount; 
+            return Car.DoorsAmount;
         }
 
         public void AddFuel(eType i_Type, float i_Liters)
@@ -49,7 +49,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
         {
             return Car.LicensePlate;
         }
-        
+
         public string GetModelName()
         {
             return Car.ModelName;

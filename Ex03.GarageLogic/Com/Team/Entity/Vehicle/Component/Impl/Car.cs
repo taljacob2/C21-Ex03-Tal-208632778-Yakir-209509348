@@ -4,7 +4,7 @@ using Ex03.GarageLogic.Com.Team.Misc;
 
 namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component.Impl
 {
-    public class Car : ComponentVehicle
+    public sealed class Car : ComponentVehicle
     {
         public enum eColor
         {
