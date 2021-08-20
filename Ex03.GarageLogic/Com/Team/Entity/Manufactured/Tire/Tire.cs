@@ -33,6 +33,11 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire
             set => ManufactureComponent.Value = value;
         }
 
+        public float GetValuePercentage()
+        {
+            return ManufactureComponent.GetValuePercentage();
+        }
+
         public string ManufacturerName { get; }
 
         public override string ToString()

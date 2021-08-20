@@ -25,7 +25,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine
         /// </summary>
         public override float GetValuePercentage()
         {
-            return Value / ManufacturerMaxValue * 100;
+            return ManufactureComponent.GetValuePercentage();
         }
         
         public override void AddSelfValue(float i_ValueToAdd)
