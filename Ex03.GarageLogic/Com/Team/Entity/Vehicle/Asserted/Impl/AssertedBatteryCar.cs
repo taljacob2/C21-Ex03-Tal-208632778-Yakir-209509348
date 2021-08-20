@@ -29,7 +29,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
 
         public string ModelName => Car.ModelName;
 
-        public BatteryEngine Engine => (BatteryEngine) Car.EngineContainer;
+        public BatteryEngine BatteryEngine => (BatteryEngine) Car.EngineContainer;
 
         public Car.eColor Color => Car.Color;
 
@@ -37,7 +37,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
 
         public void AddSelfValue(float i_MinutesToAdd)
         {
-            Engine.AddSelfValue(i_MinutesToAdd);
+            BatteryEngine.AddSelfValue(i_MinutesToAdd);
         }
     }
 }
