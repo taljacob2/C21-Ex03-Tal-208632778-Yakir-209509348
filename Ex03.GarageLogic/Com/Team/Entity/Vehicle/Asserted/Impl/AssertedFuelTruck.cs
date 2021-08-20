@@ -20,7 +20,10 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
             Truck.MaxCarryingCapabilityInKilos = i_MaxCarryingCapabilityInKilos;
         }
 
-        protected Truck Truck { get; } =
+        /// <summary>
+        ///     Must be <see langword="public" /> for reflection.
+        /// </summary>
+        public Truck Truck { get; } =
             new Truck(new FuelEngine(eType.Soler, 120));
 
         public string LicensePlate => Truck.LicensePlate;

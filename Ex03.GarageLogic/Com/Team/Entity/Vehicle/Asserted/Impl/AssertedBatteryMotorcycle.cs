@@ -22,7 +22,10 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
             Motorcycle.LicenseType = i_LicenseType;
         }
 
-        protected Motorcycle Motorcycle { get; }
+        /// <summary>
+        ///     Must be <see langword="public" /> for reflection.
+        /// </summary>
+        public Motorcycle Motorcycle { get; }
 
         public string LicensePlate => Motorcycle.LicensePlate;
 

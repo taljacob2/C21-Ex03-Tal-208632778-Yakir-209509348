@@ -19,7 +19,10 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
             Car.DoorsAmount = i_DoorsAmount;
         }
 
-        protected Car Car { get; } =
+        /// <summary>
+        ///     Must be <see langword="public" /> for reflection.
+        /// </summary>
+        public Car Car { get; } =
             new Car(new FuelEngine(eType.Octan95, 45));
 
         public string LicensePlate => Car.LicensePlate;

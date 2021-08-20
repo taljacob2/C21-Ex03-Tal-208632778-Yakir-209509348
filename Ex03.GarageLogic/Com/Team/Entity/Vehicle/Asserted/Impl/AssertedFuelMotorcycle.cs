@@ -25,7 +25,10 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
 
         public string ModelName => Motorcycle.ModelName;
 
-        protected Motorcycle Motorcycle { get; }
+        /// <summary>
+        ///     Must be <see langword="public" /> for reflection.
+        /// </summary>
+        public Motorcycle Motorcycle { get; }
 
         public FuelEngine Engine => (FuelEngine) Motorcycle.EngineContainer;
 
