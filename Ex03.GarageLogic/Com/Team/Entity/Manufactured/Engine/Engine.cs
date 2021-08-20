@@ -4,7 +4,8 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine
 {
     public abstract class Engine : EngineContainer
     {
-        public ManufactureComponent ManufactureComponent { get; private set; }
+        public ManufactureComponent ManufactureComponent { get; private set; 
+        } = new ManufactureComponent();
         
         public float ManufacturerMaxValue
         {

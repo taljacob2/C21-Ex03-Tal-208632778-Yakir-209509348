@@ -8,7 +8,8 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire
     /// </summary>
     public class Tire : ISelfValueAdder
     {
-        public ManufactureComponent ManufactureComponent { get; private set; }
+        public ManufactureComponent ManufactureComponent { get; private set; 
+        } = new ManufactureComponent();
 
         public Tire(string i_ManufacturerName,
             float i_ManufacturerMaxAirPressure,
