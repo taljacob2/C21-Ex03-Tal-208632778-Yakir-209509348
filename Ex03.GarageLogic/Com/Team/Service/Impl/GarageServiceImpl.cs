@@ -25,9 +25,9 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
         public IRecordRepository RecordRepository { get; } =
             new RecordRepositoryImpl();
 
-        public Record CreateRecord(Vehicle i_Vehicle, Owner i_Owner)
+        public Record CreateRecord(AssertedVehicle i_AssertedVehicle, Owner i_Owner)
         {
-            return new Record(i_Vehicle, i_Owner);
+            return new Record(i_AssertedVehicle, i_Owner);
         }
 
         public void Refuel(RefuelRequest i_Request)
@@ -208,34 +208,32 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
         private void postRecharge(Record io_Record, float i_RequestMinutesToAdd,
             StringBuilder o_ResponseMessage)
         {
-            if (io_Record.Vehicle.EngineContainer is BatteryEngine)
+            // BatteryEngine is a property. Find it:
+            if (io_Record.AssertedVehicle.GetPropertyValue<BatteryEngine>
+            ("BatteryEngine") != null)
             {
                 BatteryEngine batteryEngine =
-                    (BatteryEngine) io_Record.Vehicle.EngineContainer;
+                    io_Record.AssertedVehicle.GetPropertyValue<BatteryEngine>
+                        ("BatteryEngine");
                 tryToRecharge(i_RequestMinutesToAdd, o_ResponseMessage,
                     batteryEngine);
             }
-
-            // Engine is a Property. Find it:
-            else if (io_Record.Vehicle
-                         .GetPropertyValue<ExtendedEngine>("ExtendedEngine") !=
-                     null)
+            else if (io_Record.AssertedVehicle.GetPropertyValue<ExtendedEngine>
+                ("ExtendedEngine") != null)
             {
-                ExtendedEngine extendedEngine = io_Record.Vehicle
-                    .GetPropertyValue<ExtendedEngine>
-                        ("ExtendedEngine");
-                extendedEngineInvokeTryRecharge(i_RequestMinutesToAdd,
-                    o_ResponseMessage, extendedEngine);
-            }
-            else if (io_Record.Vehicle.GetPropertyValue<ExtendedEngine>
-                ("Engine") != null)
-            {
-                // Just for backup. // todo : may remove.
-                ExtendedEngine extendedEngine = io_Record.Vehicle
-                    .GetPropertyValue<ExtendedEngine>
-                        ("Engine");
-                extendedEngineInvokeTryRecharge(i_RequestMinutesToAdd,
-                    o_ResponseMessage, extendedEngine);
+                ExtendedEngine extendedEngine =
+                    io_Record.AssertedVehicle
+                        .GetPropertyValue<ExtendedEngine>("ExtendedEngine");
+                
+                if (io_Record.AssertedVehicle.GetPropertyValue<BatteryEngine>
+                    ("BatteryEngine") != null)
+                {
+                    BatteryEngine batteryEngine =
+                        io_Record.AssertedVehicle.GetPropertyValue<BatteryEngine>
+                            ("BatteryEngine");
+                    tryToRecharge(i_RequestMinutesToAdd, o_ResponseMessage,
+                        batteryEngine);
+                }
             }
             else
             {
@@ -282,34 +280,31 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
         private void postRefuel(Record io_Record, eType i_FuelType, float
             i_LitersToAdd, StringBuilder o_ResponseMessage)
         {
-            if (io_Record.Vehicle.EngineContainer is FuelEngine)
+            // FuelEngine is a property. Find it:
+            if (io_Record.AssertedVehicle.GetPropertyValue<FuelEngine>
+                ("FuelEngine") != null)
             {
                 FuelEngine fuelEngine =
-                    (FuelEngine) io_Record.Vehicle.EngineContainer;
+                     io_Record.AssertedVehicle.GetPropertyValue<FuelEngine>
+                        ("FuelEngine");
                 tryToRefuel(i_FuelType, i_LitersToAdd, o_ResponseMessage,
                     fuelEngine);
             }
-
-            // Engine is a Property. Find it:
-            else if (io_Record.Vehicle
-                         .GetPropertyValue<ExtendedEngine>("ExtendedEngine") !=
-                     null)
+            else if (io_Record.AssertedVehicle.GetPropertyValue<ExtendedEngine>
+                ("ExtendedEngine") != null)
             {
-                ExtendedEngine extendedEngine = io_Record.Vehicle
-                    .GetPropertyValue<ExtendedEngine>
-                        ("ExtendedEngine");
-                extendedEngineInvokeTryRefuel(i_FuelType, i_LitersToAdd,
-                    o_ResponseMessage, extendedEngine);
-            }
-            else if (io_Record.Vehicle.GetPropertyValue<ExtendedEngine>
-                ("Engine") != null)
-            {
-                // Just for backup. // todo : may remove.
-                ExtendedEngine extendedEngine = io_Record.Vehicle
-                    .GetPropertyValue<ExtendedEngine>
-                        ("Engine");
-                extendedEngineInvokeTryRefuel(i_FuelType, i_LitersToAdd,
-                    o_ResponseMessage, extendedEngine);
+                ExtendedEngine extendedEngine =
+                    io_Record.AssertedVehicle
+                        .GetPropertyValue<ExtendedEngine>("ExtendedEngine");
+                if (io_Record.AssertedVehicle.GetPropertyValue<FuelEngine>
+                    ("FuelEngine") != null)
+                {
+                    FuelEngine fuelEngine =
+                        io_Record.AssertedVehicle.GetPropertyValue<FuelEngine>
+                            ("FuelEngine");
+                    tryToRefuel(i_FuelType, i_LitersToAdd, o_ResponseMessage,
+                        fuelEngine);
+                }
             }
             else
             {
@@ -366,19 +361,19 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             // }
 
 
-            if (io_Record.Vehicle is ComponentVehicle)
+            if (io_Record.AssertedVehicle is ComponentVehicle)
             {
-                Tires tires = ((ComponentVehicle) io_Record.Vehicle).Tires;
+                Tires tires = ((ComponentVehicle) io_Record.AssertedVehicle).Tires;
                 tires.InflateAllTiresToMaxValue();
                 psi = tires.GetManufacturerMaxValue();
 
                 o_ResponseMessage.Append(
                     $"Changed Tires' PSI to: `{psi}`.");
             }
-            else if (io_Record.Vehicle is AssertedVehicle)
+            else if (io_Record.AssertedVehicle is AssertedVehicle)
             {
                 // Debug test:
-                if (io_Record.Vehicle
+                if (io_Record.AssertedVehicle
                         .GetPropertyValue<ComponentVehicle>("Car") !=
                     null)
                 {

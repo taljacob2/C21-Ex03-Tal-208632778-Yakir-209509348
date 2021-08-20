@@ -13,7 +13,7 @@ namespace Ex03.GarageLogic.Com.Team.Service
     /// </summary>
     public interface IGarageService
     {
-        Record CreateRecord(Vehicle i_Vehicle, Owner i_Owner);
+        Record CreateRecord(AssertedVehicle i_AssertedVehicle, Owner i_Owner);
 
         void Refuel(RefuelRequest i_Request);
 
