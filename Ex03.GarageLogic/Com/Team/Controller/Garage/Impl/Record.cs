@@ -31,7 +31,7 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
         {
             string returnValue = null;
             if (this.AssertedVehicle.GetPropertyValue<AssertedBatteryCar>
-                ("AssertedBatteryCar") != null)
+                ("AssertedBatteryCar", ) != null)
             {
                 returnValue = this.AssertedVehicle
                     .GetPropertyValue<AssertedBatteryCar>

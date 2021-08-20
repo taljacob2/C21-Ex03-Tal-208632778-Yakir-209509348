@@ -61,7 +61,7 @@ namespace Ex03.GarageLogic.Com.Team.Misc
         }
 
         public static T GetPropertyValue<T>(this object i_SourceInstance,
-            string i_TargetPropertyName,
+            string i_TargetPropertyName, bool i_InformIfUnfound = true,
             bool i_ThrowExceptionIfNotExists = false)
         {
             string errorMsg = null;
@@ -88,7 +88,7 @@ namespace Ex03.GarageLogic.Com.Team.Misc
 
                 PropertyInfo propertyInfo =
                     sourceType.GetProperty(i_TargetPropertyName, returnType);
-                if (propertyInfo == null)
+                if (propertyInfo == null && i_InformIfUnfound)
                 {
                     errorMsg =
                         $"Property name '{i_TargetPropertyName}' of type '{returnType}' not found for source object of type '{sourceType}'";
