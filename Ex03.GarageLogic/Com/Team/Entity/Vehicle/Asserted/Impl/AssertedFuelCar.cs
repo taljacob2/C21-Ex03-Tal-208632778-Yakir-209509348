@@ -27,7 +27,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
 
         public FuelEngine GetRefFuelEngine()
         {
-            return (FuelEngine) Car.EngineContainer;
+            return (FuelEngine) Car.Engine;
         }
 
         public Car.eColor GetColor()

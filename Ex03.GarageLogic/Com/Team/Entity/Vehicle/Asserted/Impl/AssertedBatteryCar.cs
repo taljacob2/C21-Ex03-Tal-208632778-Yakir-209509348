@@ -27,7 +27,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
 
         public BatteryEngine GetRefBatteryEngine()
         {
-            return (BatteryEngine) Car.EngineContainer;
+            return (BatteryEngine) Car.Engine;
         }
 
         public string GetLicensePlate()

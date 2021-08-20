@@ -1,4 +1,4 @@
-﻿using Ex03.GarageLogic.Com.Team.DTO.Constructor;
+﻿﻿using Ex03.GarageLogic.Com.Team.DTO.Constructor;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Tire;
 using Ex03.GarageLogic.Com.Team.Misc;
 
@@ -19,7 +19,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component
 
         public float GetValuePercentage()
         {
-            return EngineContainer.GetValuePercentage();
+            return Engine.GetValuePercentage();
         }
 
         protected internal void SetTires(Tire i_TireToSetForAllTires,

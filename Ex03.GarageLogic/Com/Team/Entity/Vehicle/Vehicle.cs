@@ -1,4 +1,4 @@
-﻿using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine;
+﻿﻿using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine;
 using Ex03.GarageLogic.Com.Team.Misc;
 
 namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle
@@ -12,7 +12,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle
 
         public virtual string ModelName { get; protected internal set; }
 
-        public EngineContainer EngineContainer { get; protected set; }
+        public EngineContainer Engine { get; protected set; }
 
         public override string ToString()
         {

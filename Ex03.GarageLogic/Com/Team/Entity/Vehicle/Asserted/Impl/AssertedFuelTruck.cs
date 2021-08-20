@@ -31,7 +31,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
 
         public FuelEngine GetRefFuelEngine()
         {
-            return (FuelEngine) Truck.EngineContainer;
+            return (FuelEngine) Truck.Engine;
         }
 
         public bool GetIsContainingDangerousMaterials()

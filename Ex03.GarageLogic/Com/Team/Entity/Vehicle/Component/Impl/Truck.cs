@@ -1,4 +1,4 @@
-﻿using Ex03.GarageLogic.Com.Team.DTO.Constructor;
+﻿﻿using Ex03.GarageLogic.Com.Team.DTO.Constructor;
 using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine;
 using Ex03.GarageLogic.Com.Team.Misc;
 
@@ -10,7 +10,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component.Impl
 
         public Truck(TruckConstructorDTO i_TruckConstructorDTO)
         {
-            EngineContainer = i_TruckConstructorDTO.Engine;
+            Engine = i_TruckConstructorDTO.Engine;
             ModelName = i_TruckConstructorDTO.ModelName;
             LicensePlate = i_TruckConstructorDTO.LicensePlate;
             IsContainingDangerousMaterials = i_TruckConstructorDTO
@@ -21,9 +21,9 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Component.Impl
                 k_TiresAmount);
         }
 
-        public Truck(Engine i_EngineContainer)
+        public Truck(Engine i_Engine)
         {
-            EngineContainer = i_EngineContainer;
+            Engine = i_Engine;
         }
 
         public bool IsContainingDangerousMaterials { get; set; }

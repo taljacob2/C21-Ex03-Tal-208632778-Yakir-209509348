@@ -28,7 +28,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
 
         public FuelEngine GetRefFuelEngine()
         {
-            return (FuelEngine) Motorcycle.EngineContainer;
+            return (FuelEngine)(((ExtendedEngine) Motorcycle.Engine).Engine);
         }
 
         public void AddFuel(eType i_Type, float i_Liters)
