@@ -45,7 +45,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
         {
             GetRefFuelEngine().AddFuelByManualRequest(i_Type, i_Liters);
         }
-        
+
         public string GetLicensePlate()
         {
             return Truck.LicensePlate;

@@ -86,7 +86,7 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
 
             return returnValue;
         }
-        
+
         /// <summary>
         ///     Gets a reference to the <see cref="BatteryEngine" /> if exists.
         /// </summary>
@@ -105,6 +105,7 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
                 returnValue = ((AssertedFuelMotorcycle) AssertedVehicle)
                     .GetRefFuelEngine();
             }
+
             if (AssertedVehicle is AssertedFuelTruck)
             {
                 returnValue = ((AssertedFuelTruck) AssertedVehicle)
@@ -112,7 +113,7 @@ namespace Ex03.GarageLogic.Com.Team.Controller.Garage.Impl
             }
 
             return returnValue;
-        }        
+        }
 
         public override string ToString()
         {

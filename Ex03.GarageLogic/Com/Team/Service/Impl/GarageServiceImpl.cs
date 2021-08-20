@@ -205,8 +205,8 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
             BatteryEngine batteryEngine = null;
             ExtendedEngine extendedEngine = null;
             if ((batteryEngine =
-                    io_Record.AssertedVehicle.InvokeMethod<BatteryEngine>(
-                        "GetRefBatteryEngine")) != null)
+                io_Record.AssertedVehicle.InvokeMethod<BatteryEngine>(
+                    "GetRefBatteryEngine")) != null)
             {
                 tryToRecharge(i_RequestMinutesToAdd, o_ResponseMessage,
                     batteryEngine);

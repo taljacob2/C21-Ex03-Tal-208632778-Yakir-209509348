@@ -29,7 +29,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
 
         public BatteryEngine GetRefBatteryEngine()
         {
-            return (BatteryEngine)(((ExtendedEngine) Motorcycle.Engine).Engine);
+            return (BatteryEngine) ((ExtendedEngine) Motorcycle.Engine).Engine;
         }
 
         public void AddSelfValue(float i_MinutesToAdd)
