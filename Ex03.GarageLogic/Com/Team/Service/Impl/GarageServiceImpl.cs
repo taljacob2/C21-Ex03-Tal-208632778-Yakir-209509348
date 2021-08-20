@@ -314,13 +314,13 @@ namespace Ex03.GarageLogic.Com.Team.Service.Impl
                 inflateWithSuccess(o_ResponseMessage, componentVehicle);
             }
             else if ((componentVehicle =
-                io_Record.AssertedVehicle.GetPropertyValue<Car>
+                io_Record.AssertedVehicle.GetPropertyValue<Motorcycle>
                     ("Motorcycle")) != null)
             {
                 inflateWithSuccess(o_ResponseMessage, componentVehicle);
             }
             else if ((componentVehicle =
-                io_Record.AssertedVehicle.GetPropertyValue<Car>
+                io_Record.AssertedVehicle.GetPropertyValue<Truck>
                     ("Truck")) != null)
             {
                 inflateWithSuccess(o_ResponseMessage, componentVehicle);
