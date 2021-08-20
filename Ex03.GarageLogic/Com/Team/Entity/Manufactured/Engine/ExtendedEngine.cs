@@ -17,6 +17,11 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine
         /// </summary>
         public int VolumeInCC { get; }
 
+        public override float GetValuePercentage()
+        {
+            return Engine.GetValuePercentage();
+        }
+
         public override void AddSelfValue(float i_ValueToAdd)
         {
             Engine.AddSelfValue(i_ValueToAdd);
