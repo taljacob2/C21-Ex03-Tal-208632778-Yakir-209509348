@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel;
+using Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery;
+using Ex03.GarageLogic.Com.Team.Misc;
 
 // ReSharper disable once FlagArgument
 namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Fuel
@@ -41,6 +43,11 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Fuel
             }
 
             AddSelfValue(i_Liters);
+        }
+
+        public override string ToString()
+        {
+            return $"{nameof(FuelEngine)}: " + this.ToStringExtension();
         }
     }
 }

@@ -24,6 +24,11 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
         /// </summary>
         public Car Car { get; } =
             new Car(new BatteryEngine(3.2F));
+        
+        public BatteryEngine GetRefBatteryEngine()
+        {
+            return (BatteryEngine) Car.EngineContainer;
+        }
 
         public string GetLicensePlate()
         {
@@ -34,8 +39,6 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
         {
             return Car.ModelName;
         }
-
-        public BatteryEngine BatteryEngine => (BatteryEngine) Car.EngineContainer;
 
         public Car.eColor GetColor()
         {
@@ -49,7 +52,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
 
         public void AddSelfValue(float i_MinutesToAdd)
         {
-            BatteryEngine.AddSelfValue(i_MinutesToAdd);
+            GetRefBatteryEngine().AddSelfValue(i_MinutesToAdd);
         }
     }
 }

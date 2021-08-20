@@ -26,11 +26,14 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
         /// </summary>
         public Motorcycle Motorcycle { get; }
 
-        public FuelEngine FuelEngine => (FuelEngine) Motorcycle.EngineContainer;
+        public FuelEngine GetRefFuelEngine()
+        {
+            return (FuelEngine) Motorcycle.EngineContainer;
+        }
         
         public void AddFuel(eType i_Type, float i_Liters)
         {
-            FuelEngine.AddFuelByManualRequest(i_Type, i_Liters);
+            GetRefFuelEngine().AddFuelByManualRequest(i_Type, i_Liters);
         }
         
         public Motorcycle.eLicenseType GetLicenseType()

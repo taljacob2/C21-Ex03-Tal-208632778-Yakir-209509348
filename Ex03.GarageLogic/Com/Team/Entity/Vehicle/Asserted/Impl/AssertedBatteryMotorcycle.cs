@@ -27,12 +27,14 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
         /// </summary>
         public Motorcycle Motorcycle { get; }
 
-        public BatteryEngine BatteryEngine =>
-            (BatteryEngine) Motorcycle.EngineContainer;
+        public BatteryEngine GetRefBatteryEngine()
+        {
+            return (BatteryEngine) Motorcycle.EngineContainer;
+        }
         
         public void AddSelfValue(float i_MinutesToAdd)
         {
-            BatteryEngine.AddSelfValue(i_MinutesToAdd);
+            GetRefBatteryEngine().AddSelfValue(i_MinutesToAdd);
         }
         
         public Motorcycle.eLicenseType GetLicenseType()

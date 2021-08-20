@@ -25,7 +25,10 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
         public Car Car { get; } =
             new Car(new FuelEngine(eType.Octan95, 45));
 
-        public FuelEngine FuelEngine => (FuelEngine) Car.EngineContainer;
+        public FuelEngine GetRefFuelEngine()
+        {
+            return (FuelEngine) Car.EngineContainer;
+        }
 
         public Car.eColor GetColor()
         {
@@ -39,7 +42,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
 
         public void AddFuel(eType i_Type, float i_Liters)
         {
-            FuelEngine.AddFuelByManualRequest(i_Type, i_Liters);
+            GetRefFuelEngine().AddFuelByManualRequest(i_Type, i_Liters);
         }
 
         public string GetLicensePlate()
