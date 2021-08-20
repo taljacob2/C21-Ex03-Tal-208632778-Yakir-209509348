@@ -2,7 +2,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Data.SqlTypes;
 using System.Reflection;
 using System.Text;
 using Ex03.GarageLogic.Com.Team.Misc.ArrayExtensions;

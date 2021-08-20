@@ -44,9 +44,8 @@
         <Compile Include="Com\Team\Controller\Garage\Impl\GarageControllerImpl.cs" />
         <Compile Include="Com\Team\Controller\Garage\Impl\IRecorder.cs" />
         <Compile Include="Com\Team\Controller\Garage\Impl\Record.cs" />
-        <Compile Include="Com\Team\Database\IBootable.cs" />
+        <Compile Include="Com\Team\Database\Database.cs" />
         <Compile Include="Com\Team\Database\IDatabase.cs" />
-        <Compile Include="Com\Team\Database\Impl\Database.cs" />
         <Compile Include="Com\Team\DTO\Constructor\CarConstructorDTO.cs" />
         <Compile Include="Com\Team\DTO\Constructor\MotorcycleConstructorDTO.cs" />
         <Compile Include="Com\Team\DTO\Constructor\TruckConstructorDTO.cs" />

@@ -12,7 +12,7 @@ namespace Ex03.GarageLogic.Com.Team.Repository.Impl
         private const string k_SuccessResponseMessage = "success";
 
         private readonly IDatabase<List<Record>> r_Database =
-            new Database.Impl.Database();
+            new Database.Database();
 
         /// <summary />
         /// <param name="io_Record" />
