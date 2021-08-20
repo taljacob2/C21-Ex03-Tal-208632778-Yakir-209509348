@@ -25,7 +25,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
         public Car Car { get; } =
             new Car(new FuelEngine(eType.Octan95, 45));
 
-        public Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Fuel.FuelEngine GetRefFuelEngine()
+        public FuelEngine GetRefFuelEngine()
         {
             return (FuelEngine) Car.EngineContainer;
         }

@@ -27,7 +27,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
         /// </summary>
         public Motorcycle Motorcycle { get; }
 
-        public Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery.BatteryEngine GetRefBatteryEngine()
+        public BatteryEngine GetRefBatteryEngine()
         {
             return (BatteryEngine) Motorcycle.EngineContainer;
         }

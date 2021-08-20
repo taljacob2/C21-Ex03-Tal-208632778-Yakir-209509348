@@ -26,7 +26,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
         /// </summary>
         public Motorcycle Motorcycle { get; }
 
-        public Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Fuel.FuelEngine GetRefFuelEngine()
+        public FuelEngine GetRefFuelEngine()
         {
             return (FuelEngine) Motorcycle.EngineContainer;
         }

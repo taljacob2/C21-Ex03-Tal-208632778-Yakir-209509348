@@ -29,7 +29,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
         public bool IsContainingDangerousMaterials =>
             Truck.IsContainingDangerousMaterials;
 
-        public Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Fuel.FuelEngine GetRefFuelEngine()
+        public FuelEngine GetRefFuelEngine()
         {
             return (FuelEngine) Truck.EngineContainer;
         }
@@ -48,6 +48,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
         {
             GetRefFuelEngine().AddFuelByManualRequest(i_Type, i_Liters);
         }
+
 
         public string GetLicensePlate()
         {

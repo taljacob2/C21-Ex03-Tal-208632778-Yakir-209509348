@@ -25,7 +25,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Vehicle.Asserted.Impl
         public Car Car { get; } =
             new Car(new BatteryEngine(3.2F));
 
-        public Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Battery.BatteryEngine GetRefBatteryEngine()
+        public BatteryEngine GetRefBatteryEngine()
         {
             return (BatteryEngine) Car.EngineContainer;
         }
