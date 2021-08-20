@@ -12,7 +12,7 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine.Fuel
         ///     Determines the Manufacturer's fuel type for this engine.
         /// </param>
         /// <param name="i_ManufacturerMaxVolumeOfFuelTankInLiters">
-        ///     Sets the <see cref="Manufactured.ManufacturerMaxValue" />
+        ///     Sets the <see cref="ManufacManufactureComponentcturerMaxValue" />
         /// </param>
         public FuelEngine(eType i_ManufacturerFuelType,
             float i_ManufacturerMaxVolumeOfFuelTankInLiters)

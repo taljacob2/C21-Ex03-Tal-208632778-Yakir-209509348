@@ -13,7 +13,7 @@ namespace Ex03.GarageLogic.Com.Team.DTO.Model.Request
         /// <summary>
         ///     Measured in `Minute` units.
         ///     <remarks>
-        ///         Note: The <see cref="Manufactured.Value" /> is measured in
+        ///         Note: The <see cref="ManufactureComponent.Value" /> is measured in
         ///         `Hour` units.
         ///     </remarks>
         /// </summary>

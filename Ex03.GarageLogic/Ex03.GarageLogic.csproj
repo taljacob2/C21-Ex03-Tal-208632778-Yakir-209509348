@@ -65,7 +65,7 @@
         <Compile Include="Com\Team\Entity\Manufactured\Engine\Fuel\eType.cs" />
         <Compile Include="Com\Team\Entity\Manufactured\Engine\Fuel\FuelEngine.cs" />
         <Compile Include="Com\Team\Entity\Manufactured\ISelfValueAdder.cs" />
-        <Compile Include="Com\Team\Entity\Manufactured\Manufactured.cs" />
+        <Compile Include="Com\Team\Entity\Manufactured\ManufactureComponent.cs" />
         <Compile Include="Com\Team\Entity\Manufactured\Tire\Tire.cs" />
         <Compile Include="Com\Team\Entity\Manufactured\Tire\Tires.cs" />
         <Compile Include="Com\Team\Entity\Vehicle\Asserted\AssertedVehicle.cs" />

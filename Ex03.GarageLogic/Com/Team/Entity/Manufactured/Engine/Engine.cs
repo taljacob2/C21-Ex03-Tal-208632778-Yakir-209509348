@@ -2,7 +2,21 @@
 {
     public abstract class Engine : EngineContainer
     {
-        public Manufactured Manufactured { get; private set; }
+        public ManufactureComponent ManufactureComponent { get; private set; }
+        
+        public float ManufacturerMaxValue
+        {
+            get => ManufactureComponent.ManufacturerMaxValue;
+
+            set => ManufactureComponent.ManufacturerMaxValue = value;
+        }
+        
+        public float Value
+        {
+            get => ManufactureComponent.Value;
+
+            set => ManufactureComponent.Value = value;
+        }
         
     }
 }

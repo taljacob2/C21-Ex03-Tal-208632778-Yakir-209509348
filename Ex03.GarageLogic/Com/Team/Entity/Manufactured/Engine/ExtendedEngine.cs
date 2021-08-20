@@ -44,5 +44,19 @@ namespace Ex03.GarageLogic.Com.Team.Entity.Manufactured.Engine
         {
             return Engine.GetValuePercentage();
         }
+
+        public float ManufacturerMaxValue
+        {
+            get => Engine.ManufacturerMaxValue;
+
+            set => Engine.ManufacturerMaxValue = value;
+        }
+
+        public float Value
+        {
+            get => Engine.Value;
+
+            set => Engine.Value = value;
+        }
     }
 }
